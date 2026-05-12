@@ -1,0 +1,124 @@
+---
+import { SITE, type Locale } from '../consts';
+import { t, localizedPath, localizedHome, whatsappUrl } from '../i18n/utils';
+import { PRODUCT_LIST } from '../data/products/_registry';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const year = new Date().getFullYear();
+const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_general'));
+
+const groupHeadings: Record<Locale, { oes: string; elemental: string; handheld: string; learn: string; company: string; contact: string }> = {
+  en: { oes: 'Spectrometers', elemental: 'Elemental analyzers', handheld: 'Handheld', learn: 'Learn', company: 'Company', contact: 'Contact' },
+  ru: { oes: 'Спектрометры', elemental: 'Элементные анализаторы', handheld: 'Ручные', learn: 'База знаний', company: 'Компания', contact: 'Контакты' },
+  es: { oes: 'Espectrómetros', elemental: 'Analizadores elementales', handheld: 'Portátiles', learn: 'Aprender', company: 'Empresa', contact: 'Contacto' },
+  ar: { oes: 'مطيافيّات', elemental: 'محلّلات العناصر', handheld: 'محمول', learn: 'المعرفة', company: 'الشركة', contact: 'تواصل' },
+};
+
+const learnArticles: Record<Locale, Array<{ slug: string; title: string }>> = {
+  en: [
+    { slug: 'what-is-oes', title: 'What is OES?' },
+    { slug: 'oes-vs-xrf-vs-libs', title: 'OES vs XRF vs LIBS' },
+    { slug: 'how-to-choose-oes-spectrometer', title: 'How to choose an OES' },
+    { slug: 'carbon-analysis-in-cast-iron', title: 'Carbon in cast iron' },
+    { slug: 'oes-sample-preparation', title: 'OES sample preparation' },
+  ],
+  ru: [
+    { slug: 'what-is-oes', title: 'Что такое ОЭС?' },
+    { slug: 'oes-vs-xrf-vs-libs', title: 'ОЭС, РФА и LIBS' },
+    { slug: 'how-to-choose-oes-spectrometer', title: 'Как выбрать ОЭС' },
+    { slug: 'carbon-analysis-in-cast-iron', title: 'Углерод в чугуне' },
+    { slug: 'oes-sample-preparation', title: 'Подготовка образца' },
+  ],
+  es: [
+    { slug: 'what-is-oes', title: '¿Qué es OES?' },
+    { slug: 'oes-vs-xrf-vs-libs', title: 'OES vs XRF vs LIBS' },
+    { slug: 'how-to-choose-oes-spectrometer', title: 'Cómo elegir un OES' },
+    { slug: 'carbon-analysis-in-cast-iron', title: 'Carbono en hierro fundido' },
+    { slug: 'oes-sample-preparation', title: 'Preparación de muestra' },
+  ],
+  ar: [
+    { slug: 'what-is-oes', title: 'ما هو OES؟' },
+    { slug: 'oes-vs-xrf-vs-libs', title: 'OES و XRF و LIBS' },
+    { slug: 'how-to-choose-oes-spectrometer', title: 'كيف تختار OES' },
+    { slug: 'carbon-analysis-in-cast-iron', title: 'الكربون في الحديد الزهر' },
+    { slug: 'oes-sample-preparation', title: 'تحضير العيّنة' },
+  ],
+};
+
+const g = groupHeadings[locale];
+const articles = learnArticles[locale];
+
+const byCat = {
+  oes: PRODUCT_LIST.filter((p) => p.category === 'oes'),
+  elemental: PRODUCT_LIST.filter((p) => p.category === 'elemental'),
+  handheld: PRODUCT_LIST.filter((p) => p.category === 'handheld'),
+};
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__col site-footer__col--brand">
+        <strong style="font-size:1.05rem;">JIEBO Instrument</strong>
+        <p style="margin:0.4rem 0; color:var(--muted); font-size:0.9rem;">{SITE.legalName}</p>
+        <p style="margin:0.4rem 0; color:var(--muted); font-size:0.85rem;">{SITE.headOffice}</p>
+        <p style="margin-top:0.8rem;">
+          <a class="button button--primary" style="padding:0.5rem 0.9rem; font-size:0.9rem;" href={waHref} target="_blank" rel="noopener">
+            {t(locale, 'cta.whatsapp')}
+          </a>
+        </p>
+      </div>
+
+      <div class="site-footer__col">
+        <strong>{g.oes}</strong>
+        <ul>
+          {byCat.oes.map((p) => (
+            <li><a href={localizedPath(locale, `/products/${p.slug}/`)}>{p.name.replace(' Optical Emission Spectrometer', '').replace(' Mobile Optical Emission Spectrometer', ' Mobile')}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <strong>{g.elemental}</strong>
+        <ul>
+          {byCat.elemental.map((p) => (
+            <li><a href={localizedPath(locale, `/products/${p.slug}/`)}>{p.name.replace(' High-frequency Infrared Carbon & Sulfur Analyzer', ' C/S').replace(' Carbon & Sulfur Analyzer', ' C/S').replace(' Oxygen, Nitrogen & Hydrogen Analyzer', ' O/N/H')}</a></li>
+          ))}
+        </ul>
+        <strong style="display:block; margin-top:1rem;">{g.handheld}</strong>
+        <ul>
+          {byCat.handheld.map((p) => (
+            <li><a href={localizedPath(locale, `/products/${p.slug}/`)}>{p.name.replace(' Handheld XRF Analyzer', ' XRF').replace(' Handheld LIBS Analyzer', ' LIBS')}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <strong>{g.learn}</strong>
+        <ul>
+          {articles.map((a) => (
+            <li><a href={localizedPath(locale, `/learn/${a.slug}/`)}>{a.title}</a></li>
+          ))}
+        </ul>
+        <strong style="display:block; margin-top:1rem;">{g.company}</strong>
+        <ul>
+          <li><a href={localizedPath(locale, '/about/')}>{t(locale, 'nav.about')}</a></li>
+          <li><a href={localizedPath(locale, '/contact/')}>{t(locale, 'nav.contact')}</a></li>
+          <li><a href={localizedPath(locale, '/products/')}>{t(locale, 'nav.products')}</a></li>
+          <li><a href={localizedPath(locale, '/learn/')}>{t(locale, 'nav.learn')}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr style="margin:2rem 0 1rem; border:0; border-top:1px solid var(--line);" />
+
+    <div class="site-footer__bottom">
+      <p style="margin:0; font-size:0.85rem;">© 2009–{year} {SITE.legalName}. {t(locale, 'footer.rights')}</p>
+      <p style="margin:0; font-size:0.85rem;">
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a> ·
+        {SITE.phone} ·
+        <a href={waHref} target="_blank" rel="noopener">WhatsApp {SITE.wechat}</a>
+      </p>
+    </div>
+  </div>
+</footer>

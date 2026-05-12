@@ -1,0 +1,41 @@
+---
+import { SITE, type Locale } from '../consts';
+import { t } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+// Localized city / country names so non-English speakers don't see English literals.
+const cityCountry: Record<Locale, string> = {
+  en: 'Wuxi, China',
+  ru: 'Уси, Китай',
+  es: 'Wuxi, China',
+  ar: 'ووشي، الصين',
+};
+
+const leadTime: Record<Locale, string> = {
+  en: '15 working days',
+  ru: '15 рабочих дней',
+  es: '15 días hábiles',
+  ar: '15 يوم عمل',
+};
+
+const warranty: Record<Locale, string> = {
+  en: '12 months (extendable to 24)',
+  ru: '12 месяцев (с продлением до 24)',
+  es: '12 meses (ampliable a 24)',
+  ar: '12 شهراً (قابل للتمديد إلى 24)',
+};
+---
+<aside class="card" aria-labelledby="facts-title">
+  <h2 id="facts-title" style="font-size:1.125rem; margin-bottom:0.75rem;">{t(locale, 'facts.title')}</h2>
+  <dl class="facts">
+    <dt>{t(locale, 'facts.founded')}</dt><dd>{SITE.founded}</dd>
+    <dt>{t(locale, 'facts.headquarters')}</dt><dd>{cityCountry[locale]}</dd>
+    <dt>{t(locale, 'facts.product_lines')}</dt><dd>11</dd>
+    <dt>{t(locale, 'facts.industries')}</dt><dd>10</dd>
+    <dt>{t(locale, 'facts.export_markets')}</dt><dd>40+</dd>
+    <dt>{t(locale, 'facts.lead_time')}</dt><dd>{leadTime[locale]}</dd>
+    <dt>{t(locale, 'facts.warranty')}</dt><dd>{warranty[locale]}</dd>
+  </dl>
+</aside>

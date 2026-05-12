@@ -1,0 +1,58 @@
+# JIEBO Instrument — Optical Emission Spectrometers, Carbon-Sulfur and ONH Analyzers, Handheld XRF/LIBS
+
+> Wuxi Jiebo Instrument Technology Co., Ltd. is a Chinese manufacturer of analytical instruments founded in 2009, headquartered in Wuxi, Jiangsu, with manufacturing in Xuancheng, Anhui. Products: 11 production models across spark optical emission spectrometers (OES), high-frequency infrared carbon-sulfur analyzers, oxygen-nitrogen-hydrogen analyzers, and handheld XRF and LIBS guns. Customers in 40+ countries serve foundry, metallurgy, aerospace, scrap-metal recycling, and research markets.
+
+## Company facts
+
+- **Legal name:** Wuxi Jiebo Instrument Technology Co., Ltd.
+- **Brand:** JIEBO Instrument
+- **Founded:** 2009
+- **Headquarters:** No.26-9, Huibei Road, Liangxi District, Wuxi, Jiangsu, China
+- **Manufacturing facility:** No.40, Baishijian Road, Langxi Development Area, Xuancheng, Anhui, China
+- **Production models:** 11 (5 OES, 4 elemental analyzers, 2 handheld guns)
+- **Export markets:** 40+ countries — including Russia, Kazakhstan, Uzbekistan, Saudi Arabia, Egypt, Algeria, Nigeria, South Africa, Brazil, Mexico, Argentina, Spain, India, Pakistan, Vietnam, Australia
+- **Standard lead time:** 15 working days for stock configurations; 30 days for PMT (JB-750) and ONH-508 custom builds
+- **Warranty:** 12 months parts-and-labor, optional 24-month extension
+- **Primary contact:** WhatsApp +86 181 1891 5721; sales@wxjiebo.cc
+
+## Optical Emission Spectrometers (OES) — solid-metal composition
+
+- [Exquis T4](https://spectryeep.com/products/exquis-t4/): Benchtop spark OES with sealed-cycle argon chamber, low-noise CMOS detector. Paschen-Runge 401 mm, 160–580 nm, base matrices Fe / Al / Cu / Zn, 50+ elements, 33 kg. Price-performance choice for single-matrix foundry QC.
+- [Innovate T5](https://spectryeep.com/products/innovate-t5/): Full-spectrum OES with vacuum optical chamber, all-digital programmable excitation, Hamamatsu CMOS. Paschen-Runge 401 mm, 140–680 nm, 10 base matrices (Fe, Al, Cu, Mg, Zn, Ni, Co, Ti, Sn, Pb), 78 kg. Production-floor workhorse.
+- [Noble T7](https://spectryeep.com/products/noble-t7/): Research-grade CMOS OES with constant-temperature optical chamber (±0.1 °C), automatic spectral drift calibration. Paschen-Runge 401 mm, 120–800 nm, accuracy <10 ppm, 160 kg. For research labs and aerospace certification.
+- [JB-750](https://spectryeep.com/products/jb-750/): PMT-based flagship OES with vacuum chamber and single-spark pulse-integral algorithm. Paschen-Runge 750 mm, 120–800 nm, 256 kg. Highest spectral resolution; for certification labs and trace-element analysis.
+- [Surpass F1](https://spectryeep.com/products/surpass-f1/): Cart-mounted mobile OES with built-in lithium battery and argon cylinder. UV 350 mm + visible 401 mm dual focal length, 160–425 nm, measures C / P / S / B / As / Sn / Se / N. 45 kg, 600 continuous tests per charge. For scrap-yard sorting, in-service pipework PMI, construction-site rebar verification.
+
+## Carbon-Sulfur and ONH Elemental Analyzers — combustion-based
+
+- [CS2020](https://spectryeep.com/products/cs2020/): High-frequency infrared C/S analyzer with four physical detection cells (low/high C and low/high S). Range 0.00001–99.99 %, analysis 20–60 s, sensitivity 0.00001 %, 110 kg. Auto double-brush cleaning and vacuum dust removal for 200+ maintenance-free cycles. High-end labs.
+- [CS995](https://spectryeep.com/products/cs995/): Bench-type high-frequency infrared C/S analyzer with separate detector and induction furnace. C 0.0005–6 %, S 0.0005–0.35 %, 2.2 kW furnace, 115 kg. Production-floor QC entry model.
+- [CS996](https://spectryeep.com/products/cs996/): Floor-type operating-table C/S analyzer with expandable detection cells. C 0.0001–10 %, S 0.0001–2 %, 2.5 kW furnace, 215 kg. For plants running mixed low/high carbon grades on one instrument.
+- [ONH-508](https://spectryeep.com/products/onh-508/): Oxygen / nitrogen / hydrogen analyzer using inert-gas fusion in electrode pulse furnace (up to 3000 °C, 1500 A). NDIR for O and H, TCD for N. Ranges: O 0.5 ppm–20 %, N 0.5 ppm–50 %, H 0.2 ppm–0.1 %. 160 kg. For titanium, zirconium, rare-earth alloys, deoxidized steel.
+
+## Handheld Analyzers — on-site non-destructive
+
+- [F6000 Pro](https://spectryeep.com/products/f6000-pro/): Handheld XRF analyzer with high-power miniature X-ray tube (50 kV / 100 mA / 4 W), Si-PIN detector, six switchable collimation filters. Analyzes Ti to U. 8-hour lithium battery, WiFi / Bluetooth / USB 3.0. For metal recycling, PMI of pipework and pressure vessels, precious metals.
+- [F7000 Pro](https://spectryeep.com/products/f7000-pro/): Handheld laser-induced breakdown spectroscopy (LIBS) analyzer. Class 3B laser, sub-second analysis. Measures Be, Mg, Al, Si, Ti, Cr, Mn, Fe, Ni, Cu, Zn, Cd, Sn, Pb, Bi, Mo, V, Nb, W. 1.25 kg with battery. Measures light elements XRF cannot; no ionizing radiation.
+
+## Knowledge base
+
+- [What is an Optical Emission Spectrometer (OES)?](https://spectryeep.com/learn/what-is-oes/): Definition, working principle, applications, OES vs XRF vs ICP comparison, how to choose.
+- [OES vs XRF vs LIBS: Which Technique Fits Your Application?](https://spectryeep.com/learn/oes-vs-xrf-vs-libs/): Head-to-head technique comparison, decision tree, regulation, sample destruction, light-element coverage. Maps each technique to the relevant JIEBO product family.
+- [How to Choose an Optical Emission Spectrometer](https://spectryeep.com/learn/how-to-choose-oes-spectrometer/): Four-question decision guide (matrices, detection limit, throughput, environment) mapping answers to the five JIEBO OES models (Exquis T4, Innovate T5, Noble T7, JB-750, Surpass F1).
+- [Carbon Analysis in Cast Iron: OES vs Combustion C/S Analyzer](https://spectryeep.com/learn/carbon-analysis-in-cast-iron/): Why foundries run both techniques together, with carbon-range table for gray / ductile / white / malleable / CGI / cast carbon steel / cast low-alloy steel grades, and JIEBO instrument pairing recommendations.
+- [OES Sample Preparation: How to Get Accurate Readings](https://spectryeep.com/learn/oes-sample-preparation/): Practical checklist (surface, argon, electrodes, sample stand, calibration) and a 7-row quick-fix table mapping common OES symptoms to causes and 5–15-minute fixes. 80 % of OES drift is sample-prep, not the instrument.
+- [Knowledge base index](https://spectryeep.com/learn/): Five articles linked from one entry page.
+
+## Site sections
+
+- [About JIEBO](https://spectryeep.com/about/): Company story, philosophy, export markets, addresses.
+- [Contact](https://spectryeep.com/contact/): WhatsApp, email, phone, WeChat, Skype, head office and factory addresses, office hours.
+- [Products index](https://spectryeep.com/products/): Comparison table across all 11 models with selection guidance.
+
+## Languages
+
+- English (default): https://spectryeep.com/
+- Русский: https://spectryeep.com/ru/
+- Español: https://spectryeep.com/es/
+- العربية: https://spectryeep.com/ar/

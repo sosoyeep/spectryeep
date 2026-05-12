@@ -1,0 +1,12 @@
+---
+import ProductPage from '../../components/ProductPage.astro';
+import { PRODUCT_LIST } from '../../data/products/_registry';
+
+// innovate-t5 is served by the legacy static route at the same URL to avoid duplicate-route errors.
+export function getStaticPaths() {
+  return PRODUCT_LIST.filter((p) => p.slug !== 'innovate-t5').map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+---
+<ProductPage locale="en" slug={slug!} />

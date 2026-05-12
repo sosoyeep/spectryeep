@@ -1,0 +1,87 @@
+---
+interface Props {
+  /** Minimal product shape — works with both full ProductRecord and the consts.ts PRODUCTS entries. */
+  product: {
+    name: string;
+    sku: string;
+    category: 'oes' | 'elemental' | 'handheld';
+    image?: string;
+  };
+  /** Render mode: full hero (default) on product detail pages, compact thumbnail in cards. */
+  variant?: 'hero' | 'thumb';
+}
+const { product, variant = 'hero' } = Astro.props;
+
+const gradients: Record<'oes' | 'elemental' | 'handheld', string> = {
+  oes: 'linear-gradient(135deg, #0b1f4d 0%, #1e40af 50%, #3b82f6 100%)',
+  elemental: 'linear-gradient(135deg, #064e3b 0%, #047857 50%, #10b981 100%)',
+  handheld: 'linear-gradient(135deg, #7c2d12 0%, #c2410c 50%, #f97316 100%)',
+};
+const accent: Record<'oes' | 'elemental' | 'handheld', string> = {
+  oes: '#f59e0b',
+  elemental: '#fbbf24',
+  handheld: '#fde68a',
+};
+const categoryLabel: Record<'oes' | 'elemental' | 'handheld', string> = {
+  oes: 'Optical Emission Spectrometer',
+  elemental: 'Elemental Analyzer',
+  handheld: 'Handheld Analyzer',
+};
+
+const isHero = variant === 'hero';
+---
+{product.image ? (
+  <img
+    src={product.image}
+    alt={product.name}
+    loading="lazy"
+    decoding="async"
+    style={isHero
+      ? 'width:100%; height:auto; max-height:420px; object-fit:contain; background:var(--card); border-radius:var(--r); border:1px solid var(--line);'
+      : 'width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--card); border-radius:var(--r);'}
+  />
+) : isHero ? (
+  <div
+    role="img"
+    aria-label={product.name}
+    style={`position:relative; width:100%; aspect-ratio:16/9; border-radius:var(--r); background:${gradients[product.category]}; color:#fff; padding:1.75rem 2rem; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; box-shadow:var(--shadow);`}
+  >
+    <div style="display:flex; align-items:center; gap:0.5rem;">
+      <span style={`display:inline-block; width:8px; height:38px; border-radius:2px; background:${accent[product.category]};`}></span>
+      <div>
+        <div style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.85;">JIEBO · {product.sku}</div>
+        <div style="font-size:0.75rem; letter-spacing:0.03em; opacity:0.65;">{categoryLabel[product.category]}</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:clamp(1.5rem, 3.2vw, 2.25rem); font-weight:800; letter-spacing:-0.01em; line-height:1.15;">
+        {product.name}
+      </div>
+      <div style="margin-top:0.6rem; font-size:0.8rem; opacity:0.7;">Product photo coming soon · WhatsApp +86 181 1891 5721 for full datasheet</div>
+    </div>
+    <svg aria-hidden="true" style="position:absolute; inset-inline-end:-40px; bottom:-40px; opacity:0.12; width:240px; height:240px;" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="1">
+      <circle cx="50" cy="50" r="48"/>
+      <circle cx="50" cy="50" r="38"/>
+      <circle cx="50" cy="50" r="28"/>
+      <circle cx="50" cy="50" r="18"/>
+      <line x1="50" y1="2" x2="50" y2="98"/>
+      <line x1="2" y1="50" x2="98" y2="50"/>
+    </svg>
+  </div>
+) : (
+  <div
+    role="img"
+    aria-label={product.name}
+    style={`position:relative; width:100%; aspect-ratio:16/9; border-radius:var(--r); background:${gradients[product.category]}; color:#fff; padding:0.85rem 1rem; display:flex; align-items:flex-end; overflow:hidden;`}
+  >
+    <div style="position:relative; z-index:2;">
+      <div style="font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.85;">JIEBO · {product.sku}</div>
+      <div style="font-size:0.9rem; font-weight:700; line-height:1.2; margin-top:0.15rem;">{product.name}</div>
+    </div>
+    <svg aria-hidden="true" style="position:absolute; inset-inline-end:-20px; top:-20px; opacity:0.18; width:120px; height:120px;" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="1.4">
+      <circle cx="50" cy="50" r="48"/>
+      <circle cx="50" cy="50" r="32"/>
+      <circle cx="50" cy="50" r="16"/>
+    </svg>
+  </div>
+)}

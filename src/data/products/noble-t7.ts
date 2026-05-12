@@ -1,0 +1,86 @@
+import type { ProductRecord } from './_types';
+
+export const product: ProductRecord = {
+  slug: 'noble-t7',
+  name: 'Noble T7 Optical Emission Spectrometer',
+  sku: 'JIEBO-T7',
+  category: 'oes',
+  image: '/products/noble-t7.jpg',
+  specs: [
+    { labelKey: 'optical_system', value: 'Paschen-Runge mounting, constant-temperature optical chamber (±0.1 °C)' },
+    { labelKey: 'focal_length', value: '401 mm' },
+    { labelKey: 'wavelength', value: '120–800 nm' },
+    { labelKey: 'detector', value: 'Research-grade CMOS, accuracy <10 ppm' },
+    { labelKey: 'matrices', value: 'Fe, Al, Cu, Mg, Zn, Ni, Co, Ti, Sn, Pb' },
+    { labelKey: 'power', value: 'AC 220 V / 50 Hz' },
+    { labelKey: 'env', value: '10–30 °C / 20–80 % RH' },
+    { labelKey: 'dimensions', value: '610 × 740 × 1140 mm' },
+    { labelKey: 'weight', value: '160 kg' },
+  ],
+  overview: {
+    en: 'The Noble T7 is a research-grade full-spectrum optical emission spectrometer for foundries, smelters and laboratories analyzing high volumes of solid metal samples. A constant-temperature optical chamber (±0.1 °C) holds spectral position stable for long shifts, and the wide 120–800 nm window covers trace elements down to single-digit ppm — useful for aerospace QA, new-material research and certification testing.',
+    ru: 'Noble T7 — полноспектральный оптико-эмиссионный спектрометр исследовательского класса для литейных, металлургических заводов и лабораторий с высокой нагрузкой по образцам. Термостат оптики (±0.1 °C) удерживает положение спектра стабильным в течение длинной смены, а широкое окно 120–800 нм даёт доступ к следовым элементам на уровне единиц ppm — полезно для аэрокосмической QA, исследований новых материалов и сертификации.',
+    es: 'El Noble T7 es un espectrómetro de emisión óptica de espectro completo de grado investigación para fundiciones, acerías y laboratorios con alto volumen de muestras metálicas sólidas. La cámara óptica termostatizada (±0.1 °C) mantiene estable la posición espectral durante turnos largos, y la ventana amplia de 120–800 nm da acceso a trazas en niveles de un solo dígito de ppm — útil para QA aeroespacial, investigación de nuevos materiales y ensayos de certificación.',
+    ar: 'الجهاز Noble T7 مطياف انبعاث ضوئي بطيف كامل بدرجة بحثية، مصمَّم لمسابك ومصاهر ومختبرات تعالج كميّات كبيرة من العيّنات المعدنية الصلبة. غرفة بصرية ثابتة الحرارة (±0.1 °م) تحافظ على ثبات الموضع الطيفي طوال الورديات الطويلة، ونافذة عريضة من 120 إلى 800 نانومتر توفّر النفاذ إلى العناصر النزرة بمستويات من جزء واحد إلى أجزاء قليلة في المليون — مفيد لمراقبة جودة الطيران وأبحاث المواد الجديدة واختبارات الاعتماد.',
+  },
+  applications: {
+    en: [
+      'Iron and steel foundries with high sample throughput',
+      'Metallurgy and smelting plants — alloy chemistry during ladle metallurgy',
+      'Aerospace metal quality certification — trace-element verification',
+      'Scientific research and new-material development',
+      'Calibration laboratories needing long-term spectral stability',
+    ],
+    ru: [
+      'Чёрная металлургия с высоким потоком образцов',
+      'Металлургические и плавильные заводы — контроль химии сплава при ковшевой обработке',
+      'Сертификация металлов для аэрокосмоса — следовые элементы',
+      'Научные исследования и разработка новых материалов',
+      'Калибровочные лаборатории, требующие долгосрочной стабильности спектра',
+    ],
+    es: [
+      'Fundiciones de hierro y acero con alto rendimiento de muestras',
+      'Plantas metalúrgicas y de fundición — química de aleación en metalurgia secundaria',
+      'Certificación aeroespacial de metales — verificación de trazas',
+      'Investigación científica y desarrollo de nuevos materiales',
+      'Laboratorios de calibración que requieren estabilidad espectral a largo plazo',
+    ],
+    ar: [
+      'مسابك الحديد والصلب ذات الإنتاجية العالية',
+      'المسابك والمصانع المعدنية — كيمياء السبائك أثناء معالجة المغرفة',
+      'اعتماد جودة المعادن لقطاع الطيران — التحقّق من العناصر النزرة',
+      'البحث العلمي وتطوير المواد الجديدة',
+      'مختبرات المعايرة التي تتطلّب ثباتاً طيفياً طويل الأمد',
+    ],
+  },
+  faq: {
+    en: [
+      { q: 'How does the Noble T7 differ from the Innovate T5?', a: 'Both share the 401 mm Paschen-Runge optics. The T7 extends the wavelength range to 120–800 nm, adds a constant-temperature optical chamber (±0.1 °C) for automatic drift calibration, and targets sub-10-ppm accuracy. The T5 is the production floor workhorse; the T7 is the research and certification tool.' },
+    { q: 'What detection limit does the T7 achieve?', a: 'Better than 10 ppm for most elements in matrices with good calibration coverage. Sub-ppm performance is achievable for specific element/matrix combinations with extended calibration.' },
+      { q: 'Can it identify metal grades automatically?', a: 'Yes. Pre-loaded grade libraries allow one-click identification against international standards (AISI, GB, EN, JIS). Custom grade libraries can be added.' },
+      { q: 'What gas and power infrastructure does it need?', a: 'Argon 99.999 % (5N) at approximately 3 L/min during sparking. AC 220 V / 50 Hz, single-phase. The optical chamber thermostat draws minimal additional power.' },
+      { q: 'Lead time and warranty?', a: '15 working days from confirmed order for stock configurations. 12-month parts-and-labor warranty, optional 24-month extension.' },
+    ],
+    ru: [
+      { q: 'Чем Noble T7 отличается от Innovate T5?', a: 'Общая оптика Пашен-Рунге 401 мм. T7 расширяет диапазон до 120–800 нм, добавляет термостат оптики (±0.1 °C) с автоматической калибровкой дрейфа и нацелен на точность ниже 10 ppm. T5 — рабочая лошадка для цеха, T7 — инструмент для исследований и сертификации.' },
+      { q: 'Какой предел обнаружения у T7?', a: 'Лучше 10 ppm для большинства элементов в матрицах с хорошим калибровочным покрытием. Суб-ppm достижим для отдельных пар элемент/матрица с расширенной калибровкой.' },
+      { q: 'Поддерживается ли автоматическая идентификация марки?', a: 'Да. Встроенные библиотеки марок позволяют идентификацию в один клик по стандартам AISI, GB, EN, JIS. Пользовательские библиотеки добавляются.' },
+      { q: 'Какие нужны газ и электропитание?', a: 'Аргон 99.999 % (5N) около 3 л/мин во время измерения. AC 220 В / 50 Гц, одна фаза. Термостат оптики потребляет немного дополнительной мощности.' },
+      { q: 'Срок поставки и гарантия?', a: '15 рабочих дней для складских конфигураций. Гарантия 12 месяцев на запчасти и работу, опциональное продление до 24 месяцев.' },
+    ],
+    es: [
+      { q: '¿En qué se diferencia el Noble T7 del Innovate T5?', a: 'Ambos comparten la óptica Paschen-Runge de 401 mm. El T7 amplía el rango a 120–800 nm, añade cámara óptica termostatizada (±0.1 °C) con calibración automática de deriva y apunta a precisión inferior a 10 ppm. El T5 es el caballo de batalla de planta; el T7 es la herramienta de investigación y certificación.' },
+      { q: '¿Qué límite de detección alcanza el T7?', a: 'Mejor que 10 ppm para la mayoría de los elementos en matrices con buena cobertura de calibración. Sub-ppm posible en pares elemento/matriz específicos con calibración ampliada.' },
+      { q: '¿Identifica grados de metal automáticamente?', a: 'Sí. Bibliotecas de grados precargadas permiten identificación con un clic frente a AISI, GB, EN, JIS. Bibliotecas personalizadas disponibles.' },
+      { q: '¿Qué gas y energía requiere?', a: 'Argón 99.999 % (5N) a ~3 L/min durante la chispa. AC 220 V / 50 Hz, monofásico. El termostato óptico consume potencia adicional mínima.' },
+      { q: '¿Plazo y garantía?', a: '15 días hábiles para stock. Garantía 12 meses piezas y mano de obra, ampliable a 24 meses.' },
+    ],
+    ar: [
+      { q: 'ما الفرق بين Noble T7 و Innovate T5؟', a: 'يتشاركان البصرية Paschen-Runge بطول بؤري 401 ملم. يوسّع T7 النطاق إلى 120–800 نانومتر، ويضيف غرفة بصرية ثابتة الحرارة (±0.1 °م) مع معايرة انجراف تلقائية، ويستهدف دقّة أقلّ من 10 ppm. T5 خيار خط الإنتاج، أما T7 فأداة البحث والاعتماد.' },
+      { q: 'ما حدّ الكشف الذي يحقّقه T7؟', a: 'أقل من 10 ppm لمعظم العناصر في مصفوفات بتغطية معايرة جيّدة. يمكن الوصول لمستويات دون جزء في المليون لأزواج عنصر/مصفوفة محدّدة بمعايرة موسّعة.' },
+      { q: 'هل يحدّد درجات المعادن تلقائياً؟', a: 'نعم. مكتبات درجات مُحمَّلة مسبقاً تتيح التعرّف بنقرة واحدة وفق AISI و GB و EN و JIS. تتوفّر مكتبات مخصّصة.' },
+      { q: 'ما متطلّبات الغاز والكهرباء؟', a: 'أرغون 99.999 % (5N) بمعدّل نحو 3 لتر/دقيقة أثناء الشرارة. كهرباء AC 220 فولت / 50 هرتز أحادي الطور. منظّم حرارة البصريات يستهلك طاقة إضافية محدودة.' },
+      { q: 'ما مدّة التسليم والضمان؟', a: '15 يوم عمل للتكوينات المتوفّرة في المخزون. ضمان 12 شهراً على القطع واليد العاملة، قابل للتمديد إلى 24 شهراً.' },
+    ],
+  },
+};

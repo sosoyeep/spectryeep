@@ -1,0 +1,38 @@
+---
+import { LOCALES, LOCALE_META, DEFAULT_LOCALE, type Locale } from '../consts';
+import { t, localizedPath, localizedHome } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  pathWithoutLocale: string;
+}
+const { locale, pathWithoutLocale } = Astro.props;
+---
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href={localizedHome(locale)}>JIEBO Instrument</a>
+    <input type="checkbox" id="nav-toggle" class="site-header__check" />
+    <label for="nav-toggle" class="site-header__toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="site-header__panels">
+      <nav class="site-header__nav" aria-label="Primary">
+        <a href={localizedPath(locale, '/products/')}>{t(locale, 'nav.products')}</a>
+        <a href={localizedPath(locale, '/learn/')}>{t(locale, 'nav.learn')}</a>
+        <a href={localizedPath(locale, '/about/')}>{t(locale, 'nav.about')}</a>
+        <a href={localizedPath(locale, '/contact/')}>{t(locale, 'nav.contact')}</a>
+      </nav>
+      <div class="site-header__lang" aria-label="Language">
+        {LOCALES.map((l) => {
+          const href = l === DEFAULT_LOCALE ? pathWithoutLocale : `/${l}${pathWithoutLocale}`;
+          const isActive = l === locale;
+          return isActive ? (
+            <span lang={LOCALE_META[l].htmlLang}>{LOCALE_META[l].nativeName}</span>
+          ) : (
+            <a href={href} hreflang={LOCALE_META[l].htmlLang} lang={LOCALE_META[l].htmlLang}>{LOCALE_META[l].nativeName}</a>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</header>

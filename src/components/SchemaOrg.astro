@@ -1,0 +1,130 @@
+---
+import { SITE } from '../consts';
+
+interface Props {
+  type?: 'website' | 'product' | 'article';
+  pageUrl: string;
+  product?: {
+    name: string;
+    description: string;
+    sku: string;
+    category: string;
+    brand?: string;
+    /** Absolute URL of the product image. Falls back to the default OG asset when absent. */
+    image?: string;
+  };
+  article?: {
+    headline: string;
+    description: string;
+    datePublished: string;
+    dateModified?: string;
+    author?: string;
+  };
+  breadcrumbs?: Array<{ name: string; url: string }>;
+  faq?: Array<{ q: string; a: string }>;
+}
+
+const { type = 'website', pageUrl, product, article, breadcrumbs, faq } = Astro.props;
+
+const organization = {
+  '@type': 'Organization',
+  '@id': `https://${SITE.domain}/#organization`,
+  name: SITE.brand,
+  legalName: SITE.legalName,
+  url: `https://${SITE.domain}/`,
+  foundingDate: String(SITE.founded),
+  email: SITE.email,
+  telephone: SITE.phone,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: SITE.city,
+    addressRegion: SITE.addressRegion,
+    addressCountry: SITE.countryCode,
+  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      telephone: `+${SITE.whatsapp}`,
+      contactOption: 'TollFree',
+      availableLanguage: ['English', 'Russian', 'Spanish', 'Arabic', 'Chinese'],
+      areaServed: ['001'],
+    },
+  ],
+  sameAs: [SITE.social.facebook, SITE.social.linkedin].filter(Boolean),
+};
+
+const graph: any[] = [organization];
+
+if (type === 'website') {
+  graph.push({
+    '@type': 'WebSite',
+    '@id': `https://${SITE.domain}/#website`,
+    url: `https://${SITE.domain}/`,
+    name: SITE.brand,
+    publisher: { '@id': `https://${SITE.domain}/#organization` },
+    inLanguage: ['en', 'ru', 'es', 'ar'],
+  });
+}
+
+if (product) {
+  graph.push({
+    '@type': 'Product',
+    name: product.name,
+    description: product.description,
+    sku: product.sku,
+    category: product.category,
+    brand: { '@type': 'Brand', name: product.brand ?? SITE.brand },
+    manufacturer: { '@id': `https://${SITE.domain}/#organization` },
+    url: pageUrl,
+    image: product.image ?? `https://${SITE.domain}/og/default.svg`,
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      priceCurrency: 'USD',
+      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', valueAddedTaxIncluded: false },
+      seller: { '@id': `https://${SITE.domain}/#organization` },
+      url: pageUrl,
+    },
+  });
+}
+
+if (article) {
+  graph.push({
+    '@type': 'Article',
+    headline: article.headline,
+    description: article.description,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified ?? article.datePublished,
+    author: { '@type': 'Organization', name: article.author ?? SITE.brand },
+    publisher: { '@id': `https://${SITE.domain}/#organization` },
+    mainEntityOfPage: pageUrl,
+  });
+}
+
+if (breadcrumbs && breadcrumbs.length > 0) {
+  graph.push({
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((b, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: b.name,
+      item: b.url,
+    })),
+  });
+}
+
+if (faq && faq.length > 0) {
+  graph.push({
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+}
+
+const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
+---
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

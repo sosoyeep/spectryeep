@@ -1,0 +1,176 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, type Locale } from '../consts';
+import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+const path = '/about/';
+const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
+const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_general'));
+
+const copy: Record<Locale, {
+  title: string; lede: string;
+  storyTitle: string; storyParas: string[];
+  philosophyTitle: string; philosophyQuote: string; philosophyTagline: string;
+  productsTitle: string; productsBody: string;
+  exportTitle: string; exportBody: string;
+  addressesTitle: string;
+  headOfficeLabel: string; factoryLabel: string;
+}> = {
+  en: {
+    title: 'About JIEBO Instrument',
+    lede: 'Wuxi Jiebo Instrument Technology Co., Ltd. is a Chinese manufacturer of optical emission spectrometers, carbon-sulfur analyzers and X-ray fluorescence analyzers. Founded in 2009, headquartered in Wuxi, Jiangsu, with a production facility in Xuancheng, Anhui.',
+    storyTitle: 'Company story',
+    storyParas: [
+      'JIEBO was founded in 2009 to bring the elemental-analysis technology used by Chinese state-owned steel and foundry groups into the reach of independent shops and export customers. We engineer and manufacture in-house — from optical chamber to detection electronics — combining lessons learned from leading foreign products with original design and innovation.',
+      'Today we ship to more than 40 countries across the Middle East, Africa, Southeast Asia, West Asia, Eastern Europe and South America. Our products serve foundries, smelters, steel mills, aerospace QA labs, scrap-metal recyclers and research institutions — applications where measurement accuracy directly affects production yield.',
+    ],
+    philosophyTitle: 'Philosophy',
+    philosophyQuote: 'Innovation is the life of the enterprise.',
+    philosophyTagline: 'International quality. Domestic price. Personal service.',
+    productsTitle: 'What we make',
+    productsBody: 'Three product families across 11 production models: spark optical emission spectrometers (OES) for solid-metal composition, high-frequency infrared carbon-sulfur and ONH gas analyzers for combustion-based elemental work, and handheld XRF / LIBS guns for non-destructive on-site identification. Every instrument ships with factory calibration against certified reference materials, on-site or remote-guided installation, and 12 months of parts-and-labor warranty.',
+    exportTitle: 'Export markets',
+    exportBody: 'Active installations in 40+ countries including Russia, Kazakhstan, Uzbekistan, Saudi Arabia, Egypt, Algeria, Nigeria, South Africa, Brazil, Mexico, Argentina, Spain, India, Pakistan, Vietnam and Australia. Export documentation (CE / CB / SGS), customs handling and door-to-door logistics are coordinated by our sales team in Wuxi.',
+    addressesTitle: 'Offices and factory',
+    headOfficeLabel: 'Head office',
+    factoryLabel: 'Manufacturing facility',
+  },
+  ru: {
+    title: 'О компании JIEBO Instrument',
+    lede: 'Wuxi Jiebo Instrument Technology Co., Ltd. — китайский производитель оптико-эмиссионных спектрометров, углеродо-серных анализаторов и рентгенофлуоресцентных анализаторов. Основана в 2009 году, штаб-квартира в Уси, провинция Цзянсу; производство в Сюаньчэне, провинция Аньхой.',
+    storyTitle: 'История компании',
+    storyParas: [
+      'JIEBO основана в 2009 году с целью сделать технологии элементного анализа, использовавшиеся китайскими государственными металлургическими и литейными группами, доступными для независимых цехов и экспортных заказчиков. Мы проектируем и производим всё внутри компании — от оптической камеры до детекторной электроники — сочетая уроки ведущих зарубежных продуктов с собственным дизайном и инновациями.',
+      'Сегодня мы поставляем оборудование в более чем 40 стран Ближнего Востока, Африки, Юго-Восточной Азии, Западной Азии, Восточной Европы и Южной Америки. Наша продукция работает в литейных, сталелитейных, авиационных QA-лабораториях, у переработчиков лома и в научных институтах — там, где точность измерения напрямую влияет на производственный выход.',
+    ],
+    philosophyTitle: 'Философия',
+    philosophyQuote: 'Инновации — жизнь предприятия.',
+    philosophyTagline: 'Международное качество. Внутренние цены. Персональный сервис.',
+    productsTitle: 'Что мы производим',
+    productsBody: 'Три семейства продукции, 11 серийных моделей: искровые оптико-эмиссионные спектрометры (ОЭС) для твердометаллического анализа, высокочастотные ИК-анализаторы углерода-серы и O/N/H для элементного анализа методом сжигания, и ручные РФА / LIBS-пистолеты для неразрушающей полевой идентификации. Каждый прибор поставляется с заводской калибровкой по сертифицированным эталонным материалам, выездной или удалённо сопровождаемой установкой, и гарантией 12 месяцев на запчасти и работу.',
+    exportTitle: 'Экспортные рынки',
+    exportBody: 'Действующие установки в более чем 40 странах, включая Россию, Казахстан, Узбекистан, Саудовскую Аравию, Египет, Алжир, Нигерию, ЮАР, Бразилию, Мексику, Аргентину, Испанию, Индию, Пакистан, Вьетнам и Австралию. Экспортные документы (CE / CB / SGS), таможенное оформление и доставка «от двери до двери» координируются нашей коммерческой службой в Уси.',
+    addressesTitle: 'Офисы и производство',
+    headOfficeLabel: 'Головной офис',
+    factoryLabel: 'Производственная площадка',
+  },
+  es: {
+    title: 'Acerca de JIEBO Instrument',
+    lede: 'Wuxi Jiebo Instrument Technology Co., Ltd. es un fabricante chino de espectrómetros de emisión óptica, analizadores de carbono-azufre y analizadores de fluorescencia de rayos X. Fundada en 2009, con sede en Wuxi, provincia de Jiangsu, y planta de producción en Xuancheng, provincia de Anhui.',
+    storyTitle: 'Historia de la empresa',
+    storyParas: [
+      'JIEBO se fundó en 2009 con el objetivo de llevar la tecnología de análisis elemental utilizada por grandes grupos siderúrgicos chinos al alcance de talleres independientes y clientes de exportación. Diseñamos y fabricamos internamente — desde la cámara óptica hasta la electrónica de detección — combinando lecciones de productos extranjeros líderes con diseño e innovación propios.',
+      'Hoy enviamos equipos a más de 40 países en Medio Oriente, África, Sudeste Asiático, Asia Occidental, Europa del Este y América del Sur. Nuestros productos atienden fundiciones, acerías, laboratorios de QA aeroespacial, recicladores de chatarra e institutos de investigación — aplicaciones donde la precisión de medición impacta directamente el rendimiento productivo.',
+    ],
+    philosophyTitle: 'Filosofía',
+    philosophyQuote: 'La innovación es la vida de la empresa.',
+    philosophyTagline: 'Calidad internacional. Precio nacional. Servicio personal.',
+    productsTitle: 'Qué fabricamos',
+    productsBody: 'Tres familias de productos, 11 modelos en producción: espectrómetros de emisión óptica por chispa (OES) para metales sólidos, analizadores de carbono-azufre y O/N/H por infrarrojos de alta frecuencia para análisis por combustión, y pistolas portátiles XRF / LIBS para identificación no destructiva en sitio. Cada equipo se envía con calibración de fábrica frente a materiales de referencia certificados, instalación en sitio o guiada remotamente, y garantía de 12 meses en piezas y mano de obra.',
+    exportTitle: 'Mercados de exportación',
+    exportBody: 'Instalaciones activas en más de 40 países, incluyendo Rusia, Kazajstán, Uzbekistán, Arabia Saudita, Egipto, Argelia, Nigeria, Sudáfrica, Brasil, México, Argentina, España, India, Pakistán, Vietnam y Australia. Documentación de exportación (CE / CB / SGS), tramitación aduanera y logística puerta a puerta coordinadas por nuestro equipo comercial en Wuxi.',
+    addressesTitle: 'Oficinas y fábrica',
+    headOfficeLabel: 'Oficina central',
+    factoryLabel: 'Planta de fabricación',
+  },
+  ar: {
+    title: 'حول JIEBO Instrument',
+    lede: 'شركة Wuxi Jiebo Instrument Technology Co., Ltd. مصنّع صيني لأجهزة طيف الانبعاث الضوئي ومحلّلات الكربون والكبريت ومحلّلات الفلوريسنت بالأشعة السينية. تأسّست عام 2009 ومقرّها في ووشي بمقاطعة جيانغسو، ومنشأة الإنتاج في شواننغ بمقاطعة آنهوي.',
+    storyTitle: 'قصّة الشركة',
+    storyParas: [
+      'تأسّست JIEBO عام 2009 بهدف نقل تقنية تحليل العناصر التي تستخدمها المجموعات الصينية الكبرى للصلب والمسابك إلى متناول الورش المستقلّة وعملاء التصدير. نصمّم ونصنع في الداخل — من الغرفة البصرية إلى إلكترونيات الكشف — مع الجمع بين دروس المنتجات الأجنبية الرائدة والتصميم والابتكار الأصلي.',
+      'نشحن اليوم إلى أكثر من 40 دولة في الشرق الأوسط وأفريقيا وجنوب شرق آسيا وغرب آسيا وأوروبا الشرقية وأمريكا الجنوبية. تخدم منتجاتنا المسابك ومصاهر المعادن ومصانع الصلب ومختبرات ضمان جودة الطيران ومُعيدي تدوير الخردة ومعاهد الأبحاث — وهي تطبيقات تؤثّر فيها دقّة القياس مباشرةً على إنتاجية المصنع.',
+    ],
+    philosophyTitle: 'الفلسفة',
+    philosophyQuote: 'الابتكار هو حياة المؤسّسة.',
+    philosophyTagline: 'جودة عالمية، سعر محلّي، خدمة شخصية.',
+    productsTitle: 'ماذا نصنع',
+    productsBody: 'ثلاث عائلات منتجات في 11 موديلاً إنتاجياً: مطيافيات الانبعاث الضوئي بالشرارة (OES) لتحليل المعادن الصلبة، ومحلّلات الكربون والكبريت وO/N/H بالأشعة تحت الحمراء عالية التردّد للأعمال القائمة على الاحتراق، ومسدّسات XRF و LIBS المحمولة للتعرّف غير المتلف في الموقع. يُسلَّم كل جهاز بمعايرة من المصنع مقابل مواد مرجعية معتمدة، وبتركيب في الموقع أو موجَّه عن بُعد، وضمان 12 شهراً على القطع واليد العاملة.',
+    exportTitle: 'أسواق التصدير',
+    exportBody: 'تركيبات فعّالة في أكثر من 40 دولة منها روسيا وكازاخستان وأوزبكستان والمملكة العربية السعودية ومصر والجزائر ونيجيريا وجنوب أفريقيا والبرازيل والمكسيك والأرجنتين وإسبانيا والهند وباكستان وفيتنام وأستراليا. تنسّق وثائق التصدير (CE و CB و SGS) والتخليص الجمركي والشحن من الباب إلى الباب فريقُ مبيعاتنا في ووشي.',
+    addressesTitle: 'المكاتب والمصنع',
+    headOfficeLabel: 'المكتب الرئيسي',
+    factoryLabel: 'منشأة التصنيع',
+  },
+};
+
+const c = copy[locale];
+const breadcrumbs = [
+  { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },
+  { name: t(locale, 'nav.about'), url: canonical },
+];
+---
+<Base
+  locale={locale}
+  title={`${c.title} | JIEBO Instrument`}
+  description={c.lede}
+  path={path}
+  schemaType="website"
+  breadcrumbs={breadcrumbs}
+  whatsappContext="general"
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localizedHome(locale)}>{t(locale, 'breadcrumb.home')}</a> /
+      <span>{t(locale, 'nav.about')}</span>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-block-start:1rem;">
+    <div class="container" style="max-width:780px;">
+      <p class="eyebrow">JIEBO Instrument · Wuxi, China · since 2009</p>
+      <h1>{c.title}</h1>
+      <p class="lede" style="margin-top:1rem;">{c.lede}</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="max-width:780px;">
+      <h2>{c.storyTitle}</h2>
+      {c.storyParas.map((p) => <p>{p}</p>)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:780px;">
+      <h2>{c.philosophyTitle}</h2>
+      <blockquote style="margin:1rem 0; padding:1rem 1.25rem; border-inline-start:4px solid var(--accent); background:var(--card); font-size:1.125rem;">
+        “{c.philosophyQuote}” <br />
+        <strong style="display:block; margin-top:0.5rem;">— {c.philosophyTagline}</strong>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="max-width:780px;">
+      <h2>{c.productsTitle}</h2>
+      <p>{c.productsBody}</p>
+      <p style="margin-top:1rem;">
+        <a class="button button--ghost" href={localizedPath(locale, '/products/')}>{t(locale, 'cta.explore_products')}</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:780px;">
+      <h2>{c.exportTitle}</h2>
+      <p>{c.exportBody}</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="max-width:780px;">
+      <h2>{c.addressesTitle}</h2>
+      <dl class="facts" style="grid-template-columns: max-content 1fr;">
+        <dt>{c.headOfficeLabel}</dt><dd>{SITE.headOffice}</dd>
+        <dt>{c.factoryLabel}</dt><dd>{SITE.factory}</dd>
+      </dl>
+      <p style="margin-top:2rem;">
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')} · {SITE.wechat}</a>
+      </p>
+    </div>
+  </section>
+</Base>

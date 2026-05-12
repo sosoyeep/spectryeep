@@ -1,0 +1,148 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, type Locale } from '../consts';
+import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+const path = '/contact/';
+const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
+const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_general'));
+
+const copy: Record<Locale, {
+  title: string; lede: string;
+  primaryTitle: string; primaryBody: string;
+  channelsTitle: string;
+  labels: { whatsapp: string; email: string; phone: string; phoneAlt: string; wechat: string; skype: string };
+  addressesTitle: string;
+  headOfficeLabel: string; factoryLabel: string;
+  hoursTitle: string; hoursBody: string;
+}> = {
+  en: {
+    title: 'Contact JIEBO Instrument',
+    lede: 'Reach our spectrometer engineers directly. We answer most WhatsApp inquiries within 4 working hours (Beijing time, Mon–Sat).',
+    primaryTitle: 'Fastest reply — WhatsApp',
+    primaryBody: 'Pre-fill a message in your language and our engineers reply with a quote, lead time and recommended model.',
+    channelsTitle: 'All contact channels',
+    labels: { whatsapp: 'WhatsApp', email: 'Email', phone: 'Phone (main)', phoneAlt: 'Phone (alt)', wechat: 'WeChat', skype: 'Skype' },
+    addressesTitle: 'Visit us',
+    headOfficeLabel: 'Head office',
+    factoryLabel: 'Manufacturing facility',
+    hoursTitle: 'Office hours',
+    hoursBody: 'Monday – Saturday, 09:00 – 18:00 China Standard Time (UTC+8). WhatsApp is monitored outside hours; expect a reply on the next working day.',
+  },
+  ru: {
+    title: 'Свяжитесь с JIEBO Instrument',
+    lede: 'Пишите напрямую инженерам по спектрометрам. Большинство запросов в WhatsApp обрабатываются за 4 рабочих часа (пекинское время, пн–сб).',
+    primaryTitle: 'Самый быстрый ответ — WhatsApp',
+    primaryBody: 'Сообщение предзаполнено на вашем языке; инженеры отвечают ценой, сроком поставки и рекомендованной моделью.',
+    channelsTitle: 'Все каналы связи',
+    labels: { whatsapp: 'WhatsApp', email: 'Эл. почта', phone: 'Телефон (основной)', phoneAlt: 'Телефон (доп.)', wechat: 'WeChat', skype: 'Skype' },
+    addressesTitle: 'Адреса',
+    headOfficeLabel: 'Головной офис',
+    factoryLabel: 'Производство',
+    hoursTitle: 'Часы работы',
+    hoursBody: 'Понедельник – суббота, 09:00 – 18:00 по китайскому стандартному времени (UTC+8). WhatsApp мониторится и вне часов — ответ на следующий рабочий день.',
+  },
+  es: {
+    title: 'Contactar a JIEBO Instrument',
+    lede: 'Hable directamente con nuestros ingenieros de espectrómetros. Respondemos la mayoría de los WhatsApp en 4 horas hábiles (hora de Pekín, lun–sáb).',
+    primaryTitle: 'Respuesta más rápida — WhatsApp',
+    primaryBody: 'Mensaje pre-llenado en su idioma; los ingenieros responden con cotización, plazo y modelo recomendado.',
+    channelsTitle: 'Todos los canales de contacto',
+    labels: { whatsapp: 'WhatsApp', email: 'Correo', phone: 'Teléfono (principal)', phoneAlt: 'Teléfono (alterno)', wechat: 'WeChat', skype: 'Skype' },
+    addressesTitle: 'Visítenos',
+    headOfficeLabel: 'Oficina central',
+    factoryLabel: 'Planta de fabricación',
+    hoursTitle: 'Horario',
+    hoursBody: 'Lunes a sábado, 09:00 – 18:00 hora estándar de China (UTC+8). WhatsApp se monitorea fuera de horario; respuesta el siguiente día hábil.',
+  },
+  ar: {
+    title: 'تواصل مع JIEBO Instrument',
+    lede: 'تواصل مباشرةً مع مهندسي أجهزة الطيف لدينا. نردّ على معظم استفسارات واتساب خلال 4 ساعات عمل (بتوقيت بكين، الإثنين إلى السبت).',
+    primaryTitle: 'أسرع ردّ — واتساب',
+    primaryBody: 'الرسالة معبّأة مسبقاً بلغتك، ويردّ المهندسون بعرض سعر ومدّة تسليم وموديل موصى به.',
+    channelsTitle: 'كل قنوات التواصل',
+    labels: { whatsapp: 'واتساب', email: 'البريد الإلكتروني', phone: 'الهاتف (رئيسي)', phoneAlt: 'الهاتف (بديل)', wechat: 'WeChat', skype: 'Skype' },
+    addressesTitle: 'تفضّل بزيارتنا',
+    headOfficeLabel: 'المكتب الرئيسي',
+    factoryLabel: 'منشأة التصنيع',
+    hoursTitle: 'ساعات العمل',
+    hoursBody: 'الإثنين إلى السبت، من 09:00 إلى 18:00 بتوقيت الصين القياسي (UTC+8). يُرصد واتساب خارج هذه الساعات والردّ في يوم العمل التالي.',
+  },
+};
+
+const c = copy[locale];
+const breadcrumbs = [
+  { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },
+  { name: t(locale, 'nav.contact'), url: canonical },
+];
+---
+<Base
+  locale={locale}
+  title={`${c.title} | JIEBO Instrument`}
+  description={c.lede}
+  path={path}
+  schemaType="website"
+  breadcrumbs={breadcrumbs}
+  whatsappContext="general"
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localizedHome(locale)}>{t(locale, 'breadcrumb.home')}</a> /
+      <span>{t(locale, 'nav.contact')}</span>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-block-start:1rem;">
+    <div class="container" style="max-width:780px;">
+      <p class="eyebrow">JIEBO Instrument · Wuxi, China</p>
+      <h1>{c.title}</h1>
+      <p class="lede" style="margin-top:1rem;">{c.lede}</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="max-width:780px;">
+      <div class="card" style="text-align:center; background:var(--bg);">
+        <h2 style="margin-bottom:0.5rem;">{c.primaryTitle}</h2>
+        <p style="color:var(--muted); margin-bottom:1rem;">{c.primaryBody}</p>
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener" style="font-size:1.125rem; padding:1rem 1.75rem;">
+          {t(locale, 'cta.whatsapp')} · {SITE.wechat}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:780px;">
+      <h2>{c.channelsTitle}</h2>
+      <dl class="facts" style="grid-template-columns: max-content 1fr; margin-top:1rem;">
+        <dt>{c.labels.whatsapp}</dt><dd><a href={waHref} target="_blank" rel="noopener">{SITE.wechat}</a></dd>
+        <dt>{c.labels.email}</dt><dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
+        <dt>{c.labels.phone}</dt><dd>{SITE.phone}</dd>
+        <dt>{c.labels.phoneAlt}</dt><dd>{SITE.phoneAlt}</dd>
+        <dt>{c.labels.wechat}</dt><dd>{SITE.wechat}</dd>
+        <dt>{c.labels.skype}</dt><dd>{SITE.skype}</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="max-width:780px;">
+      <h2>{c.addressesTitle}</h2>
+      <dl class="facts" style="grid-template-columns: max-content 1fr; margin-top:1rem;">
+        <dt>{c.headOfficeLabel}</dt><dd>{SITE.headOffice}</dd>
+        <dt>{c.factoryLabel}</dt><dd>{SITE.factory}</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:780px;">
+      <h2>{c.hoursTitle}</h2>
+      <p>{c.hoursBody}</p>
+    </div>
+  </section>
+</Base>

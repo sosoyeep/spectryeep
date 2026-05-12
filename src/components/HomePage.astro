@@ -1,0 +1,150 @@
+---
+import Base from '../layouts/Base.astro';
+import FactsCard from './FactsCard.astro';
+import ProductImage from './ProductImage.astro';
+import { SITE, PRODUCTS, INDUSTRIES, type Locale } from '../consts';
+import { t, localizedPath, whatsappUrl } from '../i18n/utils';
+import { ui } from '../i18n/ui';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+const title = `${t(locale, 'hero.h1')} | JIEBO Instrument`;
+const description = t(locale, 'hero.lede');
+const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_general'));
+
+const productNames: Record<string, string> = {
+  en: '', ru: '', es: '', ar: '',
+};
+
+// localized product short descriptions (full copy lives on product pages)
+const productShort: Record<Locale, Record<string, string>> = {
+  en: {
+    'exquis-t4': 'Sealed-cycle CMOS benchtop OES, 50+ elements, 33 kg — ideal for foundry-side QC.',
+    'innovate-t5': 'Vacuum-chamber full-spectrum CMOS OES with Hamamatsu detectors, 10 base matrices, 78 kg.',
+    'noble-t7': 'Research-grade CMOS OES, constant-temperature chamber (±0.1 °C), accuracy <10 ppm.',
+    'jb-750': 'PMT vacuum-chamber flagship OES, 750 mm focal length, 256 kg — certification-grade.',
+    'surpass-f1': 'Cart-mounted mobile OES with built-in lithium battery and argon cylinder.',
+    'cs2020': 'Four-cell high-frequency C/S analyzer with auto cleaning, 200+ cycles maintenance-free.',
+    'cs995': 'Bench-type high-frequency infrared C/S analyzer, 115 kg.',
+    'cs996': 'Floor-type high-frequency C/S analyzer with expandable detection cells.',
+    'onh-508': 'Inert-gas-fusion oxygen / nitrogen / hydrogen analyzer for steel, Ti, Zr, rare earth.',
+    'f6000-pro': 'Handheld Si-PIN XRF analyzer, Ti to U, 8-hour battery, WiFi / Bluetooth.',
+    'f7000-pro': 'Handheld Class-3B LIBS analyzer, sub-second analysis, 1.25 kg — measures light elements.',
+  },
+  ru: {
+    'exquis-t4': 'Настольный ОЭС с замкнутой циркуляцией аргона, 50+ элементов, 33 кг — для QC у печи.',
+    'innovate-t5': 'Полноспектральный CMOS-ОЭС с вакуумной оптикой, детекторы Hamamatsu, 10 матриц, 78 кг.',
+    'noble-t7': 'Исследовательский CMOS-ОЭС, термостат ±0.1 °C, точность <10 ppm.',
+    'jb-750': 'ФЭУ-флагман с вакуумной оптикой, фокус 750 мм, 256 кг — для сертификации.',
+    'surpass-f1': 'Мобильный ОЭС на тележке со встроенным аккумулятором и баллоном аргона.',
+    'cs2020': 'Высокочастотный C/S-анализатор с 4 ячейками, авточисткой, 200+ циклов без ТО.',
+    'cs995': 'Настольный высокочастотный ИК-анализатор C/S, 115 кг.',
+    'cs996': 'Напольный высокочастотный C/S-анализатор с расширяемыми ячейками.',
+    'onh-508': 'Анализатор кислорода/азота/водорода методом плавления в инертном газе — сталь, Ti, Zr, РЗМ.',
+    'f6000-pro': 'Ручной РФА Si-PIN, диапазон Ti–U, 8 часов автономной работы, WiFi/BT.',
+    'f7000-pro': 'Ручной LIBS-анализатор класс 3B, измерение <1 с, 1.25 кг — лёгкие элементы.',
+  },
+  es: {
+    'exquis-t4': 'OES de mesa con ciclo cerrado, 50+ elementos, 33 kg — ideal para QC junto al horno.',
+    'innovate-t5': 'OES de espectro completo CMOS con cámara al vacío y detectores Hamamatsu, 10 matrices, 78 kg.',
+    'noble-t7': 'OES CMOS de grado investigación, cámara termostatizada (±0.1 °C), precisión <10 ppm.',
+    'jb-750': 'OES insignia PMT con cámara al vacío, distancia focal 750 mm, 256 kg — para certificación.',
+    'surpass-f1': 'OES móvil sobre carro con batería de litio y cilindro de argón integrados.',
+    'cs2020': 'Analizador C/S de alta frecuencia con 4 celdas, autolimpieza, 200+ ciclos sin mantenimiento.',
+    'cs995': 'Analizador C/S por infrarrojos de alta frecuencia de mesa, 115 kg.',
+    'cs996': 'Analizador C/S de pie con celdas de detección expandibles.',
+    'onh-508': 'Analizador de oxígeno/nitrógeno/hidrógeno por fusión en gas inerte — acero, Ti, Zr, tierras raras.',
+    'f6000-pro': 'Analizador XRF portátil Si-PIN, de Ti a U, 8 h de batería, WiFi/Bluetooth.',
+    'f7000-pro': 'Analizador LIBS portátil clase 3B, análisis sub-segundo, 1.25 kg — elementos ligeros.',
+  },
+  ar: {
+    'exquis-t4': 'جهاز OES مكتبي بدورة أرغون مغلقة، 50+ عنصراً، 33 كغ — مثالي لضبط الجودة قرب الفرن.',
+    'innovate-t5': 'جهاز OES بطيف كامل CMOS وغرفة مفرّغة وكواشف Hamamatsu، 10 مصفوفات، 78 كغ.',
+    'noble-t7': 'OES CMOS بدرجة بحثية وغرفة ثابتة الحرارة (±0.1 °م)، دقّة <10 ppm.',
+    'jb-750': 'OES رائد بتقنية PMT وغرفة مفرّغة وبصرية 750 ملم، 256 كغ — للاعتماد.',
+    'surpass-f1': 'OES متنقّل على عربة مع بطارية ليثيوم وأسطوانة أرغون مدمجتَين.',
+    'cs2020': 'محلّل C/S عالي التردّد بأربع خلايا وتنظيف آلي، 200+ دورة دون صيانة.',
+    'cs995': 'محلّل C/S مكتبي بالأشعة تحت الحمراء عالي التردّد، 115 كغ.',
+    'cs996': 'محلّل C/S أرضي بخلايا كشف قابلة للتوسعة.',
+    'onh-508': 'محلّل أكسجين/نيتروجين/هيدروجين بالانصهار في غاز خامل — للصلب والتيتانيوم والزركونيوم والأتربة النادرة.',
+    'f6000-pro': 'محلّل XRF محمول بتقنية Si-PIN، من Ti إلى U، 8 ساعات بطارية، WiFi/Bluetooth.',
+    'f7000-pro': 'محلّل LIBS محمول من الفئة 3B، تحليل خلال ثانية، 1.25 كغ — للعناصر الخفيفة.',
+  },
+};
+
+// localized industries (use UI dict labels where available; for now hard-code)
+const industriesLocalized: Record<Locale, string[]> = {
+  en: ['Foundry & Casting', 'Metallurgy', 'Steel Mills', 'Aerospace', 'Machinery Manufacturing', 'Scientific Research', 'Nuclear Power', 'Mining & Ore Analysis'],
+  ru: ['Литейное производство', 'Металлургия', 'Сталелитейные заводы', 'Аэрокосмическая отрасль', 'Машиностроение', 'Научные исследования', 'Атомная энергетика', 'Горнодобыча и анализ руды'],
+  es: ['Fundición y Casting', 'Metalurgia', 'Acerías', 'Aeroespacial', 'Maquinaria', 'Investigación científica', 'Energía nuclear', 'Minería y análisis de mineral'],
+  ar: ['السباكة', 'المعادن', 'مصانع الصلب', 'الفضاء', 'صناعة الآلات', 'الأبحاث العلمية', 'الطاقة النووية', 'التعدين وتحليل الخامات'],
+};
+
+const path = '/';
+---
+<Base locale={locale} title={title} description={description} path={path} schemaType="website" whatsappContext="general">
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">{t(locale, 'hero.eyebrow')}</p>
+      <h1>{t(locale, 'hero.h1')}</h1>
+      <p class="lede">{t(locale, 'hero.lede')}</p>
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1.5rem;">
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">
+          {t(locale, 'cta.whatsapp')}
+        </a>
+        <a class="button button--ghost" href={localizedPath(locale, '/products/')}>
+          {t(locale, 'cta.explore_products')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="display:grid; gap:2rem; grid-template-columns: minmax(0,1fr) 320px; align-items:start;">
+      <div>
+        <h2>{t(locale, 'section.products')}</h2>
+        <p class="lede">{t(locale, 'section.products_lede')}</p>
+        <div class="grid grid--3" style="margin-top:1.5rem;">
+          {PRODUCTS.map((p) => (
+            <a class="card product-card" href={localizedPath(locale, `/products/${p.slug}/`)}>
+              <ProductImage product={p} variant="thumb" />
+              <h3 style="margin-top:0.75rem; margin-bottom:0.4rem; font-size:1.05rem;">{p.name}</h3>
+              <p style="margin:0; color:var(--muted); font-size:0.9rem;">{productShort[locale][p.slug]}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+      <FactsCard locale={locale} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>{t(locale, 'section.industries')}</h2>
+      <div class="grid grid--4" style="margin-top:1.5rem;">
+        {industriesLocalized[locale].map((label) => (
+          <div class="card" style="padding:0.9rem 1.1rem;">
+            <strong>{label}</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>{t(locale, 'section.why')}</h2>
+      <div class="grid grid--3" style="margin-top:1.5rem;">
+        <div class="card"><h3>{t(locale, 'why.quality')}</h3><p>{t(locale, 'why.quality_body')}</p></div>
+        <div class="card"><h3>{t(locale, 'why.lead_time')}</h3><p>{t(locale, 'why.lead_time_body')}</p></div>
+        <div class="card"><h3>{t(locale, 'why.support')}</h3><p>{t(locale, 'why.support_body')}</p></div>
+      </div>
+      <div style="margin-top:2rem;">
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">
+          {t(locale, 'cta.whatsapp')} · {SITE.wechat}
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
