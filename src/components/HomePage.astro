@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import FactsCard from './FactsCard.astro';
 import ProductImage from './ProductImage.astro';
 import { SITE, PRODUCTS, INDUSTRIES, type Locale } from '../consts';
+import { PRODUCT_LIST } from '../data/products/_registry';
 import { t, localizedPath, whatsappUrl } from '../i18n/utils';
 import { ui } from '../i18n/ui';
 
@@ -106,7 +107,7 @@ const path = '/';
         <h2>{t(locale, 'section.products')}</h2>
         <p class="lede">{t(locale, 'section.products_lede')}</p>
         <div class="grid grid--3" style="margin-top:1.5rem;">
-          {PRODUCTS.map((p) => (
+          {PRODUCT_LIST.map((p) => (
             <a class="card product-card" href={localizedPath(locale, `/products/${p.slug}/`)}>
               <ProductImage product={p} variant="thumb" />
               <h3 style="margin-top:0.75rem; margin-bottom:0.4rem; font-size:1.05rem;">{p.name}</h3>
