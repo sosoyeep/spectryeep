@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, type Locale } from '../consts';
+import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
+import { COMPARE_LIST } from '../data/compares/_registry';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+const path = '/compare/';
+const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
+const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_general'));
+
+const copy: Record<Locale, { title: string; lede: string }> = {
+  en: {
+    title: 'OES & elemental analyzer comparisons',
+    lede: 'Side-by-side comparisons of JIEBO instruments. Each page lays out specs, when to pick each model, and the questions buyers ask before issuing a PO.',
+  },
+  ru: {
+    title: 'Сравнения ОЭС и элементных анализаторов',
+    lede: 'Прямые сравнения приборов JIEBO. На каждой странице — характеристики бок о бок, рекомендации по выбору и реальные вопросы заказчиков перед оформлением заказа.',
+  },
+  es: {
+    title: 'Comparativas de OES y analizadores elementales',
+    lede: 'Comparativas directas de equipos JIEBO. Cada página presenta especificaciones lado a lado, cuándo elegir cada modelo y las preguntas que los compradores hacen antes de emitir la orden de compra.',
+  },
+  ar: {
+    title: 'مقارنات أجهزة OES ومحلّلات العناصر',
+    lede: 'مقارنات جانبية لأجهزة JIEBO. تعرض كل صفحة المواصفات جنباً إلى جنب، ومتى تختار كل موديل، والأسئلة التي يطرحها المشترون قبل إصدار أمر الشراء.',
+  },
+};
+
+const c = copy[locale];
+
+const items = COMPARE_LIST.map((cmp) => ({
+  slug: cmp.slug,
+  matchup: `${cmp.sideA.name} vs ${cmp.sideB.name}`,
+  title: cmp.title[locale],
+  description: cmp.description[locale],
+}));
+
+const breadcrumbs = [
+  { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },
+  { name: t(locale, 'breadcrumb.compare'), url: canonical },
+];
+---
+<Base
+  locale={locale}
+  title={`${c.title} | JIEBO Instrument`}
+  description={c.lede}
+  path={path}
+  schemaType="website"
+  breadcrumbs={breadcrumbs}
+  whatsappContext="general"
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localizedHome(locale)}>{t(locale, 'breadcrumb.home')}</a> /
+      <span>{t(locale, 'breadcrumb.compare')}</span>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-block-start:1rem;">
+    <div class="container" style="max-width:820px;">
+      <p class="eyebrow">{t(locale, 'breadcrumb.compare')}</p>
+      <h1>{c.title}</h1>
+      <p class="lede" style="margin-top:1rem;">{c.lede}</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="max-width:820px;">
+      <div class="grid" style="gap:1rem;">
+        {items.map((it) => (
+          <a class="card" href={localizedPath(locale, `/compare/${it.slug}/`)} style="padding:1.5rem;">
+            <p class="eyebrow" style="margin:0 0 0.4rem;">{it.matchup}</p>
+            <h3 style="margin:0 0 0.5rem;">{it.title}</h3>
+            <p style="margin:0; color:var(--muted);">{it.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:820px;">
+      <div class="card" style="background:var(--card);">
+        <p style="margin-bottom:1rem; color:var(--muted);">
+          {locale === 'en' && "Don't see the head-to-head you need? Ask our engineers — we'll spec the right model for your application."}
+          {locale === 'ru' && 'Не нашли нужного сравнения? Спросите наших инженеров — мы подберём подходящую модель под вашу задачу.'}
+          {locale === 'es' && '¿No encuentra la comparativa que necesita? Pregunte a nuestros ingenieros — le especificaremos el modelo adecuado para su aplicación.'}
+          {locale === 'ar' && 'لم تجد المقارنة التي تحتاجها؟ تواصل مع مهندسينا — سنحدّد لك الموديل المناسب لتطبيقك.'}
+        </p>
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')} · {SITE.wechat}</a>
+      </div>
+    </div>
+  </section>
+</Base>

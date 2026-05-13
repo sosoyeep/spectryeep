@@ -19,6 +19,8 @@ interface Props {
     datePublished: string;
     dateModified?: string;
     author?: string;
+    /** Optional product references emitted as schema.org `mentions` — used by comparison pages so AI engines see the two products as entities, not free text. */
+    mentions?: Array<{ name: string; sku?: string; url: string }>;
   };
   breadcrumbs?: Array<{ name: string; url: string }>;
   faq?: Array<{ q: string; a: string }>;
@@ -90,7 +92,7 @@ if (product) {
 }
 
 if (article) {
-  graph.push({
+  const articleNode: any = {
     '@type': 'Article',
     headline: article.headline,
     description: article.description,
@@ -99,7 +101,17 @@ if (article) {
     author: { '@type': 'Organization', name: article.author ?? SITE.brand },
     publisher: { '@id': `https://${SITE.domain}/#organization` },
     mainEntityOfPage: pageUrl,
-  });
+  };
+  if (article.mentions && article.mentions.length > 0) {
+    articleNode.mentions = article.mentions.map((m) => ({
+      '@type': 'Product',
+      name: m.name,
+      ...(m.sku ? { sku: m.sku } : {}),
+      url: m.url,
+      brand: { '@id': `https://${SITE.domain}/#organization` },
+    }));
+  }
+  graph.push(articleNode);
 }
 
 if (breadcrumbs && breadcrumbs.length > 0) {

@@ -30,4 +30,6 @@ export const specLabels: Record<string, Record<Locale, string>> = {
   dispersion: { en: 'Chromatic dispersion', ru: 'Хроматическая дисперсия', es: 'Dispersión cromática', ar: 'التشتّت اللوني' },
   uv_elements: { en: 'UV-region elements', ru: 'УФ-элементы', es: 'Elementos en UV', ar: 'عناصر الأشعة فوق البنفسجية' },
   laser_class: { en: 'Laser class', ru: 'Класс лазера', es: 'Clase de láser', ar: 'فئة الليزر' },
+  detection_limit: { en: 'Detection limit', ru: 'Предел обнаружения', es: 'Límite de detección', ar: 'حدّ الكشف' },
+  best_for: { en: 'Best for', ru: 'Лучший выбор для', es: 'Recomendado para', ar: 'الأنسب لـ' },
 };

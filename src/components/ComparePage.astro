@@ -1,0 +1,184 @@
+---
+import Base from '../layouts/Base.astro';
+import ProductImage from './ProductImage.astro';
+import { SITE, type Locale } from '../consts';
+import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
+import { getCompare } from '../data/compares/_registry';
+import { getProduct } from '../data/products/_registry';
+import { specLabels } from '../data/products/_specLabels';
+
+interface Props { locale: Locale; slug: string }
+const { locale, slug } = Astro.props;
+
+const compare = getCompare(slug);
+if (!compare) {
+  throw new Error(`Unknown compare slug: ${slug}`);
+}
+
+const path = `/compare/${slug}/`;
+const title = `${compare.title[locale]} | JIEBO Instrument`;
+const description = compare.description[locale];
+const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
+
+const productA = compare.sideA.productSlug ? getProduct(compare.sideA.productSlug) : undefined;
+const productB = compare.sideB.productSlug ? getProduct(compare.sideB.productSlug) : undefined;
+
+const waHref = whatsappUrl(
+  SITE.whatsapp,
+  t(locale, 'whatsapp.prefill_compare', { sideA: compare.sideA.name, sideB: compare.sideB.name }),
+);
+
+const matchupHeadline = `${compare.sideA.name} vs ${compare.sideB.name}`;
+
+const breadcrumbs = [
+  { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },
+  { name: t(locale, 'breadcrumb.compare'), url: new URL(localizedPath(locale, '/compare/'), Astro.site).toString() },
+  { name: matchupHeadline, url: canonical },
+];
+
+const mentions = [productA, productB]
+  .filter((p): p is NonNullable<typeof p> => Boolean(p))
+  .map((p) => ({
+    name: p.name,
+    sku: p.sku,
+    url: new URL(localizedPath(locale, `/products/${p.slug}/`), Astro.site).toString(),
+  }));
+
+const articleSchema = {
+  headline: compare.title[locale],
+  description: compare.description[locale],
+  datePublished: compare.datePublished,
+  mentions: mentions.length > 0 ? mentions : undefined,
+};
+
+function resolveLabel(key: string): string {
+  return specLabels[key]?.[locale] ?? key;
+}
+
+function chooseHeading(name: string): string {
+  return t(locale, 'compare.choose_when', { name });
+}
+
+const sides = [
+  { side: compare.sideA, product: productA },
+  { side: compare.sideB, product: productB },
+] as const;
+---
+<Base
+  locale={locale}
+  title={title}
+  description={description}
+  path={path}
+  schemaType="article"
+  article={articleSchema}
+  breadcrumbs={breadcrumbs}
+  faq={compare.faq[locale]}
+  whatsappContext="general"
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localizedHome(locale)}>{t(locale, 'breadcrumb.home')}</a> /
+      <a href={localizedPath(locale, '/compare/')}>{t(locale, 'breadcrumb.compare')}</a> /
+      <span>{matchupHeadline}</span>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-block-start:1rem;">
+    <div class="container">
+      <p class="eyebrow">{t(locale, 'breadcrumb.compare')} · OES Spectrometers</p>
+      <h1>{compare.title[locale]}</h1>
+      <p class="lede" style="margin-top:1rem; max-width:780px;">{compare.intro[locale]}</p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.25rem; margin-top:2rem;">
+        {sides.map(({ side, product }) => (
+          <div class="card" style="display:flex; flex-direction:column; gap:0.85rem;">
+            {product && (
+              <ProductImage product={product} variant="thumb" />
+            )}
+            <div>
+              <p class="eyebrow" style="margin:0 0 0.25rem;">{product ? product.sku : compare.sideA.name === side.name ? 'A' : 'B'}</p>
+              <h2 style="margin:0; font-size:1.4rem;">{side.name}</h2>
+              <p style="margin-top:0.6rem; color:var(--muted);">{side.blurb[locale]}</p>
+            </div>
+            {product && (
+              <a class="button button--ghost" href={localizedPath(locale, `/products/${product.slug}/`)} style="align-self:flex-start;">
+                {t(locale, 'compare.view_product', { product: product.name })}
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:2rem;">
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">
+          {t(locale, 'cta.inquiry')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>{t(locale, 'product.spec_title')}</h2>
+      <div style="margin-top:1rem; overflow-x:auto;">
+        <table class="spec" style="min-width:540px; width:100%;">
+          <thead>
+            <tr>
+              <th scope="col" style="text-align:start;">&nbsp;</th>
+              <th scope="col" style="text-align:start;">{compare.sideA.name}</th>
+              <th scope="col" style="text-align:start;">{compare.sideB.name}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compare.specRows.map((row) => (
+              <tr>
+                <th scope="row">{resolveLabel(row.labelKey)}</th>
+                <td>{row.valueA}</td>
+                <td>{row.valueB}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>{t(locale, 'compare.verdict_title')}</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.25rem; margin-top:1.25rem;">
+        <div class="card">
+          <h3 style="margin-top:0;">{chooseHeading(compare.sideA.name)}</h3>
+          <ul style="margin:0.75rem 0 0; padding-inline-start:1.25rem;">
+            {compare.chooseA[locale].map((line) => <li style="margin-bottom:0.5rem;">{line}</li>)}
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin-top:0;">{chooseHeading(compare.sideB.name)}</h3>
+          <ul style="margin:0.75rem 0 0; padding-inline-start:1.25rem;">
+            {compare.chooseB[locale].map((line) => <li style="margin-bottom:0.5rem;">{line}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>{t(locale, 'product.faq_title')}</h2>
+      <div style="margin-top:1rem;">
+        {compare.faq[locale].map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p style="margin-top:0.6rem;">{f.a}</p>
+          </details>
+        ))}
+      </div>
+      <div style="margin-top:2rem;">
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">
+          {t(locale, 'cta.inquiry')} · {SITE.wechat}
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

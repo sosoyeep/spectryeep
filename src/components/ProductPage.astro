@@ -5,6 +5,7 @@ import { SITE, type Locale } from '../consts';
 import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
 import { getProduct } from '../data/products/_registry';
 import { specLabels } from '../data/products/_specLabels';
+import { COMPARE_LIST } from '../data/compares/_registry';
 
 interface Props { locale: Locale; slug: string }
 const { locale, slug } = Astro.props;
@@ -37,6 +38,15 @@ const productSchema = {
 function resolveLabel(labelKey: string): string {
   return specLabels[labelKey]?.[locale] ?? labelKey;
 }
+
+const relatedCompares = COMPARE_LIST.filter(
+  (c) => c.sideA.productSlug === slug || c.sideB.productSlug === slug,
+).map((c) => ({
+  slug: c.slug,
+  matchup: `${c.sideA.name} vs ${c.sideB.name}`,
+  title: c.title[locale],
+  description: c.description[locale],
+}));
 ---
 <Base
   locale={locale}
@@ -103,6 +113,24 @@ function resolveLabel(labelKey: string): string {
       </ul>
     </div>
   </section>
+
+  {relatedCompares.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <h2>{t(locale, 'compare.related_title')}</h2>
+        <div class="grid" style="gap:1rem; margin-top:1rem;">
+          {relatedCompares.map((rc) => (
+            <a class="card" href={localizedPath(locale, `/compare/${rc.slug}/`)} style="padding:1.25rem;">
+              <p class="eyebrow" style="margin:0 0 0.35rem;">{rc.matchup}</p>
+              <h3 style="margin:0 0 0.4rem; font-size:1.15rem;">{rc.title}</h3>
+              <p style="margin:0; color:var(--muted);">{rc.description}</p>
+              <p style="margin:0.75rem 0 0;"><span class="button button--ghost" style="pointer-events:none;">{t(locale, 'compare.read')}</span></p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section section--alt">
     <div class="container">

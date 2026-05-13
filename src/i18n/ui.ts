@@ -37,12 +37,19 @@ export type UIKey =
   | 'breadcrumb.home'
   | 'breadcrumb.products'
   | 'breadcrumb.learn'
+  | 'breadcrumb.compare'
   | 'product.spec_title'
   | 'product.applications_title'
   | 'product.faq_title'
+  | 'compare.verdict_title'
+  | 'compare.choose_when'
+  | 'compare.view_product'
+  | 'compare.related_title'
+  | 'compare.read'
   | 'whatsapp.prefill_general'
   | 'whatsapp.prefill_product'
-  | 'whatsapp.prefill_learn';
+  | 'whatsapp.prefill_learn'
+  | 'whatsapp.prefill_compare';
 
 export const ui: Record<Locale, Record<UIKey, string>> = {
   en: {
@@ -82,12 +89,19 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'breadcrumb.home': 'Home',
     'breadcrumb.products': 'Products',
     'breadcrumb.learn': 'Learn',
+    'breadcrumb.compare': 'Compare',
     'product.spec_title': 'Specifications',
     'product.applications_title': 'Typical applications',
     'product.faq_title': 'Frequently asked questions',
+    'compare.verdict_title': 'When to choose which',
+    'compare.choose_when': 'Choose {name} when',
+    'compare.view_product': 'View {product}',
+    'compare.related_title': 'Comparisons including this model',
+    'compare.read': 'Read comparison',
     'whatsapp.prefill_general': 'Hi JIEBO, I found you on spectryeep.com. Could you send me the catalogue and price list?',
     'whatsapp.prefill_product': 'Hi JIEBO, I am interested in the {product}. Could you send me the spec sheet and a quote?',
     'whatsapp.prefill_learn': 'Hi JIEBO, I am reading your article on OES and have a question about my application.',
+    'whatsapp.prefill_compare': 'Hi JIEBO, I am comparing {sideA} vs {sideB}. Could you help me pick the right model for my application?',
   },
   ru: {
     'nav.products': 'Продукция',
@@ -126,12 +140,19 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'breadcrumb.home': 'Главная',
     'breadcrumb.products': 'Продукция',
     'breadcrumb.learn': 'База знаний',
+    'breadcrumb.compare': 'Сравнение',
     'product.spec_title': 'Технические характеристики',
     'product.applications_title': 'Типичные применения',
     'product.faq_title': 'Частые вопросы',
+    'compare.verdict_title': 'Когда что выбирать',
+    'compare.choose_when': 'Выберите {name}, если',
+    'compare.view_product': 'Открыть {product}',
+    'compare.related_title': 'Сравнения с этой моделью',
+    'compare.read': 'Открыть сравнение',
     'whatsapp.prefill_general': 'Здравствуйте, JIEBO! Нашёл вас на spectryeep.com. Пришлите, пожалуйста, каталог и прайс-лист.',
     'whatsapp.prefill_product': 'Здравствуйте, JIEBO! Меня интересует {product}. Пришлите, пожалуйста, спецификацию и коммерческое предложение.',
     'whatsapp.prefill_learn': 'Здравствуйте, JIEBO! Читаю вашу статью про ОЭС, есть вопрос по моей задаче.',
+    'whatsapp.prefill_compare': 'Здравствуйте, JIEBO! Сравниваю {sideA} и {sideB}. Помогите, пожалуйста, выбрать модель под мою задачу.',
   },
   es: {
     'nav.products': 'Productos',
@@ -170,12 +191,19 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'breadcrumb.home': 'Inicio',
     'breadcrumb.products': 'Productos',
     'breadcrumb.learn': 'Aprender',
+    'breadcrumb.compare': 'Comparativas',
     'product.spec_title': 'Especificaciones',
     'product.applications_title': 'Aplicaciones típicas',
     'product.faq_title': 'Preguntas frecuentes',
+    'compare.verdict_title': 'Cuándo elegir cada uno',
+    'compare.choose_when': 'Elija {name} si',
+    'compare.view_product': 'Ver {product}',
+    'compare.related_title': 'Comparativas que incluyen este modelo',
+    'compare.read': 'Ver comparativa',
     'whatsapp.prefill_general': 'Hola JIEBO, los encontré en spectryeep.com. ¿Pueden enviarme el catálogo y lista de precios?',
     'whatsapp.prefill_product': 'Hola JIEBO, me interesa el {product}. ¿Pueden enviarme la ficha técnica y una cotización?',
     'whatsapp.prefill_learn': 'Hola JIEBO, estoy leyendo su artículo sobre OES y tengo una consulta sobre mi aplicación.',
+    'whatsapp.prefill_compare': 'Hola JIEBO, estoy comparando {sideA} y {sideB}. ¿Pueden ayudarme a elegir el modelo adecuado para mi aplicación?',
   },
   ar: {
     'nav.products': 'المنتجات',
@@ -214,11 +242,18 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'breadcrumb.home': 'الرئيسية',
     'breadcrumb.products': 'المنتجات',
     'breadcrumb.learn': 'المعرفة',
+    'breadcrumb.compare': 'مقارنات',
     'product.spec_title': 'المواصفات',
     'product.applications_title': 'تطبيقات نموذجية',
     'product.faq_title': 'أسئلة شائعة',
+    'compare.verdict_title': 'متى تختار أيّاً منهما',
+    'compare.choose_when': 'اختر {name} إذا',
+    'compare.view_product': 'عرض {product}',
+    'compare.related_title': 'مقارنات تتضمّن هذا الموديل',
+    'compare.read': 'افتح المقارنة',
     'whatsapp.prefill_general': 'مرحباً JIEBO، وجدتكم عبر spectryeep.com. هل يمكنكم إرسال الكتالوج وقائمة الأسعار؟',
     'whatsapp.prefill_product': 'مرحباً JIEBO، أنا مهتم بجهاز {product}. هل يمكنكم إرسال ورقة المواصفات وعرض سعر؟',
     'whatsapp.prefill_learn': 'مرحباً JIEBO، أقرأ مقالكم عن أجهزة OES ولديّ استفسار يخصّ تطبيقي.',
+    'whatsapp.prefill_compare': 'مرحباً JIEBO، أقارن بين {sideA} و {sideB}. هل يمكنكم مساعدتي في اختيار الموديل المناسب لتطبيقي؟',
   },
 };

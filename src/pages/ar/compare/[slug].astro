@@ -1,0 +1,11 @@
+---
+import ComparePage from '../../../components/ComparePage.astro';
+import { COMPARE_LIST } from '../../../data/compares/_registry';
+
+export function getStaticPaths() {
+  return COMPARE_LIST.map((c) => ({ params: { slug: c.slug } }));
+}
+
+const { slug } = Astro.params;
+---
+<ComparePage locale="ar" slug={slug!} />
