@@ -1,0 +1,2 @@
+# www → non-www (301 permanent redirect)
+https://www.spectryeep.com/* https://spectryeep.com/:splat 301!

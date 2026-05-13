@@ -2,10 +2,12 @@
 import Base from '../layouts/Base.astro';
 import FactsCard from './FactsCard.astro';
 import ProductImage from './ProductImage.astro';
+import FAQ from './FAQ.astro';
 import { SITE, PRODUCTS, INDUSTRIES, type Locale } from '../consts';
 import { PRODUCT_LIST } from '../data/products/_registry';
 import { t, localizedPath, whatsappUrl } from '../i18n/utils';
 import { ui } from '../i18n/ui';
+import { FAQ_GENERAL } from '../data/faq';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -84,7 +86,7 @@ const industriesLocalized: Record<Locale, string[]> = {
 
 const path = '/';
 ---
-<Base locale={locale} title={title} description={description} path={path} schemaType="website" whatsappContext="general">
+<Base locale={locale} title={title} description={description} path={path} schemaType="website" whatsappContext="general" faq={FAQ_GENERAL[locale]}>
   <section class="section">
     <div class="container">
       <p class="eyebrow">{t(locale, 'hero.eyebrow')}</p>
@@ -132,6 +134,8 @@ const path = '/';
       </div>
     </div>
   </section>
+
+  <FAQ locale={locale} items={FAQ_GENERAL[locale]} />
 
   <section class="section section--alt">
     <div class="container">

@@ -1,0 +1,71 @@
+---
+import { LOCALE_META, type Locale } from '../consts';
+
+interface Props {
+  locale: Locale;
+  items: Array<{ q: string; a: string }>;
+}
+
+const { locale, items } = Astro.props;
+const meta = LOCALE_META[locale];
+---
+
+<section class="section faq-section" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="container">
+    <h2>{locale === 'ar' ? 'الأسئلة الشائعة' : locale === 'ru' ? 'Часто задаваемые вопросы' : locale === 'es' ? 'Preguntas frecuentes' : 'Frequently Asked Questions'}</h2>
+    <div class="faq-list" style="margin-top:1.5rem;">
+      {items.map((item, i) => (
+        <details class="faq-item card" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary itemprop="name">{item.q}</summary>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div itemprop="text" set:html={item.a} />
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .faq-item {
+    padding: 0;
+    cursor: pointer;
+  }
+  .faq-item summary {
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    font-weight: 400;
+    flex-shrink: 0;
+    color: var(--muted);
+    transition: transform 0.2s;
+  }
+  .faq-item[open] summary::after {
+    content: '−';
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-answer {
+    padding: 0 1.25rem 1rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .faq-answer p {
+    margin: 0.5rem 0;
+  }
+</style>

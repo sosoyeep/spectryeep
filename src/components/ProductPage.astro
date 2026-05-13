@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import ProductImage from './ProductImage.astro';
 import { SITE, type Locale } from '../consts';
 import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
-import { getProduct } from '../data/products/_registry';
+import { getProduct, PRODUCT_LIST } from '../data/products/_registry';
 import { specLabels } from '../data/products/_specLabels';
 import { COMPARE_LIST } from '../data/compares/_registry';
 
@@ -47,6 +47,10 @@ const relatedCompares = COMPARE_LIST.filter(
   title: c.title[locale],
   description: c.description[locale],
 }));
+
+const relatedProducts = PRODUCT_LIST
+  .filter((p) => p.category === product.category && p.slug !== slug)
+  .slice(0, 3);
 ---
 <Base
   locale={locale}
