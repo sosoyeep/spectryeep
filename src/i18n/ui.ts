@@ -3,6 +3,7 @@ import type { Locale } from '../consts';
 export type UIKey =
   | 'nav.products'
   | 'nav.learn'
+  | 'nav.compare'
   | 'nav.about'
   | 'nav.contact'
   | 'cta.whatsapp'
@@ -55,6 +56,7 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
   en: {
     'nav.products': 'Products',
     'nav.learn': 'Learn',
+    'nav.compare': 'Compare',
     'nav.about': 'About',
     'nav.contact': 'Contact',
     'cta.whatsapp': 'Chat on WhatsApp',
@@ -106,6 +108,7 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
   ru: {
     'nav.products': 'Продукция',
     'nav.learn': 'База знаний',
+    'nav.compare': 'Сравнения',
     'nav.about': 'О компании',
     'nav.contact': 'Контакты',
     'cta.whatsapp': 'Написать в WhatsApp',
@@ -157,6 +160,7 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
   es: {
     'nav.products': 'Productos',
     'nav.learn': 'Aprender',
+    'nav.compare': 'Comparativas',
     'nav.about': 'Empresa',
     'nav.contact': 'Contacto',
     'cta.whatsapp': 'Hablar por WhatsApp',
@@ -208,6 +212,7 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
   ar: {
     'nav.products': 'المنتجات',
     'nav.learn': 'المعرفة',
+    'nav.compare': 'مقارنات',
     'nav.about': 'عن الشركة',
     'nav.contact': 'تواصل',
     'cta.whatsapp': 'محادثة عبر واتساب',

@@ -18,6 +18,7 @@ const { locale, pathWithoutLocale } = Astro.props;
     <div class="site-header__panels">
       <nav class="site-header__nav" aria-label="Primary">
         <a href={localizedPath(locale, '/products/')}>{t(locale, 'nav.products')}</a>
+        <a href={localizedPath(locale, '/compare/')}>{t(locale, 'nav.compare')}</a>
         <a href={localizedPath(locale, '/learn/')}>{t(locale, 'nav.learn')}</a>
         <a href={localizedPath(locale, '/about/')}>{t(locale, 'nav.about')}</a>
         <a href={localizedPath(locale, '/contact/')}>{t(locale, 'nav.contact')}</a>
