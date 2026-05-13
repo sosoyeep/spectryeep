@@ -1,0 +1,128 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, type Locale } from '../consts';
+import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  slug: string;
+  title: string;
+  description: string;
+  datePublished: string;
+  htmlContent: string;
+}
+
+const { locale, slug, title, description, datePublished, htmlContent } = Astro.props;
+
+const path = `/learn/${slug}/`;
+const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
+const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_learn'));
+const pageTitle = `${title} | JIEBO Instrument`;
+
+const breadcrumbs = [
+  { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },
+  { name: t(locale, 'breadcrumb.learn'), url: new URL(localizedPath(locale, '/learn/'), Astro.site).toString() },
+  { name: title, url: canonical },
+];
+
+const articleSchema = {
+  headline: title,
+  description,
+  datePublished,
+};
+---
+<Base
+  locale={locale}
+  title={pageTitle}
+  description={description}
+  path={path}
+  schemaType="article"
+  article={articleSchema}
+  breadcrumbs={breadcrumbs}
+  whatsappContext="learn"
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localizedHome(locale)}>{t(locale, 'breadcrumb.home')}</a> /
+      <a href={localizedPath(locale, '/learn/')}>{t(locale, 'breadcrumb.learn')}</a> /
+      <span>{title}</span>
+    </nav>
+  </div>
+
+  <article class="section" style="padding-block-start:1rem;">
+    <div class="container" style="max-width:780px;">
+      <p class="eyebrow">{t(locale, 'breadcrumb.learn')}</p>
+      <h1>{title}</h1>
+      <p class="lede" style="margin-top:1rem;">{description}</p>
+
+      <div class="article-body" set:html={htmlContent} />
+
+      <aside class="card" style="margin-top:2.5rem; background:var(--card);">
+        <h3 style="margin-bottom:0.5rem;">{t(locale, 'cta.inquiry')}</h3>
+        <p style="margin-bottom:1rem; color:var(--muted);">
+          {locale === 'en' && 'Still unsure which spectrometer fits your application? Send us your sample matrix and target elements on WhatsApp — we usually reply within 4 working hours.'}
+          {locale === 'ru' && 'Не определились с моделью? Напишите матрицу образца и определяемые элементы в WhatsApp — обычно отвечаем в течение 4 рабочих часов.'}
+          {locale === 'es' && '¿Todavía no sabe qué espectrómetro le conviene? Envíenos su matriz y elementos objetivo por WhatsApp — solemos responder en menos de 4 horas hábiles.'}
+          {locale === 'ar' && 'لم تحدّد بعد أيّ جهاز يناسب تطبيقك؟ أرسل لنا مصفوفة العيّنة والعناصر المستهدفة عبر واتساب — نردّ غالباً خلال 4 ساعات عمل.'}
+        </p>
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')}</a>
+      </aside>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .article-body {
+    margin-top: 2rem;
+    line-height: 1.75;
+  }
+  .article-body :global(h2) {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .article-body :global(h3) {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .article-body :global(p) {
+    margin-bottom: 1rem;
+  }
+  .article-body :global(ul),
+  .article-body :global(ol) {
+    margin-bottom: 1rem;
+    padding-inline-start: 1.5rem;
+  }
+  .article-body :global(li) {
+    margin-bottom: 0.35rem;
+  }
+  .article-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+  .article-body :global(th),
+  .article-body :global(td) {
+    border: 1px solid var(--border, #ddd);
+    padding: 0.5rem 0.75rem;
+    text-align: start;
+  }
+  .article-body :global(th) {
+    background: var(--card, #f5f5f5);
+    font-weight: 600;
+  }
+  .article-body :global(blockquote) {
+    border-inline-start: 4px solid var(--accent, #2563eb);
+    padding: 0.75rem 1rem;
+    margin-block: 1rem;
+    background: var(--card, #f5f5f5);
+    color: var(--muted, #555);
+  }
+  .article-body :global(a) {
+    color: var(--accent, #2563eb);
+    text-decoration: underline;
+  }
+  .article-body :global(strong) {
+    font-weight: 600;
+  }
+</style>

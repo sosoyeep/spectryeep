@@ -42,6 +42,7 @@ export type UIKey =
   | 'product.spec_title'
   | 'product.applications_title'
   | 'product.faq_title'
+  | 'product.related_title'
   | 'compare.verdict_title'
   | 'compare.choose_when'
   | 'compare.view_product'
@@ -95,6 +96,7 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'product.spec_title': 'Specifications',
     'product.applications_title': 'Typical applications',
     'product.faq_title': 'Frequently asked questions',
+    'product.related_title': 'Other models in this category',
     'compare.verdict_title': 'When to choose which',
     'compare.choose_when': 'Choose {name} when',
     'compare.view_product': 'View {product}',
@@ -147,6 +149,7 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'product.spec_title': 'Технические характеристики',
     'product.applications_title': 'Типичные применения',
     'product.faq_title': 'Частые вопросы',
+    'product.related_title': 'Другие модели в этой категории',
     'compare.verdict_title': 'Когда что выбирать',
     'compare.choose_when': 'Выберите {name}, если',
     'compare.view_product': 'Открыть {product}',
@@ -199,6 +202,7 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'product.spec_title': 'Especificaciones',
     'product.applications_title': 'Aplicaciones típicas',
     'product.faq_title': 'Preguntas frecuentes',
+    'product.related_title': 'Otros modelos de esta categoría',
     'compare.verdict_title': 'Cuándo elegir cada uno',
     'compare.choose_when': 'Elija {name} si',
     'compare.view_product': 'Ver {product}',
@@ -251,6 +255,7 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'product.spec_title': 'المواصفات',
     'product.applications_title': 'تطبيقات نموذجية',
     'product.faq_title': 'أسئلة شائعة',
+    'product.related_title': 'موديلات أخرى من نفس الفئة',
     'compare.verdict_title': 'متى تختار أيّاً منهما',
     'compare.choose_when': 'اختر {name} إذا',
     'compare.view_product': 'عرض {product}',

@@ -136,6 +136,24 @@ const relatedProducts = PRODUCT_LIST
     </section>
   )}
 
+  {relatedProducts.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <h2>{t(locale, 'product.related_title')}</h2>
+        <div class="grid" style="gap:1rem; margin-top:1rem; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));">
+          {relatedProducts.map((rp) => (
+            <a class="card" href={localizedPath(locale, `/products/${rp.slug}/`)} style="padding:1.25rem; display:flex; flex-direction:column; gap:0.6rem;">
+              <ProductImage product={rp} variant="thumb" />
+              <p class="eyebrow" style="margin:0;">JIEBO · {rp.sku}</p>
+              <h3 style="margin:0; font-size:1.1rem;">{rp.name}</h3>
+              <p style="margin:0; color:var(--muted); font-size:0.92rem;">{rp.overview[locale].slice(0, 140)}{rp.overview[locale].length > 140 ? '…' : ''}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   <section class="section section--alt">
     <div class="container">
       <h2>{t(locale, 'product.faq_title')}</h2>
