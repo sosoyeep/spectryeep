@@ -12,7 +12,7 @@ import { FAQ_GENERAL } from '../data/faq';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 
-const title = `${t(locale, 'hero.h1')} | JIEBO Instrument`;
+const title = t(locale, 'home.title');
 const description = t(locale, 'hero.lede');
 const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_general'));
 
