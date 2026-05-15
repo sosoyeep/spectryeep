@@ -105,8 +105,10 @@ const metaDescription = trimToMetaLength(description);
  *      clause + short " | JIEBO" suffix (24 chars).
  *   4. Hard fallback: trim to 70 at word boundary + …
  *
- * Note: og:title / twitter:title use the FULL title (social platforms render
- * 90+ chars cleanly), only <title> uses the trimmed version.
+ * Applied to BOTH <title> AND og:title / twitter:title — Facebook truncates
+ * at ~60-65 chars on mobile, LinkedIn at ~70, so a single trim keeps SEO and
+ * social cards consistent and gets rid of opengraph.xyz "title too long"
+ * warnings.
  */
 function trimTitleForGoogle(t: string): string {
   const BRAND_SUFFIX = ' | JIEBO Instrument';
@@ -157,7 +159,7 @@ const pageTitle = trimTitleForGoogle(title);
   <link rel="alternate" hreflang="x-default" href={xDefault} />
   <meta property="og:type" content={schemaType === 'article' ? 'article' : 'website'} />
   <meta property="og:locale" content={meta.htmlLang} />
-  <meta property="og:title" content={title} />
+  <meta property="og:title" content={pageTitle} />
   <meta property="og:description" content={metaDescription} />
   <meta property="og:url" content={canonical} />
   <meta property="og:site_name" content="JIEBO Instrument" />
@@ -167,7 +169,7 @@ const pageTitle = trimTitleForGoogle(title);
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="JIEBO Instrument — Optical Emission Spectrometer Manufacturer, Wuxi China" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
+  <meta name="twitter:title" content={pageTitle} />
   <meta name="twitter:description" content={metaDescription} />
   <meta name="twitter:image" content={new URL('/og/default.png', Astro.site).toString()} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
