@@ -93,13 +93,63 @@ function trimToMetaLength(raw: string): string {
 }
 
 const metaDescription = trimToMetaLength(description);
+
+/**
+ * Trim <title> to <=80 chars (target <=60). Google truncates at ~60 desktop,
+ * 50-60 mobile. Strategy:
+ *   1. If <=60, keep as-is.
+ *   2. If ends with " | JIEBO Instrument" (20 chars) and stripping the suffix
+ *      lands <=80, drop the suffix — Google appends the site name automatically
+ *      and we keep the keyword-rich part.
+ *   3. If still >80, try splitting at " — " / " – " / " - " and use the lead
+ *      clause + short " | JIEBO" suffix (24 chars).
+ *   4. Hard fallback: trim to 70 at word boundary + …
+ *
+ * Note: og:title / twitter:title use the FULL title (social platforms render
+ * 90+ chars cleanly), only <title> uses the trimmed version.
+ */
+function trimTitleForGoogle(t: string): string {
+  const BRAND_SUFFIX = ' | JIEBO Instrument';
+  const SHORT_SUFFIX = ' | JIEBO';
+  const SOFT_MAX = 80;
+  const TARGET = 60;
+  const HARD_CUT = 70;
+  const s = (t || '').trim();
+  if (s.length <= TARGET) return s;
+  if (s.endsWith(BRAND_SUFFIX)) {
+    const stripped = s.slice(0, -BRAND_SUFFIX.length).trim();
+    if (stripped.length <= SOFT_MAX) return stripped;
+    // Try split at em-dash variants
+    for (const sep of [' — ', ' – ', ' - ']) {
+      const idx = stripped.indexOf(sep);
+      if (idx > 0) {
+        const lead = stripped.slice(0, idx).trim();
+        if (lead.length >= 20 && lead.length + SHORT_SUFFIX.length <= SOFT_MAX) {
+          return lead + SHORT_SUFFIX;
+        }
+      }
+    }
+    // Hard trim
+    const cut = stripped.slice(0, HARD_CUT);
+    const sp = cut.lastIndexOf(' ');
+    if (sp > 30) return cut.slice(0, sp).trim() + '…';
+    return cut + '…';
+  }
+  // No standard suffix
+  const cut = s.slice(0, HARD_CUT);
+  const sp = cut.lastIndexOf(' ');
+  if (sp > 30) return cut.slice(0, sp).trim() + '…';
+  return cut + '…';
+}
+
+const pageTitle = trimTitleForGoogle(title);
 ---
 <!doctype html>
 <html lang={meta.htmlLang} dir={meta.dir}>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title}</title>
+  <title>{pageTitle}</title>
   <meta name="description" content={metaDescription} />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href={canonical} />
