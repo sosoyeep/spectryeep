@@ -79,7 +79,7 @@ if (product) {
     brand: { '@type': 'Brand', name: product.brand ?? SITE.brand },
     manufacturer: { '@id': `https://${SITE.domain}/#organization` },
     url: pageUrl,
-    image: product.image ?? `https://${SITE.domain}/og/default.svg`,
+    image: product.image ?? `https://${SITE.domain}/og/default.png`,
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',
