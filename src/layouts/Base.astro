@@ -43,6 +43,56 @@ const alternateLinks = LOCALES.map((l) => ({
   href: new URL(localizedPath(l, path), Astro.site).toString(),
 }));
 const xDefault = new URL(localizedPath(DEFAULT_LOCALE, path), Astro.site).toString();
+
+/**
+ * Build an SEO-optimal meta description (target 110-160 chars, hard cap 160).
+ * Strategy:
+ *   1. If the raw description already <= 160, use it as-is.
+ *   2. Try the first sentence (split on . ! ? 。 ؟); use it if it lands in 60-160.
+ *   3. Otherwise trim at 155 chars to the last sentence-end punctuation if any,
+ *      else last comma/semicolon (, ; ， ；), else last whitespace.
+ *   4. Append … if truncated.
+ *
+ * Applied only to <meta name="description"> / og:description / twitter:description.
+ * Schema.org and page body keep using the original long-form text.
+ */
+function trimToMetaLength(raw: string): string {
+  const TARGET_MAX = 160;
+  const TARGET_MIN = 60;
+  const HARD_CUT = 158;
+  // Soft cap when keeping a whole first sentence — Google truncates at ~160 desktop,
+  // 120 mobile, but social platforms (FB/LinkedIn) display 200+. Prefer a clean
+  // sentence ending up to 175 chars over a mid-sentence ellipsis at 155.
+  const FIRST_SENT_SOFT_CAP = 175;
+  const s = (raw || '').trim();
+  if (s.length <= TARGET_MAX) return s;
+
+  // Step 1: first sentence (handles Latin . ! ? plus Chinese 。 and Arabic ؟)
+  const sentMatch = s.match(/^([^.!?。؟]+[.!?。؟])/);
+  if (sentMatch) {
+    const first = sentMatch[1].trim();
+    if (first.length >= TARGET_MIN && first.length <= FIRST_SENT_SOFT_CAP) return first;
+  }
+
+  // Step 2: trim at HARD_CUT, prefer last punctuation/space boundary
+  const cut = s.slice(0, HARD_CUT);
+  const punctIdx = Math.max(
+    cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '),
+    cut.lastIndexOf('; '), cut.lastIndexOf(', '),
+    cut.lastIndexOf('，'), cut.lastIndexOf('；'), cut.lastIndexOf('، '),
+  );
+  if (punctIdx > TARGET_MIN) {
+    // include the punctuation char itself, drop the trailing space
+    return cut.slice(0, punctIdx + 1).trim() + '…';
+  }
+  const spaceIdx = cut.lastIndexOf(' ');
+  if (spaceIdx > TARGET_MIN) {
+    return cut.slice(0, spaceIdx).trim() + '…';
+  }
+  return cut.trim() + '…';
+}
+
+const metaDescription = trimToMetaLength(description);
 ---
 <!doctype html>
 <html lang={meta.htmlLang} dir={meta.dir}>
@@ -50,7 +100,7 @@ const xDefault = new URL(localizedPath(DEFAULT_LOCALE, path), Astro.site).toStri
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
-  <meta name="description" content={description} />
+  <meta name="description" content={metaDescription} />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href={canonical} />
   {alternateLinks.map((l) => <link rel="alternate" hreflang={l.hreflang} href={l.href} />)}
@@ -58,7 +108,7 @@ const xDefault = new URL(localizedPath(DEFAULT_LOCALE, path), Astro.site).toStri
   <meta property="og:type" content={schemaType === 'article' ? 'article' : 'website'} />
   <meta property="og:locale" content={meta.htmlLang} />
   <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
+  <meta property="og:description" content={metaDescription} />
   <meta property="og:url" content={canonical} />
   <meta property="og:site_name" content="JIEBO Instrument" />
   <meta property="og:image" content={new URL('/og/default.png', Astro.site).toString()} />
@@ -68,7 +118,7 @@ const xDefault = new URL(localizedPath(DEFAULT_LOCALE, path), Astro.site).toStri
   <meta property="og:image:alt" content="JIEBO Instrument — Optical Emission Spectrometer Manufacturer, Wuxi China" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
+  <meta name="twitter:description" content={metaDescription} />
   <meta name="twitter:image" content={new URL('/og/default.png', Astro.site).toString()} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <SchemaOrg
