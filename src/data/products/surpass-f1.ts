@@ -2,7 +2,12 @@ import type { ProductRecord } from './_types';
 
 export const product: ProductRecord = {
   slug: 'surpass-f1',
-  name: 'Surpass F1 Mobile Optical Emission Spectrometer',
+  name: {
+    en: 'Surpass F1 Mobile Optical Emission Spectrometer',
+    ru: 'Surpass F1 — мобильный оптико-эмиссионный спектрометр',
+    es: 'Surpass F1 — espectrómetro de emisión óptica móvil',
+    ar: 'Surpass F1 — مطياف الانبعاث الضوئي المحمول',
+  },
   sku: 'JIEBO-F1',
   category: 'oes',
   image: '/products/surpass-f1.jpg',

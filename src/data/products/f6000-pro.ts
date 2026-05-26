@@ -2,7 +2,12 @@ import type { ProductRecord } from './_types';
 
 export const product: ProductRecord = {
   slug: 'f6000-pro',
-  name: 'F6000 Pro Handheld XRF Analyzer',
+  name: {
+    en: 'F6000 Pro Handheld XRF Analyzer',
+    ru: 'F6000 Pro — ручной РФА-анализатор',
+    es: 'F6000 Pro — analizador XRF portátil',
+    ar: 'F6000 Pro — محلّل XRF محمول باليد',
+  },
   sku: 'JIEBO-F6000',
   category: 'handheld',
   image: '/products/f6000-pro.jpg',

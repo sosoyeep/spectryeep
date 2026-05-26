@@ -2,7 +2,12 @@ import type { ProductRecord } from './_types';
 
 export const product: ProductRecord = {
   slug: 'f7000-pro',
-  name: 'F7000 Pro Handheld LIBS Analyzer',
+  name: {
+    en: 'F7000 Pro Handheld LIBS Analyzer',
+    ru: 'F7000 Pro — ручной LIBS-анализатор',
+    es: 'F7000 Pro — analizador LIBS portátil',
+    ar: 'F7000 Pro — محلّل LIBS محمول باليد',
+  },
   sku: 'JIEBO-F7000',
   category: 'handheld',
   image: '/products/f7000-pro.jpg',

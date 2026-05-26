@@ -12,7 +12,7 @@ export interface FaqEntry {
 
 export interface ProductRecord {
   slug: string;
-  name: string;
+  name: Record<Locale, string>;
   sku: string;
   category: 'oes' | 'elemental' | 'handheld';
   /** Optional product photo URL relative to /public, e.g. "/products/innovate-t5.jpg". When absent, a branded SVG placeholder is rendered. */

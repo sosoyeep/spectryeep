@@ -218,8 +218,8 @@ const byCategory: Record<'oes' | 'elemental' | 'handheld', typeof PRODUCT_LIST> 
         <div class="grid grid--3" style="margin-top:1.5rem;">
           {byCategory[cat].map((p) => (
             <a class="card product-card" href={localizedPath(locale, `/products/${p.slug}/`)}>
-              <ProductImage product={p} variant="thumb" />
-              <h3 style="margin-top:0.75rem; margin-bottom:0.4rem; font-size:1.05rem;">{p.name}</h3>
+              <ProductImage product={p} locale={locale} variant="thumb" />
+              <h3 style="margin-top:0.75rem; margin-bottom:0.4rem; font-size:1.05rem;">{p.name[locale]}</h3>
               <p style="margin:0; color:var(--muted); font-size:0.9rem;">{p.overview[locale]?.split('. ').slice(0, 2).join('. ')}</p>
             </a>
           ))}

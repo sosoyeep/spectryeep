@@ -15,21 +15,22 @@ const product = getProduct(slug);
 if (!product) {
   throw new Error(`Unknown product slug: ${slug}`);
 }
+const localizedName = product.name[locale];
 
 const path = `/products/${slug}/`;
-const title = `${product.name} | JIEBO Instrument`;
+const title = `${localizedName} | JIEBO Instrument`;
 const description = product.overview[locale];
 const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
-const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_product', { product: product.name }));
+const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_product', { product: localizedName }));
 
 const breadcrumbs = [
   { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },
   { name: t(locale, 'breadcrumb.products'), url: new URL(localizedPath(locale, '/products/'), Astro.site).toString() },
-  { name: product.name, url: canonical },
+  { name: localizedName, url: canonical },
 ];
 
 const productSchema = {
-  name: product.name,
+  name: localizedName,
   description: product.overview[locale],
   sku: product.sku,
   category: product.category === 'oes' ? 'Optical Emission Spectrometer' : product.category === 'elemental' ? 'Elemental Analyzer' : 'Handheld Analyzer',
@@ -63,13 +64,13 @@ const relatedProducts = PRODUCT_LIST
   breadcrumbs={breadcrumbs}
   faq={product.faq[locale]}
   whatsappContext="product"
-  productName={product.name}
+  productName={localizedName}
 >
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href={localizedHome(locale)}>{t(locale, 'breadcrumb.home')}</a> /
       <a href={localizedPath(locale, '/products/')}>{t(locale, 'breadcrumb.products')}</a> /
-      <span>{product.name}</span>
+      <span>{localizedName}</span>
     </nav>
   </div>
 
@@ -77,7 +78,7 @@ const relatedProducts = PRODUCT_LIST
     <div class="container product-hero">
       <div class="product-hero__copy">
         <p class="eyebrow">JIEBO Instrument · {product.sku}</p>
-        <h1>{product.name}</h1>
+        <h1>{localizedName}</h1>
         <p class="lede" style="margin-top:1rem;">{product.overview[locale]}</p>
         <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1.5rem;">
           <a class="button button--primary" href="#request-quote">
@@ -92,7 +93,7 @@ const relatedProducts = PRODUCT_LIST
         </div>
       </div>
       <div class="product-hero__media">
-        <ProductImage product={product} />
+        <ProductImage product={product} locale={locale} />
       </div>
     </div>
   </section>
@@ -153,9 +154,9 @@ const relatedProducts = PRODUCT_LIST
         <div class="grid" style="gap:1rem; margin-top:1rem; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));">
           {relatedProducts.map((rp) => (
             <a class="card" href={localizedPath(locale, `/products/${rp.slug}/`)} style="padding:1.25rem; display:flex; flex-direction:column; gap:0.6rem;">
-              <ProductImage product={rp} variant="thumb" />
+              <ProductImage product={rp} locale={locale} variant="thumb" />
               <p class="eyebrow" style="margin:0;">JIEBO · {rp.sku}</p>
-              <h3 style="margin:0; font-size:1.1rem;">{rp.name}</h3>
+              <h3 style="margin:0; font-size:1.1rem;">{rp.name[locale]}</h3>
               <p style="margin:0; color:var(--muted); font-size:0.92rem;">{rp.overview[locale].slice(0, 140)}{rp.overview[locale].length > 140 ? '…' : ''}</p>
             </a>
           ))}

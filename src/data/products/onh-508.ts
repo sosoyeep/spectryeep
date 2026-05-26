@@ -2,7 +2,12 @@ import type { ProductRecord } from './_types';
 
 export const product: ProductRecord = {
   slug: 'onh-508',
-  name: 'ONH-508 Oxygen, Nitrogen & Hydrogen Analyzer',
+  name: {
+    en: 'ONH-508 Oxygen, Nitrogen & Hydrogen Analyzer',
+    ru: 'ONH-508 — анализатор кислорода, азота и водорода',
+    es: 'ONH-508 — analizador de oxígeno, nitrógeno e hidrógeno',
+    ar: 'ONH-508 — محلّل الأكسجين والنيتروجين والهيدروجين',
+  },
   sku: 'JIEBO-ONH508',
   category: 'elemental',
   image: '/products/onh-508.jpg',

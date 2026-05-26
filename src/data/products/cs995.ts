@@ -2,7 +2,12 @@ import type { ProductRecord } from './_types';
 
 export const product: ProductRecord = {
   slug: 'cs995',
-  name: 'CS995 Carbon & Sulfur Analyzer',
+  name: {
+    en: 'CS995 Carbon & Sulfur Analyzer',
+    ru: 'CS995 — анализатор углерода и серы',
+    es: 'CS995 — analizador de carbono y azufre',
+    ar: 'CS995 — محلّل الكربون والكبريت',
+  },
   sku: 'JIEBO-CS995',
   category: 'elemental',
   image: '/products/cs995.jpg',

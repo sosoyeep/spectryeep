@@ -2,7 +2,12 @@ import type { ProductRecord } from './_types';
 
 export const product: ProductRecord = {
   slug: 'cs2020',
-  name: 'CS2020 High-frequency Infrared Carbon & Sulfur Analyzer',
+  name: {
+    en: 'CS2020 High-frequency Infrared Carbon & Sulfur Analyzer',
+    ru: 'CS2020 — высокочастотный ИК-анализатор углерода и серы',
+    es: 'CS2020 — analizador de carbono y azufre por infrarrojo de alta frecuencia',
+    ar: 'CS2020 — محلّل الكربون والكبريت بالأشعة تحت الحمراء عالية التردد',
+  },
   sku: 'JIEBO-CS2020',
   category: 'elemental',
   image: '/products/cs2020.jpg',

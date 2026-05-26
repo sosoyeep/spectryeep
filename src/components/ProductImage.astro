@@ -1,16 +1,19 @@
 ---
+import type { Locale } from '../consts';
 interface Props {
   /** Minimal product shape — works with both full ProductRecord and the consts.ts PRODUCTS entries. */
   product: {
-    name: string;
+    name: string | Record<Locale, string>;
     sku: string;
     category: 'oes' | 'elemental' | 'handheld';
     image?: string;
   };
+  locale?: Locale;
   /** Render mode: full hero (default) on product detail pages, compact thumbnail in cards. */
   variant?: 'hero' | 'thumb';
 }
-const { product, variant = 'hero' } = Astro.props;
+const { product, locale = 'en', variant = 'hero' } = Astro.props;
+const productName = typeof product.name === 'string' ? product.name : product.name[locale];
 
 const gradients: Record<'oes' | 'elemental' | 'handheld', string> = {
   oes: 'linear-gradient(135deg, #0b1f4d 0%, #1e40af 50%, #3b82f6 100%)',
@@ -33,7 +36,7 @@ const isHero = variant === 'hero';
 {product.image ? (
   <img
     src={product.image}
-    alt={product.name}
+    alt={productName}
     loading="lazy"
     decoding="async"
     style={isHero
@@ -43,7 +46,7 @@ const isHero = variant === 'hero';
 ) : isHero ? (
   <div
     role="img"
-    aria-label={product.name}
+    aria-label={productName}
     style={`position:relative; width:100%; aspect-ratio:16/9; border-radius:var(--r); background:${gradients[product.category]}; color:#fff; padding:1.75rem 2rem; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; box-shadow:var(--shadow);`}
   >
     <div style="display:flex; align-items:center; gap:0.5rem;">
@@ -55,7 +58,7 @@ const isHero = variant === 'hero';
     </div>
     <div>
       <div style="font-size:clamp(1.5rem, 3.2vw, 2.25rem); font-weight:800; letter-spacing:-0.01em; line-height:1.15;">
-        {product.name}
+        {productName}
       </div>
       <div style="margin-top:0.6rem; font-size:0.8rem; opacity:0.7;">Product photo coming soon · WhatsApp +86 181 1891 5721 for full datasheet</div>
     </div>
@@ -71,12 +74,12 @@ const isHero = variant === 'hero';
 ) : (
   <div
     role="img"
-    aria-label={product.name}
+    aria-label={productName}
     style={`position:relative; width:100%; aspect-ratio:16/9; border-radius:var(--r); background:${gradients[product.category]}; color:#fff; padding:0.85rem 1rem; display:flex; align-items:flex-end; overflow:hidden;`}
   >
     <div style="position:relative; z-index:2;">
       <div style="font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.85;">JIEBO · {product.sku}</div>
-      <div style="font-size:0.9rem; font-weight:700; line-height:1.2; margin-top:0.15rem;">{product.name}</div>
+      <div style="font-size:0.9rem; font-weight:700; line-height:1.2; margin-top:0.15rem;">{productName}</div>
     </div>
     <svg aria-hidden="true" style="position:absolute; inset-inline-end:-20px; top:-20px; opacity:0.18; width:120px; height:120px;" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="1.4">
       <circle cx="50" cy="50" r="48"/>

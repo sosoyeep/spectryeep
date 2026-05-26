@@ -2,7 +2,12 @@ import type { ProductRecord } from './_types';
 
 export const product: ProductRecord = {
   slug: 'jb-750',
-  name: 'JB-750 Optical Emission Spectrometer',
+  name: {
+    en: 'JB-750 Optical Emission Spectrometer',
+    ru: 'JB-750 — оптико-эмиссионный спектрометр',
+    es: 'JB-750 — espectrómetro de emisión óptica',
+    ar: 'JB-750 — مطياف الانبعاث الضوئي',
+  },
   sku: 'JIEBO-JB750',
   category: 'oes',
   image: '/products/jb-750.jpg',

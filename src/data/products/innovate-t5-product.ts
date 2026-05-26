@@ -2,7 +2,12 @@ import type { ProductRecord } from './_types';
 
 export const product: ProductRecord = {
   slug: 'innovate-t5',
-  name: 'Innovate T5 Optical Emission Spectrometer',
+  name: {
+    en: 'Innovate T5 Optical Emission Spectrometer',
+    ru: 'Innovate T5 — оптико-эмиссионный спектрометр',
+    es: 'Innovate T5 — espectrómetro de emisión óptica',
+    ar: 'Innovate T5 — مطياف الانبعاث الضوئي',
+  },
   sku: 'JIEBO-T5',
   category: 'oes',
   image: '/products/innovate-t5.jpg',

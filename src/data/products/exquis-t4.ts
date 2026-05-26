@@ -2,7 +2,12 @@ import type { ProductRecord } from './_types';
 
 export const product: ProductRecord = {
   slug: 'exquis-t4',
-  name: 'Exquis T4 Optical Emission Spectrometer',
+  name: {
+    en: 'Exquis T4 Optical Emission Spectrometer',
+    ru: 'Exquis T4 — оптико-эмиссионный спектрометр',
+    es: 'Exquis T4 — espectrómetro de emisión óptica',
+    ar: 'Exquis T4 — مطياف الانبعاث الضوئي',
+  },
   sku: 'JIEBO-T4',
   category: 'oes',
   image: '/products/exquis-t4.jpg',

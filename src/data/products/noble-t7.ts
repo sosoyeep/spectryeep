@@ -2,7 +2,12 @@ import type { ProductRecord } from './_types';
 
 export const product: ProductRecord = {
   slug: 'noble-t7',
-  name: 'Noble T7 Optical Emission Spectrometer',
+  name: {
+    en: 'Noble T7 Optical Emission Spectrometer',
+    ru: 'Noble T7 — оптико-эмиссионный спектрометр',
+    es: 'Noble T7 — espectrómetro de emisión óptica',
+    ar: 'Noble T7 — مطياف الانبعاث الضوئي',
+  },
   sku: 'JIEBO-T7',
   category: 'oes',
   image: '/products/noble-t7.jpg',
