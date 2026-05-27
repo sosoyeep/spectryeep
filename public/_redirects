@@ -1,2 +1,34 @@
 # www → non-www (301 permanent redirect)
 https://www.spectryeep.com/* https://spectryeep.com/:splat 301!
+
+# Legacy and common discovery URLs → canonical pages.
+/product/ /products/ 301
+/product /products/ 301
+/products.html /products/ 301
+/contact.html /contact/ 301
+/about-us/ /about/ 301
+/aboutus/ /about/ 301
+/blog/ /learn/ 301
+/sitemap.xml /sitemap-index.xml 301
+
+# Legacy product URLs seen in search results or likely from the old site.
+/noble-t7-optical-emission-spectrometer/ /products/noble-t7/ 301
+/innovate-t5-oes-spectrometer/ /products/innovate-t5/ 301
+/innovate-t5-optical-emission-spectrometer/ /products/innovate-t5/ 301
+/t4-mini-spark-oes-spectrometer/ /products/exquis-t4/ 301
+/exquis-t4-optical-emission-spectrometer/ /products/exquis-t4/ 301
+/jb-750-optical-emission-spectrometer/ /products/jb-750/ 301
+/surpass-f1-mobile-optical-emission-spectrometer/ /products/surpass-f1/ 301
+/cs995-carbon-sulfur-analyzer/ /products/cs995/ 301
+/cs996-carbon-sulfur-analyzer/ /products/cs996/ 301
+/cs2020-carbon-sulfur-analyzer/ /products/cs2020/ 301
+/onh-508-oxygen-nitrogen-hydrogen-analyzer/ /products/onh-508/ 301
+/f6000-pro-handheld-xrf-analyzer/ /products/f6000-pro/ 301
+/f7000-pro-handheld-libs-analyzer/ /products/f7000-pro/ 301
+
+# Normalize common non-trailing-slash variants.
+/products /products/ 301
+/compare /compare/ 301
+/learn /learn/ 301
+/about /about/ 301
+/contact /contact/ 301

@@ -15,6 +15,8 @@ const copy: Record<Locale, {
   primaryTitle: string; primaryBody: string;
   channelsTitle: string;
   labels: { whatsapp: string; email: string; phone: string; phoneAlt: string; wechat: string; skype: string };
+  rfqTitle: string; rfqBody: string; rfqSubmit: string;
+  form: { name: string; company: string; country: string; email: string; phone: string; material: string; elements: string; volume: string; message: string };
   addressesTitle: string;
   headOfficeLabel: string; factoryLabel: string;
   hoursTitle: string; hoursBody: string;
@@ -26,6 +28,20 @@ const copy: Record<Locale, {
     primaryBody: 'Pre-fill a message in your language and our engineers reply with a quote, lead time and recommended model.',
     channelsTitle: 'All contact channels',
     labels: { whatsapp: 'WhatsApp', email: 'Email', phone: 'Phone (main)', phoneAlt: 'Phone (alt)', wechat: 'WeChat', skype: 'Skype' },
+    rfqTitle: 'Request a quote by email',
+    rfqBody: 'Send the key buying details once, so our engineers can recommend the right instrument and reply with price, lead time and configuration.',
+    rfqSubmit: 'Open email RFQ',
+    form: {
+      name: 'Name',
+      company: 'Company',
+      country: 'Country',
+      email: 'Email',
+      phone: 'WhatsApp / phone',
+      material: 'Sample material or alloy matrix',
+      elements: 'Target elements',
+      volume: 'Monthly sample volume',
+      message: 'Application notes',
+    },
     addressesTitle: 'Visit us',
     headOfficeLabel: 'Head office',
     factoryLabel: 'Manufacturing facility',
@@ -39,6 +55,20 @@ const copy: Record<Locale, {
     primaryBody: 'Сообщение предзаполнено на вашем языке; инженеры отвечают ценой, сроком поставки и рекомендованной моделью.',
     channelsTitle: 'Все каналы связи',
     labels: { whatsapp: 'WhatsApp', email: 'Эл. почта', phone: 'Телефон (основной)', phoneAlt: 'Телефон (доп.)', wechat: 'WeChat', skype: 'Skype' },
+    rfqTitle: 'Запросить предложение по email',
+    rfqBody: 'Отправьте основные данные о задаче, чтобы инженеры подобрали модель и ответили по цене, сроку и конфигурации.',
+    rfqSubmit: 'Открыть email-запрос',
+    form: {
+      name: 'Имя',
+      company: 'Компания',
+      country: 'Страна',
+      email: 'Email',
+      phone: 'WhatsApp / телефон',
+      material: 'Материал или матрица сплава',
+      elements: 'Целевые элементы',
+      volume: 'Объем образцов в месяц',
+      message: 'Примечания по применению',
+    },
     addressesTitle: 'Адреса',
     headOfficeLabel: 'Головной офис',
     factoryLabel: 'Производство',
@@ -52,6 +82,20 @@ const copy: Record<Locale, {
     primaryBody: 'Mensaje pre-llenado en su idioma; los ingenieros responden con cotización, plazo y modelo recomendado.',
     channelsTitle: 'Todos los canales de contacto',
     labels: { whatsapp: 'WhatsApp', email: 'Correo', phone: 'Teléfono (principal)', phoneAlt: 'Teléfono (alterno)', wechat: 'WeChat', skype: 'Skype' },
+    rfqTitle: 'Solicitar cotización por correo',
+    rfqBody: 'Envíe los datos clave de compra para que nuestros ingenieros recomienden el instrumento correcto y respondan con precio, plazo y configuración.',
+    rfqSubmit: 'Abrir RFQ por correo',
+    form: {
+      name: 'Nombre',
+      company: 'Empresa',
+      country: 'País',
+      email: 'Correo',
+      phone: 'WhatsApp / teléfono',
+      material: 'Material o matriz de aleación',
+      elements: 'Elementos objetivo',
+      volume: 'Volumen mensual de muestras',
+      message: 'Notas de aplicación',
+    },
     addressesTitle: 'Visítenos',
     headOfficeLabel: 'Oficina central',
     factoryLabel: 'Planta de fabricación',
@@ -65,6 +109,20 @@ const copy: Record<Locale, {
     primaryBody: 'الرسالة معبّأة مسبقاً بلغتك، ويردّ المهندسون بعرض سعر ومدّة تسليم وموديل موصى به.',
     channelsTitle: 'كل قنوات التواصل',
     labels: { whatsapp: 'واتساب', email: 'البريد الإلكتروني', phone: 'الهاتف (رئيسي)', phoneAlt: 'الهاتف (بديل)', wechat: 'WeChat', skype: 'Skype' },
+    rfqTitle: 'اطلب عرض سعر عبر البريد',
+    rfqBody: 'أرسل تفاصيل الشراء الأساسية ليقترح المهندسون الجهاز المناسب ويردّوا بالسعر ومدة التسليم والتكوين.',
+    rfqSubmit: 'فتح طلب عبر البريد',
+    form: {
+      name: 'الاسم',
+      company: 'الشركة',
+      country: 'الدولة',
+      email: 'البريد الإلكتروني',
+      phone: 'واتساب / هاتف',
+      material: 'مادة العينة أو مصفوفة السبيكة',
+      elements: 'العناصر المطلوبة',
+      volume: 'عدد العينات شهرياً',
+      message: 'ملاحظات التطبيق',
+    },
     addressesTitle: 'تفضّل بزيارتنا',
     headOfficeLabel: 'المكتب الرئيسي',
     factoryLabel: 'منشأة التصنيع',
@@ -126,6 +184,29 @@ const breadcrumbs = [
         <dt>{c.labels.wechat}</dt><dd>{SITE.wechat}</dd>
         <dt>{c.labels.skype}</dt><dd>{SITE.skype}</dd>
       </dl>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="max-width:780px;">
+      <div class="card" style="background:var(--bg);">
+        <h2>{c.rfqTitle}</h2>
+        <p style="color:var(--muted); margin-top:0.5rem;">{c.rfqBody}</p>
+        <form action={`mailto:${SITE.email}`} method="post" enctype="text/plain" style="display:grid; gap:1rem; margin-top:1.25rem;">
+          <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem;">
+            <label>{c.form.name}<input name="Name" autocomplete="name" /></label>
+            <label>{c.form.company}<input name="Company" autocomplete="organization" /></label>
+            <label>{c.form.country}<input name="Country" autocomplete="country-name" /></label>
+            <label>{c.form.email}<input name="Email" type="email" autocomplete="email" /></label>
+            <label>{c.form.phone}<input name="WhatsApp or phone" autocomplete="tel" /></label>
+            <label>{c.form.volume}<input name="Monthly sample volume" /></label>
+          </div>
+          <label>{c.form.material}<input name="Sample material or alloy matrix" /></label>
+          <label>{c.form.elements}<input name="Target elements" /></label>
+          <label>{c.form.message}<textarea name="Application notes" rows="5"></textarea></label>
+          <button class="button button--primary" type="submit" style="justify-self:start;">{c.rfqSubmit}</button>
+        </form>
+      </div>
     </div>
   </section>
 

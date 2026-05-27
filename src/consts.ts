@@ -33,7 +33,7 @@ export const LOCALE_META: Record<
   en: { name: 'English', nativeName: 'English', htmlLang: 'en', dir: 'ltr' },
   ru: { name: 'Russian', nativeName: 'Русский', htmlLang: 'ru', dir: 'ltr' },
   es: { name: 'Spanish', nativeName: 'Español', htmlLang: 'es', dir: 'ltr' },
-  ar: { name: 'Arabic', nativeName: 'العربية', htmlLang: 'ar', dir: 'rtl' },
+  ar: { name: 'Arabic', nativeName: 'العربية', htmlLang: 'ar-SA', dir: 'rtl' },
 };
 
 export const PRODUCT_CATEGORIES = ['oes', 'elemental', 'handheld'] as const;

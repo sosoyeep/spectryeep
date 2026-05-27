@@ -53,6 +53,29 @@ p { margin: 0 0 1rem; }
 .button--ghost { background: transparent; color: var(--fg); border-color: var(--line); }
 .button--ghost:hover { background: var(--card); text-decoration: none; }
 
+label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+input, textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--r) - 0.25rem);
+  padding: 0.72rem 0.85rem;
+  color: var(--fg);
+  background: var(--bg);
+  font: inherit;
+  font-size: 1rem;
+}
+textarea { resize: vertical; min-height: 8rem; }
+input:focus, textarea:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent) 24%, transparent);
+  border-color: var(--accent);
+}
+
 .grid { display: grid; gap: 1rem; }
 .grid--3 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .grid--4 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
