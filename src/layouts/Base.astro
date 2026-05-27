@@ -20,6 +20,7 @@ interface Props {
   faq?: Array<{ q: string; a: string }>;
   whatsappContext?: 'general' | 'product' | 'learn';
   productName?: string;
+  alternateLocales?: Locale[];
 }
 
 const {
@@ -34,11 +35,12 @@ const {
   faq,
   whatsappContext = 'general',
   productName,
+  alternateLocales = LOCALES,
 } = Astro.props;
 
 const meta = LOCALE_META[locale];
 const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
-const alternateLinks = LOCALES.map((l) => ({
+const alternateLinks = alternateLocales.map((l) => ({
   hreflang: LOCALE_META[l].htmlLang,
   href: new URL(localizedPath(l, path), Astro.site).toString(),
 }));
@@ -183,7 +185,7 @@ const pageTitle = trimTitleForGoogle(title);
   />
 </head>
 <body>
-  <Header locale={locale} pathWithoutLocale={path} />
+  <Header locale={locale} pathWithoutLocale={path} alternateLocales={alternateLocales} />
   <main id="main">
     <slot />
   </main>

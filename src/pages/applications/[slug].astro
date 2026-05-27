@@ -1,0 +1,14 @@
+---
+import SeoLandingPage from '../../components/SeoLandingPage.astro';
+import { LANDING_PAGES, localizedLandingPage } from '../../data/landing-pages';
+
+export function getStaticPaths() {
+  return LANDING_PAGES.filter((p) => p.kind === 'applications').map((page) => ({
+    params: { slug: page.slug },
+    props: { page: localizedLandingPage(page, 'en') },
+  }));
+}
+
+const { page } = Astro.props;
+---
+<SeoLandingPage locale="en" page={page} />

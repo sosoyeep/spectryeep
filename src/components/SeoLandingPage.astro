@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, type Locale } from '../consts';
+import { t, localizedPath, localizedHome, whatsappUrl } from '../i18n/utils';
+import type { LandingPageData } from '../data/landing-pages';
+
+interface Props {
+  locale: Locale;
+  page: LandingPageData;
+}
+
+const { locale, page } = Astro.props;
+const path = `/${page.kind}/${page.slug}/`;
+const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
+const waHref = whatsappUrl(SITE.whatsapp, `Hi JIEBO, I am interested in ${page.h1}. Could you recommend the right model and send a quote?`);
+
+const sectionLabels: Record<Locale, { fit: string; models: string; why: string; faq: string; cta: string; ctaBody: string }> = {
+  en: { fit: 'Best fit', models: 'Recommended JIEBO instruments', why: 'Why buyers choose JIEBO', faq: 'Buyer questions', cta: 'Ask an engineer for a quote', ctaBody: 'Send your sample material, target elements, country and expected sample volume. We will recommend a model and reply with price and lead time.' },
+  ru: { fit: 'Для каких задач', models: 'Рекомендуемые приборы JIEBO', why: 'Почему выбирают JIEBO', faq: 'Вопросы покупателей', cta: 'Запросить предложение у инженера', ctaBody: 'Отправьте материал образца, элементы, страну и объём испытаний. Мы подберём модель и ответим по цене и сроку.' },
+  es: { fit: 'Aplicaciones adecuadas', models: 'Instrumentos JIEBO recomendados', why: 'Por qué eligen JIEBO', faq: 'Preguntas de compra', cta: 'Pedir cotización a un ingeniero', ctaBody: 'Envíe material de muestra, elementos objetivo, país y volumen esperado. Recomendaremos un modelo y responderemos con precio y plazo.' },
+  ar: { fit: 'الملاءمة', models: 'أجهزة JIEBO الموصى بها', why: 'لماذا يختار العملاء JIEBO', faq: 'أسئلة المشترين', cta: 'اطلب عرض سعر من مهندس', ctaBody: 'أرسل مادة العينة والعناصر المطلوبة والدولة وحجم العينات المتوقع، وسنوصي بالموديل المناسب مع السعر ومدة التسليم.' },
+};
+
+const labels = sectionLabels[locale];
+const breadcrumbs = [
+  { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },
+  { name: page.kind === 'applications' ? 'Applications' : 'Countries', url: new URL(localizedPath(locale, `/${page.kind}/`), Astro.site).toString() },
+  { name: page.h1, url: canonical },
+];
+---
+<Base
+  locale={locale}
+  title={page.title}
+  description={page.description}
+  path={path}
+  schemaType="website"
+  breadcrumbs={breadcrumbs}
+  faq={page.faq}
+  whatsappContext="general"
+  alternateLocales={['en']}
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localizedHome(locale)}>{t(locale, 'breadcrumb.home')}</a> /
+      <span>{page.h1}</span>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-block-start:1rem;">
+    <div class="container" style="max-width:860px;">
+      <p class="eyebrow">{page.eyebrow}</p>
+      <h1>{page.h1}</h1>
+      <p class="lede" style="margin-top:1rem;">{page.intro}</p>
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1.5rem;">
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')}</a>
+        <a class="button button--ghost" href={localizedPath(locale, '/products/')}>{t(locale, 'cta.explore_products')}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));">
+      <div class="card">
+        <h2>{labels.fit}</h2>
+        <ul style="padding-inline-start:1.25rem; margin-bottom:0;">
+          {page.buyerFit.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="card">
+        <h2>{labels.why}</h2>
+        <ul style="padding-inline-start:1.25rem; margin-bottom:0;">
+          {page.proof.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>{labels.models}</h2>
+      <div class="grid grid--3" style="margin-top:1.25rem;">
+        {page.recommended.map((item) => (
+          <a class="card" href={localizedPath(locale, item.href)}>
+            <h3>{item.name}</h3>
+            <p style="color:var(--muted); margin-bottom:0;">{item.reason}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="max-width:860px;">
+      <h2>{labels.faq}</h2>
+      <div style="display:grid; gap:0.75rem; margin-top:1rem;">
+        {page.faq.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:860px;">
+      <div class="card" style="background:var(--card);">
+        <h2>{labels.cta}</h2>
+        <p style="color:var(--muted);">{labels.ctaBody}</p>
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')} · {SITE.wechat}</a>
+      </div>
+    </div>
+  </section>
+</Base>

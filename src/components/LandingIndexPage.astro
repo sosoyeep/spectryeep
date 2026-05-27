@@ -1,0 +1,60 @@
+---
+import Base from '../layouts/Base.astro';
+import type { Locale } from '../consts';
+import { LANDING_PAGES, type LandingKind } from '../data/landing-pages';
+import { localizedHome, localizedPath, t } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  kind: LandingKind;
+}
+
+const { locale, kind } = Astro.props;
+const pages = LANDING_PAGES.filter((p) => p.kind === kind);
+const path = `/${kind}/`;
+
+const copy = {
+  applications: {
+    title: 'Applications for OES, C/S, ONH, XRF and LIBS analyzers',
+    description: 'Find JIEBO instruments by application: foundry OES, steel carbon sulfur analysis, scrap XRF sorting, aerospace alloy analysis and mining XRF.',
+    eyebrow: 'Applications',
+    h1: 'Find the right JIEBO analyzer by application',
+  },
+  countries: {
+    title: 'JIEBO instrument suppliers by country',
+    description: 'Country landing pages for global buyers sourcing JIEBO OES spectrometers, carbon sulfur analyzers, ONH analyzers and handheld XRF/LIBS analyzers.',
+    eyebrow: 'Countries',
+    h1: 'JIEBO instrument supply pages for global buyers',
+  },
+}[kind];
+---
+<Base locale={locale} title={`${copy.title} | JIEBO Instrument`} description={copy.description} path={path} schemaType="website" alternateLocales={['en']}>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localizedHome(locale)}>{t(locale, 'breadcrumb.home')}</a> /
+      <span>{copy.eyebrow}</span>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-block-start:1rem;">
+    <div class="container" style="max-width:860px;">
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h1>{copy.h1}</h1>
+      <p class="lede" style="margin-top:1rem;">{copy.description}</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid grid--3">
+        {pages.map((page) => (
+          <a class="card" href={localizedPath(locale, `/${kind}/${page.slug}/`)}>
+            <p class="eyebrow" style="margin-bottom:0.35rem;">{page.eyebrow}</p>
+            <h2 style="font-size:1.2rem;">{page.h1}</h2>
+            <p style="color:var(--muted); margin-bottom:0;">{page.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

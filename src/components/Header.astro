@@ -5,8 +5,9 @@ import { t, localizedPath, localizedHome } from '../i18n/utils';
 interface Props {
   locale: Locale;
   pathWithoutLocale: string;
+  alternateLocales?: Locale[];
 }
-const { locale, pathWithoutLocale } = Astro.props;
+const { locale, pathWithoutLocale, alternateLocales = LOCALES } = Astro.props;
 ---
 <header class="site-header">
   <div class="container site-header__inner">
@@ -24,7 +25,7 @@ const { locale, pathWithoutLocale } = Astro.props;
         <a href={localizedPath(locale, '/contact/')}>{t(locale, 'nav.contact')}</a>
       </nav>
       <div class="site-header__lang" aria-label="Language">
-        {LOCALES.map((l) => {
+        {alternateLocales.map((l) => {
           const href = l === DEFAULT_LOCALE ? pathWithoutLocale : `/${l}${pathWithoutLocale}`;
           const isActive = l === locale;
           return isActive ? (
