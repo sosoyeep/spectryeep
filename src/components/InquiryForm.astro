@@ -1,0 +1,221 @@
+---
+import { SITE, type Locale } from '../consts';
+import { localizedPath, whatsappUrl } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  productName?: string;
+  productSku?: string;
+  compact?: boolean;
+}
+
+const { locale, productName = '', productSku = '', compact = false } = Astro.props;
+
+const formAction = import.meta.env.PUBLIC_INQUIRY_FORM_ACTION || '/api/inquiry';
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
+const sourcePath = Astro.url.pathname;
+const thankYouPath = localizedPath(locale, '/thank-you/');
+const waHref = whatsappUrl(
+  SITE.whatsapp,
+  productName
+    ? `Hi JIEBO, I submitted a quote request for ${productName} on spectryeep.com.`
+    : 'Hi JIEBO, I submitted a quote request on spectryeep.com.',
+);
+
+const copy: Record<Locale, {
+  title: string;
+  body: string;
+  name: string;
+  company: string;
+  country: string;
+  email: string;
+  phone: string;
+  product: string;
+  application: string;
+  material: string;
+  elements: string;
+  message: string;
+  consent: string;
+  submit: string;
+  note: string;
+  fallback: string;
+}> = {
+  en: {
+    title: 'Request a formal quote',
+    body: 'Send your application details and our engineers will reply with model advice, lead time and pricing.',
+    name: 'Name',
+    company: 'Company',
+    country: 'Country / region',
+    email: 'Email',
+    phone: 'WhatsApp / phone',
+    product: 'Product of interest',
+    application: 'Application',
+    material: 'Sample material',
+    elements: 'Target elements',
+    message: 'Message',
+    consent: 'I agree to be contacted about this inquiry.',
+    submit: 'Send inquiry',
+    note: 'Most qualified inquiries receive a reply within 4 working hours.',
+    fallback: 'If the form fails, contact us on WhatsApp.',
+  },
+  ru: {
+    title: 'Запросить официальное предложение',
+    body: 'Отправьте данные задачи, и инженеры ответят с рекомендацией модели, сроком поставки и ценой.',
+    name: 'Имя',
+    company: 'Компания',
+    country: 'Страна / регион',
+    email: 'Email',
+    phone: 'WhatsApp / телефон',
+    product: 'Интересующий продукт',
+    application: 'Применение',
+    material: 'Материал образца',
+    elements: 'Целевые элементы',
+    message: 'Сообщение',
+    consent: 'Я согласен, чтобы со мной связались по этому запросу.',
+    submit: 'Отправить запрос',
+    note: 'На большинство целевых запросов отвечаем в течение 4 рабочих часов.',
+    fallback: 'Если форма не отправляется, напишите нам в WhatsApp.',
+  },
+  es: {
+    title: 'Solicitar cotización formal',
+    body: 'Envíe los datos de su aplicación y nuestros ingenieros responderán con modelo recomendado, plazo y precio.',
+    name: 'Nombre',
+    company: 'Empresa',
+    country: 'País / región',
+    email: 'Email',
+    phone: 'WhatsApp / teléfono',
+    product: 'Producto de interés',
+    application: 'Aplicación',
+    material: 'Material de muestra',
+    elements: 'Elementos objetivo',
+    message: 'Mensaje',
+    consent: 'Acepto que me contacten sobre esta consulta.',
+    submit: 'Enviar consulta',
+    note: 'La mayoría de consultas calificadas reciben respuesta en 4 horas hábiles.',
+    fallback: 'Si el formulario falla, contáctenos por WhatsApp.',
+  },
+  ar: {
+    title: 'طلب عرض سعر رسمي',
+    body: 'أرسل تفاصيل التطبيق وسيرد المهندسون بالموديل المناسب ومدة التسليم والسعر.',
+    name: 'الاسم',
+    company: 'الشركة',
+    country: 'الدولة / المنطقة',
+    email: 'البريد الإلكتروني',
+    phone: 'واتساب / الهاتف',
+    product: 'المنتج المطلوب',
+    application: 'التطبيق',
+    material: 'مادة العينة',
+    elements: 'العناصر المستهدفة',
+    message: 'الرسالة',
+    consent: 'أوافق على التواصل معي بخصوص هذا الاستفسار.',
+    submit: 'إرسال الاستفسار',
+    note: 'معظم الاستفسارات المؤهلة تحصل على رد خلال 4 ساعات عمل.',
+    fallback: 'إذا تعذر إرسال النموذج، تواصل معنا عبر واتساب.',
+  },
+};
+
+const c = copy[locale];
+---
+<div class:list={['inquiry-panel', compact && 'inquiry-panel--compact']} id="request-quote">
+  <div>
+    <p class="eyebrow">JIEBO Instrument · Quote desk</p>
+    <h2>{c.title}</h2>
+    <p class="lede">{c.body}</p>
+  </div>
+
+  <form
+    class="inquiry-form"
+    name="jiebo-inquiry"
+    method="POST"
+    action={formAction}
+    data-min-submit-seconds="4"
+  >
+    <input type="hidden" name="form-name" value="jiebo-inquiry" />
+    <input type="hidden" name="_subject" value={`Spectryeep inquiry${productName ? ` - ${productName}` : ''}`} />
+    <input type="hidden" name="_redirect" value={thankYouPath} />
+    <input type="hidden" name="locale" value={locale} />
+    <input type="hidden" name="source_page" value={sourcePath} data-source-page />
+    <input type="hidden" name="started_at" value="" data-started-at />
+    <input type="hidden" name="utm_source" value="" data-utm="utm_source" />
+    <input type="hidden" name="utm_medium" value="" data-utm="utm_medium" />
+    <input type="hidden" name="utm_campaign" value="" data-utm="utm_campaign" />
+    <input type="hidden" name="utm_term" value="" data-utm="utm_term" />
+    <input type="hidden" name="utm_content" value="" data-utm="utm_content" />
+
+    <p class="form-trap" aria-hidden="true">
+      <label>Company website <input name="company_website" tabindex="-1" autocomplete="off" /></label>
+    </p>
+
+    <div class="form-grid">
+      <label>{c.name}<input name="name" autocomplete="name" required minlength="2" /></label>
+      <label>{c.company}<input name="company" autocomplete="organization" required minlength="2" /></label>
+      <label>{c.country}<input name="country" autocomplete="country-name" required /></label>
+      <label>{c.email}<input type="email" name="email" autocomplete="email" required /></label>
+      <label>{c.phone}<input name="phone" autocomplete="tel" /></label>
+      <label>{c.product}<input name="product" value={productName} data-product-field /></label>
+      <label>{c.application}<input name="application" placeholder="Foundry QC, PMI, incoming inspection..." /></label>
+      <label>{c.material}<input name="sample_material" placeholder="Fe, Al, Cu, Zn, cast iron..." /></label>
+    </div>
+
+    <label>{c.elements}<input name="target_elements" placeholder="C, S, P, Si, Mn, Cr, Ni..." /></label>
+    <label>{c.message}<textarea name="message" rows="5" required minlength="12"></textarea></label>
+    {productSku && <input type="hidden" name="product_sku" value={productSku} />}
+
+    {turnstileSiteKey && (
+      <>
+        <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
+        <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+      </>
+    )}
+
+    <label class="form-consent">
+      <input type="checkbox" name="consent" value="yes" required />
+      <span>{c.consent}</span>
+    </label>
+
+    <div class="form-actions">
+      <button class="button button--primary" type="submit">{c.submit}</button>
+      <a class="button button--ghost" href={waHref} target="_blank" rel="noopener">{c.fallback}</a>
+    </div>
+    <p class="form-note">{c.note}</p>
+    <p class="form-error" role="alert" hidden></p>
+  </form>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('.inquiry-form').forEach((form) => {
+    const startedAt = Date.now();
+    form.querySelector('[data-started-at]').value = String(startedAt);
+    const source = form.querySelector('[data-source-page]');
+    if (source) source.value = window.location.href;
+
+    const params = new URLSearchParams(window.location.search);
+    form.querySelectorAll('[data-utm]').forEach((input) => {
+      const key = input.getAttribute('data-utm');
+      input.value = params.get(key) || sessionStorage.getItem(key) || '';
+      if (params.get(key)) sessionStorage.setItem(key, params.get(key));
+    });
+
+    form.addEventListener('submit', (event) => {
+      const trap = form.querySelector('[name="company_website"]');
+      const elapsed = (Date.now() - startedAt) / 1000;
+      const minSeconds = Number(form.getAttribute('data-min-submit-seconds') || '4');
+      const error = form.querySelector('.form-error');
+      if (trap && trap.value) {
+        event.preventDefault();
+        if (error) {
+          error.textContent = 'Submission blocked.';
+          error.hidden = false;
+        }
+        return;
+      }
+      if (elapsed < minSeconds) {
+        event.preventDefault();
+        if (error) {
+          error.textContent = 'Please review the inquiry details before submitting.';
+          error.hidden = false;
+        }
+      }
+    });
+  });
+</script>

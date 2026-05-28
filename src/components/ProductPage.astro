@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import InquiryForm from './InquiryForm.astro';
 import ProductImage from './ProductImage.astro';
 import { SITE, type Locale } from '../consts';
 import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
@@ -79,7 +80,10 @@ const relatedProducts = PRODUCT_LIST
         <h1>{product.name}</h1>
         <p class="lede" style="margin-top:1rem;">{product.overview[locale]}</p>
         <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1.5rem;">
-          <a class="button button--primary" href={waHref} target="_blank" rel="noopener">
+          <a class="button button--primary" href="#request-quote">
+            {t(locale, 'cta.request_quote')}
+          </a>
+          <a class="button button--ghost" href={waHref} target="_blank" rel="noopener">
             {t(locale, 'cta.inquiry')}
           </a>
           <a class="button button--ghost" href={localizedPath(locale, '/products/')}>
@@ -115,6 +119,12 @@ const relatedProducts = PRODUCT_LIST
       <ul style="margin-top:1rem; padding-inline-start:1.25rem;">
         {product.applications[locale].map((line) => <li style="margin-bottom:0.5rem;">{line}</li>)}
       </ul>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <InquiryForm locale={locale} productName={product.name} productSku={product.sku} />
     </div>
   </section>
 

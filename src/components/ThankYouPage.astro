@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, type Locale } from '../consts';
+import { localizedHome, localizedPath, whatsappUrl } from '../i18n/utils';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+
+const path = '/thank-you/';
+const waHref = whatsappUrl(SITE.whatsapp, 'Hi JIEBO, I just submitted an inquiry on spectryeep.com.');
+
+const copy: Record<Locale, {
+  title: string;
+  description: string;
+  body: string;
+  next: string;
+  whatsapp: string;
+  home: string;
+}> = {
+  en: {
+    title: 'Inquiry received',
+    description: 'Your JIEBO Instrument inquiry has been received.',
+    body: 'Thank you. Our engineers will review your application details and reply with model advice, lead time and pricing.',
+    next: 'For urgent projects, send a WhatsApp message with your company name so we can match it to the form submission.',
+    whatsapp: 'Continue on WhatsApp',
+    home: 'Back to home',
+  },
+  ru: {
+    title: 'Запрос получен',
+    description: 'Ваш запрос в JIEBO Instrument получен.',
+    body: 'Спасибо. Инженеры изучат вашу задачу и ответят с рекомендацией модели, сроком поставки и ценой.',
+    next: 'Для срочных проектов напишите в WhatsApp название компании, чтобы мы сопоставили сообщение с формой.',
+    whatsapp: 'Продолжить в WhatsApp',
+    home: 'На главную',
+  },
+  es: {
+    title: 'Consulta recibida',
+    description: 'Su consulta para JIEBO Instrument fue recibida.',
+    body: 'Gracias. Nuestros ingenieros revisarán su aplicación y responderán con modelo recomendado, plazo y precio.',
+    next: 'Para proyectos urgentes, envíe un WhatsApp con el nombre de su empresa para relacionarlo con el formulario.',
+    whatsapp: 'Continuar por WhatsApp',
+    home: 'Volver al inicio',
+  },
+  ar: {
+    title: 'تم استلام الاستفسار',
+    description: 'تم استلام استفسارك لدى JIEBO Instrument.',
+    body: 'شكراً لك. سيراجع المهندسون تفاصيل التطبيق ويردون بالموديل المناسب ومدة التسليم والسعر.',
+    next: 'للمشاريع العاجلة، أرسل رسالة واتساب باسم شركتك حتى نربطها بطلب النموذج.',
+    whatsapp: 'المتابعة عبر واتساب',
+    home: 'العودة للرئيسية',
+  },
+};
+
+const c = copy[locale];
+---
+<Base
+  locale={locale}
+  title={`${c.title} | JIEBO Instrument`}
+  description={c.description}
+  path={path}
+  schemaType="website"
+  whatsappContext="general"
+>
+  <section class="section">
+    <div class="container" style="max-width:760px;">
+      <p class="eyebrow">JIEBO Instrument · Quote desk</p>
+      <h1>{c.title}</h1>
+      <p class="lede" style="margin-top:1rem;">{c.body}</p>
+      <p>{c.next}</p>
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1.5rem;">
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{c.whatsapp}</a>
+        <a class="button button--ghost" href={localizedHome(locale)}>{c.home}</a>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'generate_lead', form_name: 'jiebo-inquiry' });
+    if (window.gtag) window.gtag('event', 'generate_lead', { form_name: 'jiebo-inquiry' });
+  </script>
+</Base>

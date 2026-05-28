@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import InquiryForm from './InquiryForm.astro';
 import { SITE, type Locale } from '../consts';
 import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
 
@@ -174,6 +175,12 @@ const breadcrumbs = [
   </section>
 
   <section class="section">
+    <div class="container">
+      <InquiryForm locale={locale} />
+    </div>
+  </section>
+
+  <section class="section section--alt">
     <div class="container" style="max-width:780px;">
       <h2>{c.channelsTitle}</h2>
       <dl class="facts" style="grid-template-columns: max-content 1fr; margin-top:1rem;">
@@ -187,7 +194,7 @@ const breadcrumbs = [
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class="section">
     <div class="container" style="max-width:780px;">
       <div class="card" style="background:var(--bg);">
         <h2>{c.rfqTitle}</h2>
