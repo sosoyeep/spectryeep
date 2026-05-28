@@ -45,7 +45,7 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: 'How do I contact JIEBO?',
-      a: 'The fastest way is <a href="https://wa.me/8618118915721" target="_blank" rel="noopener">WhatsApp +86 181 1891 5721</a>. You can also email <a href="mailto:sales@wxjiebo.cc">sales@wxjiebo.cc</a> or call +86-510-83211967. Our office hours are Mon–Fri 8:30–17:30 CST.',
+      a: 'The fastest way is <a href="https://wa.me/8618118915721" target="_blank" rel="noopener">WhatsApp +86 181 1891 5721</a>. You can also email <a href="mailto:sophia@wxjiebo.cc">sophia@wxjiebo.cc</a> or call +86-510-83211967. Our office hours are Mon–Fri 8:30–17:30 CST.',
     },
   ],
   ru: [

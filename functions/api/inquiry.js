@@ -185,7 +185,7 @@ export async function onRequestPost({ request, env }) {
     console.error('Inquiry forwarding is not configured');
     return json(503, {
       ok: false,
-      error: 'Inquiry forwarding is not configured. Please contact sales@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
+      error: 'Inquiry forwarding is not configured. Please contact sophia@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
     });
   }
 
@@ -200,7 +200,7 @@ export async function onRequestPost({ request, env }) {
     console.error('Inquiry forwarding failed', error);
     return json(502, {
       ok: false,
-      error: 'Inquiry accepted but forwarding failed. Please contact sales@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
+      error: 'Inquiry accepted but forwarding failed. Please contact sophia@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
     });
   }
 

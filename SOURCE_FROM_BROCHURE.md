@@ -10,7 +10,7 @@
 | 头部 Office 地址 | Wuxi, China | No.26-9, Huibei Road, Liangxi District, Wuxi, Jiangsu, China |
 | 工厂地址 | (无) | No.40, Baishijian Road, Langxi Development Area, Xuancheng, Anhui, China |
 | Tel | +86 181 1891 5623 | +86-510-83211967 / +86-510-83211953 |
-| Email | lab-instrument@wxjiebo.cc | sales@wxjiebo.cc |
+| Email | lab-instrument@wxjiebo.cc | sophia@wxjiebo.cc |
 | Skype | jiebotech | jiebotech |
 
 ## 真实产品线（10 款，原有 5 款全部需要更新）
@@ -146,7 +146,7 @@ Mexico, Canada, Peru, Ecuador, Bolivia, Argentina, Chile, Brazil, Spain, Latvia,
 
 ## 下回合执行计划（按此修正）
 
-1. **改 src/consts.ts**：email → sales@wxjiebo.cc; 加 headOffice + factory 字段
+1. **改 src/consts.ts**：email → sophia@wxjiebo.cc; 加 headOffice + factory 字段
 2. **改 src/data/innovate-t5.ts**：焦距 401mm、波长 140-680nm、矩阵 10 种、78kg
 3. **重命名 slug**：`t4-mini-spark` → `exquis-t4`，写真实规格
 4. **新增 4 个产品**：JB-750（OES 旗舰）、Surpass F1（移动 OES）、CS2020（C/S）、ONH-508（O/N/H）、F6000 Pro（XRF）、F7000 Pro（LIBS）—— 实际是 6 个新增

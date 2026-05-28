@@ -14,7 +14,7 @@ export const SITE = {
   wechat: '+86 181 1891 5721',
   phone: '+86-510-83211967',
   phoneAlt: '+86-510-83211953',
-  email: 'sales@wxjiebo.cc',
+  email: 'sophia@wxjiebo.cc',
   skype: 'jiebotech',
   social: {
     facebook: 'https://www.facebook.com/jiebogroup',
