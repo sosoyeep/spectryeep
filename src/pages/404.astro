@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  locale="en"
+  title="Page not found | JIEBO Instrument"
+  description="The requested JIEBO Instrument page could not be found. Browse products, learning resources, or contact our sales team."
+  path="/404/"
+  robots="noindex, follow"
+  alternateLocales={['en']}
+>
+  <section class="section">
+    <div class="container" style="max-width: 760px;">
+      <p class="eyebrow">404</p>
+      <h1>Page not found</h1>
+      <p class="lede">
+        The page may have moved, or the address may be incorrect. Start with our product catalog or contact the JIEBO team directly.
+      </p>
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1.5rem;">
+        <a class="button button--primary" href="/products/">View Products</a>
+        <a class="button button--ghost" href="/contact/">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+</Base>

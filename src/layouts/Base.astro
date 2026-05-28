@@ -21,6 +21,7 @@ interface Props {
   whatsappContext?: 'general' | 'product' | 'learn';
   productName?: string;
   alternateLocales?: Locale[];
+  robots?: string;
 }
 
 const {
@@ -36,6 +37,7 @@ const {
   whatsappContext = 'general',
   productName,
   alternateLocales = LOCALES,
+  robots = 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
 } = Astro.props;
 
 const meta = LOCALE_META[locale];
@@ -155,7 +157,7 @@ const pageTitle = trimTitleForGoogle(title);
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{pageTitle}</title>
   <meta name="description" content={metaDescription} />
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="robots" content={robots} />
   <link rel="canonical" href={canonical} />
   {alternateLinks.map((l) => <link rel="alternate" hreflang={l.hreflang} href={l.href} />)}
   <link rel="alternate" hreflang="x-default" href={xDefault} />

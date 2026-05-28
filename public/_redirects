@@ -4,6 +4,8 @@ https://www.spectryeep.com/* https://spectryeep.com/:splat 301!
 # Legacy and common discovery URLs → canonical pages.
 /product/ /products/ 301
 /product /products/ 301
+/product/:slug/ /products/:slug/ 301
+/product/:slug /products/:slug/ 301
 /products.html /products/ 301
 /contact.html /contact/ 301
 /about-us/ /about/ 301
