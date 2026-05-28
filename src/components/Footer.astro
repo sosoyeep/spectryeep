@@ -54,6 +54,7 @@ const growthLinks = [
   { href: '/applications/foundry-oes-spectrometer/', label: 'Foundry OES' },
   { href: '/applications/scrap-metal-handheld-xrf-analyzer/', label: 'Scrap XRF' },
   { href: '/countries/india-oes-spectrometer-supplier/', label: 'India OES' },
+  { href: '/cases/', label: 'Cases' },
 ];
 
 const byCat = {
@@ -110,7 +111,7 @@ const byCat = {
         <strong style="display:block; margin-top:1rem;">Buyer pages</strong>
         <ul>
           {growthLinks.map((a) => (
-            <li><a href={a.href}>{a.label}</a></li>
+            <li><a href={localizedPath(locale, a.href)}>{a.label}</a></li>
           ))}
         </ul>
         <strong style="display:block; margin-top:1rem;">{g.company}</strong>

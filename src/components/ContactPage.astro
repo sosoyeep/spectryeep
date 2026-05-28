@@ -194,29 +194,6 @@ const breadcrumbs = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="container" style="max-width:780px;">
-      <div class="card" style="background:var(--bg);">
-        <h2>{c.rfqTitle}</h2>
-        <p style="color:var(--muted); margin-top:0.5rem;">{c.rfqBody}</p>
-        <form action={`mailto:${SITE.email}`} method="post" enctype="text/plain" style="display:grid; gap:1rem; margin-top:1.25rem;">
-          <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem;">
-            <label>{c.form.name}<input name="Name" autocomplete="name" /></label>
-            <label>{c.form.company}<input name="Company" autocomplete="organization" /></label>
-            <label>{c.form.country}<input name="Country" autocomplete="country-name" /></label>
-            <label>{c.form.email}<input name="Email" type="email" autocomplete="email" /></label>
-            <label>{c.form.phone}<input name="WhatsApp or phone" autocomplete="tel" /></label>
-            <label>{c.form.volume}<input name="Monthly sample volume" /></label>
-          </div>
-          <label>{c.form.material}<input name="Sample material or alloy matrix" /></label>
-          <label>{c.form.elements}<input name="Target elements" /></label>
-          <label>{c.form.message}<textarea name="Application notes" rows="5"></textarea></label>
-          <button class="button button--primary" type="submit" style="justify-self:start;">{c.rfqSubmit}</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
   <section class="section section--alt">
     <div class="container" style="max-width:780px;">
       <h2>{c.addressesTitle}</h2>

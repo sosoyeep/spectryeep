@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import { CASE_STUDIES } from '../data/case-studies';
+import { localizedHome, t } from '../i18n/utils';
+import type { Locale } from '../consts';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+---
+<Base
+  locale={locale}
+  title="Anonymized instrument case studies | JIEBO Instrument"
+  description="Anonymized JIEBO application cases for OES spectrometers, carbon sulfur analyzers, ONH analyzers and handheld XRF/LIBS workflows."
+  path="/cases/"
+  schemaType="website"
+  alternateLocales={['en']}
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localizedHome(locale)}>{t(locale, 'breadcrumb.home')}</a> /
+      <span>Cases</span>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-block-start:1rem;">
+    <div class="container" style="max-width:860px;">
+      <p class="eyebrow">Cases</p>
+      <h1>Anonymized application cases</h1>
+      <p class="lede" style="margin-top:1rem;">Practical, privacy-safe examples of how buyers evaluate JIEBO instruments for foundry QC, PMI, C/S analysis, mining XRF and specialty alloy testing.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <div class="grid grid--3">
+        {CASE_STUDIES.map((item) => (
+          <a class="card" href={`/cases/${item.slug}/`}>
+            <p class="eyebrow" style="margin-bottom:0.35rem;">{item.market}</p>
+            <h2 style="font-size:1.2rem;">{item.h1}</h2>
+            <p style="color:var(--muted); margin-bottom:0;">{item.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, type Locale } from '../consts';
+import { localizedHome, localizedPath, t, whatsappUrl } from '../i18n/utils';
+import type { CaseStudy } from '../data/case-studies';
+
+interface Props {
+  locale: Locale;
+  item: CaseStudy;
+}
+
+const { locale, item } = Astro.props;
+const path = `/cases/${item.slug}/`;
+const waHref = whatsappUrl(SITE.whatsapp, `Hi JIEBO, I read the case study "${item.h1}". Could you recommend a similar configuration and send a quote?`);
+const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
+const breadcrumbs = [
+  { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },
+  { name: 'Cases', url: new URL(localizedPath(locale, '/cases/'), Astro.site).toString() },
+  { name: item.h1, url: canonical },
+];
+---
+<Base
+  locale={locale}
+  title={`${item.title} | JIEBO Instrument`}
+  description={item.description}
+  path={path}
+  schemaType="website"
+  breadcrumbs={breadcrumbs}
+  faq={item.faq}
+  alternateLocales={['en']}
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localizedHome(locale)}>{t(locale, 'breadcrumb.home')}</a> /
+      <a href="/cases/">Cases</a> /
+      <span>{item.h1}</span>
+    </nav>
+  </div>
+
+  <article class="section" style="padding-block-start:1rem;">
+    <div class="container" style="max-width:860px;">
+      <p class="eyebrow">{item.eyebrow}</p>
+      <h1>{item.h1}</h1>
+      <p class="lede" style="margin-top:1rem;">{item.description}</p>
+
+      <dl class="facts card" style="margin-top:1.5rem;">
+        <dt>Market</dt><dd>{item.market}</dd>
+        <dt>Product</dt><dd><a href={item.productHref}>{item.product}</a></dd>
+        <dt>Application</dt><dd>{item.application}</dd>
+      </dl>
+
+      <section style="margin-top:2rem;">
+        <h2>Challenge</h2>
+        <ul>{item.challenge.map((x) => <li>{x}</li>)}</ul>
+      </section>
+
+      <section style="margin-top:2rem;">
+        <h2>JIEBO recommendation</h2>
+        <ul>{item.solution.map((x) => <li>{x}</li>)}</ul>
+      </section>
+
+      <section style="margin-top:2rem;">
+        <h2>Practical outcome</h2>
+        <ul>{item.result.map((x) => <li>{x}</li>)}</ul>
+      </section>
+
+      <aside class="card" style="background:var(--card); margin-top:2rem;">
+        <strong>Disclosure</strong>
+        <p style="margin:0.5rem 0 0; color:var(--muted);">{item.note}</p>
+      </aside>
+
+      <section style="margin-top:2rem;">
+        <h2>Related pages</h2>
+        <div class="grid grid--3" style="margin-top:1rem;">
+          {item.related.map((r) => <a class="card" href={r.href}>{r.label}</a>)}
+        </div>
+      </section>
+
+      <section style="margin-top:2rem;">
+        <h2>Buyer questions</h2>
+        <div style="display:grid; gap:0.75rem; margin-top:1rem;">
+          {item.faq.map((f) => (
+            <details class="faq">
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <div class="card" style="background:var(--card); margin-top:2rem;">
+        <h2>Ask for a similar recommendation</h2>
+        <p style="color:var(--muted);">Send your material, target elements, sample volume and country. Our engineers will suggest a matching model and configuration.</p>
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')} · {SITE.wechat}</a>
+      </div>
+    </div>
+  </article>
+</Base>
