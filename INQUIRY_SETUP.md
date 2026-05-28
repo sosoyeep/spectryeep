@@ -43,7 +43,15 @@ EMAIL_WEBHOOK_URL=
 EMAIL_WEBHOOK_TOKEN=
 ```
 
-If no forwarding target is configured, the function returns an explicit error instead of silently losing inquiries.
+If no forwarding target is configured, or if a forwarding target fails, the function redirects the same browser POST to `FALLBACK_FORM_ACTION` so the inquiry can still reach email.
+
+For Google Workspace CRM, see `GOOGLE_WORKSPACE_CRM_SETUP.md` and use:
+
+```text
+PUBLIC_INQUIRY_FORM_ACTION=/api/inquiry
+CRM_WEBHOOK_URL=https://script.google.com/macros/s/DEPLOYMENT_ID/exec?token=YOUR_WEBHOOK_TOKEN
+FALLBACK_FORM_ACTION=https://formsubmit.co/sophia@wxjiebo.cc
+```
 
 ## Cloudflare Turnstile
 

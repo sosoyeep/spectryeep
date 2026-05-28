@@ -163,6 +163,11 @@ async function forwardToFormspree(env, payload) {
   return result;
 }
 
+function fallbackToEmailForm(request, env) {
+  const fallbackUrl = env.FALLBACK_FORM_ACTION || 'https://formsubmit.co/sophia@wxjiebo.cc';
+  return Response.redirect(new URL(fallbackUrl, request.url), 307);
+}
+
 export async function onRequestPost({ request, env }) {
   const ip = getIp(request);
   let data;
@@ -182,11 +187,8 @@ export async function onRequestPost({ request, env }) {
   }
 
   if (!env.FORMSPREE_ENDPOINT && !env.CRM_WEBHOOK_URL && !env.EMAIL_WEBHOOK_URL) {
-    console.error('Inquiry forwarding is not configured');
-    return json(503, {
-      ok: false,
-      error: 'Inquiry forwarding is not configured. Please contact sophia@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
-    });
+    console.warn('Inquiry forwarding is not configured; falling back to email form endpoint');
+    return fallbackToEmailForm(request, env);
   }
 
   const payload = leadPayload(data, request, ip);
@@ -198,10 +200,7 @@ export async function onRequestPost({ request, env }) {
     ]);
   } catch (error) {
     console.error('Inquiry forwarding failed', error);
-    return json(502, {
-      ok: false,
-      error: 'Inquiry accepted but forwarding failed. Please contact sophia@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
-    });
+    return fallbackToEmailForm(request, env);
   }
 
   const locale = data.locale && data.locale !== 'en' ? `/${data.locale}` : '';

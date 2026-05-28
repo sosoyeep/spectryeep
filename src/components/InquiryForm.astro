@@ -11,7 +11,7 @@ interface Props {
 
 const { locale, productName = '', productSku = '', compact = false } = Astro.props;
 
-const formAction = import.meta.env.PUBLIC_INQUIRY_FORM_ACTION || `https://formsubmit.co/${SITE.email}`;
+const formAction = import.meta.env.PUBLIC_INQUIRY_FORM_ACTION || '/api/inquiry';
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 const sourcePath = Astro.url.pathname;
 const thankYouPath = localizedPath(locale, '/thank-you/');
