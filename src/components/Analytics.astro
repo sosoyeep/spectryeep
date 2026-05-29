@@ -1,0 +1,24 @@
+---
+/**
+ * GA4 loader. Renders nothing unless PUBLIC_GA4_ID is set (e.g. "G-XXXXXXXXXX"),
+ * so local dev and preview stay script-free. Set the value in Cloudflare Pages
+ * env vars to activate in production.
+ *
+ * Conversion events (e.g. generate_lead on /thank-you/) push to window.dataLayer
+ * and call window.gtag, both of which this snippet initialises.
+ */
+const gaId = import.meta.env.PUBLIC_GA4_ID || '';
+const isValid = /^G-[A-Z0-9]+$/.test(gaId);
+---
+{isValid && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+    <script is:inline define:vars={{ gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ window.dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+  </>
+)}
