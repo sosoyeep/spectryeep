@@ -1,3 +1,7 @@
+import { runAutoReply } from '../lib/engine.js';
+import { sendEmail } from '../lib/channels.js';
+import { SITE } from '../lib/site.js';
+
 const MAX_MESSAGE_LENGTH = 5000;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const rateLimit = new Map();
@@ -168,7 +172,8 @@ function fallbackToEmailForm(request, env) {
   return Response.redirect(new URL(fallbackUrl, request.url), 307);
 }
 
-export async function onRequestPost({ request, env }) {
+export async function onRequestPost(context) {
+  const { request, env } = context;
   const ip = getIp(request);
   let data;
   try {
@@ -202,6 +207,35 @@ export async function onRequestPost({ request, env }) {
     console.error('Inquiry forwarding failed', error);
     return fallbackToEmailForm(request, env);
   }
+
+  // Auto-reply: instant multilingual confirmation to the buyer + AI draft for
+  // sales. The lead is already in the CRM via the forwarders above (logCrm:false
+  // avoids a duplicate row). Best-effort and runs in the background so it never
+  // delays the thank-you redirect.
+  const autoReply = runAutoReply({
+    env,
+    logCrm: false,
+    msg: {
+      channel: 'website',
+      from: data.email,
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      country: data.country,
+      phone: data.phone,
+      product: data.product,
+      message: data.message,
+      locale: data.locale,
+    },
+    sendToCustomer: (text) =>
+      sendEmail({
+        env,
+        to: data.email,
+        subject: `${SITE.brand} — we received your inquiry`,
+        text,
+      }),
+  }).catch((error) => console.warn('Auto-reply failed', error));
+  if (context.waitUntil) context.waitUntil(autoReply);
 
   const locale = data.locale && data.locale !== 'en' ? `/${data.locale}` : '';
   return Response.redirect(new URL(`${locale}/thank-you/`, request.url), 302);
