@@ -28,6 +28,7 @@ Set these in Cloudflare Pages:
 ```text
 PUBLIC_INQUIRY_FORM_ACTION=/api/inquiry
 PUBLIC_TURNSTILE_SITE_KEY=your-turnstile-site-key
+TURNSTILE_SITE_KEY=your-turnstile-site-key
 TURNSTILE_SECRET_KEY=your-turnstile-secret-key
 MIN_SUBMIT_SECONDS=4
 INQUIRY_RATE_LIMIT_MAX=5
@@ -43,7 +44,7 @@ EMAIL_WEBHOOK_URL=
 EMAIL_WEBHOOK_TOKEN=
 ```
 
-If no forwarding target is configured, or if a forwarding target fails, the function redirects the same browser POST to `FALLBACK_FORM_ACTION` so the inquiry can still reach email.
+If no forwarding target is configured, or if a forwarding target fails, the function forwards to `FALLBACK_FORM_ACTION` server-side and still redirects the visitor back to `/thank-you/`.
 
 For Google Workspace CRM, see `GOOGLE_WORKSPACE_CRM_SETUP.md` and use:
 

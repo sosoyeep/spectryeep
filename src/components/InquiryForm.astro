@@ -12,7 +12,6 @@ interface Props {
 const { locale, productName = '', productSku = '', compact = false } = Astro.props;
 
 const formAction = import.meta.env.PUBLIC_INQUIRY_FORM_ACTION || '/api/inquiry';
-const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || '';
 const sourcePath = Astro.url.pathname;
 const thankYouPath = localizedPath(locale, '/thank-you/');
 const thankYouUrl = new URL(thankYouPath, Astro.site).toString();
@@ -165,12 +164,7 @@ const c = copy[locale];
     <label>{c.message}<textarea name="message" rows="5" required minlength="12"></textarea></label>
     {productSku && <input type="hidden" name="product_sku" value={productSku} />}
 
-    {turnstileSiteKey && (
-      <>
-        <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
-        <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-      </>
-    )}
+    <div class="turnstile-host" data-turnstile-host></div>
 
     <label class="form-consent">
       <input type="checkbox" name="consent" value="yes" required />
@@ -222,4 +216,33 @@ const c = copy[locale];
       }
     });
   });
+
+  let turnstileScriptPromise;
+  function loadTurnstileScript() {
+    if (window.turnstile) return Promise.resolve();
+    if (turnstileScriptPromise) return turnstileScriptPromise;
+    turnstileScriptPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.async = true;
+      script.defer = true;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error('Turnstile failed to load'));
+      document.head.appendChild(script);
+    });
+    return turnstileScriptPromise;
+  }
+
+  fetch('/api/inquiry-config', { cache: 'no-store' })
+    .then((response) => response.ok ? response.json() : { turnstileSiteKey: '' })
+    .then(async (config) => {
+      if (!config.turnstileSiteKey) return;
+      await loadTurnstileScript();
+      document.querySelectorAll('[data-turnstile-host]').forEach((host) => {
+        if (host.dataset.rendered) return;
+        host.dataset.rendered = 'true';
+        window.turnstile.render(host, { sitekey: config.turnstileSiteKey });
+      });
+    })
+    .catch(() => {});
 </script>

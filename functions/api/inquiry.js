@@ -143,9 +143,12 @@ async function postJson(url, payload, token) {
   const result = await fetch(url, {
     method: 'POST',
     headers,
+    redirect: 'manual',
     body: JSON.stringify(payload),
   });
-  if (!result.ok) throw new Error(`POST ${url} failed with ${result.status}`);
+  if (!result.ok && result.status >= 400) {
+    throw new Error(`POST ${url} failed with ${result.status}`);
+  }
   return result;
 }
 
@@ -153,19 +156,68 @@ async function forwardToFormspree(env, payload) {
   if (!env.FORMSPREE_ENDPOINT) return null;
   const result = await fetch(env.FORMSPREE_ENDPOINT, {
     method: 'POST',
+    redirect: 'manual',
     headers: {
       accept: 'application/json',
       'content-type': 'application/json',
     },
     body: JSON.stringify(payload),
   });
-  if (!result.ok) throw new Error(`Formspree failed with ${result.status}`);
+  if (!result.ok && result.status >= 400) {
+    throw new Error(`Formspree failed with ${result.status}`);
+  }
   return result;
 }
 
-function fallbackToEmailForm(request, env) {
+function flattenPayload(payload) {
+  return {
+    _subject: `Spectryeep inquiry${payload.product ? ` - ${payload.product}` : ''}`,
+    _template: 'table',
+    _captcha: 'false',
+    _next: 'https://spectryeep.com/thank-you/',
+    source: payload.source,
+    received_at: payload.received_at,
+    source_page: payload.source_page,
+    locale: payload.locale,
+    name: payload.name,
+    company: payload.company,
+    country: payload.country,
+    email: payload.email,
+    phone: payload.phone,
+    product: payload.product,
+    product_sku: payload.product_sku,
+    application: payload.application,
+    sample_material: payload.sample_material,
+    target_elements: payload.target_elements,
+    message: payload.message,
+    utm_source: payload.utm?.source,
+    utm_medium: payload.utm?.medium,
+    utm_campaign: payload.utm?.campaign,
+    utm_term: payload.utm?.term,
+    utm_content: payload.utm?.content,
+  };
+}
+
+async function forwardToFallbackEmail(env, payload) {
   const fallbackUrl = env.FALLBACK_FORM_ACTION || 'https://formsubmit.co/sophia@wxjiebo.cc';
-  return Response.redirect(new URL(fallbackUrl, request.url), 307);
+  const body = new URLSearchParams();
+  const flat = flattenPayload(payload);
+  for (const [key, value] of Object.entries(flat)) {
+    if (value !== undefined && value !== null && value !== '') body.set(key, String(value));
+  }
+  const result = await fetch(fallbackUrl, {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'manual',
+    body,
+  });
+  if (!result.ok && result.status >= 400) {
+    throw new Error(`Fallback form failed with ${result.status}`);
+  }
+  return result;
 }
 
 export async function onRequestPost({ request, env }) {
@@ -186,21 +238,29 @@ export async function onRequestPost({ request, env }) {
     return json(400, { ok: false, error: 'Submission blocked', reasons: errors });
   }
 
-  if (!env.FORMSPREE_ENDPOINT && !env.CRM_WEBHOOK_URL && !env.EMAIL_WEBHOOK_URL) {
-    console.warn('Inquiry forwarding is not configured; falling back to email form endpoint');
-    return fallbackToEmailForm(request, env);
-  }
-
   const payload = leadPayload(data, request, ip);
   try {
-    await Promise.all([
-      forwardToFormspree(env, payload),
-      postJson(env.CRM_WEBHOOK_URL, payload, env.CRM_WEBHOOK_TOKEN),
-      postJson(env.EMAIL_WEBHOOK_URL, payload, env.EMAIL_WEBHOOK_TOKEN),
-    ]);
+    if (env.FORMSPREE_ENDPOINT || env.CRM_WEBHOOK_URL || env.EMAIL_WEBHOOK_URL) {
+      await Promise.all([
+        forwardToFormspree(env, payload),
+        postJson(env.CRM_WEBHOOK_URL, payload, env.CRM_WEBHOOK_TOKEN),
+        postJson(env.EMAIL_WEBHOOK_URL, payload, env.EMAIL_WEBHOOK_TOKEN),
+      ]);
+    } else {
+      console.warn('Inquiry forwarding is not configured; using fallback email endpoint server-side');
+      await forwardToFallbackEmail(env, payload);
+    }
   } catch (error) {
-    console.error('Inquiry forwarding failed', error);
-    return fallbackToEmailForm(request, env);
+    console.error('Inquiry forwarding failed; trying fallback email endpoint', error);
+    try {
+      await forwardToFallbackEmail(env, payload);
+    } catch (fallbackError) {
+      console.error('Fallback email forwarding failed', fallbackError);
+      return json(502, {
+        ok: false,
+        error: 'Inquiry accepted but forwarding failed. Please contact sales@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
+      });
+    }
   }
 
   const locale = data.locale && data.locale !== 'en' ? `/${data.locale}` : '';
