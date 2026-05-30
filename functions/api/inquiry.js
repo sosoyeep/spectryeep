@@ -137,36 +137,44 @@ function leadPayload(data, request, ip) {
 }
 
 async function postJson(url, payload, token) {
-  if (!url) return null;
+  if (!url) return { configured: false, ok: true };
   const headers = { 'content-type': 'application/json' };
   if (token) headers.authorization = `Bearer ${token}`;
-  const result = await fetch(url, {
-    method: 'POST',
-    headers,
-    redirect: 'manual',
-    body: JSON.stringify(payload),
-  });
-  if (!result.ok && result.status >= 400) {
-    throw new Error(`POST ${url} failed with ${result.status}`);
+  try {
+    const result = await fetch(url, {
+      method: 'POST',
+      headers,
+      redirect: 'manual',
+      body: JSON.stringify(payload),
+    });
+    if (!result.ok && result.status >= 400) {
+      return { configured: true, ok: false, status: result.status, error: `POST failed with ${result.status}` };
+    }
+    return { configured: true, ok: true, status: result.status };
+  } catch (error) {
+    return { configured: true, ok: false, error: error?.message || 'POST failed' };
   }
-  return result;
 }
 
 async function forwardToFormspree(env, payload) {
-  if (!env.FORMSPREE_ENDPOINT) return null;
-  const result = await fetch(env.FORMSPREE_ENDPOINT, {
-    method: 'POST',
-    redirect: 'manual',
-    headers: {
-      accept: 'application/json',
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  });
-  if (!result.ok && result.status >= 400) {
-    throw new Error(`Formspree failed with ${result.status}`);
+  if (!env.FORMSPREE_ENDPOINT) return { configured: false, ok: true };
+  try {
+    const result = await fetch(env.FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      redirect: 'manual',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+    if (!result.ok && result.status >= 400) {
+      return { configured: true, ok: false, status: result.status, error: `Formspree failed with ${result.status}` };
+    }
+    return { configured: true, ok: true, status: result.status };
+  } catch (error) {
+    return { configured: true, ok: false, error: error?.message || 'Formspree failed' };
   }
-  return result;
 }
 
 function flattenPayload(payload) {
@@ -199,24 +207,49 @@ function flattenPayload(payload) {
 }
 
 async function forwardToFallbackEmail(env, payload) {
+  if (env.ENABLE_SERVER_SIDE_FALLBACK !== 'true') {
+    return { configured: false, ok: true };
+  }
   const fallbackUrl = env.FALLBACK_FORM_ACTION || 'https://formsubmit.co/sophia@wxjiebo.cc';
   const body = new FormData();
   const flat = flattenPayload(payload);
   for (const [key, value] of Object.entries(flat)) {
     if (value !== undefined && value !== null && value !== '') body.append(key, String(value));
   }
-  const result = await fetch(fallbackUrl, {
-    method: 'POST',
-    headers: {
-      accept: 'application/json',
-    },
-    redirect: 'manual',
-    body,
-  });
-  if (!result.ok && result.status >= 400) {
-    throw new Error(`Fallback form failed with ${result.status}`);
+  try {
+    const result = await fetch(fallbackUrl, {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+      },
+      redirect: 'manual',
+      body,
+    });
+    if (!result.ok && result.status >= 400) {
+      return { configured: true, ok: false, status: result.status, error: `Fallback form failed with ${result.status}` };
+    }
+    return { configured: true, ok: true, status: result.status };
+  } catch (error) {
+    return { configured: true, ok: false, error: error?.message || 'Fallback form failed' };
   }
-  return result;
+}
+
+async function forwardLead(env, payload) {
+  const results = await Promise.all([
+    forwardToFormspree(env, payload),
+    postJson(env.CRM_WEBHOOK_URL, payload, env.CRM_WEBHOOK_TOKEN),
+    postJson(env.EMAIL_WEBHOOK_URL, payload, env.EMAIL_WEBHOOK_TOKEN),
+    forwardToFallbackEmail(env, payload),
+  ]);
+  const configured = results.filter((result) => result.configured);
+  const delivered = configured.some((result) => result.ok);
+  if (configured.length === 0) {
+    return { configured: false, delivered: false, results };
+  }
+  if (!delivered) {
+    console.error('All inquiry forwarding targets failed', results);
+  }
+  return { configured: true, delivered, results };
 }
 
 async function handleInquiryPost({ request, env }) {
@@ -238,28 +271,13 @@ async function handleInquiryPost({ request, env }) {
   }
 
   const payload = leadPayload(data, request, ip);
-  try {
-    if (env.FORMSPREE_ENDPOINT || env.CRM_WEBHOOK_URL || env.EMAIL_WEBHOOK_URL) {
-      await Promise.all([
-        forwardToFormspree(env, payload),
-        postJson(env.CRM_WEBHOOK_URL, payload, env.CRM_WEBHOOK_TOKEN),
-        postJson(env.EMAIL_WEBHOOK_URL, payload, env.EMAIL_WEBHOOK_TOKEN),
-      ]);
-    } else {
-      console.warn('Inquiry forwarding is not configured; using fallback email endpoint server-side');
-      await forwardToFallbackEmail(env, payload);
-    }
-  } catch (error) {
-    console.error('Inquiry forwarding failed; trying fallback email endpoint', error);
-    try {
-      await forwardToFallbackEmail(env, payload);
-    } catch (fallbackError) {
-      console.error('Fallback email forwarding failed', fallbackError);
-      return json(502, {
-        ok: false,
-        error: 'Inquiry accepted but forwarding failed. Please contact sales@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
-      });
-    }
+  const forwarding = await forwardLead(env, payload);
+  if (!forwarding.configured) {
+    console.error('Inquiry forwarding is not configured');
+    return json(503, {
+      ok: false,
+      error: 'Inquiry forwarding is not configured. Please contact sales@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
+    });
   }
 
   const locale = data.locale && data.locale !== 'en' ? `/${data.locale}` : '';
