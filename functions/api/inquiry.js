@@ -200,16 +200,15 @@ function flattenPayload(payload) {
 
 async function forwardToFallbackEmail(env, payload) {
   const fallbackUrl = env.FALLBACK_FORM_ACTION || 'https://formsubmit.co/sophia@wxjiebo.cc';
-  const body = new URLSearchParams();
+  const body = new FormData();
   const flat = flattenPayload(payload);
   for (const [key, value] of Object.entries(flat)) {
-    if (value !== undefined && value !== null && value !== '') body.set(key, String(value));
+    if (value !== undefined && value !== null && value !== '') body.append(key, String(value));
   }
   const result = await fetch(fallbackUrl, {
     method: 'POST',
     headers: {
       accept: 'application/json',
-      'content-type': 'application/x-www-form-urlencoded',
     },
     redirect: 'manual',
     body,
@@ -220,7 +219,7 @@ async function forwardToFallbackEmail(env, payload) {
   return result;
 }
 
-export async function onRequestPost({ request, env }) {
+async function handleInquiryPost({ request, env }) {
   const ip = getIp(request);
   let data;
   try {
@@ -265,6 +264,18 @@ export async function onRequestPost({ request, env }) {
 
   const locale = data.locale && data.locale !== 'en' ? `/${data.locale}` : '';
   return Response.redirect(new URL(`${locale}/thank-you/`, request.url), 302);
+}
+
+export async function onRequestPost(context) {
+  try {
+    return await handleInquiryPost(context);
+  } catch (error) {
+    console.error('Unhandled inquiry error', error);
+    return json(500, {
+      ok: false,
+      error: 'Inquiry service error. Please contact sales@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
+    });
+  }
 }
 
 export function onRequestGet() {
