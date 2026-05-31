@@ -20,8 +20,8 @@ neglected.
 
 ## Why it matters
 
-- A poor **seal** lets air in → oxidised burns, bad UV elements → see [[Troubleshooting common
-  problems]].
+- A poor **seal** lets air in → oxidised burns, bad UV elements → see
+  [[Troubleshooting common problems]].
 - A dirty/eroded **electrode** or wrong **gap** changes the plasma and biases results.
 - **Deposit build-up** on the stand and in the exhaust accumulates conductive metal dust →
   arc-overs and contamination.

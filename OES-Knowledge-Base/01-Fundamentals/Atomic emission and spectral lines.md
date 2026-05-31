@@ -10,8 +10,9 @@ fingerprint.
 
 ## Why atoms emit specific wavelengths
 
-Electrons in an atom occupy discrete energy levels. When the [[Plasma formation and excitation
-temperature|plasma]] delivers energy, electrons jump to **higher (excited) levels**. They are
+Electrons in an atom occupy discrete energy levels. When the
+[[Plasma formation and excitation temperature|plasma]] delivers energy, electrons jump to
+**higher (excited) levels**. They are
 unstable there and fall back toward the ground state, releasing the energy difference as a
 **photon**. Because the energy gaps are quantised and specific to each element, the emitted
 photons have specific wavelengths:

@@ -39,8 +39,8 @@ standardisation]] is needed when conditions drift.
 
 ## Matrix dependence
 Different matrices (steel vs aluminium vs copper) ablate and excite differently, so each needs
-its **own excitation parameter set and calibration** — see [[Spectral interferences and matrix
-effects]].
+its **own excitation parameter set and calibration** — see
+[[Spectral interferences and matrix effects]].
 
 ## Related
 [[Spark and arc excitation]] · [[Argon supply and purity]] · [[Atomic emission and spectral lines]] ·

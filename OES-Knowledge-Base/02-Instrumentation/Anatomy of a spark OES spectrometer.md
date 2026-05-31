@@ -42,8 +42,9 @@ The signal path from solid sample to element concentrations.
    run [[Quality control and SPC|QC]].
 
 ## Two architectural families
-- **Paschen–Runge + PMT** — fixed exit slits/PMTs on a [[Optical system - Paschen-Runge and
-  Rowland circle|Rowland circle]]; rugged, fast, classic foundry instrument (e.g. [[JB-750]]).
+- **Paschen–Runge + PMT** — fixed exit slits/PMTs on a
+  [[Optical system - Paschen-Runge and Rowland circle|Rowland circle]]; rugged, fast, classic
+  foundry instrument (e.g. [[JB-750]]).
 - **Grating + CCD/CMOS array** — solid-state pixels record a continuous spectrum; flexible,
   compact, no moving slits (e.g. [[Innovate T5]], [[Noble T7]]). See
   [[Detectors - PMT vs CCD-CMOS]].

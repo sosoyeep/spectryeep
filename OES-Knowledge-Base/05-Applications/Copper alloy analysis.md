@@ -27,8 +27,9 @@ avoid smearing and embedded grit ([[Surface grinding and milling]]).
 
 ## Programs / sub-matrices
 Distinct calibrations for **brass**, **tin/aluminium bronze**, **cupronickel**, **pure copper**,
-etc., each with Cu-matrix CRMs. High Zn or Sn shifts [[Spectral interferences and matrix
-effects|matrix behaviour]], so don't stretch one curve across families.
+etc., each with Cu-matrix CRMs. High Zn or Sn shifts
+[[Spectral interferences and matrix effects|matrix behaviour]], so don't stretch one curve across
+families.
 
 ## Where it's used
 Copper/brass **foundries** (melt control), wrought mill **certification**, plumbing/electrical/

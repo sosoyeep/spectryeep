@@ -17,8 +17,8 @@ measures well — especially **carbon**, which [[OES vs XRF vs LIBS|XRF cannot d
 
 ## Sub-matrices (each needs its own program/CRMs)
 
-- **Carbon & low-alloy steel** — the bread-and-butter program (standard: [[ASTM methods for
-  spark OES|ASTM E415]], [[Chinese GB-T standards|GB/T 4336]]).
+- **Carbon & low-alloy steel** — the bread-and-butter program (standard:
+  [[ASTM methods for spark OES|ASTM E415]], [[Chinese GB-T standards|GB/T 4336]]).
 - **Austenitic / stainless steel** — high Cr-Ni, more interferences, more resolution demanded
   (ASTM E1086; GB/T 11170).
 - **Tool / high-speed steels** — high W, Mo, V, Co.
@@ -31,13 +31,13 @@ measures well — especially **carbon**, which [[OES vs XRF vs LIBS|XRF cannot d
 
 ## Getting it right
 - Prep: grind 60–80 grit, analyse fresh → [[Surface grinding and milling]].
-- Calibrate matrix-matched; standardise each shift → [[Calibration and certified reference
-  materials]], [[Type standardization and drift correction]].
+- Calibrate matrix-matched; standardise each shift →
+  [[Calibration and certified reference materials]], [[Type standardization and drift correction]].
 - Use **single-spark / PDA** for inclusion & cleanliness work →
   [[Single spark evaluation (PDA-SDA)]].
 - Cross-check **C/S** at the extremes or for arbitration with
-  [[Carbon-sulfur combustion analysis|combustion]]; **O/N/H** with [[ONH inert gas fusion
-  analysis|fusion]].
+  [[Carbon-sulfur combustion analysis|combustion]]; **O/N/H** with
+  [[ONH inert gas fusion analysis|fusion]].
 
 ## JIEBO fit
 Fe-matrix is core for [[Innovate T5]], [[Noble T7]], [[Exquis T4]] and the [[JB-750]] flagship;

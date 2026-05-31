@@ -35,8 +35,8 @@ By histogramming single-spark intensities, software can separate:
 - A **research / high-end feature** (cleanliness work, R&D, premium QC); requires a fast
   [[Excitation source (spark generator)|digital source]] and detector readout that records
   per-discharge data.
-- Complements, not replaces, dedicated cleanliness methods (microscopy, [[ONH inert gas fusion
-  analysis|fusion for O/N]]).
+- Complements, not replaces, dedicated cleanliness methods (microscopy,
+  [[ONH inert gas fusion analysis|fusion for O/N]]).
 
 ## Related
 [[Spark and arc excitation]] · [[Excitation source (spark generator)]] ·

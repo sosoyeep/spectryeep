@@ -16,8 +16,8 @@ Monel, Nimonic, Stellite, Waspaloy …) for aerospace, energy and chemical-proce
   [[JB-750]]) and excellent [[Calibration and certified reference materials|matrix-matched
   CRMs]].
 - **Tight trace limits** (e.g. low S, P, Pb, Bi, Ag, Se for hot-cracking control) → low
-  [[Detection limits, precision and accuracy|detection limits]] and [[Vacuum vs purged vs sealed
-  optics|vacuum/UV optics]].
+  [[Detection limits, precision and accuracy|detection limits]] and
+  [[Vacuum vs purged vs sealed optics|vacuum/UV optics]].
 - **Segregation / inclusions** matter → [[Single spark evaluation (PDA-SDA)|single-spark
   evaluation]] for cleanliness.
 
