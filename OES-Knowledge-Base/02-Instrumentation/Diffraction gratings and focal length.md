@@ -39,8 +39,7 @@ two focal lengths** to optimise both UV and visible (e.g. [[Surpass F1]]: UV 350
 ## Resolution vs throughput trade-off
 Finer dispersion separates lines but spreads light thinner (lower signal per pixel/slit). Good
 design balances **groove density, focal length, slit widths and detector pixel size** to resolve
-the needed lines while keeping enough light for low [[Detection limits, precision and accuracy|
-detection limits]].
+the needed lines while keeping enough light for low [[Detection limits, precision and accuracy| detection limits]].
 
 ## Related
 [[Optical system - Paschen-Runge and Rowland circle]] · [[Detectors - PMT vs CCD-CMOS]] ·

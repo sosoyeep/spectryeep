@@ -12,8 +12,7 @@ conditioned. Three approaches:
 
 ## 1. Vacuum optics
 The polychromator chamber is **evacuated** with a pump. Removes all absorbing gas → best,
-most stable VUV transmission and lowest [[Detection limits, precision and accuracy|detection
-limits]] for C, P, S, N. Needs a vacuum pump and good seals; standard on performance lab units —
+most stable VUV transmission and lowest [[Detection limits, precision and accuracy|detection limits]] for C, P, S, N. Needs a vacuum pump and good seals; standard on performance lab units —
 JIEBO's [[Innovate T5]] and [[JB-750]] use a **vacuum optical chamber**.
 
 ## 2. Argon-purged optics

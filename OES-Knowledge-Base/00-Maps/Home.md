@@ -25,8 +25,7 @@ Spark OES vaporises a microscopic amount of a solid metal sample with a high-vol
 electrical discharge in an argon atmosphere. The excited atoms emit light at wavelengths
 unique to each element; a [[Diffraction gratings and focal length|grating]] disperses that
 light and [[Detectors - PMT vs CCD-CMOS|detectors]] measure the intensity of each line. After
-[[Calibration and certified reference materials|calibration against certified reference
-materials]], those intensities become element concentrations — **20–70+ elements in a few
+[[Calibration and certified reference materials|calibration against certified reference materials]], those intensities become element concentrations — **20–70+ elements in a few
 seconds**, including the light elements (**C, P, S, B, N**) that
 [[OES vs XRF vs LIBS|XRF cannot measure well]].
 

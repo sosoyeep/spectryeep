@@ -24,8 +24,7 @@ The three workhorses of metals elemental analysis. Each has a distinct sweet spo
 ## How to choose
 
 - **Need carbon, or certification-grade accuracy?** → **OES**. The reason foundries and mills run
-  it: C, P, S, B, N directly, lowest [[Detection limits, precision and accuracy|detection
-  limits]]. (JIEBO: [[Innovate T5]], [[Noble T7]], [[JB-750]] …)
+  it: C, P, S, B, N directly, lowest [[Detection limits, precision and accuracy|detection limits]]. (JIEBO: [[Innovate T5]], [[Noble T7]], [[JB-750]] …)
 - **Need fast, non-destructive sorting / PMI of heavier elements in the field, no prep?** →
   **XRF** (handheld). Can't measure carbon reliably. (JIEBO: [[F6000 Pro]])
 - **Need handheld carbon-equivalent sorting / scrap, light-element capability portable?** →

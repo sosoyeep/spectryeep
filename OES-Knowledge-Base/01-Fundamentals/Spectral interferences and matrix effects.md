@@ -35,8 +35,7 @@ intensity in steel vs aluminium vs copper. Consequences:
 ## How instruments cope
 1. **Internal standardisation** — ratio every line to a matrix-element line to cancel drift in
    ablated amount.
-2. **Matrix-matched CRMs** — calibrate with [[Calibration and certified reference materials|
-   reference materials of the same alloy family]].
+2. **Matrix-matched CRMs** — calibrate with [[Calibration and certified reference materials| reference materials of the same alloy family]].
 3. **Inter-element correction terms** in the calibration model.
 4. **Type standardisation** to keep curves valid over time
    ([[Type standardization and drift correction]]).

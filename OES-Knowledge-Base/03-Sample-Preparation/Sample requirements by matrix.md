@@ -21,8 +21,7 @@ Geometry and handling, on top of the surface rules in [[Surface grinding and mil
 - **Carbon / low-alloy steel** — grind; analyse fresh; multiple burns averaged. See
   [[Iron and steel analysis]].
 - **Stainless / high-alloy steel** — same, but **homogeneity** matters more; segregation and
-  delta-ferrite can scatter results → more burns, [[Single spark evaluation (PDA-SDA)|single-
-  spark evaluation]].
+  delta-ferrite can scatter results → more burns, [[Single spark evaluation (PDA-SDA)|single- spark evaluation]].
 - **Cast iron** — carbon must be measured on a **chilled / white-iron sample** (graphite in grey
   iron sparks non-uniformly); a chilled "wafer"/coin from a thermal-analysis cup or a quenched
   chill sample is standard. See [[Cast iron and carbon equivalent]].

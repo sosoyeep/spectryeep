@@ -33,9 +33,7 @@ The **excitation temperature** sets how atoms are distributed across energy leve
 distribution) and therefore how bright each line is. Stable excitation is what makes OES
 **repeatable**; the [[Excitation source (spark generator)|source]] is engineered to reproduce
 the same plasma conditions discharge after discharge. Calibration implicitly assumes the same
-plasma conditions as when the [[Calibration and certified reference materials|reference
-materials]] were measured — which is why [[Type standardization and drift correction|type
-standardisation]] is needed when conditions drift.
+plasma conditions as when the [[Calibration and certified reference materials|reference materials]] were measured — which is why [[Type standardization and drift correction|type standardisation]] is needed when conditions drift.
 
 ## Matrix dependence
 Different matrices (steel vs aluminium vs copper) ablate and excite differently, so each needs

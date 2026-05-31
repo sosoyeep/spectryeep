@@ -13,13 +13,11 @@ Monel, Nimonic, Stellite, Waspaloy …) for aerospace, energy and chemical-proce
 - **Highly alloyed**: Cr, Co, Mo, W, Nb, Ta, Ti, Al, Fe, Mn, Si, plus trace controls →
   crowded UV spectra and severe [[Spectral interferences and matrix effects|line overlaps]].
   Rewards **long focal length / high resolution** ([[Diffraction gratings and focal length]],
-  [[JB-750]]) and excellent [[Calibration and certified reference materials|matrix-matched
-  CRMs]].
+  [[JB-750]]) and excellent [[Calibration and certified reference materials|matrix-matched CRMs]].
 - **Tight trace limits** (e.g. low S, P, Pb, Bi, Ag, Se for hot-cracking control) → low
   [[Detection limits, precision and accuracy|detection limits]] and
   [[Vacuum vs purged vs sealed optics|vacuum/UV optics]].
-- **Segregation / inclusions** matter → [[Single spark evaluation (PDA-SDA)|single-spark
-  evaluation]] for cleanliness.
+- **Segregation / inclusions** matter → [[Single spark evaluation (PDA-SDA)|single-spark evaluation]] for cleanliness.
 
 ## What's measured
 Ni/Co (matrix), Cr, Mo, W, Nb, Ta, Ti, Al, Fe, Mn, Si, C, B, Zr, Cu, V, Co/Ni, plus trace

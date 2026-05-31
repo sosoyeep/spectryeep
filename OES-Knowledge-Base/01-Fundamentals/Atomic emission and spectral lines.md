@@ -37,8 +37,7 @@ aluminium). See [[Calibration and certified reference materials]].
 ## Analytical line selection
 
 Each element has many lines; the analyst picks lines that are **sensitive**, **free of
-interference**, and within the instrument's [[Diffraction gratings and focal length|wavelength
-range]]. Many key lines for C, P, S, N sit in the **vacuum ultraviolet (<200 nm)**, which is
+interference**, and within the instrument's [[Diffraction gratings and focal length|wavelength range]]. Many key lines for C, P, S, N sit in the **vacuum ultraviolet (<200 nm)**, which is
 why instruments need [[Vacuum vs purged vs sealed optics|vacuum or argon-purged optics]].
 A working list lives in [[Key spectral lines (analytical wavelengths)]].
 

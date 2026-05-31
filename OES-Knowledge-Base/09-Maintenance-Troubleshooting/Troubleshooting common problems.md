@@ -5,8 +5,7 @@ tags: [maintenance]
 
 # Troubleshooting common problems
 
-Symptom → likely cause → fix. Always start by **re-running a [[Quality control and SPC|control
-sample]]** to localise the problem, and change **one thing at a time**.
+Symptom → likely cause → fix. Always start by **re-running a [[Quality control and SPC|control sample]]** to localise the problem, and change **one thing at a time**.
 
 ## Control sample fails / results biased
 
