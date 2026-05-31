@@ -1,0 +1,9 @@
+{
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false,
+  "attachmentFolderPath": "99-Reference/attachments",
+  "showFrontmatter": true,
+  "tabSize": 2,
+  "readableLineLength": true
+}
