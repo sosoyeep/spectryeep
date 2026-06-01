@@ -1,0 +1,47 @@
+---
+const measurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID || '';
+---
+{measurementId && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
+    <script is:inline define:vars={{ measurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = window.gtag || gtag;
+      gtag('js', new Date());
+      gtag('config', measurementId, {
+        send_page_view: true,
+      });
+    </script>
+    <script is:inline>
+      document.addEventListener('click', (event) => {
+        const target = event.target;
+        const link = target instanceof Element ? target.closest('a[href*="wa.me"], a[data-wa-context]') : null;
+        if (!link || typeof window.gtag !== 'function') return;
+        window.gtag('event', 'whatsapp_click', {
+          event_category: 'lead',
+          event_label: link.getAttribute('data-wa-context') || 'inline',
+          link_url: link.href,
+          page_path: window.location.pathname,
+        });
+      });
+
+      document.addEventListener('submit', (event) => {
+        const form = event.target;
+        if (!(form instanceof HTMLFormElement) || !form.classList.contains('inquiry-form')) return;
+        if (typeof window.gtag !== 'function') return;
+
+        const data = new FormData(form);
+        window.gtag('event', 'generate_lead', {
+          event_category: 'lead',
+          form_name: form.getAttribute('name') || 'jiebo-inquiry',
+          product: data.get('product') || '',
+          product_sku: data.get('product_sku') || '',
+          country: data.get('country') || '',
+          locale: data.get('locale') || 'en',
+          source_page: data.get('source_page') || window.location.href,
+        });
+      });
+    </script>
+  </>
+)}

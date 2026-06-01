@@ -29,6 +29,7 @@ Set these in Cloudflare Pages:
 PUBLIC_INQUIRY_FORM_ACTION=/api/inquiry
 PUBLIC_TURNSTILE_SITE_KEY=your-turnstile-site-key
 TURNSTILE_SITE_KEY=your-turnstile-site-key
+PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 TURNSTILE_SECRET_KEY=your-turnstile-secret-key
 MIN_SUBMIT_SECONDS=4
 INQUIRY_RATE_LIMIT_MAX=5
@@ -102,3 +103,17 @@ After deployment:
 3. Confirm sales email, CRM, or webhook receives the lead.
 4. Confirm a spam test with the honeypot field is blocked.
 5. Confirm GA4 receives `generate_lead`.
+
+## Lead tracking events
+
+When `PUBLIC_GA_MEASUREMENT_ID` is set, the site sends:
+
+- `page_view` for normal page traffic.
+- `whatsapp_click` when a visitor clicks WhatsApp CTAs.
+- `generate_lead` when a formal inquiry form is submitted.
+
+Use these events with Google Search Console queries and the lead forwarding payload to calculate the funnel:
+
+```text
+Search impressions -> organic clicks -> WhatsApp clicks / form leads -> qualified leads -> quotes -> paid orders
+```

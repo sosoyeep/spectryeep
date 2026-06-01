@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFab from '../components/WhatsAppFab.astro';
 import SchemaOrg from '../components/SchemaOrg.astro';
+import Analytics from '../components/Analytics.astro';
 import { LOCALE_META, type Locale, LOCALES, DEFAULT_LOCALE } from '../consts';
 import { localizedPath } from '../i18n/utils';
 
@@ -177,6 +178,7 @@ const pageTitle = trimTitleForGoogle(title);
   <meta name="twitter:description" content={metaDescription} />
   <meta name="twitter:image" content={new URL('/og/default.png', Astro.site).toString()} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <Analytics />
   <SchemaOrg
     type={schemaType}
     pageUrl={canonical}
