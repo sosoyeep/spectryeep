@@ -1,0 +1,351 @@
+---
+import Base from '../layouts/Base.astro';
+import InquiryForm from './InquiryForm.astro';
+import ProductImage from './ProductImage.astro';
+import { SITE, PRODUCTS, type Locale } from '../consts';
+import { t, localizedPath, localizedHome, whatsappUrl } from '../i18n/utils';
+
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+const path = '/get-a-quote/';
+const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
+
+const title = 'Get a Metal Analysis Spectrometer Quote in 4 Working Hours | JIEBO';
+const description =
+  'Tell us your sample material and target elements. JIEBO engineers recommend the right OES, XRF, LIBS or carbon-sulfur analyzer and reply with price and lead time, usually within 4 working hours.';
+
+const waHref = whatsappUrl(
+  SITE.whatsapp,
+  'Hi JIEBO, I would like a quote for a metal analysis spectrometer. Could you recommend the right model and send pricing?',
+);
+
+// Featured instruments across all three product lines.
+const featuredSlugs = ['innovate-t5', 'exquis-t4', 'cs2020', 'onh-508', 'f6000-pro', 'f7000-pro'] as const;
+const featured = featuredSlugs
+  .map((slug) => PRODUCTS.find((p) => p.slug === slug))
+  .filter((p): p is (typeof PRODUCTS)[number] => Boolean(p));
+
+const stats = [
+  { value: 'Since 2009', label: 'Spectrometer manufacturing experience' },
+  { value: '40+', label: 'Export markets served worldwide' },
+  { value: '15 days', label: 'Lead time on standard configurations' },
+  { value: '< 4 hrs', label: 'Typical reply to qualified inquiries' },
+];
+
+const painPoints = [
+  {
+    title: 'Not sure which technology fits?',
+    body: 'OES, XRF, LIBS and combustion C/S each have a sweet spot. Send your matrix and elements and we will tell you which one actually meets your spec — and which to avoid.',
+  },
+  {
+    title: 'Need carbon, sulfur, phosphorus or nitrogen?',
+    body: 'Light and non-metallic elements that handheld XRF cannot measure well are exactly where spark OES and high-frequency combustion analyzers earn their place.',
+  },
+  {
+    title: 'Buying for production, not a lab demo?',
+    body: 'We quote real lead times, spare-part availability, calibration support and CE/CB documentation — so the instrument is still running in year three.',
+  },
+];
+
+const steps = [
+  { n: '1', title: 'Tell us your sample', body: 'Share your base material, the elements you need and how many samples per day.' },
+  { n: '2', title: 'An engineer matches a model', body: 'We recommend the right instrument and configuration — not just the most expensive one.' },
+  { n: '3', title: 'You get price and lead time', body: 'A formal quotation with pricing, lead time and documentation, usually within 4 working hours.' },
+];
+
+const proof = [
+  { title: 'Accuracy you can certify', body: 'Trace-element capability down to <10 ppm on research-grade OES, with calibration curves built for your matrix.' },
+  { title: 'Fast, honest lead times', body: 'Standard configurations ship within 15 working days of order confirmation — no open-ended promises.' },
+  { title: 'Engineers, not a call center', body: 'Application engineers answer WhatsApp inquiries within 4 working hours (Mon–Sat, Beijing time).' },
+  { title: 'Built for export', body: 'CE/CB documentation, door-to-door logistics and remote commissioning support to 40+ countries.' },
+];
+
+const faq = [
+  {
+    q: 'Which spectrometer do I need for metal analysis?',
+    a: 'It depends on the material and elements. Spark OES is the workhorse for solid metals including carbon and low-alloy steel; handheld XRF is best for fast non-destructive alloy sorting and PMI; LIBS adds light elements in the field; and high-frequency combustion analyzers give reference-grade carbon and sulfur. Send your details and we will recommend the right one.',
+  },
+  {
+    q: 'How fast will I get a quote?',
+    a: 'Most qualified inquiries receive a reply within 4 working hours during the working week (Mon–Sat, Beijing time). Complex multi-instrument projects may take a little longer because an engineer scopes the configuration.',
+  },
+  {
+    q: 'What is the lead time and warranty?',
+    a: 'Standard configurations ship within 15 working days of order confirmation. Instruments are covered by a manufacturer warranty with remote support and spare-part availability. Exact terms are confirmed in your quotation.',
+  },
+  {
+    q: 'Do you support installation and calibration abroad?',
+    a: 'Yes. We provide CE/CB documentation, door-to-door export logistics, remote commissioning and operator guidance, plus calibration standards matched to your application.',
+  },
+  {
+    q: 'Is my inquiry confidential?',
+    a: 'Yes. Your sample details and contact information are used only to prepare your quotation and are not shared outside JIEBO.',
+  },
+];
+
+const breadcrumbs = [
+  { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },
+  { name: 'Get a quote', url: canonical },
+];
+---
+<Base
+  locale={locale}
+  title={title}
+  description={description}
+  path={path}
+  schemaType="website"
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+  whatsappContext="general"
+>
+  <!-- Hero -->
+  <section class="lp-hero">
+    <div class="container lp-hero__inner">
+      <p class="lp-hero__eyebrow">Metal composition analysis · OES · XRF · LIBS · Carbon &amp; Sulfur</p>
+      <h1 class="lp-hero__title">Get the right metal analysis spectrometer — with a quote in 4 working hours</h1>
+      <p class="lp-hero__lede">
+        Tell us your sample material and the elements you need to measure. A JIEBO application engineer recommends the
+        right OES, XRF, LIBS or carbon-sulfur analyzer and replies with pricing and lead time. No guesswork, no sales runaround.
+      </p>
+      <div class="lp-hero__cta">
+        <a class="button button--primary" href="#request-quote">Get my quote</a>
+        <a class="button lp-button--onDark" href={waHref} target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+      <ul class="lp-hero__signals">
+        <li>✓ Manufacturer-direct since 2009</li>
+        <li>✓ Exports to 40+ countries</li>
+        <li>✓ CE / CB documentation</li>
+        <li>✓ 15-day lead time</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Stat / trust bar -->
+  <section class="section" style="padding-block:clamp(1.75rem,4vw,2.75rem);">
+    <div class="container">
+      <div class="lp-stats">
+        {stats.map((s) => (
+          <div class="lp-stat">
+            <div class="lp-stat__value">{s.value}</div>
+            <div class="lp-stat__label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain points / buyer fit -->
+  <section class="section section--alt">
+    <div class="container">
+      <p class="eyebrow">Is this you?</p>
+      <h2>Specify the right instrument the first time</h2>
+      <p class="lede" style="margin-bottom:1.5rem;">
+        Most buyers do not need more brochures — they need a straight answer about which instrument actually meets their spec.
+      </p>
+      <div class="grid grid--3">
+        {painPoints.map((p) => (
+          <div class="card">
+            <h3 style="margin-bottom:0.5rem;">{p.title}</h3>
+            <p style="color:var(--muted); margin-bottom:0;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">How it works</p>
+      <h2>From sample details to a formal quote in three steps</h2>
+      <div class="grid grid--3" style="margin-top:1.5rem;">
+        {steps.map((s) => (
+          <div class="card lp-step">
+            <span class="lp-step__n">{s.n}</span>
+            <h3 style="margin:0 0 0.4rem;">{s.title}</h3>
+            <p style="color:var(--muted); margin-bottom:0;">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured instruments -->
+  <section class="section section--alt">
+    <div class="container">
+      <p class="eyebrow">Recommended JIEBO instruments</p>
+      <h2>A model for every metal analysis workflow</h2>
+      <p class="lede" style="margin-bottom:1.5rem;">
+        Eleven analyzer models across spark OES, handheld XRF/LIBS and combustion analysis. Here are the most-requested starting points.
+      </p>
+      <div class="grid grid--3">
+        {featured.map((p) => (
+          <a class="card" href={localizedPath(locale, `/products/${p.slug}/`)} style="display:flex; flex-direction:column; gap:0.6rem;">
+            <ProductImage product={p} variant="thumb" />
+            <p class="eyebrow" style="margin:0;">JIEBO · {p.sku}</p>
+            <h3 style="margin:0; font-size:1.1rem;">{p.name}</h3>
+            <p style="margin:0; color:var(--muted); font-size:0.92rem;">{p.short}</p>
+          </a>
+        ))}
+      </div>
+      <div style="margin-top:1.5rem;">
+        <a class="button button--ghost" href={localizedPath(locale, '/products/')}>{t(locale, 'cta.explore_products')}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why JIEBO / risk reversal -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Why buyers choose JIEBO</p>
+      <h2>Lower risk on a serious purchase</h2>
+      <div class="grid grid--4" style="margin-top:1.5rem;">
+        {proof.map((p) => (
+          <div class="card">
+            <h3 style="font-size:1.1rem; margin-bottom:0.4rem;">{p.title}</h3>
+            <p style="color:var(--muted); margin-bottom:0; font-size:0.95rem;">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversion: embedded inquiry form -->
+  <section class="section section--alt">
+    <div class="container">
+      <InquiryForm locale={locale} />
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container" style="max-width:860px;">
+      <p class="eyebrow">Buyer questions</p>
+      <h2>Before you request a quote</h2>
+      <div style="display:grid; gap:0.75rem; margin-top:1rem;">
+        {faq.map((f) => (
+          <details class="faq">
+            <summary>{f.q}</summary>
+            <p style="margin:0.5rem 0 0; color:var(--muted);">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section section--alt" style="padding-block:clamp(2rem,5vw,3.5rem);">
+    <div class="container" style="max-width:760px; text-align:center;">
+      <h2>Ready for a recommendation and a price?</h2>
+      <p class="lede" style="margin:0 auto 1.5rem; max-width:60ch;">
+        Send your sample material, target elements and country. We will reply with the right model, configuration, price and lead time.
+      </p>
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center;">
+        <a class="button button--primary" href="#request-quote">Get my quote</a>
+        <a class="button button--ghost" href={waHref} target="_blank" rel="noopener">WhatsApp {SITE.wechat}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lp-hero {
+    background: linear-gradient(135deg, #0b1f4d 0%, #1e40af 55%, #2563eb 100%);
+    color: #fff;
+  }
+  .lp-hero__inner {
+    padding-block: clamp(3rem, 8vw, 5.5rem);
+    max-width: 880px;
+  }
+  .lp-hero__eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #bfdbfe;
+    margin: 0 0 1rem;
+  }
+  .lp-hero__title {
+    font-size: clamp(2.1rem, 5vw, 3.25rem);
+    line-height: 1.1;
+    margin: 0 0 1.1rem;
+    color: #fff;
+  }
+  .lp-hero__lede {
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    color: #dbeafe;
+    max-width: 60ch;
+    margin: 0 0 1.75rem;
+  }
+  .lp-hero__cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.75rem;
+  }
+  .lp-button--onDark {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.45);
+  }
+  .lp-button--onDark:hover {
+    background: rgba(255, 255, 255, 0.16);
+    text-decoration: none;
+  }
+  .lp-hero__signals {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.95rem;
+    color: #bfdbfe;
+  }
+  .lp-hero__signals li { font-weight: 500; }
+
+  .lp-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+  .lp-stat {
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    padding: 1.25rem 1rem;
+    background: var(--bg);
+  }
+  .lp-stat__value {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+  }
+  .lp-stat__label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.35rem;
+  }
+  @media (max-width: 720px) {
+    .lp-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .lp-step { position: relative; }
+  .lp-step__n {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+</style>
