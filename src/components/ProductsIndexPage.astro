@@ -118,7 +118,7 @@ const compareRows: Array<{ slug: string; detector: string; wavelength: string; m
 ];
 
 function nameOf(slug: string): string {
-  return PRODUCT_LIST.find((p) => p.slug === slug)?.name ?? slug;
+  return PRODUCT_LIST.find((p) => p.slug === slug)?.name?.[locale] ?? slug;
 }
 function categoryOf(slug: string): 'oes' | 'elemental' | 'handheld' {
   return (PRODUCT_LIST.find((p) => p.slug === slug)?.category ?? 'oes') as any;
