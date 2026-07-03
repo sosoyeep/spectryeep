@@ -15,6 +15,12 @@ export const BLOG_ARTICLES: BlogArticleMeta[] = [
     datePublished: '2026-07-03',
   },
   {
+    slug: 'chinese-oes-spectrometer-manufacturers',
+    title: `Chinese OES Spectrometer Manufacturers: 2026 Sourcing Guide`,
+    description: `How to evaluate Chinese OES spectrometer manufacturers in 2026 -- the six factors that separate production-grade instruments from marginal ones, how to spot rebadgers, sourcing pitfalls, and realistic pricing.`,
+    datePublished: '2026-07-04',
+  },
+  {
     slug: 'oes-buyer-guide-2026',
     title: `How to Choose an Optical Emission Spectrometer | 2026 Guide`,
     description: `Expert buyer's guide on how to choose an optical emission spectrometer. Compare spark, arc, and ICP OES types, key specs, applications, and budget considerations.`,
