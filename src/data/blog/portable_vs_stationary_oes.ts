@@ -17,7 +17,7 @@ export const htmlContent = `<h1>Portable vs Stationary OES Spectrometer: Which O
 <p>Mobile cart units often share the same optical system as their stationary counterparts, which means they can offer comparable detection limits and element coverage. The tradeoff is size and weight -- a typical mobile cart system weighs 80 to 150 kg -- and the need for a reasonably flat, stable surface during measurement.</p>
 <h3>Stationary Lab OES Spectrometer</h3>
 <p>A stationary OES spectrometer is a floor-standing or bench-top instrument installed in a climate-controlled laboratory. These systems offer the widest element coverage, the lowest detection limits, and the best long-term reproducibility. They rely on high-purity argon delivered through a fixed gas line, stable mains power, and controlled ambient temperature and humidity.</p>
-<p>Stationary instruments are the backbone of certification laboratories, production quality control departments, and R&D metallurgy labs. <a href="https://spectryeep.com/collections/optical-emission-spectrometer">Stationary OES Spectrometers</a></p>
+<p>Stationary instruments are the backbone of certification laboratories, production quality control departments, and R&D metallurgy labs. <a href="/products/">Stationary OES Spectrometers</a></p>
 <h2>Analytical Performance Differences</h2>
 <p>Performance is where the three categories diverge most sharply. Understanding these differences will prevent you from expecting field-level convenience with lab-level precision, or paying for lab-level capability you will never use.</p>
 <h3>Detection Limits</h3>
@@ -138,7 +138,7 @@ export const htmlContent = `<h1>Portable vs Stationary OES Spectrometer: Which O
 <h2>When to Choose a Stationary OES Spectrometer</h2>
 <p>A stationary OES spectrometer is essential when your application demands the highest accuracy, the widest element coverage, or traceable certification results.</p>
 <h3>Production Quality Control in Foundries and Mills</h3>
-<p>Foundries, steel mills, and aluminum smelters need rapid melt analysis to adjust chemistry before pouring. Stationary OES systems installed on or near the production floor deliver results within a minute of receiving a sample, allowing real-time process control. The detection limits for carbon, sulfur, and phosphorus are critical here -- a few ppm can determine whether a heat meets specification. <a href="https://spectryeep.com/collections/optical-emission-spectrometer">Foundry OES Solutions</a></p>
+<p>Foundries, steel mills, and aluminum smelters need rapid melt analysis to adjust chemistry before pouring. Stationary OES systems installed on or near the production floor deliver results within a minute of receiving a sample, allowing real-time process control. The detection limits for carbon, sulfur, and phosphorus are critical here -- a few ppm can determine whether a heat meets specification. <a href="/products/">Foundry OES Solutions</a></p>
 <h3>Certification and Compliance Laboratories</h3>
 <p>When your results appear on a material test certificate, the instrument must meet the most stringent accuracy and traceability requirements. Accredited labs operating under ISO/IEC 17025 almost universally rely on stationary OES spectrometers calibrated with certified reference materials.</p>
 <h3>Research and Development</h3>
@@ -182,4 +182,4 @@ export const htmlContent = `<h1>Portable vs Stationary OES Spectrometer: Which O
 <p>The decision between portable and stationary OES spectrometry is ultimately a decision about where and how you need analytical answers. If your materials are in the field, on the shop floor, or arriving at the gate, a portable OES spectrometer brings the answer to the question. If your work demands the tightest tolerances, the widest element range, and certificate-grade traceability, a stationary instrument is indispensable.</p>
 <p>JIEBO manufactures both portable and stationary OES spectrometers engineered for industrial reliability and analytical performance. Whether you need a rugged field instrument for PMI and scrap sorting or a high-resolution lab system for production QC and certification, our technical team can help you configure the right solution.</p>
 <p><strong>Contact JIEBO at <a href="https://spectryeep.com">spectryeep.com</a> to discuss your application requirements, request a demonstration, or receive a quotation for portable and stationary OES spectrometers tailored to your operation.</strong></p>
-<p><a href="https://spectryeep.com/contact-us">Contact Us</a> <a href="https://spectryeep.com/collections/optical-emission-spectrometer">OES Spectrometer Range</a></p>`;
+<p><a href="https://spectryeep.com/contact-us">Contact Us</a> <a href="/products/">OES Spectrometer Range</a></p>`;

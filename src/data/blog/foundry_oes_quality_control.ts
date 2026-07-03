@@ -122,7 +122,7 @@ export const htmlContent = `<h1>How Foundries Use OES Spectrometers for Quality 
 </tr>
 </tbody>
 </table>
-<p>This table illustrates why a single foundry spectrometer must be capable of analyzing a wide range of elements across different concentration levels. A good foundry OES system will come with pre-loaded calibration programs for iron-base and aluminum-base alloys, making it straightforward to switch between alloy families <a href="https://spectryeep.com/collections/optical-emission-spectrometer">Stationary OES Spectrometers</a>.</p>
+<p>This table illustrates why a single foundry spectrometer must be capable of analyzing a wide range of elements across different concentration levels. A good foundry OES system will come with pre-loaded calibration programs for iron-base and aluminum-base alloys, making it straightforward to switch between alloy families <a href="/products/">Stationary OES Spectrometers</a>.</p>
 <hr />
 <h2>How OES Integrates with Furnace-Front Thermal Analysis</h2>
 <p>In many iron foundries, thermal analysis (TA) is used alongside OES to give a more complete picture of melt quality. While OES tells you the chemical composition, thermal analysis measures the actual solidification behavior of the iron by recording the cooling curve of a small sample poured into an instrumented cup.</p>
@@ -133,7 +133,7 @@ export const htmlContent = `<h1>How Foundries Use OES Spectrometers for Quality 
 <li><strong>OES first:</strong> Verify chemistry and make trim additions.</li>
 <li><strong>TA second:</strong> Confirm that the treated and inoculated melt has the expected solidification characteristics before pouring.</li>
 </ul>
-<p>Some advanced foundry software platforms can merge OES chemistry data and TA cooling curve data into a single report, enabling process engineers to correlate composition with solidification behavior over time. This data-driven approach significantly reduces scrap rates and improves consistency across shifts <a href="https://spectryeep.com/collections/optical-emission-spectrometer">Foundry Quality Solutions</a>.</p>
+<p>Some advanced foundry software platforms can merge OES chemistry data and TA cooling curve data into a single report, enabling process engineers to correlate composition with solidification behavior over time. This data-driven approach significantly reduces scrap rates and improves consistency across shifts <a href="/products/">Foundry Quality Solutions</a>.</p>
 <hr />
 <h2>Choosing Between Mobile and Stationary OES for Foundry Use</h2>
 <p>Foundries vary enormously in layout, production volume, and alloy range. The choice between a mobile (portable) OES and a stationary laboratory OES depends on several practical factors.</p>
@@ -146,7 +146,7 @@ export const htmlContent = `<h1>How Foundries Use OES Spectrometers for Quality 
 <li>Easier to maintain consistent environmental conditions in a lab setting</li>
 <li>Higher sample throughput with automated spark stand cleaning</li>
 </ul>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">Stationary OES Spectrometers</a></p>
+<p><a href="/products/">Stationary OES Spectrometers</a></p>
 <h3>Mobile OES Spectrometers</h3>
 <p>Mobile or portable OES instruments are designed to be moved to the point of analysis -- beside the furnace, in the pouring area, or in a receiving inspection bay. They sacrifice some analytical range and precision compared to a laboratory instrument, but they eliminate sample transport time and allow analysis in locations where building a lab is impractical.</p>
 <p><strong>Advantages:</strong></p>
@@ -165,7 +165,7 @@ export const htmlContent = `<h1>How Foundries Use OES Spectrometers for Quality 
 <h3>Heat</h3>
 <p>Ambient temperatures on the melt deck can exceed 40 degrees Celsius. Optical components and detector electronics are sensitive to temperature fluctuations. Best practice is to install stationary instruments in a climate-controlled lab room maintained between 18 and 25 degrees Celsius. Mobile instruments should be stored in a protected area and allowed to reach thermal equilibrium before use.</p>
 <h3>Dust and Particulates</h3>
-<p>Airborne sand, inoculant powder, and metallic fines are constantly present in foundry air. These particles can contaminate optical windows, spark stands, and electronic assemblies. Regular cleaning of the spark chamber, use of filtered air supplies, and positive-pressure enclosures are effective countermeasures. Many JIEBO instruments feature sealed optical systems specifically designed for high-dust environments <a href="https://spectryeep.com/collections/optical-emission-spectrometer">OES Accessories</a>.</p>
+<p>Airborne sand, inoculant powder, and metallic fines are constantly present in foundry air. These particles can contaminate optical windows, spark stands, and electronic assemblies. Regular cleaning of the spark chamber, use of filtered air supplies, and positive-pressure enclosures are effective countermeasures. Many JIEBO instruments feature sealed optical systems specifically designed for high-dust environments <a href="/products/">OES Accessories</a>.</p>
 <h3>Vibration</h3>
 <p>Heavy shakeout equipment, shot blasting machines, and overhead cranes generate significant vibration. Vibration can degrade spark discharge stability and optical alignment. Stationary instruments should be installed on vibration-isolated foundations or anti-vibration mounts. Placing the lab room away from major vibration sources is the simplest and most effective solution.</p>
 <h3>Electrical Interference</h3>
@@ -187,6 +187,6 @@ export const htmlContent = `<h1>How Foundries Use OES Spectrometers for Quality 
 <p>At JIEBO, we understand that foundry spectrometer performance is only as good as its application support. Our OES spectrometers are built to withstand the demands of foundry environments and are delivered with ready-to-use calibration programs for gray iron, ductile iron, compacted graphite iron, carbon steel, and a full range of aluminum casting alloys.</p>
 <p>Whether you need a high-throughput stationary OES for a multi-furnace operation or a rugged mobile unit for furnace-front analysis, our team of application engineers will help you select, install, and validate the right instrument for your specific production requirements.</p>
 <p><strong>Explore our full range of foundry OES solutions at <a href="https://spectryeep.com">spectryeep.com</a></strong>, or contact our technical sales team to arrange an on-site demonstration with your own casting samples.</p>
-<p><a href="https://spectryeep.com/contact-us">Contact Us</a> <a href="https://spectryeep.com/collections/optical-emission-spectrometer">Foundry OES Solutions</a> <a href="https://spectryeep.com/contact-us">Request a Demo</a></p>
+<p><a href="https://spectryeep.com/contact-us">Contact Us</a> <a href="/products/">Foundry OES Solutions</a> <a href="https://spectryeep.com/contact-us">Request a Demo</a></p>
 <hr />
 <p><em>JIEBO Instruments -- Accurate chemistry, every heat, every pour.</em></p>`;

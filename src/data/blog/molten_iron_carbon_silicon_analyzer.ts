@@ -73,7 +73,7 @@ export const htmlContent = `<h1>Molten Iron Carbon Silicon Analyzer: Why Every F
 <p>The furnace front is a harsh environment -- high ambient temperatures, dust, vibration, and occasional splashes. The analyzer housing should be industrial-grade with appropriate ingress protection. Look for units designed specifically for foundry conditions rather than laboratory instruments adapted for shop floor use.</p>
 <h3>Calibration and Maintenance</h3>
 <p>Ask about calibration intervals and procedures. The best instruments offer simple user calibration against reference samples and maintain accuracy over long periods without frequent service intervention.</p>
-<p><a href="https://spectryeep.com/collections/carbon-silicon-analyzer">Thermal Analysis Instruments</a></p>
+<p><a href="/products/">Thermal Analysis Instruments</a></p>
 <hr />
 <h2>Furnace-Front Thermal Analysis vs. Lab-Based OES: A Practical Comparison</h2>
 <p>Many foundries use optical emission spectrometry (OES) in the lab as their primary composition analysis method. OES is an excellent technique for full elemental analysis, but it serves a different purpose than furnace-front thermal analysis. Here is how the two compare for carbon and silicon control:</p>
@@ -133,7 +133,7 @@ export const htmlContent = `<h1>Molten Iron Carbon Silicon Analyzer: Why Every F
 </table>
 <p>The key takeaway: these methods are complementary, not competitive. A <strong>molten iron carbon silicon analyzer</strong> at the furnace handles the time-critical task of melt adjustment before pouring. The OES lab handles full chemistry verification for records, customer certificates, and trace element monitoring.</p>
 <p>Foundries that rely exclusively on OES for melt control inevitably face situations where results arrive after the pour window has closed. Foundries that rely exclusively on thermal analysis miss important trace element data. The strongest quality programs use both.</p>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">OES Spectrometers</a></p>
+<p><a href="/products/">OES Spectrometers</a></p>
 <hr />
 <h2>Frequently Asked Questions</h2>
 <h3>Can a carbon silicon analyzer measure elements other than carbon and silicon?</h3>

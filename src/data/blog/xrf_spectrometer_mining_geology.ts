@@ -20,7 +20,7 @@ export const htmlContent = `<h1>XRF Spectrometer Applications in Mining, Geology
 <li>Mine face grade control</li>
 <li>Scrap and ore sorting at stockpiles</li>
 </ul>
-<p>The trade-off is analytical precision. Handheld units use energy-dispersive (ED) detectors with lower resolution than laboratory instruments, and measurements are affected by sample heterogeneity, surface texture, and moisture content. Nevertheless, for rapid decision-making in the field, handheld XRF analyzers provide data quality that far exceeds visual estimation or delayed laboratory results. <a href="https://spectryeep.com/collections/ed-xrf">Handheld XRF Analyzer</a></p>
+<p>The trade-off is analytical precision. Handheld units use energy-dispersive (ED) detectors with lower resolution than laboratory instruments, and measurements are affected by sample heterogeneity, surface texture, and moisture content. Nevertheless, for rapid decision-making in the field, handheld XRF analyzers provide data quality that far exceeds visual estimation or delayed laboratory results. <a href="/products/">Handheld XRF Analyzer</a></p>
 <h3>Benchtop EDXRF Spectrometers</h3>
 <p>Benchtop energy-dispersive XRF spectrometers occupy the middle ground between field portability and full laboratory performance. These instruments accept prepared samples -- pressed pellets, fused beads, or loose powders in cups -- and deliver higher precision and better detection limits than handheld devices. Modern benchtop EDXRF systems equipped with silicon drift detectors (SDD) achieve excellent resolution and are widely used in mine-site laboratories for:</p>
 <ul>
@@ -38,7 +38,7 @@ export const htmlContent = `<h1>XRF Spectrometer Applications in Mining, Geology
 <li>Iron ore, bauxite, and chromite grade certification</li>
 <li>Cement raw material and clinker analysis</li>
 </ul>
-<p>The disadvantages of WDXRF are higher capital cost, larger instrument footprint, and the need for more rigorous sample preparation (typically fused glass beads for the best accuracy). For central laboratories serving large mining operations, however, WDXRF remains the gold standard. <a href="https://spectryeep.com/collections/ed-xrf">WDXRF Spectrometer</a></p>
+<p>The disadvantages of WDXRF are higher capital cost, larger instrument footprint, and the need for more rigorous sample preparation (typically fused glass beads for the best accuracy). For central laboratories serving large mining operations, however, WDXRF remains the gold standard. <a href="/products/">WDXRF Spectrometer</a></p>
 <h2>XRF Applications Across the Mining Value Chain</h2>
 <p>The following table summarizes how XRF mineral analysis supports each stage of the mining lifecycle.</p>
 <table>
@@ -161,4 +161,4 @@ export const htmlContent = `<h1>XRF Spectrometer Applications in Mining, Geology
 <p>Choosing between handheld, benchtop EDXRF, and WDXRF instruments -- or deploying a combination across different points in the value chain -- requires careful consideration of analytical requirements, sample throughput, operating environment, and budget. Many mining operations find that a tiered approach works best: handheld XRF for field screening and grade control, benchtop EDXRF for routine mine-site laboratory work, and WDXRF for high-accuracy reference analysis.</p>
 <p>JIEBO manufactures a complete range of X-ray fluorescence spectrometer instruments designed for the demands of mining, geology, and mineral processing. Whether you need a rugged handheld XRF analyzer for fieldwork, a high-throughput benchtop EDXRF system for your mine-site laboratory, or a precision WDXRF spectrometer for your central analytical facility, our technical team can help you select and configure the right solution.</p>
 <p><strong>Visit <a href="https://spectryeep.com">spectryeep.com</a> to explore our full XRF spectrometer range, request application-specific performance data, or schedule a demonstration with sample analysis using your own materials.</strong></p>
-<p><a href="https://spectryeep.com/collections/ed-xrf">XRF Spectrometer Range</a> <a href="https://spectryeep.com/contact-us">Contact Us</a></p>`;
+<p><a href="/products/">XRF Spectrometer Range</a> <a href="https://spectryeep.com/contact-us">Contact Us</a></p>`;

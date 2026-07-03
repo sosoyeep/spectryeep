@@ -99,7 +99,7 @@ export const htmlContent = `<h1>OES Spectrometer for Aluminum Alloy Analysis: Co
 </tr>
 </tbody>
 </table>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">Aluminum OES Spectrometer</a></p>
+<p><a href="/products/">Aluminum OES Spectrometer</a></p>
 <h2>Wrought vs. Cast Aluminum Alloy Classification</h2>
 <p>Quality engineers working with an OES spectrometer for aluminum analysis must be familiar with the alloy designation systems, as these define the calibration ranges and reference material requirements for the instrument.</p>
 <h3>Wrought Alloys (1xxx -- 8xxx Series)</h3>
@@ -202,7 +202,7 @@ export const htmlContent = `<h1>OES Spectrometer for Aluminum Alloy Analysis: Co
 </tr>
 </tbody>
 </table>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">Aluminum Application Notes</a></p>
+<p><a href="/products/">Aluminum Application Notes</a></p>
 <h2>Deep UV Optics: Essential for Na, Li, and Ca in Aluminum</h2>
 <p>The ability to measure sodium, lithium, and calcium at ppm levels is a defining capability of a quality aluminum spectrometer. The strongest emission lines for these elements lie in the deep ultraviolet:</p>
 <ul>
@@ -217,7 +217,7 @@ export const htmlContent = `<h1>OES Spectrometer for Aluminum Alloy Analysis: Co
 <h3>Argon Purge Optical Path</h3>
 <p>An argon-purged spectrometer replaces the air inside the optical chamber with high-purity argon, which is transparent in the UV down to about 140 nm. This is a lower-cost alternative to vacuum optics and can provide acceptable performance for many aluminum alloy analyzer applications.</p>
 <p>However, argon purge systems are more sensitive to gas purity and flow stability. Any residual oxygen or moisture in the purge gas will degrade deep UV transmission and compromise the detection limits for Na and Li. Quality engineers should ensure that instrument-grade argon (99.999% or better) is used and that the purge flow is well regulated.</p>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">Vacuum UV OES Optics</a></p>
+<p><a href="/products/">Vacuum UV OES Optics</a></p>
 <h2>Sample Preparation for Aluminum OES Analysis</h2>
 <p>Correct sample preparation is arguably as important as the spectrometer itself. Aluminum is a soft, ductile metal that behaves very differently from steel under mechanical preparation. Poor technique is the single largest source of analytical error in spark OES aluminum testing.</p>
 <h3>Cutting and Sectioning</h3>
@@ -234,7 +234,7 @@ export const htmlContent = `<h1>OES Spectrometer for Aluminum Alloy Analysis: Co
 </ol>
 <h3>Final Surface Condition</h3>
 <p>The prepared surface should have a uniform, matte finish with no visible scratches deeper than the spark crater will penetrate (typically 30 to 50 micrometers). The surface must be free of oil, coolant residue, and handling contamination. Operators should avoid touching the prepared surface with bare hands, as fingerprints introduce Na, Cl, and organic contamination.</p>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">Sample Preparation Guide</a></p>
+<p><a href="/products/">Sample Preparation Guide</a></p>
 <h2>Common Issues in Aluminum OES Analysis</h2>
 <p>Even with a well-maintained aluminum alloy analyzer and proper sample preparation, several issues can affect results.</p>
 <h3>Inclusions and Intermetallic Phases</h3>
@@ -257,9 +257,9 @@ export const htmlContent = `<h1>OES Spectrometer for Aluminum Alloy Analysis: Co
 <p>Full recalibration is typically performed every 6 to 12 months or whenever the instrument is serviced. However, daily or per-shift standardization using control samples is essential to correct for drift in electronics, optics, and environmental conditions. Most JIEBO OES systems support automated restandardization routines that take only a few minutes.</p>
 <h3>Is sample preparation really that important for aluminum?</h3>
 <p>Absolutely. In our experience supporting aluminum smelters and extrusion plants worldwide, the majority of analytical problems trace back to sample preparation rather than instrument performance. Investing in proper preparation equipment -- a dedicated sample lathe, fresh grinding media, and clean handling practices -- pays for itself many times over in reduced re-tests and more reliable melt control.</p>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">OES FAQ</a></p>
+<p><a href="/products/">OES FAQ</a></p>
 <h2>Achieve Reliable Aluminum Alloy Analysis with JIEBO OES Solutions</h2>
 <p>Accurate, fast, and repeatable aluminum elemental analysis is not optional in modern aluminum production -- it is the foundation of quality assurance from the casthouse to the finished product. Whether you are controlling Na at 5 ppm in 6063 extrusion billet or verifying Sr modification in A356 castings, the right OES spectrometer makes the difference between confident melt release and costly rejects.</p>
 <p>JIEBO offers a range of OES spectrometers specifically designed for the demands of aluminum alloy analysis. Our instruments feature vacuum UV optical systems for unrestricted deep UV access, high-resolution optics to resolve complex aluminum spectra, advanced spark source technology with intelligent outlier detection, and aluminum-optimized analytical programs developed in partnership with leading smelters and foundries.</p>
 <p><strong>Contact our applications team at <a href="https://spectryeep.com">spectryeep.com</a> to discuss your aluminum analysis requirements.</strong> We can recommend the right instrument configuration for your alloy range, production volume, and accuracy targets -- and provide reference material and method support to get you producing reliable results from day one.</p>
-<p><a href="https://spectryeep.com/contact-us">Contact Us</a> <a href="https://spectryeep.com/collections/optical-emission-spectrometer">OES Spectrometer Range</a></p>`;
+<p><a href="https://spectryeep.com/contact-us">Contact Us</a> <a href="/products/">OES Spectrometer Range</a></p>`;

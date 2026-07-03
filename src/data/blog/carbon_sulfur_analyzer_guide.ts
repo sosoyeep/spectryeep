@@ -19,7 +19,7 @@ export const htmlContent = `<h1>Carbon Sulfur Analyzer: Working Principle, Types
 <p>The detector signal is digitized, processed by onboard software, and converted to a mass percentage using calibration curves established with certified reference materials (CRMs). The entire analysis, from sample drop to reported result, typically takes 40 to 60 seconds for metallic samples.</p>
 <h3>The Role of Calibration</h3>
 <p>Accurate results depend on proper calibration with reference materials that are matrix-matched to the unknown samples. For ferrous metallurgy, NIST, BAS (Bureau of Analysed Samples), and national metrology institutes provide a comprehensive library of steel and iron CRMs with certified carbon and sulfur values. Calibration should be verified at the start of each analytical session and periodically throughout extended runs.</p>
-<p><a href="https://spectryeep.com/collections/carbon-sulfur-analyzer">Carbon Sulfur Reference Materials</a></p>
+<p><a href="/products/">Carbon Sulfur Reference Materials</a></p>
 <h2>Types of Carbon Sulfur Analyzers</h2>
 <p>While the detection principle remains consistent, <strong>carbon sulfur analyzers</strong> differ significantly in their combustion method. The two primary architectures -- high frequency induction furnace and tube furnace -- each carry distinct advantages.</p>
 <h3>High Frequency Infrared Carbon Sulfur Analyzer</h3>
@@ -47,7 +47,7 @@ export const htmlContent = `<h1>Carbon Sulfur Analyzer: Working Principle, Types
 <li>Maximum temperature limited to approximately 1,350 degrees Celsius</li>
 <li>Higher consumable lifetime (ceramic tubes last hundreds of analyses)</li>
 </ul>
-<p><a href="https://spectryeep.com/collections/carbon-sulfur-analyzer">Tube Furnace Carbon Sulfur Analyzer</a></p>
+<p><a href="/products/">Tube Furnace Carbon Sulfur Analyzer</a></p>
 <h3>Coulometric Carbon Sulfur Analyzer</h3>
 <p>A third, less common type uses coulometric (electrochemical) detection instead of infrared absorption. After combustion, SO2 is absorbed in an iodine-containing electrolyte solution, and the sulfur content is determined by measuring the electrical charge required to regenerate the consumed iodine. Carbon is similarly determined by absorbing CO2 and measuring the resulting change.</p>
 <p>Coulometric analyzers can achieve excellent precision for sulfur at low concentrations and are sometimes specified for coal analysis following standards such as ASTM D3177. However, they are slower than IR-based systems, more sensitive to chemical interferences, and require regular replenishment of electrolyte solutions. For most modern laboratories, infrared detection has largely supplanted coulometric methods due to its speed, lower maintenance burden, and broader dynamic range.</p>
@@ -124,7 +124,7 @@ export const htmlContent = `<h1>Carbon Sulfur Analyzer: Working Principle, Types
 <p>Modern instruments should provide flexible calibration management, multi-point curve fitting, automatic outlier detection, LIMS connectivity, and compliance with 21 CFR Part 11 or equivalent data integrity standards if the laboratory operates under regulated conditions.</p>
 <h3>Consumables and Operating Costs</h3>
 <p>Crucibles, accelerators, oxygen, and furnace components are ongoing expenses. Evaluate the cost per analysis and the interval between major maintenance events. Ceramic crucibles for high frequency systems are single-use; tube furnace ceramic tubes may last for several hundred analyses.</p>
-<p><a href="https://spectryeep.com/collections/carbon-sulfur-analyzer">CS Analyzer Accessories</a></p>
+<p><a href="/products/">CS Analyzer Accessories</a></p>
 <h2>Sample Types and Preparation</h2>
 <p>The versatility of combustion-based carbon sulfur analysis extends across a remarkably wide range of materials.</p>
 <h3>Ferrous Metals</h3>
@@ -143,7 +143,7 @@ export const htmlContent = `<h1>Carbon Sulfur Analyzer: Working Principle, Types
 <h3>Steel Mills and Foundries</h3>
 <p>This is the primary market for <strong>carbon sulfur analyzers</strong>. In steelmaking, carbon content determines the steel grade, while sulfur is a key indicator of cleanliness and machinability. Spectrometer laboratories at electric arc furnaces, basic oxygen furnaces, and continuous casters rely on high frequency infrared analyzers for rapid heat analysis with turnaround times of under two minutes from sample receipt to reported result.</p>
 <p>Foundries producing cast iron require tight control of carbon (which governs whether the iron solidifies as gray, ductile, or white iron) and sulfur (which interferes with the spheroidizing effect of magnesium in ductile iron production).</p>
-<p><a href="https://spectryeep.com/collections/carbon-sulfur-analyzer">Steel & Foundry Solutions</a></p>
+<p><a href="/products/">Steel & Foundry Solutions</a></p>
 <h3>Mining and Mineral Processing</h3>
 <p>Exploration geochemistry, mine grade control, and mineral processing laboratories use carbon sulfur analyzers for sulfur in ore, carbon in geological reference samples, and loss-on-ignition studies. Rapid turnaround supports real-time process adjustments in beneficiation plants.</p>
 <h3>Cement Manufacturing</h3>
@@ -166,7 +166,7 @@ export const htmlContent = `<h1>Carbon Sulfur Analyzer: Working Principle, Types
 <h2>Choose JIEBO for Your Carbon Sulfur Analysis Needs</h2>
 <p>JIEBO's range of carbon sulfur analyzers is engineered for the demands of modern production and research laboratories. From high frequency infrared systems delivering sub-ppm detection limits and analysis times under 45 seconds, to cost-effective tube furnace configurations optimized for non-metallic materials, JIEBO provides instruments that combine analytical performance with long-term reliability.</p>
 <p>Every JIEBO carbon sulfur analyzer features robust combustion system design, high-sensitivity infrared detection, intuitive software with full data traceability, and responsive after-sales technical support. Whether you operate a steel mill requiring continuous process control, a mining laboratory processing hundreds of geological samples per day, or a cement plant tracking sulfur through every stage of production, JIEBO has a solution matched to your requirements.</p>
-<p><a href="https://spectryeep.com/collections/carbon-sulfur-analyzer">Carbon Sulfur Analyzers</a></p>
+<p><a href="/products/">Carbon Sulfur Analyzers</a></p>
 <p><strong>Contact JIEBO today</strong> to discuss your application requirements, request a product demonstration, or receive a quotation. Visit <a href="https://spectryeep.com">spectryeep.com</a> or reach out to our technical sales team for expert guidance on selecting the right carbon sulfur analyzer for your laboratory.</p>
 <hr />
 <p><em>Published by JIEBO Instruments -- Advancing materials analysis with precision, speed, and reliability.</em></p>`;

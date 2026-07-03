@@ -13,7 +13,7 @@ export const htmlContent = `<h1>How to Choose an Optical Emission Spectrometer: 
 <p>Spark OES is the workhorse of the metals industry. A controlled spark discharge between an electrode and a prepared sample surface vaporizes and excites the material. The emitted light is dispersed by the optical system and measured at element-specific wavelengths.</p>
 <p><strong>Best for:</strong> Routine production control of ferrous and non-ferrous alloys, incoming material verification, grade sorting, and process control in foundries and rolling mills.</p>
 <p><strong>Why it dominates metals analysis:</strong> A spark OES spectrometer delivers a combination of speed (a full analysis in under 30 seconds), solid detection limits for trace elements, and excellent precision for alloying elements. Sample preparation is straightforward -- a flat, ground surface is all that is required.</p>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">Spark OES Spectrometers</a></p>
+<p><a href="/products/">Spark OES Spectrometers</a></p>
 <h3>Arc OES (Arc Discharge Optical Emission Spectrometry)</h3>
 <p>Arc excitation uses a sustained electrical arc rather than a repetitive spark. The continuous energy input vaporizes more material, which can be advantageous for inclusions analysis and for samples that are difficult to excite with a spark.</p>
 <p><strong>Best for:</strong> Inclusion analysis in steels, analysis of cast iron with graphite structures, and certain refractory metals.</p>
@@ -116,7 +116,7 @@ export const htmlContent = `<h1>How to Choose an Optical Emission Spectrometer: 
 <li><strong>Aluminum alloys:</strong> Na, Li, Ca, Be at sub-10 ppm</li>
 <li><strong>Copper alloys:</strong> Bi, Se, Te, P at low ppm</li>
 </ul>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">OES Technical Specs</a></p>
+<p><a href="/products/">OES Technical Specs</a></p>
 <h2>Matching the Instrument to Your Application</h2>
 <p>A spectrometer that excels in one environment may be poorly suited to another. Here is how to think about application fit.</p>
 <h3>Foundry and Casting Operations</h3>
@@ -127,7 +127,7 @@ export const htmlContent = `<h1>How to Choose an Optical Emission Spectrometer: 
 <li>Reliable performance on as-cast structures, including white cast iron, ductile iron, and high-alloy steels</li>
 <li>Low maintenance demands -- downtime during a melt campaign is extremely costly</li>
 </ul>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">Foundry OES Solutions</a></p>
+<p><a href="/products/">Foundry OES Solutions</a></p>
 <h3>Steel Mills and Long-Product Producers</h3>
 <p>Steel mills operate around the clock and require instruments that deliver high precision on carbon, sulfur, phosphorus, and nitrogen -- the elements that define steel grades. Look for:</p>
 <ul>
@@ -256,4 +256,4 @@ export const htmlContent = `<h1>How to Choose an Optical Emission Spectrometer: 
 <p>JIEBO has built its reputation as a trusted optical emission spectrometer manufacturer by focusing on exactly these priorities. Our spark OES spectrometer lineup is engineered for the demanding environments of foundries, steel mills, aluminum plants, and quality laboratories -- delivering the analytical performance, reliability, and low operating costs that production-focused operations require.</p>
 <p>Whether you are evaluating your first spectrometer purchase or upgrading an existing installation, our applications team is ready to discuss your specific requirements, arrange sample demonstrations, and provide a transparent total-cost-of-ownership analysis.</p>
 <p><strong>Explore the full range of JIEBO optical emission spectrometers at <a href="https://spectryeep.com">spectryeep.com</a> or contact our technical sales team to schedule a consultation tailored to your application.</strong></p>
-<p><a href="https://spectryeep.com/collections/optical-emission-spectrometer">OES Product Range</a> <a href="https://spectryeep.com/contact-us">Contact Us</a></p>`;
+<p><a href="/products/">OES Product Range</a> <a href="https://spectryeep.com/contact-us">Contact Us</a></p>`;

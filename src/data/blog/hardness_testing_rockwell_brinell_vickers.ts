@@ -38,7 +38,7 @@ export const htmlContent = `<h1>Hardness Testing Methods Compared: Rockwell vs B
 <li><strong>Wide applicability.</strong> Multiple scales cover soft aluminum through hardened tool steel.</li>
 </ul>
 <h3>When to Use Rockwell</h3>
-<p>Rockwell is the preferred method for routine production testing, heat treatment verification, and incoming inspection of metals when speed and throughput matter. It is the most commonly specified method in North American manufacturing. <a href="https://spectryeep.com/collections/rockwell-hardness-tester">Rockwell Hardness Testers</a></p>
+<p>Rockwell is the preferred method for routine production testing, heat treatment verification, and incoming inspection of metals when speed and throughput matter. It is the most commonly specified method in North American manufacturing. <a href="/products/">Rockwell Hardness Testers</a></p>
 <h2>Brinell Hardness Testing</h2>
 <h3>Principle and Procedure</h3>
 <p>The Brinell method, standardized under <strong>ASTM E10</strong> and <strong>ISO 6506</strong>, uses a hardened steel or tungsten carbide ball indenter (typically 10 mm in diameter) pressed into the test surface under loads ranging from 500 to 3000 kgf. The load is held for a specified dwell time (usually 10-15 seconds), then removed. The diameter of the resulting indentation is measured optically using a microscope or an automated imaging system. The Brinell Hardness Number (BHN or HBW for tungsten carbide ball) is calculated from the applied load divided by the curved surface area of the impression.</p>
@@ -50,7 +50,7 @@ export const htmlContent = `<h1>Hardness Testing Methods Compared: Rockwell vs B
 <li><strong>Established correlation.</strong> There is a well-known approximate relationship between BHN and tensile strength for steels (tensile strength in MPa is roughly 3.45 times BHN).</li>
 </ul>
 <h3>When to Use Brinell</h3>
-<p>Brinell testing is preferred for large, rough, or heterogeneous materials -- particularly castings, forgings, and heavy structural components. It is also widely specified in the steel supply chain for verifying raw material hardness. <a href="https://spectryeep.com/collections/brinell-hardness-tester">Brinell Hardness Testers</a></p>
+<p>Brinell testing is preferred for large, rough, or heterogeneous materials -- particularly castings, forgings, and heavy structural components. It is also widely specified in the steel supply chain for verifying raw material hardness. <a href="/products/">Brinell Hardness Testers</a></p>
 <h2>Vickers Hardness Testing</h2>
 <h3>Principle and Procedure</h3>
 <p>The Vickers method, standardized under <strong>ASTM E92</strong> (macro) and <strong>ASTM E384</strong> (micro), as well as <strong>ISO 6507</strong>, uses a square-based diamond pyramid indenter with a 136-degree angle between opposite faces. Loads range from as low as 1 gf (0.0098 N) in microhardness testing to 120 kgf (1176 N) in macroscale testing. After the load is applied and removed, the two diagonals of the square indentation are measured optically, and the Vickers Hardness Number (HV) is calculated.</p>
@@ -68,9 +68,9 @@ export const htmlContent = `<h1>Hardness Testing Methods Compared: Rockwell vs B
 <li><strong>Standard for weld testing.</strong> Vickers micro and low-load tests are the standard method for weld hardness traverses per specifications such as NACE MR0175/ISO 15156.</li>
 </ul>
 <h3>When to Use Vickers</h3>
-<p>Vickers is the method of choice for research laboratories, case depth analysis, weld HAZ hardness profiling, thin coating evaluation, and any application requiring a single, unified hardness scale across different materials. <a href="https://spectryeep.com/collections/vickers-hardness-tester">Vickers Hardness Testers</a></p>
+<p>Vickers is the method of choice for research laboratories, case depth analysis, weld HAZ hardness profiling, thin coating evaluation, and any application requiring a single, unified hardness scale across different materials. <a href="/products/">Vickers Hardness Testers</a></p>
 <h2>Knoop Hardness Testing: A Brief Overview</h2>
-<p>The Knoop method (ASTM E384) uses an elongated diamond pyramid indenter that produces a shallow, elongated impression. It is primarily used for very thin coatings, brittle materials such as ceramics and glass, and situations where the indentation depth must be minimized. Because the long diagonal is approximately 7 times the indentation depth, Knoop testing is particularly valuable for measuring the hardness of layers as thin as a few micrometers. <a href="https://spectryeep.com/collections/vickers-hardness-tester">Microhardness Testers</a></p>
+<p>The Knoop method (ASTM E384) uses an elongated diamond pyramid indenter that produces a shallow, elongated impression. It is primarily used for very thin coatings, brittle materials such as ceramics and glass, and situations where the indentation depth must be minimized. Because the long diagonal is approximately 7 times the indentation depth, Knoop testing is particularly valuable for measuring the hardness of layers as thin as a few micrometers. <a href="/products/">Microhardness Testers</a></p>
 <h2>Leeb (Rebound) Hardness Testing for Portable Applications</h2>
 <p>The Leeb method, standardized under <strong>ASTM A956</strong> and <strong>ISO 16859</strong>, works on a fundamentally different principle. A spring-loaded impact body with a tungsten carbide tip is propelled against the test surface. The velocity of the impact body is measured immediately before and after it strikes the surface. The ratio of rebound velocity to impact velocity, multiplied by 1000, gives the Leeb hardness value (HL).</p>
 <h3>Advantages of Leeb Testing</h3>
@@ -80,7 +80,7 @@ export const htmlContent = `<h1>Hardness Testing Methods Compared: Rockwell vs B
 <li><strong>Minimal surface preparation.</strong> A ground area of approximately 30 mm diameter is generally sufficient.</li>
 </ul>
 <h3>Limitations</h3>
-<p>Leeb testing is less accurate than bench-top indentation methods and is affected by specimen mass, geometry, surface condition, and coupling. It should not be used on thin-walled parts, small components, or where the highest accuracy is needed. Results are often converted to Rockwell, Brinell, or Vickers scales, but these conversions introduce additional uncertainty. <a href="https://spectryeep.com/collections/leeb-hardness-tester">Portable Hardness Testers</a></p>
+<p>Leeb testing is less accurate than bench-top indentation methods and is affected by specimen mass, geometry, surface condition, and coupling. It should not be used on thin-walled parts, small components, or where the highest accuracy is needed. Results are often converted to Rockwell, Brinell, or Vickers scales, but these conversions introduce additional uncertainty. <a href="/products/">Portable Hardness Testers</a></p>
 <h2>Comparison Table: Rockwell vs Brinell vs Vickers vs Leeb</h2>
 <table>
 <thead><tr>
@@ -202,4 +202,4 @@ export const htmlContent = `<h1>Hardness Testing Methods Compared: Rockwell vs B
 <p>Selecting the right hardness testing method is only half the equation. The accuracy and reliability of your results depend equally on the quality of your testing instrument, its calibration, and the support behind it.</p>
 <p>JIEBO offers a comprehensive range of hardness testers designed for quality laboratories and production environments -- from high-throughput Rockwell testers and heavy-duty Brinell testers to precision Vickers systems and field-ready portable Leeb instruments. Each instrument is engineered for accuracy, repeatability, and long-term reliability in demanding industrial applications.</p>
 <p><strong>Explore the full JIEBO hardness tester range at <a href="https://spectryeep.com">spectryeep.com</a> or contact our technical team to discuss which method and instrument best fit your application requirements.</strong></p>
-<p><a href="https://spectryeep.com/collections/hardness-test">Hardness Testers</a> <a href="https://spectryeep.com/contact-us">Contact Us</a></p>`;
+<p><a href="/products/">Hardness Testers</a> <a href="https://spectryeep.com/contact-us">Contact Us</a></p>`;
