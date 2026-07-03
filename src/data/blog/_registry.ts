@@ -9,6 +9,12 @@ export interface BlogArticleMeta {
 
 export const BLOG_ARTICLES: BlogArticleMeta[] = [
   {
+    slug: 'oes-spectrometer-price',
+    title: `How Much Does an OES Spectrometer Cost? | 2026 Price Guide`,
+    description: `Real-world OES spectrometer price ranges for 2026 -- entry-level to high-end, Chinese vs Western brands, plus total cost of ownership and how to get a meaningful quote.`,
+    datePublished: '2026-07-03',
+  },
+  {
     slug: 'oes-buyer-guide-2026',
     title: `How to Choose an Optical Emission Spectrometer | 2026 Guide`,
     description: `Expert buyer's guide on how to choose an optical emission spectrometer. Compare spark, arc, and ICP OES types, key specs, applications, and budget considerations.`,
