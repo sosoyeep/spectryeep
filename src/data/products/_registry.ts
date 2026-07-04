@@ -1,5 +1,6 @@
 import type { ProductRecord } from './_types';
 import { product as exquisT4 } from './exquis-t4';
+import { product as exquisT4Pro } from './exquis-t4-pro';
 import { product as innovateT5 } from './innovate-t5-product';
 import { product as nobleT7 } from './noble-t7';
 import { product as jb750 } from './jb-750';
@@ -13,6 +14,7 @@ import { product as f7000 } from './f7000-pro';
 
 export const PRODUCT_RECORDS: Record<string, ProductRecord> = {
   'exquis-t4': exquisT4,
+  'exquis-t4-pro': exquisT4Pro,
   'innovate-t5': innovateT5,
   'noble-t7': nobleT7,
   'jb-750': jb750,
