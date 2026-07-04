@@ -37,7 +37,7 @@ export const sections: Record<Locale, Section[]> = {
       heading: 'When OES is the right choice',
       paragraphs: [
         'OES is the workhorse of foundry and steel-mill quality control. Choose it when you need to measure carbon, sulfur, phosphorus or boron at production-relevant levels — XRF cannot reliably quantify these light elements, and LIBS is less accurate for trace carbon. Modern benchtop and floor-standing OES instruments cover up to 36 elements across 10+ base matrices in 20–30 seconds with detection limits down to 0.0001 %.',
-        'JIEBO OES options span the price-performance curve: the [Exquis T4](/products/exquis-t4/) is a sealed-chamber benchtop for single-matrix shops, the [Innovate T5](/products/innovate-t5/) handles multi-alloy production lines, the [Noble T7](/products/noble-t7/) targets sub-10-ppm research work, and the [JB-750](/products/jb-750/) is a PMT-based flagship for certification labs. The [Surpass F1](/products/surpass-f1/) is the mobile OES variant that brings carbon measurement to the scrap yard.',
+        'JIEBO OES options span the price-performance curve: the [Exquis T4](/products/exquis-t4/) is a sealed-chamber benchtop for single-matrix shops, the [Innovate T5](/products/innovate-t5/) handles multi-alloy production lines, the [Noble T7](/products/noble-t7/) targets sub-10-ppm research work. The [Surpass F1](/products/surpass-f1/) is the mobile OES variant that brings carbon measurement to the scrap yard.',
       ],
     },
     {
@@ -79,7 +79,7 @@ export const sections: Record<Locale, Section[]> = {
       heading: 'Когда правильно выбрать ОЭС',
       paragraphs: [
         'ОЭС — рабочая лошадка контроля качества в литейном и сталелитейном производстве. Выбирайте, когда нужно измерять углерод, серу, фосфор или бор на производственных уровнях — РФА надёжно их не определяет, а LIBS менее точен по следовому углероду. Современные настольные и напольные ОЭС определяют до 36 элементов в 10+ базовых матрицах за 20–30 секунд с пределами обнаружения до 0,0001 %.',
-        'У JIEBO линейка ОЭС покрывает диапазон цена/качество: [Exquis T4](/ru/products/exquis-t4/) — настольный для одноматричных цехов, [Innovate T5](/ru/products/innovate-t5/) — для многосплавных производственных линий, [Noble T7](/ru/products/noble-t7/) — для исследовательской работы ниже 10 ppm, [JB-750](/ru/products/jb-750/) — флагман на ФЭУ для сертификации. [Surpass F1](/ru/products/surpass-f1/) — мобильный ОЭС, приносящий измерение углерода на приёмку лома.',
+        'У JIEBO линейка ОЭС покрывает диапазон цена/качество: [Exquis T4](/ru/products/exquis-t4/) — настольный для одноматричных цехов, [Innovate T5](/ru/products/innovate-t5/) — для многосплавных производственных линий, [Noble T7](/ru/products/noble-t7/) — для исследовательской работы ниже 10 ppm. [Surpass F1](/ru/products/surpass-f1/) — мобильный ОЭС, приносящий измерение углерода на приёмку лома.',
       ],
     },
     {
@@ -121,7 +121,7 @@ export const sections: Record<Locale, Section[]> = {
       heading: 'Cuándo OES es la mejor elección',
       paragraphs: [
         'OES es el caballo de batalla del QC de fundiciones y acerías. Elíjala cuando deba medir carbono, azufre, fósforo o boro a niveles relevantes para producción — XRF no cuantifica fiablemente estos elementos ligeros y LIBS es menos preciso en trazas de carbono. Los OES modernos de mesa o de pie cubren hasta 36 elementos en 10+ matrices base en 20–30 segundos con límites de detección hasta 0,0001 %.',
-        'La línea JIEBO cubre la curva precio-rendimiento: [Exquis T4](/es/products/exquis-t4/) de mesa con cámara sellada para talleres monomatriz, [Innovate T5](/es/products/innovate-t5/) para líneas de producción multi-aleación, [Noble T7](/es/products/noble-t7/) para investigación sub-10 ppm, [JB-750](/es/products/jb-750/) PMT insignia para certificación. [Surpass F1](/es/products/surpass-f1/) es el OES móvil que lleva la medición de carbono al patio de chatarra.',
+        'La línea JIEBO cubre la curva precio-rendimiento: [Exquis T4](/es/products/exquis-t4/) de mesa con cámara sellada para talleres monomatriz, [Innovate T5](/es/products/innovate-t5/) para líneas de producción multi-aleación, [Noble T7](/es/products/noble-t7/) para investigación sub-10 ppm. [Surpass F1](/es/products/surpass-f1/) es el OES móvil que lleva la medición de carbono al patio de chatarra.',
       ],
     },
     {
@@ -163,7 +163,7 @@ export const sections: Record<Locale, Section[]> = {
       heading: 'متى يكون OES الخيار الصحيح',
       paragraphs: [
         'الـ OES هو خيار ضبط الجودة الأساسي في المسابك ومصانع الصلب. اختره عند الحاجة لقياس الكربون أو الكبريت أو الفوسفور أو البورون عند مستويات الإنتاج — فالـ XRF لا يقيس هذه العناصر الخفيفة بشكل موثوق، والـ LIBS أقلّ دقّة في قياس الكربون النزر. أجهزة OES الحديثة المكتبية والأرضية تغطّي حتى 36 عنصراً عبر 10+ مصفوفات أساسية خلال 20–30 ثانية بحدود كشف تصل إلى 0.0001 %.',
-        'تغطّي خيارات JIEBO من OES منحنى السعر مقابل الأداء: [Exquis T4](/ar/products/exquis-t4/) المكتبي بغرفة مغلقة للورش ذات المصفوفة الواحدة، و[Innovate T5](/ar/products/innovate-t5/) لخطوط الإنتاج متعدّدة السبائك، و[Noble T7](/ar/products/noble-t7/) للأعمال البحثية دون 10 ppm، و[JB-750](/ar/products/jb-750/) الرائد بتقنية PMT لمختبرات الاعتماد. أمّا [Surpass F1](/ar/products/surpass-f1/) فهو OES المتنقّل الذي ينقل قياس الكربون إلى ساحة الخردة.',
+        'تغطّي خيارات JIEBO من OES منحنى السعر مقابل الأداء: [Exquis T4](/ar/products/exquis-t4/) المكتبي بغرفة مغلقة للورش ذات المصفوفة الواحدة، و[Innovate T5](/ar/products/innovate-t5/) لخطوط الإنتاج متعدّدة السبائك، و[Noble T7](/ar/products/noble-t7/) للأعمال البحثية دون 10 ppm. أمّا [Surpass F1](/ar/products/surpass-f1/) فهو OES المتنقّل الذي ينقل قياس الكربون إلى ساحة الخردة.',
       ],
     },
     {
@@ -208,7 +208,7 @@ export const compareTable: Record<Locale, {
       ['Detection limit', '0.0001 % (1 ppm) with PMT', '0.01 % typical', '0.01–0.1 % typical'],
       ['Operator regulation', 'None special', 'Radiation safety license required', 'Laser safety training'],
       ['Portability', 'Benchtop / floor-standing; F1 mobile cart', 'Handheld gun, < 2 kg', 'Handheld gun, ~1.25 kg'],
-      ['JIEBO products', 'Exquis T4, Innovate T5, Noble T7, JB-750, Surpass F1', 'F6000 Pro', 'F7000 Pro'],
+      ['JIEBO products', 'Exquis T4, Exquis T4 Pro, Innovate T5, Noble T7, Surpass F1', 'F6000 Pro', 'F7000 Pro'],
     ],
   },
   ru: {
@@ -225,7 +225,7 @@ export const compareTable: Record<Locale, {
       ['Предел обнаружения', '0,0001 % (1 ppm) с ФЭУ', '0,01 % типично', '0,01–0,1 % типично'],
       ['Регулирование оператора', 'Особого нет', 'Лицензия по радиационной безопасности', 'Обучение лазерной безопасности'],
       ['Портативность', 'Настольный / напольный; F1 — мобильная тележка', 'Ручной, < 2 кг', 'Ручной, ~1,25 кг'],
-      ['Продукты JIEBO', 'Exquis T4, Innovate T5, Noble T7, JB-750, Surpass F1', 'F6000 Pro', 'F7000 Pro'],
+      ['Продукты JIEBO', 'Exquis T4, Exquis T4 Pro, Innovate T5, Noble T7, Surpass F1', 'F6000 Pro', 'F7000 Pro'],
     ],
   },
   es: {
@@ -242,7 +242,7 @@ export const compareTable: Record<Locale, {
       ['Límite de detección', '0,0001 % (1 ppm) con PMT', '0,01 % típico', '0,01–0,1 % típico'],
       ['Regulación del operador', 'Sin requisitos especiales', 'Licencia de seguridad radiológica', 'Formación en seguridad láser'],
       ['Portabilidad', 'Mesa / de pie; F1 móvil en carro', 'Pistola portátil, < 2 kg', 'Pistola portátil, ~1,25 kg'],
-      ['Productos JIEBO', 'Exquis T4, Innovate T5, Noble T7, JB-750, Surpass F1', 'F6000 Pro', 'F7000 Pro'],
+      ['Productos JIEBO', 'Exquis T4, Exquis T4 Pro, Innovate T5, Noble T7, Surpass F1', 'F6000 Pro', 'F7000 Pro'],
     ],
   },
   ar: {
@@ -259,7 +259,7 @@ export const compareTable: Record<Locale, {
       ['حدّ الكشف', '0.0001 % (1 ppm) مع PMT', '0.01 % نموذجي', '0.01–0.1 % نموذجي'],
       ['تنظيم المشغّل', 'لا توجد متطلّبات خاصّة', 'يلزم ترخيص سلامة إشعاعية', 'تدريب على سلامة الليزر'],
       ['قابلية الحمل', 'مكتبي / أرضي؛ F1 على عربة متنقّلة', 'مسدّس محمول، < 2 كغ', 'مسدّس محمول، ~1.25 كغ'],
-      ['منتجات JIEBO', 'Exquis T4، Innovate T5، Noble T7، JB-750، Surpass F1', 'F6000 Pro', 'F7000 Pro'],
+      ['منتجات JIEBO', 'Exquis T4، Exquis T4 Pro، Innovate T5، Noble T7، Surpass F1', 'F6000 Pro', 'F7000 Pro'],
     ],
   },
 };

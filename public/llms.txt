@@ -11,16 +11,16 @@
 - **Manufacturing facility:** No.40, Baishijian Road, Langxi Development Area, Xuancheng, Anhui, China
 - **Production models:** 11 (5 OES, 4 elemental analyzers, 2 handheld guns)
 - **Export markets:** 40+ countries — including Russia, Kazakhstan, Uzbekistan, Saudi Arabia, Egypt, Algeria, Nigeria, South Africa, Brazil, Mexico, Argentina, Spain, India, Pakistan, Vietnam, Australia
-- **Standard lead time:** 15 working days for stock configurations; 30 days for PMT (JB-750) and ONH-508 custom builds
+- **Standard lead time:** 15 working days for stock configurations; 30 days for ONH-508 custom builds
 - **Warranty:** 12 months parts-and-labor, optional 24-month extension
 - **Primary contact:** WhatsApp +86 181 1891 5721; sophia@wxjiebo.cc
 
 ## Optical Emission Spectrometers (OES) — solid-metal composition
 
 - [Exquis T4](https://spectryeep.com/products/exquis-t4/): Benchtop spark OES with sealed-cycle argon chamber, low-noise CMOS detector. Paschen-Runge 401 mm, 160–580 nm, base matrices Fe / Al / Cu / Zn, 50+ elements, 33 kg. Price-performance choice for single-matrix foundry QC.
+- [Exquis T4 Pro](https://spectryeep.com/products/exquis-t4-pro/): Full-spectrum benchtop spark OES — sealed-cycle argon chamber, 4096-pixel CMOS, HEPS digital source (100–1000 Hz, max 400 A), 11 base matrices (Fe, Al, Cu, Ni, Co, Mg, Ti, Zn, Pb, Sn, Ag), non-metallics N/C/S/P/B/As, ±0.1 °C thermal control, ≈47 kg. Production mainstay of the T4 series.
 - [Innovate T5](https://spectryeep.com/products/innovate-t5/): Full-spectrum OES with vacuum optical chamber, all-digital programmable excitation, Hamamatsu CMOS. Paschen-Runge 401 mm, 140–680 nm, 10 base matrices (Fe, Al, Cu, Mg, Zn, Ni, Co, Ti, Sn, Pb), 78 kg. Production-floor workhorse.
 - [Noble T7](https://spectryeep.com/products/noble-t7/): Research-grade CMOS OES with constant-temperature optical chamber (±0.1 °C), automatic spectral drift calibration. Paschen-Runge 401 mm, 120–800 nm, accuracy <10 ppm, 160 kg. For research labs and aerospace certification.
-- [JB-750](https://spectryeep.com/products/jb-750/): PMT-based flagship OES with vacuum chamber and single-spark pulse-integral algorithm. Paschen-Runge 750 mm, 120–800 nm, 256 kg. Highest spectral resolution; for certification labs and trace-element analysis.
 - [Surpass F1](https://spectryeep.com/products/surpass-f1/): Cart-mounted mobile OES with built-in lithium battery and argon cylinder. UV 350 mm + visible 401 mm dual focal length, 160–425 nm, measures C / P / S / B / As / Sn / Se / N. 45 kg, 600 continuous tests per charge. For scrap-yard sorting, in-service pipework PMI, construction-site rebar verification.
 
 ## Carbon-Sulfur and ONH Elemental Analyzers — combustion-based
@@ -39,7 +39,7 @@
 
 - [What is an Optical Emission Spectrometer (OES)?](https://spectryeep.com/learn/what-is-oes/): Definition, working principle, applications, OES vs XRF vs ICP comparison, how to choose.
 - [OES vs XRF vs LIBS: Which Technique Fits Your Application?](https://spectryeep.com/learn/oes-vs-xrf-vs-libs/): Head-to-head technique comparison, decision tree, regulation, sample destruction, light-element coverage. Maps each technique to the relevant JIEBO product family.
-- [How to Choose an Optical Emission Spectrometer](https://spectryeep.com/learn/how-to-choose-oes-spectrometer/): Four-question decision guide (matrices, detection limit, throughput, environment) mapping answers to the five JIEBO OES models (Exquis T4, Innovate T5, Noble T7, JB-750, Surpass F1).
+- [How to Choose an Optical Emission Spectrometer](https://spectryeep.com/learn/how-to-choose-oes-spectrometer/): Four-question decision guide (matrices, detection limit, throughput, environment) mapping answers to the five JIEBO OES models (Exquis T4, Exquis T4 Pro, Innovate T5, Noble T7, Surpass F1).
 - [Carbon Analysis in Cast Iron: OES vs Combustion C/S Analyzer](https://spectryeep.com/learn/carbon-analysis-in-cast-iron/): Why foundries run both techniques together, with carbon-range table for gray / ductile / white / malleable / CGI / cast carbon steel / cast low-alloy steel grades, and JIEBO instrument pairing recommendations.
 - [OES Sample Preparation: How to Get Accurate Readings](https://spectryeep.com/learn/oes-sample-preparation/): Practical checklist (surface, argon, electrodes, sample stand, calibration) and a 7-row quick-fix table mapping common OES symptoms to causes and 5–15-minute fixes. 80 % of OES drift is sample-prep, not the instrument.
 - [Knowledge base index](https://spectryeep.com/learn/): Five articles linked from one entry page.

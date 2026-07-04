@@ -17,11 +17,11 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: 'Which JIEBO spectrometer should I choose?',
-      a: 'It depends on your matrices, detection limits, and environment: the <a href="/products/exquis-t4/">Exquis T4</a> is ideal for single-matrix foundry QC; the <a href="/products/innovate-t5/">Innovate T5</a> handles 10 base matrices for production floors; the <a href="/products/noble-t7/">Noble T7</a> suits research labs needing &lt;10 ppm accuracy; the <a href="/products/jb-750/">JB-750</a> is the PMT flagship for certification labs; and the <a href="/products/surpass-f1/">Surpass F1</a> is our mobile unit for scrapyards and field PMI. Our <a href="/learn/how-to-choose-oes-spectrometer/">buyer\'s guide</a> walks through the decision.',
+      a: 'It depends on your matrices, detection limits, and environment: the <a href="/products/exquis-t4/">Exquis T4</a> is ideal for single-matrix foundry QC; the <a href="/products/innovate-t5/">Innovate T5</a> handles 10 base matrices for production floors; the <a href="/products/noble-t7/">Noble T7</a> suits research labs needing &lt;10 ppm accuracy; and the <a href="/products/surpass-f1/">Surpass F1</a> is our mobile unit for scrapyards and field PMI. Our <a href="/learn/how-to-choose-oes-spectrometer/">buyer\'s guide</a> walks through the decision.',
     },
     {
       q: 'What is the delivery time?',
-      a: 'Stock configurations ship within 15 working days. The JB-750 (PMT) and ONH-508 require 30 days for custom builds. We handle export documentation, CE/CB certificates, and door-to-door logistics worldwide.',
+      a: 'Stock configurations ship within 15 working days. The ONH-508 requires 30 days for custom builds. We handle export documentation, CE/CB certificates, and door-to-door logistics worldwide.',
     },
     {
       q: 'What warranty does JIEBO offer?',
@@ -59,11 +59,11 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: 'Какой спектрометр JIEBO мне подойдёт?',
-      a: '<a href="/ru/products/exquis-t4/">Exquis T4</a> — для литейного контроля одной матрицы; <a href="/ru/products/innovate-t5/">Innovate T5</a> — 10 базовых матриц для производства; <a href="/ru/products/noble-t7/">Noble T7</a> — для исследовательских лабораторий; <a href="/ru/products/jb-750/">JB-750</a> — для сертификационных лабораторий; <a href="/ru/products/surpass-f1/">Surpass F1</a> — мобильный для полевой работы.',
+      a: '<a href="/ru/products/exquis-t4/">Exquis T4</a> — для литейного контроля одной матрицы; <a href="/ru/products/innovate-t5/">Innovate T5</a> — 10 базовых матриц для производства; <a href="/ru/products/noble-t7/">Noble T7</a> — для исследовательских лабораторий; <a href="/ru/products/surpass-f1/">Surpass F1</a> — мобильный для полевой работы.',
     },
     {
       q: 'Каковы сроки доставки?',
-      a: 'Стандартные конфигурации отправляются в течение 15 рабочих дней. JB-750 и ONH-508 — 30 дней. Мы оформляем экспортную документацию и доставку до двери.',
+      a: 'Стандартные конфигурации отправляются в течение 15 рабочих дней. ONH-508 — 30 дней. Мы оформляем экспортную документацию и доставку до двери.',
     },
     {
       q: 'Какая гарантия?',
@@ -81,11 +81,11 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: '¿Cuál espectrómetro JIEBO debo elegir?',
-      a: '<a href="/es/products/exquis-t4/">Exquis T4</a> para fundición; <a href="/es/products/innovate-t5/">Innovate T5</a> para producción; <a href="/es/products/noble-t7/">Noble T7</a> para laboratorios; <a href="/es/products/jb-750/">JB-750</a> para certificación; <a href="/es/products/surpass-f1/">Surpass F1</a> para campo.',
+      a: '<a href="/es/products/exquis-t4/">Exquis T4</a> para fundición; <a href="/es/products/innovate-t5/">Innovate T5</a> para producción; <a href="/es/products/noble-t7/">Noble T7</a> para laboratorios; <a href="/es/products/surpass-f1/">Surpass F1</a> para campo.',
     },
     {
       q: '¿Cuáles son los plazos de entrega?',
-      a: 'Configuraciones estándar en 15 días hábiles. JB-750 y ONH-508 en 30 días. Gestionamos documentación de exportación y logística puerta a puerta.',
+      a: 'Configuraciones estándar en 15 días hábiles. ONH-508 en 30 días. Gestionamos documentación de exportación y logística puerta a puerta.',
     },
     {
       q: '¿Qué garantía ofrece JIEBO?',
@@ -103,7 +103,7 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: 'ما هي مدة التسليم؟',
-      a: 'التكوينات القياسية خلال 15 يوم عمل. JB-750 و ONH-508 خلال 30 يومًا. نتولى وثائق التصدير والشحن حتى باب المستلم.',
+      a: 'التكوينات القياسية خلال 15 يوم عمل. ONH-508 خلال 30 يومًا. نتولى وثائق التصدير والشحن حتى باب المستلم.',
     },
     {
       q: 'ما هي شروط الضمان؟',

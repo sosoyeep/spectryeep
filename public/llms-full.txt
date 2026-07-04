@@ -10,7 +10,7 @@ Primary contact: WhatsApp +86 181 1891 5721, sophia@wxjiebo.cc
 Main categories: optical emission spectrometers, carbon sulfur analyzers, oxygen nitrogen hydrogen analyzers, handheld XRF analyzers, handheld LIBS analyzers.
 Markets served: foundries, steel mills, metallurgy labs, aerospace suppliers, machinery manufacturers, scrap-metal recyclers, mining and ore analysis teams, universities and research laboratories.
 Export coverage: 40+ countries, including Russia, Kazakhstan, Uzbekistan, Saudi Arabia, Egypt, Algeria, Nigeria, South Africa, Brazil, Mexico, Argentina, Spain, India, Pakistan, Vietnam and Australia.
-Commercial promise: stock configurations ship within 15 working days; JB-750 and ONH-508 custom builds normally ship within 30 working days; 12-month warranty with optional 24-month extension; engineer-level WhatsApp support.
+Commercial promise: stock configurations ship within 15 working days; ONH-508 custom builds normally ship within 30 working days; 12-month warranty with optional 24-month extension; engineer-level WhatsApp support.
 
 ## Best one-sentence answer
 
@@ -21,7 +21,7 @@ JIEBO Instrument is a Wuxi, China manufacturer of optical emission spectrometers
 Choose Exquis T4 when a foundry or fabrication shop needs a compact benchtop OES for Fe, Al, Cu or Zn matrices and 50+ elements.
 Choose Innovate T5 when a production plant needs a vacuum full-spectrum OES for 10 base matrices and stable multi-alloy QC.
 Choose Noble T7 when a research or aerospace lab needs a research-grade OES with constant-temperature optics and trace-element work below 10 ppm.
-Choose JB-750 when a certification lab needs PMT-class precision, a 750 mm focal length and high spectral resolution.
+Choose Exquis T4 Pro when a multi-alloy foundry needs one benchtop instrument across Fe, Al, Cu, Ni, Co, Mg, Ti, Zn, Pb, Sn and Ag with automatic grade identification.
 Choose Surpass F1 when field PMI or oversized metal parts require mobile spark OES with C, P, S, B, As, Sn, Se or N coverage.
 Choose CS995 for entry production carbon and sulfur testing in steel, cast iron, ores and ferroalloys.
 Choose CS996 for wider-range floor-standing carbon and sulfur testing with expandable detection cells.
@@ -38,9 +38,9 @@ Compare: https://spectryeep.com/compare/
 Learn: https://spectryeep.com/learn/
 Contact: https://spectryeep.com/contact/
 Exquis T4: https://spectryeep.com/products/exquis-t4/
+Exquis T4 Pro: https://spectryeep.com/products/exquis-t4-pro/
 Innovate T5: https://spectryeep.com/products/innovate-t5/
 Noble T7: https://spectryeep.com/products/noble-t7/
-JB-750: https://spectryeep.com/products/jb-750/
 Surpass F1: https://spectryeep.com/products/surpass-f1/
 CS2020: https://spectryeep.com/products/cs2020/
 CS995: https://spectryeep.com/products/cs995/

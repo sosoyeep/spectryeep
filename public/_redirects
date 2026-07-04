@@ -19,7 +19,7 @@ https://www.spectryeep.com/* https://spectryeep.com/:splat 301!
 /innovate-t5-optical-emission-spectrometer/ /products/innovate-t5/ 301
 /t4-mini-spark-oes-spectrometer/ /products/exquis-t4/ 301
 /exquis-t4-optical-emission-spectrometer/ /products/exquis-t4/ 301
-/jb-750-optical-emission-spectrometer/ /products/jb-750/ 301
+/jb-750-optical-emission-spectrometer/ /products/ 301
 /surpass-f1-mobile-optical-emission-spectrometer/ /products/surpass-f1/ 301
 /cs995-carbon-sulfur-analyzer/ /products/cs995/ 301
 /cs996-carbon-sulfur-analyzer/ /products/cs996/ 301
@@ -34,3 +34,9 @@ https://www.spectryeep.com/* https://spectryeep.com/:splat 301!
 /learn /learn/ 301
 /about /about/ 301
 /contact /contact/ 301
+
+# JB-750 discontinued (factory confirmation, 2026-07) — permanent redirects.
+/products/jb-750/ /products/ 301
+/ru/products/jb-750/ /ru/products/ 301
+/es/products/jb-750/ /es/products/ 301
+/ar/products/jb-750/ /ar/products/ 301

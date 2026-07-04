@@ -43,7 +43,6 @@ export const PRODUCTS = [
   { slug: 'exquis-t4', name: 'Exquis T4 Optical Emission Spectrometer', sku: 'JIEBO-T4', category: 'oes', short: 'Sealed-cycle CMOS benchtop OES, 50+ elements, 33 kg' },
   { slug: 'innovate-t5', name: 'Innovate T5 Optical Emission Spectrometer', sku: 'JIEBO-T5', category: 'oes', short: 'Vacuum-chamber full-spectrum CMOS OES with Hamamatsu detectors, 78 kg' },
   { slug: 'noble-t7', name: 'Noble T7 Optical Emission Spectrometer', sku: 'JIEBO-T7', category: 'oes', short: 'Research-grade CMOS OES with constant-temp chamber, accuracy <10 ppm' },
-  { slug: 'jb-750', name: 'JB-750 Optical Emission Spectrometer', sku: 'JIEBO-JB750', category: 'oes', short: 'PMT vacuum-chamber flagship OES with 750 mm focal length, 256 kg' },
   { slug: 'surpass-f1', name: 'Surpass F1 Mobile Optical Emission Spectrometer', sku: 'JIEBO-F1', category: 'oes', short: 'Cart-mounted mobile OES with built-in battery and argon cylinder' },
   { slug: 'cs2020', name: 'CS2020 High-frequency Infrared Carbon & Sulfur Analyzer', sku: 'JIEBO-CS2020', category: 'elemental', short: 'Four-cell C/S analyzer with auto cleaning, 200+ maintenance-free cycles' },
   { slug: 'cs995', name: 'CS995 Carbon & Sulfur Analyzer', sku: 'JIEBO-CS995', category: 'elemental', short: 'Bench-type high-frequency infrared C/S analyzer, 115 kg' },

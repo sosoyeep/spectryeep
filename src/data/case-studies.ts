@@ -148,7 +148,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     productHref: '/products/onh-508/',
     application: 'Oxygen, nitrogen and hydrogen measurement in titanium, zirconium, steel, copper and rare-earth alloys.',
     challenge: ['The buyer needed O/N/H values that OES and XRF cannot provide directly.', 'Titanium and specialty alloys required careful method matching.', 'Laboratory staff needed clear configuration and consumable guidance before purchase.'],
-    solution: ['JIEBO recommended ONH-508 using inert-gas fusion up to 3000 C.', 'The RFQ process asks for material type, expected ranges, standards and sample preparation.', 'For full alloy chemistry, ONH-508 can be paired with Noble T7 or JB-750 OES.'],
+    solution: ['JIEBO recommended ONH-508 using inert-gas fusion up to 3000 C.', 'The RFQ process asks for material type, expected ranges, standards and sample preparation.', 'For full alloy chemistry, ONH-508 can be paired with Noble T7 OES.'],
     result: ['The proposed workflow fills the O/N/H gap left by OES and handheld analyzers.', 'The buyer receives a clearer instrument pairing for specialty alloy certification.', 'Pre-sales review reduces configuration risk before shipment.'],
     note: 'This anonymized case describes an application workflow without publishing private buyer identity.',
     related: [

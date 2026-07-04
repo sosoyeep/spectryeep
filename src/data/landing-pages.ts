@@ -88,13 +88,12 @@ const applicationPages: LandingPageData[] = [
     buyerFit: ['Titanium, nickel, cobalt, aluminum and high-strength steel analysis', 'Trace-element and light-element workflows where handheld tools are not enough', 'Laboratories needing repeatability for certificates and supplier audits'],
     recommended: [
       { name: 'Noble T7', href: '/products/noble-t7/', reason: 'Research-grade CMOS OES with constant-temperature optics.' },
-      { name: 'JB-750', href: '/products/jb-750/', reason: 'PMT flagship OES with 750 mm focal length for high spectral resolution.' },
       { name: 'ONH-508', href: '/products/onh-508/', reason: 'Oxygen, nitrogen and hydrogen analysis for titanium and specialty alloys.' },
     ],
-    proof: ['Noble T7 targets accuracy below 10 ppm.', 'JB-750 supports certification-grade trace-element analysis.', 'ONH-508 uses inert-gas fusion up to 3000 C.'],
+    proof: ['Noble T7 targets accuracy below 10 ppm.', 'ONH-508 uses inert-gas fusion up to 3000 C.'],
     faq: [
       { q: 'Which instrument measures oxygen and nitrogen in titanium?', a: 'ONH-508 is designed for oxygen, nitrogen and hydrogen analysis in titanium, zirconium, steel, copper and rare-earth alloys.' },
-      { q: 'Which OES model fits aerospace labs?', a: 'Noble T7 and JB-750 are the preferred options for trace-element work and high-stability laboratory workflows.' },
+      { q: 'Which OES model fits aerospace labs?', a: 'Noble T7 is the preferred option for trace-element work and high-stability laboratory workflows.' },
     ],
   },
   {
@@ -291,15 +290,14 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'Análisis de metales aeroespaciales para trazas y certificación de aleaciones',
       intro: 'Los proveedores aeroespaciales necesitan datos químicos confiables para material entrante, control de proceso y verificación final.',
       buyerFit: ['Titanio, níquel, cobalto, aluminio y aceros de alta resistencia', 'Trazas y elementos ligeros donde herramientas portátiles no bastan', 'Laboratorios con necesidades de repetibilidad y auditoría'],
-      proof: ['Noble T7 apunta a exactitud inferior a 10 ppm.', 'JB-750 ofrece alta resolución PMT.', 'ONH-508 usa fusión en gas inerte hasta 3000 C.'],
+      proof: ['Noble T7 apunta a exactitud inferior a 10 ppm.', 'ONH-508 usa fusión en gas inerte hasta 3000 C.'],
       recommended: [
         { name: 'Noble T7', href: '/products/noble-t7/', reason: 'OES CMOS de grado investigación con óptica termostatizada.' },
-        { name: 'JB-750', href: '/products/jb-750/', reason: 'OES PMT con focal de 750 mm.' },
         { name: 'ONH-508', href: '/products/onh-508/', reason: 'O, N y H en titanio y aleaciones especiales.' },
       ],
       faq: [
         { q: '¿Qué equipo mide O y N en titanio?', a: 'ONH-508 mide oxígeno, nitrógeno e hidrógeno en titanio, zirconio, acero, cobre y tierras raras.' },
-        { q: '¿Qué OES conviene a laboratorios aeroespaciales?', a: 'Noble T7 y JB-750 son las opciones para trazas y alta estabilidad.' },
+        { q: '¿Qué OES conviene a laboratorios aeroespaciales?', a: 'Noble T7 es la opción para trazas y alta estabilidad.' },
       ],
     },
     'mining-ore-xrf-analyzer': {
@@ -473,15 +471,14 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'Анализ аэрокосмических металлов для следовых элементов и сертификации сплавов',
       intro: 'Поставщикам аэрокосмической отрасли нужны надежные данные по химсоставу для входного контроля, управления процессом и финальной проверки.',
       buyerFit: ['Титан, никель, кобальт, алюминий и высокопрочные стали', 'Следовые и легкие элементы, где ручных приборов недостаточно', 'Лаборатории, которым нужна повторяемость для сертификатов и аудитов'],
-      proof: ['Noble T7 ориентирован на точность ниже 10 ppm.', 'JB-750 поддерживает высокое спектральное разрешение.', 'ONH-508 использует плавление в инертном газе до 3000 C.'],
+      proof: ['Noble T7 ориентирован на точность ниже 10 ppm.', 'ONH-508 использует плавление в инертном газе до 3000 C.'],
       recommended: [
         { name: 'Noble T7', href: '/products/noble-t7/', reason: 'CMOS OES исследовательского уровня с термостабильной оптикой.' },
-        { name: 'JB-750', href: '/products/jb-750/', reason: 'Флагманский PMT OES с фокусным расстоянием 750 мм.' },
         { name: 'ONH-508', href: '/products/onh-508/', reason: 'Анализ кислорода, азота и водорода в титане и спецсплавах.' },
       ],
       faq: [
         { q: 'Какой прибор измеряет кислород и азот в титане?', a: 'ONH-508 предназначен для анализа кислорода, азота и водорода в титане, цирконии, стали, меди и редкоземельных сплавах.' },
-        { q: 'Какой ОЭС подходит аэрокосмической лаборатории?', a: 'Noble T7 и JB-750 подходят для следовых элементов и стабильной лабораторной работы.' },
+        { q: 'Какой ОЭС подходит аэрокосмической лаборатории?', a: 'Noble T7 подходит для следовых элементов и стабильной лабораторной работы.' },
       ],
     },
     'mining-ore-xrf-analyzer': {
@@ -655,15 +652,14 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'تحليل المعادن الفضائية للعناصر النزرة وشهادات السبائك',
       intro: 'يحتاج موردو قطاع الطيران إلى بيانات كيميائية موثوقة للمواد الواردة ومراقبة العملية والتحقق النهائي.',
       buyerFit: ['تحليل التيتانيوم والنيكل والكوبالت والألومنيوم والصلب عالي المقاومة', 'العناصر النزرة والخفيفة عندما لا تكفي الأدوات المحمولة', 'مختبرات تحتاج إلى تكرارية للشهادات وتدقيق الموردين'],
-      proof: ['يستهدف Noble T7 دقة أقل من 10 ppm.', 'يدعم JB-750 تحليل العناصر النزرة بدقة عالية.', 'يستخدم ONH-508 الانصهار في غاز خامل حتى 3000 C.'],
+      proof: ['يستهدف Noble T7 دقة أقل من 10 ppm.', 'يستخدم ONH-508 الانصهار في غاز خامل حتى 3000 C.'],
       recommended: [
         { name: 'Noble T7', href: '/products/noble-t7/', reason: 'OES CMOS بدرجة بحثية وبصريات ثابتة الحرارة.' },
-        { name: 'JB-750', href: '/products/jb-750/', reason: 'OES PMT بطول بؤري 750 مم ودقة طيفية عالية.' },
         { name: 'ONH-508', href: '/products/onh-508/', reason: 'تحليل الأكسجين والنيتروجين والهيدروجين في التيتانيوم والسبائك الخاصة.' },
       ],
       faq: [
         { q: 'أي جهاز يقيس الأكسجين والنيتروجين في التيتانيوم؟', a: 'ONH-508 مصمم لقياس O وN وH في التيتانيوم والزركونيوم والصلب والنحاس وسبائك العناصر الأرضية النادرة.' },
-        { q: 'أي OES يناسب مختبرات الطيران؟', a: 'Noble T7 وJB-750 هما الخياران الأفضل للعناصر النزرة وسير العمل المختبري المستقر.' },
+        { q: 'أي OES يناسب مختبرات الطيران؟', a: 'Noble T7 هو الخيار الأفضل للعناصر النزرة وسير العمل المختبري المستقر.' },
       ],
     },
     'mining-ore-xrf-analyzer': {
