@@ -10,12 +10,37 @@ const spamPatterns = [
   /\bporn\b/i,
   /\bviagra\b/i,
   /\bbacklink/i,
-  /\branking\b/i,
-  /\btraffic\b/i,
+  /\b(google|search|serp) ranking\b/i,
+  /\b(website|web|organic) traffic\b/i,
   /\bguest post\b/i,
-  /\btelegram\b/i,
   /\bwhatsapp marketing\b/i,
 ];
+
+function errorPage(status, headline, detail) {
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>${headline} | JIEBO Instrument</title>
+<style>
+:root{color-scheme:light}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;color:#0f172a;background:#f8fafc}
+.wrap{max-width:34rem;margin:0 auto;padding:4rem 1.5rem}
+h1{font-size:1.6rem;line-height:1.25;margin:0 0 1rem}
+p{color:#475569;margin:0 0 1rem}
+.btn{display:inline-block;padding:.8rem 1.4rem;border-radius:.5rem;background:#075E54;color:#fff;text-decoration:none;font-weight:600}
+.btn--ghost{background:transparent;color:#0f172a;border:1px solid #cbd5e1;margin-inline-start:.5rem}
+</style></head><body><div class="wrap">
+<h1>${headline}</h1>
+<p>${detail}</p>
+<p>Your message was not lost on your side &mdash; please reach us directly and we will pick it up immediately.</p>
+<p><a class="btn" href="https://wa.me/8618118915721">WhatsApp +86 181 1891 5721</a>
+<a class="btn btn--ghost" href="mailto:info@spectryeep.com">info@spectryeep.com</a></p>
+</div></body></html>`;
+  return new Response(html, {
+    status,
+    headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' },
+  });
+}
 
 function json(status, body, headers = {}) {
   return new Response(JSON.stringify(body), {
@@ -206,6 +231,41 @@ function flattenPayload(payload) {
   };
 }
 
+async function forwardToTelegram(env, payload) {
+  if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) return { configured: false, ok: true };
+
+  const lines = [
+    'New inquiry - spectryeep.com',
+    '',
+    `${payload.name || '?'} | ${payload.company || '?'} | ${payload.country || '?'}`,
+    `Email: ${payload.email || '?'}`,
+  ];
+  if (payload.phone) lines.push(`Phone: ${payload.phone}`);
+  if (payload.product) lines.push(`Product: ${payload.product}`);
+  if (payload.application) lines.push(`Application: ${payload.application}`);
+  if (payload.sample_material) lines.push(`Material: ${payload.sample_material}`);
+  if (payload.target_elements) lines.push(`Elements: ${payload.target_elements}`);
+  if (payload.source_page) lines.push(`Page: ${payload.source_page}`);
+  const utm = [payload.utm?.source, payload.utm?.medium, payload.utm?.campaign].filter(Boolean).join(' / ');
+  if (utm) lines.push(`Source: ${utm}`);
+  if (payload.message) lines.push('', '--- message ---', String(payload.message).slice(0, 1500));
+  const text = lines.join('\n').slice(0, 4000);
+
+  try {
+    const result = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text, disable_web_page_preview: true }),
+    });
+    if (!result.ok && result.status >= 400) {
+      return { configured: true, ok: false, status: result.status, error: `Telegram failed with ${result.status}` };
+    }
+    return { configured: true, ok: true, status: result.status };
+  } catch (error) {
+    return { configured: true, ok: false, error: error?.message || 'Telegram failed' };
+  }
+}
+
 async function forwardToFallbackEmail(env, payload) {
   if (env.ENABLE_SERVER_SIDE_FALLBACK !== 'true') {
     return { configured: false, ok: true };
@@ -239,6 +299,7 @@ async function forwardLead(env, payload) {
     forwardToFormspree(env, payload),
     postJson(env.CRM_WEBHOOK_URL, payload, env.CRM_WEBHOOK_TOKEN),
     postJson(env.EMAIL_WEBHOOK_URL, payload, env.EMAIL_WEBHOOK_TOKEN),
+    forwardToTelegram(env, payload),
     forwardToFallbackEmail(env, payload),
   ]);
   const configured = results.filter((result) => result.configured);
@@ -274,10 +335,18 @@ async function handleInquiryPost({ request, env }) {
   const forwarding = await forwardLead(env, payload);
   if (!forwarding.configured) {
     console.error('Inquiry forwarding is not configured');
-    return json(503, {
-      ok: false,
-      error: 'Inquiry forwarding is not configured. Please contact info@spectryeep.com or WhatsApp +86 181 1891 5721.',
-    });
+    return errorPage(
+      503,
+      'We could not deliver your enquiry',
+      'Our enquiry routing is not configured correctly right now. This is our fault, not yours.',
+    );
+  }
+  if (!forwarding.delivered) {
+    return errorPage(
+      502,
+      'We could not deliver your enquiry',
+      'Every delivery route for our enquiry form failed just now. This is our fault, not yours.',
+    );
   }
 
   const locale = data.locale && data.locale !== 'en' ? `/${data.locale}` : '';
