@@ -23,7 +23,7 @@ const copy: Record<Locale, {
   proofLinks: { label: string; href: string }[];
   addressesTitle: string;
   headOfficeLabel: string; factoryLabel: string;
-  emailLabel: string; phoneLabel: string; hoursLabel: string; hoursValue: string;
+  emailLabel: string; hoursLabel: string; hoursValue: string;
   faqItems: { q: string; a: string }[];
 }> = {
   en: {
@@ -72,7 +72,6 @@ const copy: Record<Locale, {
     headOfficeLabel: 'Head office',
     factoryLabel: 'Manufacturing facility',
     emailLabel: 'Email',
-    phoneLabel: 'Phone',
     hoursLabel: 'Office hours',
     hoursValue: 'Mon–Fri 8:30–17:30 CST (UTC+8)',
     faqItems: [
@@ -148,7 +147,6 @@ const copy: Record<Locale, {
     headOfficeLabel: 'Головной офис',
     factoryLabel: 'Производственная площадка',
     emailLabel: 'Эл. почта',
-    phoneLabel: 'Телефон',
     hoursLabel: 'Часы работы',
     hoursValue: 'Пн–Пт 8:30–17:30 (UTC+8)',
     faqItems: [
@@ -224,7 +222,6 @@ const copy: Record<Locale, {
     headOfficeLabel: 'Oficina central',
     factoryLabel: 'Planta de fabricación',
     emailLabel: 'Correo',
-    phoneLabel: 'Teléfono',
     hoursLabel: 'Horario de oficina',
     hoursValue: 'Lun–Vie 8:30–17:30 (UTC+8)',
     faqItems: [
@@ -300,7 +297,6 @@ const copy: Record<Locale, {
     headOfficeLabel: 'المكتب الرئيسي',
     factoryLabel: 'منشأة التصنيع',
     emailLabel: 'البريد الإلكتروني',
-    phoneLabel: 'الهاتف',
     hoursLabel: 'ساعات العمل',
     hoursValue: 'الاثنين–الجمعة 8:30–17:30 (UTC+8)',
     faqItems: [
@@ -431,11 +427,10 @@ const breadcrumbs = [
         <dt>{c.headOfficeLabel}</dt><dd>{SITE.headOffice}</dd>
         <dt>{c.factoryLabel}</dt><dd>{SITE.factory}</dd>
         <dt>{c.emailLabel}</dt><dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
-        <dt>{c.phoneLabel}</dt><dd>{SITE.phone} · {SITE.phoneAlt}</dd>
         <dt>{c.hoursLabel}</dt><dd>{c.hoursValue}</dd>
       </dl>
       <p style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:2rem;">
-        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')} · {SITE.wechat}</a>
+        <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')}</a>
         <a class="button button--ghost" href={localizedPath(locale, '/contact/')}>{t(locale, 'cta.request_quote')}</a>
       </p>
     </div>

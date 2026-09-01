@@ -15,7 +15,7 @@ const copy: Record<Locale, {
   title: string; lede: string;
   primaryTitle: string; primaryBody: string;
   channelsTitle: string;
-  labels: { whatsapp: string; email: string; phone: string; phoneAlt: string; wechat: string; skype: string };
+  labels: { whatsapp: string; email: string; skype: string };
   rfqTitle: string; rfqBody: string; rfqSubmit: string;
   form: { name: string; company: string; country: string; email: string; phone: string; material: string; elements: string; volume: string; message: string };
   addressesTitle: string;
@@ -28,7 +28,7 @@ const copy: Record<Locale, {
     primaryTitle: 'Fastest reply — WhatsApp',
     primaryBody: 'Pre-fill a message in your language and our engineers reply with a quote, lead time and recommended model.',
     channelsTitle: 'All contact channels',
-    labels: { whatsapp: 'WhatsApp', email: 'Email', phone: 'Phone (main)', phoneAlt: 'Phone (alt)', wechat: 'WeChat', skype: 'Skype' },
+    labels: { whatsapp: 'WhatsApp', email: 'Email', skype: 'Skype' },
     rfqTitle: 'Request a quote by email',
     rfqBody: 'Send the key buying details once, so our engineers can recommend the right instrument and reply with price, lead time and configuration.',
     rfqSubmit: 'Open email RFQ',
@@ -55,7 +55,7 @@ const copy: Record<Locale, {
     primaryTitle: 'Самый быстрый ответ — WhatsApp',
     primaryBody: 'Сообщение предзаполнено на вашем языке; инженеры отвечают ценой, сроком поставки и рекомендованной моделью.',
     channelsTitle: 'Все каналы связи',
-    labels: { whatsapp: 'WhatsApp', email: 'Эл. почта', phone: 'Телефон (основной)', phoneAlt: 'Телефон (доп.)', wechat: 'WeChat', skype: 'Skype' },
+    labels: { whatsapp: 'WhatsApp', email: 'Эл. почта', skype: 'Skype' },
     rfqTitle: 'Запросить предложение по email',
     rfqBody: 'Отправьте основные данные о задаче, чтобы инженеры подобрали модель и ответили по цене, сроку и конфигурации.',
     rfqSubmit: 'Открыть email-запрос',
@@ -82,7 +82,7 @@ const copy: Record<Locale, {
     primaryTitle: 'Respuesta más rápida — WhatsApp',
     primaryBody: 'Mensaje pre-llenado en su idioma; los ingenieros responden con cotización, plazo y modelo recomendado.',
     channelsTitle: 'Todos los canales de contacto',
-    labels: { whatsapp: 'WhatsApp', email: 'Correo', phone: 'Teléfono (principal)', phoneAlt: 'Teléfono (alterno)', wechat: 'WeChat', skype: 'Skype' },
+    labels: { whatsapp: 'WhatsApp', email: 'Correo', skype: 'Skype' },
     rfqTitle: 'Solicitar cotización por correo',
     rfqBody: 'Envíe los datos clave de compra para que nuestros ingenieros recomienden el instrumento correcto y respondan con precio, plazo y configuración.',
     rfqSubmit: 'Abrir RFQ por correo',
@@ -109,7 +109,7 @@ const copy: Record<Locale, {
     primaryTitle: 'أسرع ردّ — واتساب',
     primaryBody: 'الرسالة معبّأة مسبقاً بلغتك، ويردّ المهندسون بعرض سعر ومدّة تسليم وموديل موصى به.',
     channelsTitle: 'كل قنوات التواصل',
-    labels: { whatsapp: 'واتساب', email: 'البريد الإلكتروني', phone: 'الهاتف (رئيسي)', phoneAlt: 'الهاتف (بديل)', wechat: 'WeChat', skype: 'Skype' },
+    labels: { whatsapp: 'واتساب', email: 'البريد الإلكتروني', skype: 'Skype' },
     rfqTitle: 'اطلب عرض سعر عبر البريد',
     rfqBody: 'أرسل تفاصيل الشراء الأساسية ليقترح المهندسون الجهاز المناسب ويردّوا بالسعر ومدة التسليم والتكوين.',
     rfqSubmit: 'فتح طلب عبر البريد',
@@ -168,7 +168,7 @@ const breadcrumbs = [
         <h2 style="margin-bottom:0.5rem;">{c.primaryTitle}</h2>
         <p style="color:var(--muted); margin-bottom:1rem;">{c.primaryBody}</p>
         <a class="button button--primary" href={waHref} target="_blank" rel="noopener" style="font-size:1.125rem; padding:1rem 1.75rem;">
-          {t(locale, 'cta.whatsapp')} · {SITE.wechat}
+          {t(locale, 'cta.whatsapp')}
         </a>
       </div>
     </div>
@@ -184,11 +184,8 @@ const breadcrumbs = [
     <div class="container" style="max-width:780px;">
       <h2>{c.channelsTitle}</h2>
       <dl class="facts" style="grid-template-columns: max-content 1fr; margin-top:1rem;">
-        <dt>{c.labels.whatsapp}</dt><dd><a href={waHref} target="_blank" rel="noopener">{SITE.wechat}</a></dd>
+        <dt>{c.labels.whatsapp}</dt><dd><a href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')}</a></dd>
         <dt>{c.labels.email}</dt><dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
-        <dt>{c.labels.phone}</dt><dd>{SITE.phone}</dd>
-        <dt>{c.labels.phoneAlt}</dt><dd>{SITE.phoneAlt}</dd>
-        <dt>{c.labels.wechat}</dt><dd>{SITE.wechat}</dd>
         <dt>{c.labels.skype}</dt><dd>{SITE.skype}</dd>
       </dl>
     </div>
