@@ -331,7 +331,15 @@ async function forwardToFallbackEmail(env, payload) {
   if (env.ENABLE_SERVER_SIDE_FALLBACK !== 'true') {
     return { configured: false, ok: true };
   }
-  const fallbackUrl = env.FALLBACK_FORM_ACTION || 'https://formsubmit.co/info@spectryeep.com';
+  // No hardcoded default on purpose. Mail relayed to info@spectryeep.com is
+  // silently discarded at Titan (proven 2026-09-01: an identical submission
+  // carrying _cc delivered the CC copy while the To: copy vanished), and this
+  // endpoint answers 302 either way. Falling back to it would report success
+  // while losing the archive copy, which is exactly the bug that hid here.
+  const fallbackUrl = env.FALLBACK_FORM_ACTION;
+  if (!fallbackUrl) {
+    return { configured: false, ok: true };
+  }
   const body = new FormData();
   const flat = flattenPayload(payload);
   for (const [key, value] of Object.entries(flat)) {
