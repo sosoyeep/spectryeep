@@ -210,7 +210,7 @@ async function forwardToFallbackEmail(env, payload) {
   if (env.ENABLE_SERVER_SIDE_FALLBACK !== 'true') {
     return { configured: false, ok: true };
   }
-  const fallbackUrl = env.FALLBACK_FORM_ACTION || 'https://formsubmit.co/sophia@wxjiebo.cc';
+  const fallbackUrl = env.FALLBACK_FORM_ACTION || 'https://formsubmit.co/info@spectryeep.com';
   const body = new FormData();
   const flat = flattenPayload(payload);
   for (const [key, value] of Object.entries(flat)) {
@@ -276,7 +276,7 @@ async function handleInquiryPost({ request, env }) {
     console.error('Inquiry forwarding is not configured');
     return json(503, {
       ok: false,
-      error: 'Inquiry forwarding is not configured. Please contact sales@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
+      error: 'Inquiry forwarding is not configured. Please contact info@spectryeep.com or WhatsApp +86 181 1891 5721.',
     });
   }
 
@@ -291,7 +291,7 @@ export async function onRequestPost(context) {
     console.error('Unhandled inquiry error', error);
     return json(500, {
       ok: false,
-      error: 'Inquiry service error. Please contact sales@wxjiebo.cc or WhatsApp +86 181 1891 5721.',
+      error: 'Inquiry service error. Please contact info@spectryeep.com or WhatsApp +86 181 1891 5721.',
     });
   }
 }
