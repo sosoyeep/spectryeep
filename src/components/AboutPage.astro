@@ -12,6 +12,13 @@ const path = '/about/';
 const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
 const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_general'));
 
+/** Commissioning photos, index-aligned with copy[locale].installCaptions.
+ *  Case pages exist in English only, so these hrefs are never locale-prefixed. */
+const installPhotos = [
+  { src: '/about/install-turkey.jpg', href: '/cases/turkey-investment-casting-innovate-t5/' },
+  { src: '/about/install-uae.jpg', href: '/cases/uae-steel-plant-innovate-t5-noble-t7/' },
+];
+
 const copy: Record<Locale, {
   title: string; lede: string;
   storyTitle: string; storyParas: string[];
@@ -20,7 +27,9 @@ const copy: Record<Locale, {
   workTitle: string; workLede: string; workItems: { h: string; b: string }[];
   exportTitle: string; exportBody: string;
   proofTitle: string; proofBody: string;
-  proofLinks: { label: string; href: string }[];
+  proofLinks: { label: string; href: string; global?: boolean }[];
+  facilityCaption: string;
+  installTitle: string; installBody: string; installCaptions: string[];
   addressesTitle: string;
   headOfficeLabel: string; factoryLabel: string;
   emailLabel: string; hoursLabel: string; hoursValue: string;
@@ -64,9 +73,16 @@ const copy: Record<Locale, {
     proofTitle: 'Proof and references',
     proofBody: 'Anonymized project write-ups, country supply pages and model-to-model comparisons — the same material our sales engineers use when scoping a purchase.',
     proofLinks: [
-      { label: 'Customer cases', href: '/cases/' },
+      { label: 'Customer cases', href: '/cases/', global: true },
       { label: 'Country coverage', href: '/countries/' },
       { label: 'Model comparisons', href: '/compare/' },
+    ],
+    facilityCaption: 'JIEBO’s own site in China: optics, excitation source, detection electronics and analysis software are developed and assembled in-house.',
+    installTitle: 'Installed and commissioned on site',
+    installBody: 'Two of the ten installations documented on this site. Our engineers handle installation, calibration against your own grades and operator training in your lab.',
+    installCaptions: [
+      'Innovate T5 OES in the lab of an investment-casting foundry in Turkey — commissioned July 2026.',
+      'Noble T7 OES at a steel plant in the UAE — commissioned November 2025 alongside an Innovate T5.',
     ],
     addressesTitle: 'Offices and factory',
     headOfficeLabel: 'Head office',
@@ -139,9 +155,16 @@ const copy: Record<Locale, {
     proofTitle: 'Подтверждения и материалы',
     proofBody: 'Обезличенные описания проектов, страницы по странам поставки и сравнения моделей — те же материалы, которыми пользуются наши инженеры по продажам при подборе оборудования.',
     proofLinks: [
-      { label: 'Кейсы заказчиков', href: '/cases/' },
+      { label: 'Кейсы заказчиков', href: '/cases/', global: true },
       { label: 'География поставок', href: '/countries/' },
       { label: 'Сравнение моделей', href: '/compare/' },
+    ],
+    facilityCaption: 'Собственная площадка JIEBO в Китае: оптика, источник возбуждения, электроника детектирования и программное обеспечение разрабатываются и собираются внутри компании.',
+    installTitle: 'Монтаж и пуск на площадке заказчика',
+    installBody: 'Две из десяти установок, описанных на сайте. Наши инженеры выполняют монтаж, калибровку под ваши марки и обучение операторов прямо в вашей лаборатории.',
+    installCaptions: [
+      'Innovate T5 в лаборатории завода точного литья в Турции — пуск в июле 2026 года.',
+      'Noble T7 на металлургическом заводе в ОАЭ — пуск в ноябре 2025 года вместе с Innovate T5.',
     ],
     addressesTitle: 'Офисы и производство',
     headOfficeLabel: 'Головной офис',
@@ -214,9 +237,16 @@ const copy: Record<Locale, {
     proofTitle: 'Pruebas y referencias',
     proofBody: 'Casos de proyecto anonimizados, páginas de países de suministro y comparaciones modelo a modelo — el mismo material que usan nuestros ingenieros de ventas al dimensionar una compra.',
     proofLinks: [
-      { label: 'Casos de clientes', href: '/cases/' },
+      { label: 'Casos de clientes', href: '/cases/', global: true },
       { label: 'Cobertura por país', href: '/countries/' },
       { label: 'Comparación de modelos', href: '/compare/' },
+    ],
+    facilityCaption: 'Instalaciones propias de JIEBO en China: óptica, fuente de excitación, electrónica de detección y software se desarrollan y ensamblan internamente.',
+    installTitle: 'Instalados y puestos en marcha en planta',
+    installBody: 'Dos de las diez instalaciones documentadas en este sitio. Nuestros ingenieros realizan el montaje, la calibración para sus propios grados y la formación de los operarios en su laboratorio.',
+    installCaptions: [
+      'Innovate T5 en el laboratorio de una fundición de precisión en Turquía — puesta en marcha en julio de 2026.',
+      'Noble T7 en una acería de los EAU — puesta en marcha en noviembre de 2025 junto a un Innovate T5.',
     ],
     addressesTitle: 'Oficinas y fábrica',
     headOfficeLabel: 'Oficina central',
@@ -289,9 +319,16 @@ const copy: Record<Locale, {
     proofTitle: 'أدلّة ومراجع',
     proofBody: 'دراسات مشاريع مجهولة الهوية وصفحات الدول التي نورّد إليها ومقارنات بين الموديلات — نفس المواد التي يستخدمها مهندسو المبيعات لدينا عند تحديد نطاق الشراء.',
     proofLinks: [
-      { label: 'حالات العملاء', href: '/cases/' },
+      { label: 'حالات العملاء', href: '/cases/', global: true },
       { label: 'تغطية الدول', href: '/countries/' },
       { label: 'مقارنة الموديلات', href: '/compare/' },
+    ],
+    facilityCaption: 'موقع JIEBO الخاص في الصين: تُطوَّر البصريات ومصدر الإثارة وإلكترونيات الكشف وبرمجيات التحليل وتُجمَّع داخل الشركة.',
+    installTitle: 'التركيب والتشغيل في موقع العميل',
+    installBody: 'اثنتان من عشر عمليات تركيب موثّقة على هذا الموقع. يتولّى مهندسونا التركيب والمعايرة على درجات سبائككم وتدريب المشغّلين داخل مختبركم.',
+    installCaptions: [
+      'جهاز Innovate T5 في مختبر مسبك صبّ دقيق في تركيا — بدء التشغيل في يوليو 2026.',
+      'جهاز Noble T7 في مصنع صلب بالإمارات — بدء التشغيل في نوفمبر 2025 مع جهاز Innovate T5.',
     ],
     addressesTitle: 'المكاتب والمصنع',
     headOfficeLabel: 'المكتب الرئيسي',
@@ -359,6 +396,20 @@ const breadcrumbs = [
     </div>
   </section>
 
+  <div class="container">
+    <figure style="margin:0 0 1rem;">
+      <img
+        src="/about/facility.jpg"
+        alt={c.facilityCaption}
+        width="1600"
+        height="806"
+        decoding="async"
+        style="width:100%; height:auto; border-radius:var(--r); border:1px solid var(--line);"
+      />
+      <figcaption style="margin-top:0.6rem; color:var(--muted); font-size:0.875rem;">{c.facilityCaption}</figcaption>
+    </figure>
+  </div>
+
   <section class="section section--alt">
     <div class="container">
       <div class="about-split">
@@ -410,11 +461,33 @@ const breadcrumbs = [
     <div class="container" style="max-width:780px;">
       <h2>{c.exportTitle}</h2>
       <p>{c.exportBody}</p>
+
+      <h3 style="margin-top:2rem;">{c.installTitle}</h3>
+      <p>{c.installBody}</p>
+      <div class="grid grid--3" style="margin-top:1.25rem;">
+        {installPhotos.map((photo, i) => (
+          <figure style="margin:0;">
+            <a href={photo.href}>
+              <img
+                src={photo.src}
+                alt={c.installCaptions[i]}
+                width="960"
+                height="720"
+                loading="lazy"
+                decoding="async"
+                style="width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:var(--r); border:1px solid var(--line);"
+              />
+            </a>
+            <figcaption style="margin-top:0.5rem; color:var(--muted); font-size:0.875rem;">{c.installCaptions[i]}</figcaption>
+          </figure>
+        ))}
+      </div>
+
       <h3 style="margin-top:2rem;">{c.proofTitle}</h3>
       <p>{c.proofBody}</p>
       <p style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
         {c.proofLinks.map((l) => (
-          <a class="button button--ghost" href={localizedPath(locale, l.href)}>{l.label}</a>
+          <a class="button button--ghost" href={l.global ? l.href : localizedPath(locale, l.href)}>{l.label}</a>
         ))}
       </p>
     </div>

@@ -48,13 +48,14 @@ const learnArticles: Record<Locale, Array<{ slug: string; title: string }>> = {
 
 const g = groupHeadings[locale];
 const articles = learnArticles[locale];
-const growthLinks = [
+const growthLinks: { href: string; label: string; global?: boolean }[] = [
   { href: '/applications/', label: 'Applications' },
   { href: '/countries/', label: 'Countries' },
   { href: '/applications/foundry-oes-spectrometer/', label: 'Foundry OES' },
   { href: '/applications/scrap-metal-handheld-xrf-analyzer/', label: 'Scrap XRF' },
   { href: '/countries/india-oes-spectrometer-supplier/', label: 'India OES' },
-  { href: '/cases/', label: 'Cases' },
+  // Case studies are published in English only — never locale-prefix this one.
+  { href: '/cases/', label: 'Cases', global: true },
 ];
 
 const byCat = {
@@ -133,7 +134,7 @@ function trimSuffix(name: string, rx: RegExp, tag?: string): string {
         <strong style="display:block; margin-top:1rem;">Buyer pages</strong>
         <ul>
           {growthLinks.map((a) => (
-            <li><a href={localizedPath(locale, a.href)}>{a.label}</a></li>
+            <li><a href={a.global ? a.href : localizedPath(locale, a.href)}>{a.label}</a></li>
           ))}
         </ul>
         <strong style="display:block; margin-top:1rem;">{g.company}</strong>
