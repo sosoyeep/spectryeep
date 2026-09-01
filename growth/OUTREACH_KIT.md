@@ -97,8 +97,7 @@ Hi {First},
 At a scrap yard the expensive mistake isn't the analysis — it's the load that
 gets paid as 316 and turns out to be 304.
 
-We manufacture handheld analyzers in Wuxi: XRF (Ti–U, 8-hour battery) from
-USD 8,000, and a 1.25 kg LIBS gun that reads the light elements XRF can't —
+We manufacture handheld analyzers in Wuxi: XRF (Ti–U, 8-hour battery) and a 1.25 kg LIBS gun that reads the light elements XRF can't —
 Be, Mg, Al, Si — with no ionizing radiation and no licence in most countries.
 
 Which do you sort more of: stainless grades, aluminium alloys, or mixed steel?
@@ -227,8 +226,7 @@ Hola {First}:
 En un patio de chatarra el error caro no es el análisis: es la carga que se paga
 como 316 y resulta ser 304.
 
-Fabricamos analizadores portátiles en Wuxi: XRF (Ti–U, batería de 8 horas) desde
-USD 8,000, y una pistola LIBS de 1.25 kg que lee los elementos ligeros que el XRF
+Fabricamos analizadores portátiles en Wuxi: XRF (Ti–U, batería de 8 horas) y una pistola LIBS de 1.25 kg que lee los elementos ligeros que el XRF
 no ve — Be, Mg, Al, Si — sin radiación ionizante.
 
 ¿Qué separa más: inoxidables, aluminios o acero mezclado? Le mando el modelo que
@@ -266,8 +264,7 @@ WhatsApp +86 181 1891 5721 · spectryeep.com/es/
 في ساحة الخردة الخطأ المكلف ليس التحليل، بل الحمولة التي تُدفع على أنها 316
 ثم تتبيّن 304.
 
-نصنع أجهزة محمولة في ووشي: XRF (من Ti إلى U، بطارية 8 ساعات) ابتداءً من
-8,000 دولار، ومسدّس LIBS بوزن 1.25 كجم يقرأ العناصر الخفيفة التي لا يراها
+نصنع أجهزة محمولة في ووشي: XRF (من Ti إلى U، بطارية 8 ساعات) ومسدّس LIBS بوزن 1.25 كجم يقرأ العناصر الخفيفة التي لا يراها
 الـ XRF — البريليوم والمغنيسيوم والألمنيوم والسيليكون — بدون إشعاع مؤيّن.
 
 ما الذي تفرزه أكثر: الفولاذ المقاوم للصدأ أم الألمنيوم أم الفولاذ المختلط؟

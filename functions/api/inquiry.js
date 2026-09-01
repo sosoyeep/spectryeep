@@ -339,11 +339,11 @@ async function forwardToFallbackEmail(env, payload) {
   if (env.ENABLE_SERVER_SIDE_FALLBACK !== 'true') {
     return { configured: false, ok: true };
   }
-  // No hardcoded default on purpose. Mail relayed to info@spectryeep.com is
-  // silently discarded at Titan (proven 2026-09-01: an identical submission
-  // carrying _cc delivered the CC copy while the To: copy vanished), and this
-  // endpoint answers 302 either way. Falling back to it would report success
-  // while losing the archive copy, which is exactly the bug that hid here.
+  // No hardcoded default on purpose. formsubmit.co answers 302 for any address
+  // it has on file, so a typo'd or missing variable silently falls back to
+  // whatever is baked in here and the channel still reports success - a
+  // misconfiguration that cannot be seen is the failure mode this endpoint
+  // keeps running into. Make an unset variable say so instead.
   const fallbackUrl = env.FALLBACK_FORM_ACTION;
   if (!fallbackUrl) {
     return { configured: false, ok: true };
