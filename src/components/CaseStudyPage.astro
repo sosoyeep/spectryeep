@@ -43,6 +43,19 @@ const breadcrumbs = [
       <h1>{item.h1}</h1>
       <p class="lede" style="margin-top:1rem;">{item.description}</p>
 
+      <figure style="margin:1.5rem 0 0;">
+        <img
+          src={item.photo}
+          alt={item.photoAlt}
+          width="960"
+          height="720"
+          loading="lazy"
+          decoding="async"
+          style="width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; border-radius:var(--r); border:1px solid var(--line);"
+        />
+        <figcaption style="margin-top:0.5rem; color:var(--muted); font-size:0.875rem;">{item.photoAlt}</figcaption>
+      </figure>
+
       <dl class="facts card" style="margin-top:1.5rem;">
         <dt>Market</dt><dd>{item.market}</dd>
         <dt>Commissioned</dt><dd>{item.commissioned}</dd>

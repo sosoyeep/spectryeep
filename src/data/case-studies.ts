@@ -10,6 +10,9 @@ export interface CaseStudy {
   product: string;
   productHref: string;
   application: string;
+  /** 4:3 installation photo in public/cases/. No customer marks or logos visible. */
+  photo: string;
+  photoAlt: string;
   challenge: string[];
   solution: string[];
   result: string[];
@@ -38,6 +41,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     product: 'Innovate T5 Optical Emission Spectrometer',
     productHref: '/products/innovate-t5/',
     application: 'Full-process quality control for investment castings supplied to automotive, machinery and engineering customers.',
+    photo: '/cases/turkey-investment-casting-innovate-t5.jpg',
+    photoAlt: 'Innovate T5 optical emission spectrometer installed in an investment-casting foundry laboratory in Turkey, July 2026',
     challenge: [
       'Material testing was outsourced to third-party laboratories, so composition results arrived after the melt had already been poured.',
       'The delay drove rejected castings and made production scheduling unpredictable.',
@@ -75,6 +80,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     product: 'Exquis T4 Optical Emission Spectrometer',
     productHref: '/products/exquis-t4/',
     application: 'Incoming raw-material inspection, in-process control, finished-product quality certification and scrap-metal recycling analysis.',
+    photo: '/cases/uzbekistan-cable-manufacturer-exquis-t4.jpg',
+    photoAlt: 'Exquis T4 optical emission spectrometer in use at an industrial metal processing plant in Uzbekistan, June 2026',
     challenge: [
       'Four separate workflows — incoming material, process control, product certification and scrap recycling — all needed elemental analysis.',
       'Both ferrous and non-ferrous stock had to be covered without buying a dedicated instrument per material.',
@@ -112,6 +119,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     product: 'Exquis T4 Pro Optical Emission Spectrometer',
     productHref: '/products/exquis-t4-pro/',
     application: 'Raw-material and finished-tube quality inspection against Brazilian industrial material certification requirements.',
+    photo: '/cases/brazil-steel-tube-mill-exquis-t4-pro.jpg',
+    photoAlt: 'Exquis T4 Pro optical emission spectrometer in the laboratory of a steel pipe and profile mill in Brazil, June 2026',
     challenge: [
       'Continuous production inspection demanded analytical stability over long runs, not just accuracy on a single spark.',
       'Carbon steel, alloy steel and stainless steel all had to be certified on the same instrument.',
@@ -149,6 +158,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     product: 'Innovate T5 and Noble T7 Optical Emission Spectrometers',
     productHref: '/products/innovate-t5/',
     application: 'Real-time quality control of steel raw material and intermediates in the production workshop, backed by wide-range reference analysis.',
+    photo: '/cases/uae-steel-plant-innovate-t5-noble-t7.jpg',
+    photoAlt: 'Noble T7 optical emission spectrometer commissioned at a steel plant in the UAE, November 2025',
     challenge: [
       'The workshop is hot and dusty and runs on a continuous production cadence — instruments had to hold calibration in those conditions.',
       'Turnaround had to be fast enough that molten steel was not held waiting on a result.',
@@ -186,6 +197,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     product: 'Innovate T5 OES + CS996 Carbon & Sulfur Analyzer',
     productHref: '/products/innovate-t5/',
     application: 'Composition control from raw material through finished steel products, with combustion C/S as the reference method.',
+    photo: '/cases/ethiopia-steel-plant-innovate-t5-cs996.jpg',
+    photoAlt: 'Innovate T5 OES and CS996 carbon and sulfur analyzer in a steel plant laboratory in Ethiopia, September 2025',
     challenge: [
       'Composition had to be tracked across the whole chain — raw material, intermediates and finished product — not only at final inspection.',
       'Traditional testing routes introduced delays and errors that made batch strength and toughness hard to keep inside spec.',
@@ -223,6 +236,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     product: 'Exquis T4 Optical Emission Spectrometer',
     productHref: '/products/exquis-t4/',
     application: 'Elemental verification of metal components used in pipeline testing tools, seals and precision utensils.',
+    photo: '/cases/kenya-pipeline-components-exquis-t4.jpg',
+    photoAlt: 'Exquis T4 optical emission spectrometer in a pipeline components workshop laboratory in Kenya, May 2026',
     challenge: [
       'The manufacturer serves oil and gas, petrochemical, construction and industrial customers in more than 20 countries, where component failure is expensive.',
       'ISO 9001, ISO 14001 and ISO 45001 certified operations require documented, accurate elemental analysis — not supplier assurances.',
@@ -260,6 +275,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     product: 'Innovate T5 Optical Emission Spectrometer',
     productHref: '/products/innovate-t5/',
     application: 'Stainless steel elemental analysis for incoming material inspection and finished product verification on behalf of client companies.',
+    photo: '/cases/indonesia-testing-laboratory-innovate-t5.jpg',
+    photoAlt: 'Innovate T5 optical emission spectrometer at a materials testing and certification laboratory in Indonesia, October 2025',
     challenge: [
       'As a testing provider, turnaround time is the product — clients wait on the report before releasing material.',
       'Stainless grades required accurate chromium, nickel and molybdenum values, not indicative readings.',
@@ -297,6 +314,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     product: 'CS995 Carbon & Sulfur Analyzer',
     productHref: '/products/cs995/',
     application: 'High-precision carbon and sulfur determination in semiconductor and alloy materials.',
+    photo: '/cases/south-korea-advanced-materials-cs995.jpg',
+    photoAlt: 'CS995 carbon and sulfur analyzer at an advanced materials laboratory in South Korea, January 2026',
     challenge: [
       'Semiconductor and alloy material testing sets some of the strictest precision requirements in the industry.',
       'Analysis cycle time had to fit a production testing schedule, not a research pace.',
@@ -334,6 +353,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     product: 'Noble T7 Optical Emission Spectrometer',
     productHref: '/products/noble-t7/',
     application: 'High-precision metal composition analysis supporting process standardization and product qualification rates.',
+    photo: '/cases/tajikistan-metallurgical-plant-noble-t7.jpg',
+    photoAlt: 'Noble T7 optical emission spectrometer commissioned at a metallurgical plant in Tajikistan, February 2026',
     challenge: [
       'Composition analysis requirements were strict enough that a production-grade instrument alone would not cover them.',
       'Process standardization depended on measurement data the plant could trust batch to batch.',
@@ -371,6 +392,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     product: 'Exquis T4 Optical Emission Spectrometer',
     productHref: '/products/exquis-t4/',
     application: 'Simultaneous multi-element analysis supporting automated production lines and internal material standards.',
+    photo: '/cases/bangladesh-manufacturing-exquis-t4.jpg',
+    photoAlt: 'Exquis T4 optical emission spectrometer in a manufacturing plant laboratory in Bangladesh, November 2025',
     challenge: [
       'Automated production means testing has to keep pace with the line rather than batch up at the end of a shift.',
       'Running costs mattered: argon consumption is a recurring expense at production testing volumes.',
