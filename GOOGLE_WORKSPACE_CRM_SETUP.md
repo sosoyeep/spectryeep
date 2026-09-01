@@ -32,7 +32,7 @@ In the Google Sheet:
 
 ```text
 WEBHOOK_TOKEN=use-a-long-random-secret
-NOTIFY_EMAIL=sophia@wxjiebo.cc
+NOTIFY_EMAIL=info@spectryeep.com
 ```
 
 Use a random token such as 32+ letters/numbers.
@@ -61,7 +61,7 @@ In Cloudflare Pages project settings, add production environment variables:
 ```text
 PUBLIC_INQUIRY_FORM_ACTION=/api/inquiry
 CRM_WEBHOOK_URL=https://script.google.com/macros/s/DEPLOYMENT_ID/exec?token=YOUR_WEBHOOK_TOKEN
-FALLBACK_FORM_ACTION=https://formsubmit.co/sophia@wxjiebo.cc
+FALLBACK_FORM_ACTION=https://formsubmit.co/info@spectryeep.com
 MIN_SUBMIT_SECONDS=4
 INQUIRY_RATE_LIMIT_MAX=5
 ```
@@ -79,7 +79,10 @@ After saving variables, redeploy the latest production deployment.
 
 1. Submit a test RFQ from `https://spectryeep.com/contact/`.
 2. Confirm a new row appears in `Spectryeep Leads CRM -> Leads`.
-3. Confirm `sophia@wxjiebo.cc` receives the Apps Script email alert.
+3. Confirm `info@spectryeep.com` receives the Apps Script email alert.
 4. Confirm the website redirects to `/thank-you/`.
 
-If Google Sheets is misconfigured or temporarily fails, the Cloudflare Function redirects the same browser POST to FormSubmit as a safety fallback, so the inquiry can still reach `sophia@wxjiebo.cc`.
+If Google Sheets is misconfigured or temporarily fails, and `ENABLE_SERVER_SIDE_FALLBACK=true`,
+the Cloudflare Function posts the lead to FormSubmit server-side so it can still reach
+`info@spectryeep.com`. That fallback only works once the address has been activated from the
+FormSubmit activation email - before that FormSubmit accepts the request and discards it.

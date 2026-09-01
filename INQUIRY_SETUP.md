@@ -45,14 +45,30 @@ EMAIL_WEBHOOK_URL=
 EMAIL_WEBHOOK_TOKEN=
 ```
 
-If no forwarding target is configured, or if a forwarding target fails, the function forwards to `FALLBACK_FORM_ACTION` server-side and still redirects the visitor back to `/thank-you/`.
+The visitor is redirected to `/thank-you/` **only when at least one channel confirms
+delivery**. If every configured channel fails the form answers `502` with a page offering
+WhatsApp and email; if nothing is configured at all it answers `503`. The form never
+reports success for a lead it did not manage to hand off.
+
+Delivery is judged on positive evidence, not on the absence of an error status. This
+matters because several of these services answer `HTTP 200` while dropping the message:
+
+- **formsubmit.co** answers `200` with *"This form needs Activation"* until you click the
+  activation link it emails to the target inbox, and `200` with *"Unable to submit form"*
+  when the post arrives without a browser origin. **A new `FALLBACK_FORM_ACTION` address
+  delivers nothing until it is activated.**
+- **Google Apps Script** `/exec` answers `302` on success and can answer `200` with an
+  HTML error page when the script itself throws.
+
+Set `ENABLE_SERVER_SIDE_FALLBACK=true` to enable the formsubmit.co fallback at all; it is
+off unless that variable is exactly `true`.
 
 For Google Workspace CRM, see `GOOGLE_WORKSPACE_CRM_SETUP.md` and use:
 
 ```text
 PUBLIC_INQUIRY_FORM_ACTION=/api/inquiry
 CRM_WEBHOOK_URL=https://script.google.com/macros/s/DEPLOYMENT_ID/exec?token=YOUR_WEBHOOK_TOKEN
-FALLBACK_FORM_ACTION=https://formsubmit.co/sophia@wxjiebo.cc
+FALLBACK_FORM_ACTION=https://formsubmit.co/info@spectryeep.com
 ```
 
 ## Cloudflare Turnstile

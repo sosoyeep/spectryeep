@@ -161,6 +161,22 @@ function leadPayload(data, request, ip) {
   };
 }
 
+// formsubmit.co buries its status message ~8.4 KB into a 10 KB marketing page,
+// so a short snippet silently loses the very line worth reporting.
+const RESPONSE_SNIPPET_LIMIT = 65536;
+
+// A channel counts as delivered only on positive evidence. Several of these
+// services answer HTTP 200 while dropping the message - formsubmit.co when the
+// address is not activated, Apps Script when the script itself throws - so
+// "status is not >= 400" is not a delivery receipt.
+async function readSnippet(response) {
+  try {
+    return (await response.text()).slice(0, RESPONSE_SNIPPET_LIMIT);
+  } catch {
+    return '';
+  }
+}
+
 async function postJson(url, payload, token) {
   if (!url) return { configured: false, ok: true };
   const headers = { 'content-type': 'application/json' };
@@ -169,11 +185,17 @@ async function postJson(url, payload, token) {
     const result = await fetch(url, {
       method: 'POST',
       headers,
-      redirect: 'manual',
+      // Apps Script /exec answers 302 to script.googleusercontent.com; the real
+      // outcome only appears after following that hop.
+      redirect: 'follow',
       body: JSON.stringify(payload),
     });
-    if (!result.ok && result.status >= 400) {
-      return { configured: true, ok: false, status: result.status, error: `POST failed with ${result.status}` };
+    if (result.status < 200 || result.status >= 300) {
+      return { configured: true, ok: false, status: result.status, error: `Webhook answered ${result.status}` };
+    }
+    const snippet = await readSnippet(result);
+    if (/ScriptError|Exception:|<title>\s*Error\s*<\/title>/i.test(snippet)) {
+      return { configured: true, ok: false, status: result.status, error: 'Webhook returned a script error page' };
     }
     return { configured: true, ok: true, status: result.status };
   } catch (error) {
@@ -186,17 +208,33 @@ async function forwardToFormspree(env, payload) {
   try {
     const result = await fetch(env.FORMSPREE_ENDPOINT, {
       method: 'POST',
-      redirect: 'manual',
+      redirect: 'follow',
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
       },
       body: JSON.stringify(payload),
     });
-    if (!result.ok && result.status >= 400) {
-      return { configured: true, ok: false, status: result.status, error: `Formspree failed with ${result.status}` };
+    if (result.status < 200 || result.status >= 300) {
+      return { configured: true, ok: false, status: result.status, error: `Formspree answered ${result.status}` };
     }
-    return { configured: true, ok: true, status: result.status };
+    const snippet = await readSnippet(result);
+    let parsed;
+    try {
+      parsed = JSON.parse(snippet);
+    } catch {
+      return { configured: true, ok: false, status: result.status, error: 'Formspree returned a non-JSON body' };
+    }
+    if (parsed?.ok === true || parsed?.next) return { configured: true, ok: true, status: result.status };
+    const detail = Array.isArray(parsed?.errors)
+      ? parsed.errors.map((item) => item?.message || item?.code).filter(Boolean).join('; ')
+      : '';
+    return {
+      configured: true,
+      ok: false,
+      status: result.status,
+      error: `Formspree did not confirm delivery${detail ? `: ${detail}` : ''}`,
+    };
   } catch (error) {
     return { configured: true, ok: false, error: error?.message || 'Formspree failed' };
   }
@@ -257,10 +295,22 @@ async function forwardToTelegram(env, payload) {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text, disable_web_page_preview: true }),
     });
-    if (!result.ok && result.status >= 400) {
-      return { configured: true, ok: false, status: result.status, error: `Telegram failed with ${result.status}` };
+    const snippet = await readSnippet(result);
+    let parsed;
+    try {
+      parsed = JSON.parse(snippet);
+    } catch {
+      parsed = null;
     }
-    return { configured: true, ok: true, status: result.status };
+    // Telegram always answers JSON with an explicit ok flag; trust that, not the status.
+    if (parsed?.ok === true) return { configured: true, ok: true, status: result.status };
+    const detail = parsed?.description ? `: ${parsed.description}` : '';
+    return {
+      configured: true,
+      ok: false,
+      status: result.status,
+      error: `Telegram did not confirm delivery${detail}`,
+    };
   } catch (error) {
     return { configured: true, ok: false, error: error?.message || 'Telegram failed' };
   }
@@ -281,34 +331,67 @@ async function forwardToFallbackEmail(env, payload) {
       method: 'POST',
       headers: {
         accept: 'application/json',
+        // Without a browser origin formsubmit.co refuses the post and still
+        // answers 200 ("Unable to submit form").
+        origin: 'https://spectryeep.com',
+        referer: 'https://spectryeep.com/contact/',
       },
       redirect: 'manual',
       body,
     });
-    if (!result.ok && result.status >= 400) {
-      return { configured: true, ok: false, status: result.status, error: `Fallback form failed with ${result.status}` };
+    // Genuine success is the 3xx hop to _next. Anything else needs proof.
+    if (result.status >= 300 && result.status < 400) {
+      return { configured: true, ok: true, status: result.status };
     }
-    return { configured: true, ok: true, status: result.status };
+    if (result.status >= 400) {
+      return { configured: true, ok: false, status: result.status, error: `Fallback form answered ${result.status}` };
+    }
+    const snippet = await readSnippet(result);
+    if (/needs Activation|Activate Form|Check Your Email/i.test(snippet)) {
+      return {
+        configured: true,
+        ok: false,
+        status: result.status,
+        error: 'formsubmit.co inbox is not activated - click the "Activate Form" link it emailed',
+      };
+    }
+    if (/Unable to submit form/i.test(snippet)) {
+      return { configured: true, ok: false, status: result.status, error: 'formsubmit.co rejected the submission' };
+    }
+    try {
+      const parsed = JSON.parse(snippet);
+      if (parsed?.success === true || parsed?.success === 'true') {
+        return { configured: true, ok: true, status: result.status };
+      }
+    } catch {
+      // fall through to the unconfirmed case below
+    }
+    return { configured: true, ok: false, status: result.status, error: 'Fallback form did not confirm delivery' };
   } catch (error) {
     return { configured: true, ok: false, error: error?.message || 'Fallback form failed' };
   }
 }
 
 async function forwardLead(env, payload) {
-  const results = await Promise.all([
+  const channels = ['formspree', 'crm_webhook', 'email_webhook', 'telegram', 'formsubmit_fallback'];
+  const settled = await Promise.all([
     forwardToFormspree(env, payload),
     postJson(env.CRM_WEBHOOK_URL, payload, env.CRM_WEBHOOK_TOKEN),
     postJson(env.EMAIL_WEBHOOK_URL, payload, env.EMAIL_WEBHOOK_TOKEN),
     forwardToTelegram(env, payload),
     forwardToFallbackEmail(env, payload),
   ]);
+  const results = settled.map((result, index) => ({ channel: channels[index], ...result }));
   const configured = results.filter((result) => result.configured);
   const delivered = configured.some((result) => result.ok);
   if (configured.length === 0) {
     return { configured: false, delivered: false, results };
   }
   if (!delivered) {
-    console.error('All inquiry forwarding targets failed', results);
+    console.error(
+      'All inquiry forwarding targets failed',
+      configured.map((r) => `${r.channel}: status=${r.status ?? 'n/a'} ${r.error || 'no error reported'}`).join(' | '),
+    );
   }
   return { configured: true, delivered, results };
 }
