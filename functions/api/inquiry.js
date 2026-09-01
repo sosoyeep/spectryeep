@@ -128,7 +128,15 @@ function validationErrors(data, ip, env) {
 }
 
 async function verifyTurnstile(token, ip, env) {
-  if (!env.TURNSTILE_SECRET_KEY) return true;
+  if (!env.TURNSTILE_SECRET_KEY) {
+    // Degrading in silence is how the lost-inquiry bug stayed invisible. Say it
+    // out loud: with no secret key this endpoint runs no bot verification at
+    // all, no matter what the form renders. Setting TURNSTILE_SECRET_KEY (and
+    // PUBLIC_TURNSTILE_SITE_KEY, which /api/inquiry-config serves to the form)
+    // is what turns it on.
+    console.error('Turnstile is NOT enforced: TURNSTILE_SECRET_KEY is unset, the inquiry form has no bot verification');
+    return true;
+  }
   if (!token) return false;
 
   const body = new URLSearchParams({

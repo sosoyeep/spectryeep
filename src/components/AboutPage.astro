@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import FactsCard from './FactsCard.astro';
+import FAQ from './FAQ.astro';
 import { SITE, type Locale } from '../consts';
 import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
 
@@ -15,9 +17,14 @@ const copy: Record<Locale, {
   storyTitle: string; storyParas: string[];
   philosophyTitle: string; philosophyQuote: string; philosophyTagline: string;
   productsTitle: string; productsBody: string;
+  workTitle: string; workLede: string; workItems: { h: string; b: string }[];
   exportTitle: string; exportBody: string;
+  proofTitle: string; proofBody: string;
+  proofLinks: { label: string; href: string }[];
   addressesTitle: string;
   headOfficeLabel: string; factoryLabel: string;
+  emailLabel: string; phoneLabel: string; hoursLabel: string; hoursValue: string;
+  faqItems: { q: string; a: string }[];
 }> = {
   en: {
     title: 'About JIEBO Instrument',
@@ -32,11 +39,64 @@ const copy: Record<Locale, {
     philosophyTagline: 'International quality. Domestic price. Personal service.',
     productsTitle: 'What we make',
     productsBody: 'Three product families across 11 production models: spark optical emission spectrometers (OES) for solid-metal composition, high-frequency infrared carbon-sulfur and ONH gas analyzers for combustion-based elemental work, and handheld XRF / LIBS guns for non-destructive on-site identification. Every instrument ships with factory calibration against certified reference materials, on-site or remote-guided installation, and 12 months of parts-and-labor warranty.',
+    workTitle: 'How we work',
+    workLede: 'What a buyer actually gets when the purchase order is placed with JIEBO rather than with a reseller.',
+    workItems: [
+      {
+        h: 'Manufacturer, not a trading company',
+        b: 'Optical chamber, excitation source, detection electronics and analysis software are built and assembled in our own facility. Technical questions go to the engineers who designed the instrument, not to an agent relaying them to an unnamed factory.',
+      },
+      {
+        h: 'Calibrated on certified reference materials',
+        b: 'Each instrument is calibrated on CRMs for the matrices you actually run, and the calibration report travels with the machine. Additional working curves — a new alloy family, a tighter grade range — can be built later without shipping the instrument back.',
+      },
+      {
+        h: 'Installation, training and remote support',
+        b: 'On-site commissioning or remote-guided installation with a video walkthrough, plus operator training on sample preparation, spark-stand maintenance and re-standardization. Engineers answer WhatsApp within 4 working hours, in English, Russian, Spanish or Arabic.',
+      },
+      {
+        h: 'Spare parts and consumables',
+        b: 'Electrodes, argon fittings, crucibles, ceramic tubes, filters and detector spares are stocked and shipped by courier. Standard warranty is 12 months on parts and labor, extendable to 24 months.',
+      },
+    ],
     exportTitle: 'Export markets',
     exportBody: 'Active installations in 40+ countries including Russia, Kazakhstan, Uzbekistan, Saudi Arabia, Egypt, Algeria, Nigeria, South Africa, Brazil, Mexico, Argentina, Spain, India, Pakistan, Vietnam and Australia. Export documentation (CE / CB / SGS), customs handling and door-to-door logistics are coordinated by our sales team in Wuxi.',
+    proofTitle: 'Proof and references',
+    proofBody: 'Anonymized project write-ups, country supply pages and model-to-model comparisons — the same material our sales engineers use when scoping a purchase.',
+    proofLinks: [
+      { label: 'Customer cases', href: '/cases/' },
+      { label: 'Country coverage', href: '/countries/' },
+      { label: 'Model comparisons', href: '/compare/' },
+    ],
     addressesTitle: 'Offices and factory',
     headOfficeLabel: 'Head office',
     factoryLabel: 'Manufacturing facility',
+    emailLabel: 'Email',
+    phoneLabel: 'Phone',
+    hoursLabel: 'Office hours',
+    hoursValue: 'Mon–Fri 8:30–17:30 CST (UTC+8)',
+    faqItems: [
+      {
+        q: 'Is JIEBO a manufacturer or a trading company?',
+        a: 'JIEBO is a manufacturer. Wuxi Jiebo Instrument Technology Co., Ltd. was founded in 2009, is headquartered in Wuxi, Jiangsu, and produces at its own facility in Xuancheng, Anhui. Optics, excitation source, detection electronics and analysis software are developed in-house across 11 production models.',
+      },
+      {
+        q: 'Which countries does JIEBO export to?',
+        a: 'More than 40 countries across the Middle East, Africa, Southeast and West Asia, Eastern Europe and South America — including Russia, Kazakhstan, Uzbekistan, Saudi Arabia, Egypt, Algeria, Nigeria, South Africa, Brazil, Mexico, Argentina, Spain, India, Pakistan, Vietnam and Australia. See our <a href="/countries/">country coverage pages</a>.',
+      },
+      {
+        q: 'What documentation ships with an instrument?',
+        a: 'Calibration report against the certified reference materials used, operating manual, packing list, commercial invoice and certificate of origin, plus CE / CB / SGS export documentation where applicable. Customs handling and door-to-door logistics are coordinated by our team in Wuxi.',
+      },
+      {
+        q: 'What are JIEBO lead times and warranty terms?',
+        a: 'Stock configurations ship within 15 working days; the <a href="/products/onh-508/">ONH-508</a> requires about 30 days for custom builds. Warranty is 12 months on parts and labor, extendable to 24 months, with WhatsApp engineer support answered within 4 working hours.',
+      },
+      {
+        q: 'Can JIEBO analyze my samples before I buy?',
+        a: 'Yes. Send representative samples to our Wuxi lab and we will run them on the model we recommend, then return the results with repeatability data so you can compare them against your existing method before committing to a purchase. <a href="https://wa.me/8618118915721" target="_blank" rel="noopener">Message us on WhatsApp</a> to arrange it.',
+      },
+    ],
   },
   ru: {
     title: 'О компании JIEBO Instrument',
@@ -51,11 +111,64 @@ const copy: Record<Locale, {
     philosophyTagline: 'Международное качество. Внутренние цены. Персональный сервис.',
     productsTitle: 'Что мы производим',
     productsBody: 'Три семейства продукции, 11 серийных моделей: искровые оптико-эмиссионные спектрометры (ОЭС) для твердометаллического анализа, высокочастотные ИК-анализаторы углерода-серы и O/N/H для элементного анализа методом сжигания, и ручные РФА / LIBS-пистолеты для неразрушающей полевой идентификации. Каждый прибор поставляется с заводской калибровкой по сертифицированным эталонным материалам, выездной или удалённо сопровождаемой установкой, и гарантией 12 месяцев на запчасти и работу.',
+    workTitle: 'Как мы работаем',
+    workLede: 'Что именно получает покупатель, когда заказ размещается напрямую у JIEBO, а не у перепродавца.',
+    workItems: [
+      {
+        h: 'Производитель, а не торговая компания',
+        b: 'Оптическая камера, источник возбуждения, детекторная электроника и аналитическое ПО собираются на нашем собственном производстве. Технические вопросы идут напрямую к инженерам, разработавшим прибор, а не к посреднику, пересылающему их на безымянный завод.',
+      },
+      {
+        h: 'Калибровка по сертифицированным эталонам',
+        b: 'Каждый прибор калибруется по СО для тех матриц, с которыми вы реально работаете, и протокол калибровки поставляется вместе с машиной. Дополнительные градуировочные кривые — новое семейство сплавов, более узкий диапазон марок — строятся позже без возврата прибора на завод.',
+      },
+      {
+        h: 'Установка, обучение и удалённая поддержка',
+        b: 'Пусконаладка на объекте или удалённо сопровождаемая установка с видеоинструкцией, плюс обучение операторов пробоподготовке, обслуживанию искрового штатива и рестандартизации. Инженеры отвечают в WhatsApp в течение 4 рабочих часов на английском, русском, испанском или арабском.',
+      },
+      {
+        h: 'Запчасти и расходные материалы',
+        b: 'Электроды, аргоновая арматура, тигли, керамические трубки, фильтры и запасные детекторы есть на складе и отправляются курьером. Стандартная гарантия — 12 месяцев на запчасти и работу, с продлением до 24 месяцев.',
+      },
+    ],
     exportTitle: 'Экспортные рынки',
     exportBody: 'Действующие установки в более чем 40 странах, включая Россию, Казахстан, Узбекистан, Саудовскую Аравию, Египет, Алжир, Нигерию, ЮАР, Бразилию, Мексику, Аргентину, Испанию, Индию, Пакистан, Вьетнам и Австралию. Экспортные документы (CE / CB / SGS), таможенное оформление и доставка «от двери до двери» координируются нашей коммерческой службой в Уси.',
+    proofTitle: 'Подтверждения и материалы',
+    proofBody: 'Обезличенные описания проектов, страницы по странам поставки и сравнения моделей — те же материалы, которыми пользуются наши инженеры по продажам при подборе оборудования.',
+    proofLinks: [
+      { label: 'Кейсы заказчиков', href: '/cases/' },
+      { label: 'География поставок', href: '/countries/' },
+      { label: 'Сравнение моделей', href: '/compare/' },
+    ],
     addressesTitle: 'Офисы и производство',
     headOfficeLabel: 'Головной офис',
     factoryLabel: 'Производственная площадка',
+    emailLabel: 'Эл. почта',
+    phoneLabel: 'Телефон',
+    hoursLabel: 'Часы работы',
+    hoursValue: 'Пн–Пт 8:30–17:30 (UTC+8)',
+    faqItems: [
+      {
+        q: 'JIEBO — производитель или торговая компания?',
+        a: 'JIEBO — производитель. Wuxi Jiebo Instrument Technology Co., Ltd. основана в 2009 году, штаб-квартира в Уси (Цзянсу), собственное производство в Сюаньчэне (Аньхой). Оптика, источник возбуждения, детекторная электроника и ПО разрабатываются внутри компании; в серийном выпуске 11 моделей.',
+      },
+      {
+        q: 'В какие страны поставляет JIEBO?',
+        a: 'Более чем в 40 стран Ближнего Востока, Африки, Юго-Восточной и Западной Азии, Восточной Европы и Южной Америки — включая Россию, Казахстан, Узбекистан, Саудовскую Аравию, Египет, Алжир, Нигерию, ЮАР, Бразилию, Мексику, Аргентину, Испанию, Индию, Пакистан, Вьетнам и Австралию. См. <a href="/ru/countries/">страницы по странам</a>.',
+      },
+      {
+        q: 'Какие документы поставляются с прибором?',
+        a: 'Протокол калибровки по использованным сертифицированным эталонным материалам, руководство по эксплуатации, упаковочный лист, инвойс и сертификат происхождения, а также экспортная документация CE / CB / SGS, где применимо. Таможенное оформление и доставку «от двери до двери» координирует наша служба в Уси.',
+      },
+      {
+        q: 'Каковы сроки поставки и условия гарантии?',
+        a: 'Складские конфигурации отгружаются в течение 15 рабочих дней; <a href="/ru/products/onh-508/">ONH-508</a> при заказной сборке требует около 30 дней. Гарантия — 12 месяцев на запчасти и работу с продлением до 24 месяцев, поддержка инженеров в WhatsApp в течение 4 рабочих часов.',
+      },
+      {
+        q: 'Можно ли проанализировать наши образцы до покупки?',
+        a: 'Да. Пришлите представительные образцы в нашу лабораторию в Уси — мы измерим их на рекомендованной модели и вернём результаты с данными по воспроизводимости, чтобы вы сравнили их с вашим текущим методом до размещения заказа. <a href="https://wa.me/8618118915721" target="_blank" rel="noopener">Напишите нам в WhatsApp</a>.',
+      },
+    ],
   },
   es: {
     title: 'Acerca de JIEBO Instrument',
@@ -70,11 +183,64 @@ const copy: Record<Locale, {
     philosophyTagline: 'Calidad internacional. Precio nacional. Servicio personal.',
     productsTitle: 'Qué fabricamos',
     productsBody: 'Tres familias de productos, 11 modelos en producción: espectrómetros de emisión óptica por chispa (OES) para metales sólidos, analizadores de carbono-azufre y O/N/H por infrarrojos de alta frecuencia para análisis por combustión, y pistolas portátiles XRF / LIBS para identificación no destructiva en sitio. Cada equipo se envía con calibración de fábrica frente a materiales de referencia certificados, instalación en sitio o guiada remotamente, y garantía de 12 meses en piezas y mano de obra.',
+    workTitle: 'Cómo trabajamos',
+    workLede: 'Lo que realmente recibe el comprador cuando la orden se coloca con JIEBO y no con un revendedor.',
+    workItems: [
+      {
+        h: 'Fabricante, no empresa comercializadora',
+        b: 'La cámara óptica, la fuente de excitación, la electrónica de detección y el software de análisis se construyen y ensamblan en nuestra propia planta. Las consultas técnicas llegan a los ingenieros que diseñaron el equipo, no a un agente que las reenvía a una fábrica sin nombre.',
+      },
+      {
+        h: 'Calibrado con materiales de referencia certificados',
+        b: 'Cada equipo se calibra con MRC para las matrices que usted realmente analiza, y el informe de calibración viaja con la máquina. Curvas de trabajo adicionales — una nueva familia de aleaciones, un rango de grados más estrecho — se construyen después sin devolver el equipo.',
+      },
+      {
+        h: 'Instalación, capacitación y soporte remoto',
+        b: 'Puesta en marcha en sitio o instalación guiada de forma remota con video paso a paso, más capacitación de operadores en preparación de muestras, mantenimiento del soporte de chispa y reestandarización. Los ingenieros responden por WhatsApp dentro de 4 horas hábiles, en inglés, ruso, español o árabe.',
+      },
+      {
+        h: 'Repuestos y consumibles',
+        b: 'Electrodos, accesorios de argón, crisoles, tubos cerámicos, filtros y detectores de repuesto se mantienen en stock y se envían por mensajería. La garantía estándar es de 12 meses en piezas y mano de obra, ampliable a 24 meses.',
+      },
+    ],
     exportTitle: 'Mercados de exportación',
     exportBody: 'Instalaciones activas en más de 40 países, incluyendo Rusia, Kazajstán, Uzbekistán, Arabia Saudita, Egipto, Argelia, Nigeria, Sudáfrica, Brasil, México, Argentina, España, India, Pakistán, Vietnam y Australia. Documentación de exportación (CE / CB / SGS), tramitación aduanera y logística puerta a puerta coordinadas por nuestro equipo comercial en Wuxi.',
+    proofTitle: 'Pruebas y referencias',
+    proofBody: 'Casos de proyecto anonimizados, páginas de países de suministro y comparaciones modelo a modelo — el mismo material que usan nuestros ingenieros de ventas al dimensionar una compra.',
+    proofLinks: [
+      { label: 'Casos de clientes', href: '/cases/' },
+      { label: 'Cobertura por país', href: '/countries/' },
+      { label: 'Comparación de modelos', href: '/compare/' },
+    ],
     addressesTitle: 'Oficinas y fábrica',
     headOfficeLabel: 'Oficina central',
     factoryLabel: 'Planta de fabricación',
+    emailLabel: 'Correo',
+    phoneLabel: 'Teléfono',
+    hoursLabel: 'Horario de oficina',
+    hoursValue: 'Lun–Vie 8:30–17:30 (UTC+8)',
+    faqItems: [
+      {
+        q: '¿JIEBO es fabricante o empresa comercializadora?',
+        a: 'JIEBO es fabricante. Wuxi Jiebo Instrument Technology Co., Ltd. se fundó en 2009, tiene su sede en Wuxi (Jiangsu) y produce en su propia planta en Xuancheng (Anhui). La óptica, la fuente de excitación, la electrónica de detección y el software se desarrollan internamente, en 11 modelos de producción.',
+      },
+      {
+        q: '¿A qué países exporta JIEBO?',
+        a: 'A más de 40 países de Medio Oriente, África, Sudeste y Asia Occidental, Europa del Este y América del Sur — incluidos Rusia, Kazajstán, Uzbekistán, Arabia Saudita, Egipto, Argelia, Nigeria, Sudáfrica, Brasil, México, Argentina, España, India, Pakistán, Vietnam y Australia. Consulte nuestras <a href="/es/countries/">páginas por país</a>.',
+      },
+      {
+        q: '¿Qué documentación acompaña al equipo?',
+        a: 'Informe de calibración frente a los materiales de referencia certificados utilizados, manual de operación, lista de empaque, factura comercial y certificado de origen, además de documentación de exportación CE / CB / SGS cuando corresponde. La gestión aduanera y la logística puerta a puerta las coordina nuestro equipo en Wuxi.',
+      },
+      {
+        q: '¿Cuáles son los plazos de entrega y la garantía?',
+        a: 'Las configuraciones en stock se despachan en 15 días hábiles; el <a href="/es/products/onh-508/">ONH-508</a> requiere unos 30 días en fabricación a medida. La garantía es de 12 meses en piezas y mano de obra, ampliable a 24 meses, con soporte de ingeniería por WhatsApp dentro de 4 horas hábiles.',
+      },
+      {
+        q: '¿Pueden analizar nuestras muestras antes de comprar?',
+        a: 'Sí. Envíe muestras representativas a nuestro laboratorio en Wuxi: las medimos en el modelo recomendado y le devolvemos los resultados con datos de repetibilidad, para que los compare con su método actual antes de emitir la orden. <a href="https://wa.me/8618118915721" target="_blank" rel="noopener">Escríbanos por WhatsApp</a> para coordinarlo.',
+      },
+    ],
   },
   ar: {
     title: 'حول JIEBO Instrument',
@@ -89,11 +255,64 @@ const copy: Record<Locale, {
     philosophyTagline: 'جودة عالمية، سعر محلّي، خدمة شخصية.',
     productsTitle: 'ماذا نصنع',
     productsBody: 'ثلاث عائلات منتجات في 11 موديلاً إنتاجياً: مطيافيات الانبعاث الضوئي بالشرارة (OES) لتحليل المعادن الصلبة، ومحلّلات الكربون والكبريت وO/N/H بالأشعة تحت الحمراء عالية التردّد للأعمال القائمة على الاحتراق، ومسدّسات XRF و LIBS المحمولة للتعرّف غير المتلف في الموقع. يُسلَّم كل جهاز بمعايرة من المصنع مقابل مواد مرجعية معتمدة، وبتركيب في الموقع أو موجَّه عن بُعد، وضمان 12 شهراً على القطع واليد العاملة.',
+    workTitle: 'كيف نعمل',
+    workLede: 'ما الذي يحصل عليه المشتري فعلياً عند الشراء من JIEBO مباشرةً بدلاً من وسيط.',
+    workItems: [
+      {
+        h: 'مصنّع، وليس شركة تجارية',
+        b: 'الغرفة البصرية ومصدر الإثارة وإلكترونيات الكشف وبرنامج التحليل تُصنَّع وتُجمَّع في منشأتنا الخاصة. تصل الأسئلة الفنية إلى المهندسين الذين صمّموا الجهاز، لا إلى وكيل ينقلها إلى مصنع مجهول.',
+      },
+      {
+        h: 'معايرة بمواد مرجعية معتمدة',
+        b: 'يُعاير كل جهاز بمواد مرجعية معتمدة للسبائك التي تعمل عليها فعلياً، ويُسلَّم تقرير المعايرة مع الجهاز. يمكن بناء منحنيات عمل إضافية لاحقاً — عائلة سبائك جديدة أو نطاق درجات أضيق — دون إعادة شحن الجهاز.',
+      },
+      {
+        h: 'التركيب والتدريب والدعم عن بُعد',
+        b: 'تشغيل في الموقع أو تركيب موجَّه عن بُعد مع شرح بالفيديو، إضافةً إلى تدريب المشغّلين على تحضير العيّنات وصيانة منصّة الشرارة وإعادة المعايرة. يردّ المهندسون عبر واتساب خلال 4 ساعات عمل بالإنجليزية أو الروسية أو الإسبانية أو العربية.',
+      },
+      {
+        h: 'قطع الغيار والمستهلكات',
+        b: 'الأقطاب ووصلات الأرجون والبواتق والأنابيب السيراميكية والمرشّحات وقطع الكشف الاحتياطية متوفّرة في المخزون وتُشحن بالبريد السريع. الضمان القياسي 12 شهراً على القطع واليد العاملة، قابل للتمديد إلى 24 شهراً.',
+      },
+    ],
     exportTitle: 'أسواق التصدير',
     exportBody: 'تركيبات فعّالة في أكثر من 40 دولة منها روسيا وكازاخستان وأوزبكستان والمملكة العربية السعودية ومصر والجزائر ونيجيريا وجنوب أفريقيا والبرازيل والمكسيك والأرجنتين وإسبانيا والهند وباكستان وفيتنام وأستراليا. تنسّق وثائق التصدير (CE و CB و SGS) والتخليص الجمركي والشحن من الباب إلى الباب فريقُ مبيعاتنا في ووشي.',
+    proofTitle: 'أدلّة ومراجع',
+    proofBody: 'دراسات مشاريع مجهولة الهوية وصفحات الدول التي نورّد إليها ومقارنات بين الموديلات — نفس المواد التي يستخدمها مهندسو المبيعات لدينا عند تحديد نطاق الشراء.',
+    proofLinks: [
+      { label: 'حالات العملاء', href: '/cases/' },
+      { label: 'تغطية الدول', href: '/countries/' },
+      { label: 'مقارنة الموديلات', href: '/compare/' },
+    ],
     addressesTitle: 'المكاتب والمصنع',
     headOfficeLabel: 'المكتب الرئيسي',
     factoryLabel: 'منشأة التصنيع',
+    emailLabel: 'البريد الإلكتروني',
+    phoneLabel: 'الهاتف',
+    hoursLabel: 'ساعات العمل',
+    hoursValue: 'الاثنين–الجمعة 8:30–17:30 (UTC+8)',
+    faqItems: [
+      {
+        q: 'هل JIEBO مصنّع أم شركة تجارية؟',
+        a: 'JIEBO مصنّع. تأسّست Wuxi Jiebo Instrument Technology Co., Ltd. عام 2009، ومقرّها في ووشي (جيانغسو)، وتنتج في منشأتها الخاصة في شواننغ (آنهوي). تُطوَّر البصريات ومصدر الإثارة وإلكترونيات الكشف والبرمجيات داخلياً عبر 11 موديلاً إنتاجياً.',
+      },
+      {
+        q: 'إلى أي دول تصدّر JIEBO؟',
+        a: 'إلى أكثر من 40 دولة في الشرق الأوسط وأفريقيا وجنوب شرق وغرب آسيا وأوروبا الشرقية وأمريكا الجنوبية — منها روسيا وكازاخستان وأوزبكستان والسعودية ومصر والجزائر ونيجيريا وجنوب أفريقيا والبرازيل والمكسيك والأرجنتين وإسبانيا والهند وباكستان وفيتنام وأستراليا. راجع <a href="/ar/countries/">صفحات الدول</a>.',
+      },
+      {
+        q: 'ما الوثائق التي تُرفَق مع الجهاز؟',
+        a: 'تقرير معايرة مقابل المواد المرجعية المعتمدة المستخدَمة، ودليل التشغيل، وقائمة التعبئة، والفاتورة التجارية وشهادة المنشأ، إضافةً إلى وثائق التصدير CE و CB و SGS عند الاقتضاء. يتولّى فريقنا في ووشي التخليص الجمركي والشحن من الباب إلى الباب.',
+      },
+      {
+        q: 'ما مدّة التسليم وشروط الضمان؟',
+        a: 'تُشحن التهيئات المتوفّرة في المخزون خلال 15 يوم عمل، ويحتاج <a href="/ar/products/onh-508/">ONH-508</a> نحو 30 يوماً عند التصنيع حسب الطلب. الضمان 12 شهراً على القطع واليد العاملة وقابل للتمديد إلى 24 شهراً، مع دعم هندسي عبر واتساب خلال 4 ساعات عمل.',
+      },
+      {
+        q: 'هل يمكنكم تحليل عيّناتنا قبل الشراء؟',
+        a: 'نعم. أرسل عيّنات تمثيلية إلى مختبرنا في ووشي، وسنقيسها على الموديل الموصى به ونعيد إليك النتائج مع بيانات التكرارية لمقارنتها بطريقتك الحالية قبل إصدار أمر الشراء. <a href="https://wa.me/8618118915721" target="_blank" rel="noopener">راسلنا عبر واتساب</a> للترتيب.',
+      },
+    ],
   },
 };
 
@@ -110,6 +329,7 @@ const breadcrumbs = [
   path={path}
   schemaType="website"
   breadcrumbs={breadcrumbs}
+  faq={c.faqItems}
   whatsappContext="general"
 >
   <div class="container">
@@ -128,9 +348,14 @@ const breadcrumbs = [
   </section>
 
   <section class="section section--alt">
-    <div class="container" style="max-width:780px;">
-      <h2>{c.storyTitle}</h2>
-      {c.storyParas.map((p) => <p>{p}</p>)}
+    <div class="container">
+      <div class="about-split">
+        <div>
+          <h2>{c.storyTitle}</h2>
+          {c.storyParas.map((p) => <p>{p}</p>)}
+        </div>
+        <FactsCard locale={locale} />
+      </div>
     </div>
   </section>
 
@@ -155,22 +380,62 @@ const breadcrumbs = [
   </section>
 
   <section class="section">
-    <div class="container" style="max-width:780px;">
-      <h2>{c.exportTitle}</h2>
-      <p>{c.exportBody}</p>
+    <div class="container">
+      <h2>{c.workTitle}</h2>
+      <p class="lede" style="margin-top:0.5rem;">{c.workLede}</p>
+      <div class="grid grid--3" style="margin-top:1.5rem;">
+        {c.workItems.map((item) => (
+          <div class="card">
+            <h3 style="font-size:1.0625rem; margin-bottom:0.5rem;">{item.h}</h3>
+            <p style="margin:0; color:var(--muted); font-size:0.9375rem;">{item.b}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
   <section class="section section--alt">
     <div class="container" style="max-width:780px;">
+      <h2>{c.exportTitle}</h2>
+      <p>{c.exportBody}</p>
+      <h3 style="margin-top:2rem;">{c.proofTitle}</h3>
+      <p>{c.proofBody}</p>
+      <p style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1rem;">
+        {c.proofLinks.map((l) => (
+          <a class="button button--ghost" href={localizedPath(locale, l.href)}>{l.label}</a>
+        ))}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:780px;">
       <h2>{c.addressesTitle}</h2>
       <dl class="facts" style="grid-template-columns: max-content 1fr;">
         <dt>{c.headOfficeLabel}</dt><dd>{SITE.headOffice}</dd>
         <dt>{c.factoryLabel}</dt><dd>{SITE.factory}</dd>
+        <dt>{c.emailLabel}</dt><dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
+        <dt>{c.phoneLabel}</dt><dd>{SITE.phone} · {SITE.phoneAlt}</dd>
+        <dt>{c.hoursLabel}</dt><dd>{c.hoursValue}</dd>
       </dl>
-      <p style="margin-top:2rem;">
+      <p style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:2rem;">
         <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')} · {SITE.wechat}</a>
+        <a class="button button--ghost" href={localizedPath(locale, '/contact/')}>{t(locale, 'cta.request_quote')}</a>
       </p>
     </div>
   </section>
+
+  <FAQ locale={locale} items={c.faqItems} />
 </Base>
+
+<style>
+  .about-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .about-split { grid-template-columns: 1fr; }
+  }
+</style>
