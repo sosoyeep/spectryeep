@@ -16,7 +16,12 @@ const spamPatterns = [
   /\bwhatsapp marketing\b/i,
 ];
 
-function errorPage(status, headline, detail) {
+// Cloudflare owns the 502/504 gateway codes: a 502 returned from here is
+// discarded at the edge and the visitor gets Cloudflare's "Bad gateway" page
+// instead of this one, losing the WhatsApp and email fallbacks. Verified on
+// this zone - a 500 from this same handler passes through untouched, a 502
+// does not. Anything user-facing must therefore avoid 502/504.
+function errorPage(status, headline, detail, deliveryState) {
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
@@ -38,7 +43,13 @@ p{color:#475569;margin:0 0 1rem}
 </div></body></html>`;
   return new Response(html, {
     status,
-    headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' },
+    headers: {
+      'content-type': 'text/html; charset=utf-8',
+      'cache-control': 'no-store',
+      // Machine-readable delivery state, so an uptime check can tell a healthy
+      // form from a broken one without parsing the page.
+      'x-inquiry-delivery': deliveryState,
+    },
   });
 }
 
@@ -422,13 +433,15 @@ async function handleInquiryPost({ request, env }) {
       503,
       'We could not deliver your enquiry',
       'Our enquiry routing is not configured correctly right now. This is our fault, not yours.',
+      'unconfigured',
     );
   }
   if (!forwarding.delivered) {
     return errorPage(
-      502,
+      503,
       'We could not deliver your enquiry',
       'Every delivery route for our enquiry form failed just now. This is our fault, not yours.',
+      'failed',
     );
   }
 

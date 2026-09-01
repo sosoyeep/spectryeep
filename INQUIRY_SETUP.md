@@ -46,9 +46,17 @@ EMAIL_WEBHOOK_TOKEN=
 ```
 
 The visitor is redirected to `/thank-you/` **only when at least one channel confirms
-delivery**. If every configured channel fails the form answers `502` with a page offering
-WhatsApp and email; if nothing is configured at all it answers `503`. The form never
-reports success for a lead it did not manage to hand off.
+delivery**. Otherwise the form answers `503` with a page offering WhatsApp and email, and
+sets `x-inquiry-delivery: failed` (or `unconfigured` when no channel is set up at all), so
+an uptime check can tell a healthy form from a broken one. The form never reports success
+for a lead it did not manage to hand off.
+
+**Never answer `502` or `504` here.** Those are Cloudflare's own gateway codes: a 502
+returned by the Function is discarded at the edge and the visitor gets Cloudflare's
+"Bad gateway - Host Error" page instead of ours, losing the WhatsApp and email fallbacks.
+The substitution happens only on the proxied custom domain, so the same deployment looks
+correct on `*.pages.dev` and broken on `spectryeep.com`. A `500` or `503` from the same
+handler passes through untouched.
 
 Delivery is judged on positive evidence, not on the absence of an error status. This
 matters because several of these services answer `HTTP 200` while dropping the message:
