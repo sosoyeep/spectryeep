@@ -398,10 +398,13 @@ async function forwardLead(env, payload) {
   if (configured.length === 0) {
     return { configured: false, delivered: false, results };
   }
-  if (!delivered) {
+  // Log every failed channel, not just a total blackout: one healthy channel
+  // (Telegram) would otherwise hide a silently broken one (email) forever.
+  const failed = configured.filter((result) => !result.ok);
+  if (failed.length) {
     console.error(
-      'All inquiry forwarding targets failed',
-      configured.map((r) => `${r.channel}: status=${r.status ?? 'n/a'} ${r.error || 'no error reported'}`).join(' | '),
+      delivered ? 'Inquiry channel failures' : 'All inquiry forwarding targets failed',
+      failed.map((r) => `${r.channel}: status=${r.status ?? 'n/a'} ${r.error || 'no error reported'}`).join(' | '),
     );
   }
   return { configured: true, delivered, results };
