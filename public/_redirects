@@ -40,3 +40,11 @@ https://www.spectryeep.com/* https://spectryeep.com/:splat 301!
 /ru/products/jb-750/ /ru/products/ 301
 /es/products/jb-750/ /es/products/ 301
 /ar/products/jb-750/ /ar/products/ 301
+
+# Case studies replaced by real anonymized installations (2026-09).
+/cases/india-cast-iron-foundry-innovate-t5/ /cases/turkey-investment-casting-innovate-t5/ 301
+/cases/gulf-fabrication-handheld-xrf-f6000-pro/ /cases/kenya-pipeline-components-exquis-t4/ 301
+/cases/brazil-foundry-cs2020-carbon-sulfur/ /cases/brazil-steel-tube-mill-exquis-t4-pro/ 301
+/cases/south-africa-mining-f6000-pro-xrf/ /cases/tajikistan-metallurgical-plant-noble-t7/ 301
+/cases/mexico-automotive-supplier-innovate-t5/ /cases/uae-steel-plant-innovate-t5-noble-t7/ 301
+/cases/titanium-lab-onh-508-oxygen-nitrogen-hydrogen/ /cases/south-korea-advanced-materials-cs995/ 301

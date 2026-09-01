@@ -45,6 +45,7 @@ const breadcrumbs = [
 
       <dl class="facts card" style="margin-top:1.5rem;">
         <dt>Market</dt><dd>{item.market}</dd>
+        <dt>Commissioned</dt><dd>{item.commissioned}</dd>
         <dt>Product</dt><dd><a href={item.productHref}>{item.product}</a></dd>
         <dt>Application</dt><dd>{item.application}</dd>
       </dl>
@@ -55,12 +56,12 @@ const breadcrumbs = [
       </section>
 
       <section style="margin-top:2rem;">
-        <h2>JIEBO recommendation</h2>
+        <h2>What was installed</h2>
         <ul>{item.solution.map((x) => <li>{x}</li>)}</ul>
       </section>
 
       <section style="margin-top:2rem;">
-        <h2>Practical outcome</h2>
+        <h2>Outcome</h2>
         <ul>{item.result.map((x) => <li>{x}</li>)}</ul>
       </section>
 
