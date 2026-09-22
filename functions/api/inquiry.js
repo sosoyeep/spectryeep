@@ -14,6 +14,19 @@ const spamPatterns = [
   /\b(website|web|organic) traffic\b/i,
   /\bguest post\b/i,
   /\bwhatsapp marketing\b/i,
+  // Typical agency / freelancer pitches that arrive through B2B contact forms.
+  /\b(first|1st|top) page of (google|search)/i,
+  /\bweb ?(site)? ?(design|redesign|development)\b/i,
+  /\bapp development\b/i,
+  /\blead generation\b/i,
+  /\b(digital|social media|email) marketing\b/i,
+  /\b(increase|boost|grow) your (sales|traffic|revenue|leads)\b/i,
+  /\bvirtual assistant\b/i,
+  /\b(bitcoin|forex|binance|nft)\b/i,
+  /\bdropshipping\b/i,
+  /\bunsubscribe\b/i,
+  /\bopt[- ]out\b/i,
+  /\b(upwork|fiverr)\b/i,
 ];
 
 // Cloudflare owns the 502/504 gateway codes: a 502 returned from here is
@@ -102,9 +115,20 @@ function validationErrors(data, ip, env) {
   const email = String(data.email || '');
   if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('email is invalid');
 
+  // started_at and js_token are written by the page script. A missing value
+  // used to skip the timing check entirely, so a bot posting straight to this
+  // endpoint (the usual case) passed it for free. Both are now mandatory.
   const startedAt = Number(data.started_at || 0);
-  if (startedAt && Date.now() - startedAt < minSubmitSeconds * 1000) {
+  const age = Date.now() - startedAt;
+  if (!startedAt) {
+    errors.push('started_at missing (no browser script ran)');
+  } else if (age < minSubmitSeconds * 1000) {
     errors.push('form submitted too quickly');
+  } else if (age > 7 * 24 * 60 * 60 * 1000) {
+    errors.push('form timestamp is stale or replayed');
+  }
+  if (!startedAt || String(data.js_token || '') !== `v1.${startedAt.toString(36)}`) {
+    errors.push('js_token missing or invalid');
   }
 
   const text = [
@@ -441,7 +465,15 @@ async function handleInquiryPost({ request, env }) {
 
   if (errors.length) {
     console.warn('Blocked inquiry', { ip, errors, email: data.email, source_page: data.source_page });
-    return json(400, { ok: false, error: 'Submission blocked', reasons: errors });
+    // A real person can land here too (script blocked, very old browser, a
+    // false-positive keyword). Give them the direct channels instead of raw
+    // JSON, so a genuine lead is never simply turned away.
+    return errorPage(
+      400,
+      'We could not accept this form',
+      'Our spam filter stopped this submission. If you are a customer, we are sorry &mdash; please send the same details directly.',
+      'blocked',
+    );
   }
 
   const payload = leadPayload(data, request, ip);

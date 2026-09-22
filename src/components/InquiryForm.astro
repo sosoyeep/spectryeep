@@ -139,6 +139,7 @@ const c = copy[locale];
     <input type="hidden" name="locale" value={locale} />
     <input type="hidden" name="source_page" value={sourcePath} data-source-page />
     <input type="hidden" name="started_at" value="" data-started-at />
+    <input type="hidden" name="js_token" value="" data-js-token />
     <input type="hidden" name="utm_source" value="" data-utm="utm_source" />
     <input type="hidden" name="utm_medium" value="" data-utm="utm_medium" />
     <input type="hidden" name="utm_campaign" value="" data-utm="utm_campaign" />
@@ -184,6 +185,10 @@ const c = copy[locale];
   document.querySelectorAll('.inquiry-form').forEach((form) => {
     const startedAt = Date.now();
     form.querySelector('[data-started-at]').value = String(startedAt);
+    // Proof that a real browser ran this page. Generic form-spam bots post the
+    // raw HTML fields and never execute scripts, so they cannot fill this in.
+    const jsToken = form.querySelector('[data-js-token]');
+    if (jsToken) jsToken.value = 'v1.' + startedAt.toString(36);
     const source = form.querySelector('[data-source-page]');
     if (source) source.value = window.location.href;
 
