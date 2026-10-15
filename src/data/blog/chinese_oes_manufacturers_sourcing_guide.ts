@@ -1,9 +1,9 @@
 // Chinese OES manufacturers sourcing guide -- rewritten from backup draft:
-// directory of competitors removed, unverified claims removed, prices aligned
-// with /learn/oes-spectrometer-price/. Evaluation framework is the product.
+// directory of competitors removed, unverified claims removed. No prices or
+// currency amounts (site rule); cost is discussed as drivers only.
 export const slug = 'chinese-oes-spectrometer-manufacturers';
 export const title = `Chinese OES Spectrometer Manufacturers: 2026 Sourcing Guide`;
-export const description = `How to evaluate Chinese OES spectrometer manufacturers in 2026 -- the six factors that separate production-grade instruments from marginal ones, how to spot rebadgers, sourcing pitfalls, and realistic pricing.`;
+export const description = `How to evaluate Chinese OES spectrometer manufacturers in 2026 -- the six factors that separate production-grade instruments from marginal ones, how to spot rebadgers, sourcing pitfalls, and what drives cost.`;
 export const datePublished = '2026-07-04';
 
 export const htmlContent = `<h1>Chinese OES Spectrometer Manufacturers in 2026: How to Evaluate and Source</h1>
@@ -50,10 +50,10 @@ export const htmlContent = `<h1>Chinese OES Spectrometer Manufacturers in 2026: 
 <li><strong>Assuming a chat window equals support.</strong> Real after-sales means an application engineer with commissioning experience, not a sales account. Ask to speak with the engineer who would actually support you after purchase -- before you pay.</li>
 </ul>
 <h2>When Chinese OES Is the Right Choice -- and When It Isn't</h2>
-<p><strong>A Chinese instrument is usually the rational choice when:</strong> you are a foundry, recycler, or QC lab running production control on common matrices (steel, cast iron, aluminum, copper); your team can handle first-line maintenance with remote engineer backup; and the budget gap versus a Western instrument -- typically two to three times the price for equivalent routine-QC capability -- funds better things, like reference materials and a spare-parts buffer.</p>
+<p><strong>A Chinese instrument is usually the rational choice when:</strong> you are a foundry, recycler, or QC lab running production control on common matrices (steel, cast iron, aluminum, copper); your team can handle first-line maintenance with remote engineer backup; and the budget you save versus a Western-brand instrument with equivalent routine-QC capability can fund better things, like reference materials and a spare-parts buffer.</p>
 <p><strong>Stay with a Western brand when:</strong> a customer in your supply chain contractually mandates a specific instrument brand; you operate under certification regimes where instrument lineage matters as much as the measurement (aerospace, nuclear); you need trace-level validation data that today only the incumbent platforms have published; or unplanned downtime is so costly that you need a guaranteed on-site engineer within days, worldwide.</p>
-<h2>What Does a Chinese OES Actually Cost?</h2>
-<p>Benchtop spark OES instruments from Chinese manufacturers typically run from about $15,000 for entry-level CCD configurations to $55,000 for full-spectrum, nitrogen-capable mid-range units -- roughly one-third to one-half the price of equivalent Western-brand instruments. We published a full breakdown with price bands by category, the running costs nobody quotes, and how to request a comparable quotation: see our <a href="/learn/oes-spectrometer-price/">OES spectrometer price guide</a>. For help matching configuration class to your application, see <a href="/learn/oes-buyer-guide-2026/">how to choose an OES spectrometer</a>.</p>
+<h2>What Determines the Cost of a Chinese OES?</h2>
+<p>The same factors that drive cost for any spark OES apply here: detector technology (PMT or CMOS), the number of base matrices and calibration programs, whether the optics are vacuum, argon-purged or sealed-cycle, and the running costs of argon, electrodes, reference standards and service. Calibration scope and after-sales terms account for a meaningful share of the instrument budget, so normalize them across quotations before comparing. We break each factor down in our <a href="/learn/oes-spectrometer-price/">guide to what drives OES spectrometer cost</a>. For help matching configuration class to your application, see our <a href="/learn/oes-buyer-guide-2026/">OES buyer's guide</a>.</p>
 <h2>Frequently Asked Questions</h2>
 <h3>Are Chinese OES spectrometers acceptable for ISO 17025 accredited labs?</h3>
 <p>Yes, with the usual caveats. Accreditation attaches to the laboratory's quality system, calibration traceability, and method validation -- not to the instrument's country of origin. The lab still needs traceable certified reference materials and a documented method validation, whichever brand sits on the bench.</p>
@@ -67,4 +67,4 @@ export const htmlContent = `<h1>Chinese OES Spectrometer Manufacturers in 2026: 
 <p>Usually not in the base price. The common patterns: your technician trains at the factory during the FAT and installs at home with remote support; or the manufacturer sends an engineer to your site at cost. Get the installation option priced in the initial quotation rather than negotiating it after payment.</p>
 <h2>About JIEBO Instrument</h2>
 <p>JIEBO Instrument (Wuxi, China) has manufactured solid-sample elemental analysis instruments since 2009: spark OES spectrometers from benchtop to research-grade, combustion carbon/sulfur analyzers, O/N/H analyzers, and handheld XRF/LIBS -- with installations in foundries and testing laboratories across Asia, Eastern Europe, the Middle East, and Latin America. Every question this guide tells you to ask a manufacturer, we answer in writing as standard: detector part numbers, calibration scope, spare-parts terms, and after-sales commitments.</p>
-<p>Put us to the test: <a href="/contact/"><strong>request a configuration and quotation</strong></a>, message us on <a href="https://wa.me/8618118915721">WhatsApp</a>, or browse the <a href="/products/">product line</a>.</p>`;
+<p>Put us to the test: <a href="/contact/#request-quote"><strong>request a configuration and quotation</strong></a> through our quote form, or browse the <a href="/products/">product line</a> first.</p>`;

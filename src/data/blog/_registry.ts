@@ -10,26 +10,20 @@ export interface BlogArticleMeta {
 export const BLOG_ARTICLES: BlogArticleMeta[] = [
   {
     slug: 'oes-spectrometer-price',
-    title: `How Much Does an OES Spectrometer Cost? | 2026 Price Guide`,
-    description: `Real-world OES spectrometer price ranges for 2026 -- entry-level to high-end, Chinese vs Western brands, plus total cost of ownership and how to get a meaningful quote.`,
+    title: `What Drives OES Spectrometer Cost: A Buyer's Checklist | JIEBO`,
+    description: `What really drives the cost of a spark OES spectrometer: detector type (PMT vs CMOS), base matrices and channels, vacuum or argon optics, and running costs such as argon, electrodes, standards and service.`,
     datePublished: '2026-07-03',
   },
   {
     slug: 'chinese-oes-spectrometer-manufacturers',
     title: `Chinese OES Spectrometer Manufacturers: 2026 Sourcing Guide`,
-    description: `How to evaluate Chinese OES spectrometer manufacturers in 2026 -- the six factors that separate production-grade instruments from marginal ones, how to spot rebadgers, sourcing pitfalls, and realistic pricing.`,
+    description: `How to evaluate Chinese OES spectrometer manufacturers in 2026 -- the six factors that separate production-grade instruments from marginal ones, how to spot rebadgers, sourcing pitfalls, and what drives cost.`,
     datePublished: '2026-07-04',
   },
   {
     slug: 'oes-buyer-guide-2026',
     title: `How to Choose an Optical Emission Spectrometer | 2026 Guide`,
-    description: `Expert buyer's guide on how to choose an optical emission spectrometer. Compare spark, arc, and ICP OES types, key specs, applications, and budget considerations.`,
-    datePublished: '2026-04-01',
-  },
-  {
-    slug: 'oes-vs-xrf-vs-libs-comparison',
-    title: `OES vs XRF vs LIBS: Choose the Right Metal Analyzer`,
-    description: `Compare OES, XRF, and LIBS metal analyzers across detection limits, portability, cost, and carbon detection. Expert guide to choosing the right solution.`,
+    description: `Expert buyer's guide on how to choose an optical emission spectrometer. Four questions to answer first, spark vs arc vs ICP OES, key specs, application fit, cost drivers and a pre-purchase checklist.`,
     datePublished: '2026-04-01',
   },
   {

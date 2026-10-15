@@ -1,6 +1,6 @@
 ---
-import { SITE, type Locale } from '../consts';
-import { localizedPath, whatsappUrl } from '../i18n/utils';
+import { type Locale } from '../consts';
+import { localizedPath } from '../i18n/utils';
 
 interface Props {
   locale: Locale;
@@ -15,12 +15,6 @@ const formAction = import.meta.env.PUBLIC_INQUIRY_FORM_ACTION || '/api/inquiry';
 const sourcePath = Astro.url.pathname;
 const thankYouPath = localizedPath(locale, '/thank-you/');
 const thankYouUrl = new URL(thankYouPath, Astro.site).toString();
-const waHref = whatsappUrl(
-  SITE.whatsapp,
-  productName
-    ? `Hi JIEBO, I submitted a quote request for ${productName} on spectryeep.com.`
-    : 'Hi JIEBO, I submitted a quote request on spectryeep.com.',
-);
 
 const copy: Record<Locale, {
   title: string;
@@ -38,7 +32,6 @@ const copy: Record<Locale, {
   consent: string;
   submit: string;
   note: string;
-  fallback: string;
 }> = {
   en: {
     title: 'Request a formal quote',
@@ -56,7 +49,6 @@ const copy: Record<Locale, {
     consent: 'I agree to be contacted about this inquiry.',
     submit: 'Send inquiry',
     note: 'Most qualified inquiries receive a reply within 4 working hours.',
-    fallback: 'If the form fails, contact us on WhatsApp.',
   },
   ru: {
     title: 'Запросить официальное предложение',
@@ -74,7 +66,6 @@ const copy: Record<Locale, {
     consent: 'Я согласен, чтобы со мной связались по этому запросу.',
     submit: 'Отправить запрос',
     note: 'На большинство целевых запросов отвечаем в течение 4 рабочих часов.',
-    fallback: 'Если форма не отправляется, напишите нам в WhatsApp.',
   },
   es: {
     title: 'Solicitar cotización formal',
@@ -92,7 +83,6 @@ const copy: Record<Locale, {
     consent: 'Acepto que me contacten sobre esta consulta.',
     submit: 'Enviar consulta',
     note: 'La mayoría de consultas calificadas reciben respuesta en 4 horas hábiles.',
-    fallback: 'Si el formulario falla, contáctenos por WhatsApp.',
   },
   ar: {
     title: 'طلب عرض سعر رسمي',
@@ -110,7 +100,6 @@ const copy: Record<Locale, {
     consent: 'أوافق على التواصل معي بخصوص هذا الاستفسار.',
     submit: 'إرسال الاستفسار',
     note: 'معظم الاستفسارات المؤهلة تحصل على رد خلال 4 ساعات عمل.',
-    fallback: 'إذا تعذر إرسال النموذج، تواصل معنا عبر واتساب.',
   },
 };
 
@@ -174,7 +163,6 @@ const c = copy[locale];
 
     <div class="form-actions">
       <button class="button button--primary" type="submit">{c.submit}</button>
-      <a class="button button--ghost" href={waHref} target="_blank" rel="noopener">{c.fallback}</a>
     </div>
     <p class="form-note">{c.note}</p>
     <p class="form-error" role="alert" hidden></p>

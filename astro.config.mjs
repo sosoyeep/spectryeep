@@ -15,6 +15,8 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/thank-you/'),
+      // <lastmod> on every URL: the build (deploy) date.
+      lastmod: new Date(),
       i18n: {
         defaultLocale: 'en',
         locales: { en: 'en', ru: 'ru', es: 'es', ar: 'ar-SA' },

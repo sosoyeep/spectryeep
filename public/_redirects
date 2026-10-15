@@ -48,3 +48,9 @@ https://www.spectryeep.com/* https://spectryeep.com/:splat 301!
 /cases/south-africa-mining-f6000-pro-xrf/ /cases/tajikistan-metallurgical-plant-noble-t7/ 301
 /cases/mexico-automotive-supplier-innovate-t5/ /cases/uae-steel-plant-innovate-t5-noble-t7/ 301
 /cases/titanium-lab-onh-508-oxygen-nitrogen-hydrogen/ /cases/south-korea-advanced-materials-cs995/ 301
+
+# Duplicate learn articles merged (2026-10).
+/learn/oes-vs-xrf-vs-libs-comparison/ /learn/oes-vs-xrf-vs-libs/ 301
+/learn/oes-vs-xrf-vs-libs-comparison /learn/oes-vs-xrf-vs-libs/ 301
+/learn/how-to-choose-oes-spectrometer/ /learn/oes-buyer-guide-2026/ 301
+/learn/how-to-choose-oes-spectrometer /learn/oes-buyer-guide-2026/ 301

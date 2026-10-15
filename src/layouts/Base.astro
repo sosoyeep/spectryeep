@@ -47,7 +47,10 @@ const alternateLinks = alternateLocales.map((l) => ({
   hreflang: LOCALE_META[l].htmlLang,
   href: new URL(localizedPath(l, path), Astro.site).toString(),
 }));
-const xDefault = new URL(localizedPath(DEFAULT_LOCALE, path), Astro.site).toString();
+// x-default only when the default-locale version of this page exists.
+const xDefault = alternateLocales.includes(DEFAULT_LOCALE)
+  ? new URL(localizedPath(DEFAULT_LOCALE, path), Astro.site).toString()
+  : undefined;
 
 /**
  * Build an SEO-optimal meta description (target 110-160 chars, hard cap 160).
@@ -142,7 +145,8 @@ function trimTitleForGoogle(t: string): string {
     if (sp > 30) return cut.slice(0, sp).trim() + '…';
     return cut + '…';
   }
-  // No standard suffix
+  // No standard suffix: keep anything up to the soft max intact.
+  if (s.length <= SOFT_MAX) return s;
   const cut = s.slice(0, HARD_CUT);
   const sp = cut.lastIndexOf(' ');
   if (sp > 30) return cut.slice(0, sp).trim() + '…';
@@ -154,6 +158,8 @@ const pageTitle = trimTitleForGoogle(title);
 <!doctype html>
 <html lang={meta.htmlLang} dir={meta.dir}>
 <head>
+  {/* Keep info@spectryeep.com as plain text: tells Cloudflare Email Obfuscation to skip the page. */}
+  <Fragment set:html="<!--email_off-->" />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{pageTitle}</title>
@@ -161,7 +167,7 @@ const pageTitle = trimTitleForGoogle(title);
   <meta name="robots" content={robots} />
   <link rel="canonical" href={canonical} />
   {alternateLinks.map((l) => <link rel="alternate" hreflang={l.hreflang} href={l.href} />)}
-  <link rel="alternate" hreflang="x-default" href={xDefault} />
+  {xDefault && <link rel="alternate" hreflang="x-default" href={xDefault} />}
   <meta property="og:type" content={schemaType === 'article' ? 'article' : 'website'} />
   <meta property="og:locale" content={meta.htmlLang} />
   <meta property="og:title" content={pageTitle} />
@@ -172,7 +178,7 @@ const pageTitle = trimTitleForGoogle(title);
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="JIEBO Instrument — Optical Emission Spectrometer Manufacturer, Wuxi China" />
+  <meta property="og:image:alt" content="JIEBO Instrument — OES spectrometer and carbon-sulfur analyzer manufacturer, Wuxi, China" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={pageTitle} />
   <meta name="twitter:description" content={metaDescription} />
@@ -195,5 +201,6 @@ const pageTitle = trimTitleForGoogle(title);
   </main>
   <Footer locale={locale} />
   <WhatsAppFab locale={locale} context={whatsappContext} productName={productName} />
+  <Fragment set:html="<!--/email_off-->" />
 </body>
 </html>

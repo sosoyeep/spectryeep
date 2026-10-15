@@ -57,7 +57,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     related: [
       { label: 'Innovate T5', href: '/products/innovate-t5/' },
       { label: 'Foundry OES application', href: '/applications/foundry-oes-spectrometer/' },
-      { label: 'How to choose an OES', href: '/learn/how-to-choose-oes-spectrometer/' },
+      { label: 'How to choose an OES', href: '/learn/oes-buyer-guide-2026/' },
     ],
     faq: [
       { q: 'Can one OES cover both stainless and alloy steel?', a: 'Yes, provided the working curves for each matrix are built at calibration. The Innovate T5 covers 10 base matrices; this foundry runs stainless and alloy steel on the same instrument.' },
@@ -353,7 +353,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     related: [
       { label: 'Noble T7', href: '/products/noble-t7/' },
       { label: 'Innovate T5 vs Noble T7', href: '/compare/innovate-t5-vs-noble-t7/' },
-      { label: 'How to choose an OES', href: '/learn/how-to-choose-oes-spectrometer/' },
+      { label: 'How to choose an OES', href: '/learn/oes-buyer-guide-2026/' },
     ],
     faq: [
       { q: 'When is a Noble T7 worth it over an Innovate T5?', a: 'When accuracy requirements approach sub-10 ppm, when the element list runs wide, or when the instrument has to double as the reference method for other production units. For routine multi-matrix production control, the T5 is the working choice.' },

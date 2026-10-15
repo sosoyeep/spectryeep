@@ -17,7 +17,7 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: 'Which JIEBO spectrometer should I choose?',
-      a: 'It depends on your matrices, detection limits, and environment: the <a href="/products/exquis-t4/">Exquis T4</a> is ideal for single-matrix foundry QC; the <a href="/products/innovate-t5/">Innovate T5</a> handles 10 base matrices for production floors; the <a href="/products/noble-t7/">Noble T7</a> suits research labs needing &lt;10 ppm accuracy; and the <a href="/products/surpass-f1/">Surpass F1</a> is our mobile unit for scrapyards and field PMI. Our <a href="/learn/how-to-choose-oes-spectrometer/">buyer\'s guide</a> walks through the decision.',
+      a: 'It depends on your matrices, detection limits, and environment: the <a href="/products/exquis-t4/">Exquis T4</a> is ideal for single-matrix foundry QC; the <a href="/products/innovate-t5/">Innovate T5</a> handles 10 base matrices for production floors; the <a href="/products/noble-t7/">Noble T7</a> suits research labs needing &lt;10 ppm accuracy; and the <a href="/products/surpass-f1/">Surpass F1</a> is our mobile unit for scrapyards and field PMI. Our <a href="/learn/oes-buyer-guide-2026/">buyer\'s guide</a> walks through the decision.',
     },
     {
       q: 'What is the delivery time?',
@@ -45,7 +45,7 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: 'How do I contact JIEBO?',
-      a: 'The fastest way is <a href="https://wa.me/8618118915721" target="_blank" rel="noopener">WhatsApp</a> — our engineers answer most messages within 4 working hours. You can also email <a href="mailto:info@spectryeep.com">info@spectryeep.com</a> or send the details through our <a href="/contact/">contact form</a>. Office hours are Mon–Fri 8:30–17:30 CST.',
+      a: 'The fastest way is <a href="https://wa.me/8618118915721?text=Hi%2C%20I%20found%20you%20on%20spectryeep.com.%20I%27d%20like%20the%20catalogue%20and%20a%20quote%20for%20%5Bmodel%5D.%20Material%3A%20___%20Elements%3A%20___%20Country%3A%20___" target="_blank" rel="noopener">WhatsApp</a> — our engineers answer most messages within 4 working hours. You can also email <a href="mailto:info@spectryeep.com">info@spectryeep.com</a> or send the details through our <a href="/contact/">contact form</a>. Office hours are Mon–Fri 08:30–17:30 (GMT+8).',
     },
   ],
   ru: [

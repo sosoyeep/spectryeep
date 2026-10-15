@@ -123,14 +123,7 @@ if (product) {
     manufacturer: { '@id': `https://${SITE.domain}/#organization` },
     url: pageUrl,
     image: product.image ?? `https://${SITE.domain}/og/default.png`,
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'USD',
-      priceSpecification: { '@type': 'PriceSpecification', priceCurrency: 'USD', valueAddedTaxIncluded: false },
-      seller: { '@id': `https://${SITE.domain}/#organization` },
-      url: pageUrl,
-    },
+    // No Offer node: the site publishes no prices or currencies.
   });
 }
 

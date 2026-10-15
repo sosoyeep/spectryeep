@@ -66,7 +66,7 @@ export const htmlContent = `<h1>Molten Iron Carbon Silicon Analyzer: Why Every F
 <h3>Temperature Range</h3>
 <p>The instrument must handle the full liquidus temperature range of the iron types you produce. For most foundry applications, this means a measurement range of at least 1050 degrees C to 1400 degrees C. Ensure the thermocouple cups and instrument electronics are rated accordingly.</p>
 <h3>Sample Cup Compatibility and Cost</h3>
-<p>Consumable cup cost is an ongoing expense. Evaluate whether the analyzer requires proprietary cups or accepts standard thermal analysis cups from multiple suppliers. Cup-per-test cost typically ranges from $1.50 to $5.00, and over thousands of tests per year, this adds up.</p>
+<p>Consumable cup cost is an ongoing expense. Evaluate whether the analyzer requires proprietary cups or accepts standard thermal analysis cups from multiple suppliers. Cups are consumed on every test, so over thousands of tests per year the per-test consumable cost becomes a meaningful share of the analyzer's running budget.</p>
 <h3>Data Output and Connectivity</h3>
 <p>Modern foundry quality systems require digital integration. Prioritize instruments with built-in data storage, USB export, network connectivity, and the ability to interface with plant-level MES or SPC software. Printed reports are useful on the floor, but digital records are essential for traceability.</p>
 <h3>Durability and Environmental Rating</h3>
@@ -121,8 +121,8 @@ export const htmlContent = `<h1>Molten Iron Carbon Silicon Analyzer: Why Every F
 </tr>
 <tr>
 <td><strong>Per-test consumable cost</strong></td>
-<td>$1.50 to $5.00 (cup)</td>
-<td>$0.50 to $2.00 (argon, standards)</td>
+<td>Disposable sample cup per test</td>
+<td>Argon, electrodes and reference standards</td>
 </tr>
 <tr>
 <td><strong>Best used for</strong></td>
