@@ -21,7 +21,7 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: 'What is the delivery time?',
-      a: 'Stock configurations ship within 15 working days. The ONH-508 requires 30 days for custom builds. We handle export documentation, CE/CB certificates, and door-to-door logistics worldwide.',
+      a: 'Stock configurations ship within 20 working days. The ONH-508 requires 30 days for custom builds. We handle export documentation, CE/CB certificates, and door-to-door logistics worldwide.',
     },
     {
       q: 'What warranty does JIEBO offer?',
@@ -63,7 +63,7 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: 'Каковы сроки доставки?',
-      a: 'Стандартные конфигурации отправляются в течение 15 рабочих дней. ONH-508 — 30 дней. Мы оформляем экспортную документацию и доставку до двери.',
+      a: 'Стандартные конфигурации отправляются в течение 20 рабочих дней. ONH-508 — 30 дней. Мы оформляем экспортную документацию и доставку до двери.',
     },
     {
       q: 'Какая гарантия?',
@@ -85,7 +85,7 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: '¿Cuáles son los plazos de entrega?',
-      a: 'Configuraciones estándar en 15 días hábiles. ONH-508 en 30 días. Gestionamos documentación de exportación y logística puerta a puerta.',
+      a: 'Configuraciones estándar en 20 días hábiles. ONH-508 en 30 días. Gestionamos documentación de exportación y logística puerta a puerta.',
     },
     {
       q: '¿Qué garantía ofrece JIEBO?',
@@ -103,7 +103,7 @@ export const FAQ_GENERAL: Record<Locale, FAQItem[]> = {
     },
     {
       q: 'ما هي مدة التسليم؟',
-      a: 'التكوينات القياسية خلال 15 يوم عمل. ONH-508 خلال 30 يومًا. نتولى وثائق التصدير والشحن حتى باب المستلم.',
+      a: 'التكوينات القياسية خلال 20 يوم عمل. ONH-508 خلال 30 يومًا. نتولى وثائق التصدير والشحن حتى باب المستلم.',
     },
     {
       q: 'ما هي شروط الضمان؟',

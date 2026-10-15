@@ -31,7 +31,7 @@ const applicationPages: LandingPageData[] = [
       { name: 'Innovate T5', href: '/products/innovate-t5/', reason: 'Production-floor full-spectrum OES for mixed alloy plants.' },
       { name: 'CS2020', href: '/products/cs2020/', reason: 'High-throughput combustion C/S analyzer for cast iron carbon and sulfur.' },
     ],
-    proof: ['Founded in 2009 with exports to 40+ countries.', 'Stock configurations ship in 15 working days.', 'Engineers answer application questions by WhatsApp, usually within 4 working hours.'],
+    proof: ['Founded in 2009 with exports to 40+ countries.', 'Stock configurations ship in 20 working days.', 'Engineers answer application questions by WhatsApp, usually within 4 working hours.'],
     faq: [
       { q: 'Which OES is best for a foundry?', a: 'Exquis T4 fits routine single-matrix QC; Innovate T5 is better for plants running multiple alloy families or requiring a wider wavelength range.' },
       { q: 'Can OES replace a carbon sulfur analyzer?', a: 'Not fully. OES is fast for production control, while combustion C/S analyzers provide reference-grade carbon and sulfur values for cast iron and steel.' },
@@ -133,7 +133,7 @@ const countryPages: LandingPageData[] = [
       { name: 'CS2020', href: '/products/cs2020/', reason: 'High-end C/S analyzer for laboratory throughput.' },
       { name: 'F6000 Pro', href: '/products/f6000-pro/', reason: 'Handheld XRF for incoming-material and scrap checks.' },
     ],
-    proof: ['15 working days for stock configurations.', 'Export documents and door-to-door logistics support.', 'WhatsApp support in English with engineering follow-up.'],
+    proof: ['20 working days for stock configurations.', 'Export documents and door-to-door logistics support.', 'WhatsApp support in English with engineering follow-up.'],
     faq: [
       { q: 'Can JIEBO ship analytical instruments to India?', a: 'Yes. JIEBO supports international logistics, export documents and configuration guidance for Indian customers.' },
       { q: 'How should an Indian foundry choose between Exquis T4 and Innovate T5?', a: 'Exquis T4 suits focused single-matrix QC; Innovate T5 is better for plants handling more alloy families and trace-element work.' },
@@ -193,7 +193,7 @@ const countryPages: LandingPageData[] = [
       { name: 'CS996', href: '/products/cs996/', reason: 'Expandable floor-standing C/S analyzer for mixed ranges.' },
       { name: 'CS2020', href: '/products/cs2020/', reason: 'High-throughput four-cell C/S analyzer.' },
     ],
-    proof: ['Exports to Brazil, Mexico and Argentina.', 'Stock models can ship within 15 working days.', 'Application support for steel, cast iron and ferroalloy testing.'],
+    proof: ['Exports to Brazil, Mexico and Argentina.', 'Stock models can ship within 20 working days.', 'Application support for steel, cast iron and ferroalloy testing.'],
     faq: [
       { q: 'Which C/S analyzer fits a Brazilian foundry?', a: 'CS995 is suitable for routine QC, CS996 adds wider ranges and expandable cells, and CS2020 fits high-throughput labs.' },
       { q: 'Does JIEBO provide export documentation?', a: 'Yes. JIEBO supports export documents, CE/CB certificates where applicable and international logistics coordination.' },
@@ -236,7 +236,7 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'Espectrómetros OES para fundición y control de calidad junto al horno',
       intro: 'JIEBO ayuda a las fundiciones a verificar la química de aleaciones Fe, Al, Cu y Zn antes de colar, después del tratamiento térmico y antes del envío.',
       buyerFit: ['Control de hierro fundido, acero al carbono, acero inoxidable y aleaciones no ferrosas', 'Medición de C, S, P, B y N que XRF no cubre bien', 'Análisis rápido y repetible para liberación de horno e inspección de entrada'],
-      proof: ['Fundada en 2009, exporta a más de 40 países.', 'Configuraciones en stock en 15 días hábiles.', 'Ingenieros responden por WhatsApp normalmente en 4 horas hábiles.'],
+      proof: ['Fundada en 2009, exporta a más de 40 países.', 'Configuraciones en stock en 20 días hábiles.', 'Ingenieros responden por WhatsApp normalmente en 4 horas hábiles.'],
       recommended: [
         { name: 'Exquis T4', href: '/products/exquis-t4/', reason: 'OES compacto de mesa para control de una matriz.' },
         { name: 'Innovate T5', href: '/products/innovate-t5/', reason: 'OES de producción para plantas con aleaciones mixtas.' },
@@ -325,7 +325,7 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'Proveedor de espectrómetros OES para fundiciones y laboratorios en India',
       intro: 'Los compradores en India eligen JIEBO cuando necesitan soporte directo de fábrica, documentación de exportación y respuesta técnica rápida por WhatsApp.',
       buyerFit: ['Fundiciones que necesitan control OES junto al horno', 'Acerías y plantas de ferroaleaciones comparando analizadores C/S', 'Importadores que requieren documentación clara y plazos de envío'],
-      proof: ['Configuraciones en stock en 15 días hábiles.', 'Soporte de documentos de exportación y logística puerta a puerta.', 'Atención técnica en inglés por WhatsApp.'],
+      proof: ['Configuraciones en stock en 20 días hábiles.', 'Soporte de documentos de exportación y logística puerta a puerta.', 'Atención técnica en inglés por WhatsApp.'],
       recommended: [
         { name: 'Innovate T5', href: '/products/innovate-t5/', reason: 'OES de producción para múltiples matrices de aleación.' },
         { name: 'CS2020', href: '/products/cs2020/', reason: 'Analizador C/S de alta gama para laboratorios con volumen.' },
@@ -379,7 +379,7 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'Proveedor de analizadores carbono azufre para fundiciones y acerías en Brasil',
       intro: 'Los compradores metalúrgicos en Brasil pueden adquirir analizadores C/S y OES JIEBO para hierro fundido, acero, ferroaleaciones y control no ferroso.',
       buyerFit: ['Fundiciones que controlan carbono y azufre en hierro fundido', 'Laboratorios de acero y ferroaleaciones', 'Importadores que necesitan soporte directo de fábrica'],
-      proof: ['Exportación a Brasil, México y Argentina.', 'Modelos en stock en 15 días hábiles.', 'Soporte para acero, hierro fundido y ferroaleaciones.'],
+      proof: ['Exportación a Brasil, México y Argentina.', 'Modelos en stock en 20 días hábiles.', 'Soporte para acero, hierro fundido y ferroaleaciones.'],
       recommended: [
         { name: 'CS995', href: '/products/cs995/', reason: 'Analizador C/S de entrada para control rutinario.' },
         { name: 'CS996', href: '/products/cs996/', reason: 'C/S de piso con rangos más amplios.' },
@@ -417,7 +417,7 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'ОЭС-спектрометры для литейного производства и контроля у печи',
       intro: 'JIEBO помогает литейным предприятиям проверять состав Fe, Al, Cu и Zn сплавов до заливки, после термообработки и перед отгрузкой.',
       buyerFit: ['Чугун, углеродистая сталь, нержавеющая сталь и цветные сплавы', 'C, S, P, B и N, которые XRF измеряет ограниченно', 'Быстрый повторяемый анализ для выпуска плавки и входного контроля'],
-      proof: ['Компания основана в 2009 году и экспортирует в 40+ стран.', 'Складские конфигурации отгружаются за 15 рабочих дней.', 'Инженеры отвечают в WhatsApp обычно в течение 4 рабочих часов.'],
+      proof: ['Компания основана в 2009 году и экспортирует в 40+ стран.', 'Складские конфигурации отгружаются за 20 рабочих дней.', 'Инженеры отвечают в WhatsApp обычно в течение 4 рабочих часов.'],
       recommended: [
         { name: 'Exquis T4', href: '/products/exquis-t4/', reason: 'Компактный настольный ОЭС для одной матрицы.' },
         { name: 'Innovate T5', href: '/products/innovate-t5/', reason: 'Производственный ОЭС для смешанных сплавов.' },
@@ -506,7 +506,7 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'Поставщик ОЭС-спектрометров для литейных и металлургических лабораторий Индии',
       intro: 'Индийские покупатели выбирают JIEBO, когда нужны поддержка напрямую от завода, экспортные документы и быстрый инженерный ответ в WhatsApp.',
       buyerFit: ['Литейные цеха с контролем ОЭС у печи', 'Сталелитейные и ферросплавные заводы, сравнивающие C/S-анализаторы', 'Импортеры, которым нужны английские документы и понятные сроки'],
-      proof: ['Складские конфигурации отгружаются за 15 рабочих дней.', 'Поддержка экспортных документов и логистики.', 'Инженерный ответ на английском в WhatsApp.'],
+      proof: ['Складские конфигурации отгружаются за 20 рабочих дней.', 'Поддержка экспортных документов и логистики.', 'Инженерный ответ на английском в WhatsApp.'],
       recommended: [
         { name: 'Innovate T5', href: '/products/innovate-t5/', reason: 'Производственный ОЭС для нескольких матриц сплавов.' },
         { name: 'CS2020', href: '/products/cs2020/', reason: 'Высококлассный C/S-анализатор для лабораторной загрузки.' },
@@ -560,7 +560,7 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'Поставщик анализаторов углерода и серы для литейных и сталелитейных заводов Бразилии',
       intro: 'Бразильские металлургические покупатели могут использовать C/S и ОЭС JIEBO для чугуна, стали, ферросплавов и цветных металлов.',
       buyerFit: ['Литейные, контролирующие углерод и серу в чугуне', 'Лаборатории стали и ферросплавов', 'Импортеры, которым нужна заводская поддержка и документы'],
-      proof: ['Экспорт в Бразилию, Мексику и Аргентину.', 'Складские модели отгружаются за 15 рабочих дней.', 'Прикладная поддержка для стали, чугуна и ферросплавов.'],
+      proof: ['Экспорт в Бразилию, Мексику и Аргентину.', 'Складские модели отгружаются за 20 рабочих дней.', 'Прикладная поддержка для стали, чугуна и ферросплавов.'],
       recommended: [
         { name: 'CS995', href: '/products/cs995/', reason: 'Начальный C/S-анализатор для рутинного QC.' },
         { name: 'CS996', href: '/products/cs996/', reason: 'Напольный C/S с более широкими диапазонами.' },
@@ -598,7 +598,7 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'مطيافات OES للمسابك ومراقبة الجودة قرب الفرن',
       intro: 'تساعد JIEBO المسابك على التحقق من كيمياء سبائك Fe وAl وCu وZn قبل الصب وبعد المعالجة وقبل الشحن.',
       buyerFit: ['فحص الحديد الزهر والصلب الكربوني والستانلس والسبائك غير الحديدية', 'قياس C وS وP وB وN التي لا يغطيها XRF جيداً', 'تحليل سريع ومتكرر لإطلاق الفرن وفحص المواد الواردة'],
-      proof: ['تأسست عام 2009 وتصدر إلى أكثر من 40 دولة.', 'تشحن التكوينات المتوفرة خلال 15 يوم عمل.', 'يرد المهندسون عبر واتساب غالباً خلال 4 ساعات عمل.'],
+      proof: ['تأسست عام 2009 وتصدر إلى أكثر من 40 دولة.', 'تشحن التكوينات المتوفرة خلال 20 يوم عمل.', 'يرد المهندسون عبر واتساب غالباً خلال 4 ساعات عمل.'],
       recommended: [
         { name: 'Exquis T4', href: '/products/exquis-t4/', reason: 'OES مكتبي مدمج لجودة مصفوفة واحدة.' },
         { name: 'Innovate T5', href: '/products/innovate-t5/', reason: 'OES إنتاجي لمصانع السبائك المختلطة.' },
@@ -687,7 +687,7 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'مورد مطيافات OES للمسابك ومختبرات المعادن في الهند',
       intro: 'يختار المشترون في الهند JIEBO عند الحاجة إلى دعم مباشر من المصنع ووثائق تصدير ورد هندسي سريع عبر واتساب.',
       buyerFit: ['مسابك تحتاج إلى QC بواسطة OES قرب الفرن', 'مصانع صلب وسبائك حديدية تقارن خيارات C/S', 'مستوردون يحتاجون إلى وثائق إنجليزية وجدول شحن واضح'],
-      proof: ['شحن التكوينات المتوفرة خلال 15 يوم عمل.', 'دعم وثائق التصدير والخدمات اللوجستية.', 'متابعة هندسية باللغة الإنجليزية عبر واتساب.'],
+      proof: ['شحن التكوينات المتوفرة خلال 20 يوم عمل.', 'دعم وثائق التصدير والخدمات اللوجستية.', 'متابعة هندسية باللغة الإنجليزية عبر واتساب.'],
       recommended: [
         { name: 'Innovate T5', href: '/products/innovate-t5/', reason: 'OES إنتاجي لعدة مصفوفات سبائك.' },
         { name: 'CS2020', href: '/products/cs2020/', reason: 'محلل C/S عالي المستوى للمختبرات ذات الإنتاجية العالية.' },
@@ -741,7 +741,7 @@ const translations: Partial<Record<Locale, Record<string, Partial<LandingPageDat
       h1: 'مورد محللات الكربون والكبريت للمسابك ومصانع الصلب في البرازيل',
       intro: 'يمكن لمشتري المعادن في البرازيل استخدام محللات C/S وOES من JIEBO للحديد الزهر والصلب والسبائك الحديدية والجودة غير الحديدية.',
       buyerFit: ['مسابك تفحص الكربون والكبريت في الحديد الزهر', 'مختبرات صلب وسبائك حديدية تقارن C/S', 'مستوردون يحتاجون إلى دعم مصنع ووثائق'],
-      proof: ['تصدير إلى البرازيل والمكسيك والأرجنتين.', 'النماذج المتوفرة يمكن شحنها خلال 15 يوم عمل.', 'دعم تطبيقات الصلب والحديد الزهر والسبائك الحديدية.'],
+      proof: ['تصدير إلى البرازيل والمكسيك والأرجنتين.', 'النماذج المتوفرة يمكن شحنها خلال 20 يوم عمل.', 'دعم تطبيقات الصلب والحديد الزهر والسبائك الحديدية.'],
       recommended: [
         { name: 'CS995', href: '/products/cs995/', reason: 'محلل C/S ابتدائي لفحص QC الروتيني.' },
         { name: 'CS996', href: '/products/cs996/', reason: 'محلل C/S أرضي بنطاقات أوسع.' },
