@@ -11,7 +11,9 @@ const { locale, pathWithoutLocale, alternateLocales = LOCALES } = Astro.props;
 ---
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="site-header__brand" href={localizedHome(locale)}>JIEBO Instrument</a>
+    <a class="site-header__brand" href={localizedHome(locale)}>
+      <img src="/logo-header.png" alt="JIEBO Instrument" width="138" height="36" decoding="async" fetchpriority="high" />
+    </a>
     <input type="checkbox" id="nav-toggle" class="site-header__check" />
     <label for="nav-toggle" class="site-header__toggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
