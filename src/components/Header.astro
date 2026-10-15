@@ -22,6 +22,8 @@ const { locale, pathWithoutLocale, alternateLocales = LOCALES } = Astro.props;
         <a href={localizedPath(locale, '/compare/')}>{t(locale, 'nav.compare')}</a>
         <a href={localizedPath(locale, '/learn/')}>{t(locale, 'nav.learn')}</a>
         <a href={localizedPath(locale, '/about/')}>{t(locale, 'nav.about')}</a>
+        {/* /partners/ is English-only; every locale links to it. */}
+        <a href="/partners/">{t(locale, 'nav.partners')}</a>
         <a href={localizedPath(locale, '/contact/')}>{t(locale, 'nav.contact')}</a>
       </nav>
       <div class="site-header__lang" aria-label="Language">

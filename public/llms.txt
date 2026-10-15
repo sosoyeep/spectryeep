@@ -47,6 +47,7 @@
 ## Site sections
 
 - [About JIEBO](https://spectryeep.com/about/): Company story, philosophy, export markets, addresses.
+- [Partner program](https://spectryeep.com/partners/): For instrument distributors, lab equipment suppliers and OEM/private-label partners — territory protection, demo unit, training, remote engineer support. Apply via the form on the page.
 - [Contact](https://spectryeep.com/contact/): WhatsApp, email, phone, WeChat, Skype, head office and factory addresses, office hours.
 - [Products index](https://spectryeep.com/products/): Comparison table across all 11 models with selection guidance.
 

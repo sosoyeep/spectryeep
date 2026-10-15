@@ -1,0 +1,218 @@
+---
+// Distributor / reseller recruitment page (English only).
+// Hard rules: no prices, margins or other amounts; founding year is 2009.
+import Base from '../layouts/Base.astro';
+import InquiryForm from '../components/InquiryForm.astro';
+import { t, localizedHome } from '../i18n/utils';
+
+const path = '/partners/';
+const canonical = new URL(path, Astro.site).toString();
+
+const title = 'Become a JIEBO Spectrometer Distributor | Partner Program';
+const description =
+  'Factory-direct OES and carbon-sulfur analyzers for instrument distributors. Territory protection, demo units, training and engineer support from Wuxi.';
+
+const breadcrumbs = [
+  { name: t('en', 'breadcrumb.home'), url: new URL(localizedHome('en'), Astro.site).toString() },
+  { name: 'Partners', url: canonical },
+];
+
+const audiences = [
+  {
+    h: 'Instrument distributors',
+    b: 'Companies selling analytical or testing instruments to foundries, steel plants and metal fabricators, looking for a factory-direct OES and carbon-sulfur line.',
+  },
+  {
+    h: 'Laboratory equipment suppliers',
+    b: 'Lab outfitters serving third-party testing labs, universities and QC departments who want spectrometers and combustion analyzers alongside their existing range.',
+  },
+  {
+    h: 'OEM and private label',
+    b: 'Partners who sell under their own brand. We discuss OEM and private-label supply case by case, including software language and documentation.',
+  },
+];
+
+const benefits = [
+  {
+    h: 'Tiered partner margins',
+    b: 'Partner terms are tiered by commitment and territory and are discussed individually once you apply.',
+  },
+  {
+    h: 'Territory protection',
+    b: 'Qualified partners can be granted protection in an agreed territory, so you are not competing with other JIEBO resellers for the same customers.',
+  },
+  {
+    h: 'Demo unit',
+    b: 'A demonstration instrument for customer visits, trade shows and sample testing in your market.',
+  },
+  {
+    h: 'Training',
+    b: 'Product, application and service training for your sales and service engineers — at our Wuxi factory or remotely.',
+  },
+  {
+    h: 'Remote engineer support',
+    b: 'Direct access to JIEBO application and service engineers by WhatsApp and video call for pre-sales questions, installation and troubleshooting.',
+  },
+];
+
+// Countries only — never customer names. Every country here is backed by an
+// installation listed in case-studies.ts or the export markets on /about/.
+const countries = [
+  'Turkey', 'Russia', 'India', 'Kazakhstan', 'Uzbekistan', 'Tajikistan',
+  'United Arab Emirates', 'Saudi Arabia', 'Egypt', 'Algeria', 'Nigeria', 'Ethiopia',
+  'Kenya', 'South Africa', 'Brazil', 'Mexico', 'Argentina', 'Spain',
+  'Pakistan', 'Bangladesh', 'Vietnam', 'Indonesia', 'South Korea', 'Australia',
+];
+
+const steps = [
+  { h: 'Apply', b: 'Send the application form below with your company, territory and the brands you represent today.' },
+  { h: 'Intro call', b: 'A video call with our export team to understand your market, customers and sales and service capability.' },
+  { h: 'Sample testing', b: 'We run samples from your prospective customers on the recommended instruments so you can see real results before committing.' },
+  { h: 'Agreement', b: 'We agree territory, partner terms, demo unit and training plan, and start working leads together.' },
+];
+
+const faq = [
+  {
+    q: 'Which products can partners sell?',
+    a: 'The full JIEBO line: spark OES spectrometers (Exquis T4, Exquis T4 Pro, Innovate T5, Noble T7, Surpass F1), carbon-sulfur analyzers (CS995, CS996, CS2020), the ONH-508 oxygen/nitrogen/hydrogen analyzer and handheld XRF and LIBS analyzers.',
+  },
+  {
+    q: 'Do you publish partner margins or prices?',
+    a: 'No. Partner terms depend on territory, volume commitment and the support you provide locally, so we discuss them individually after you apply.',
+  },
+  {
+    q: 'Do I need my own service engineers?',
+    a: 'It helps, but it is not required to start. We train your team and provide remote engineer support for installation, calibration and troubleshooting.',
+  },
+];
+---
+<Base
+  locale="en"
+  title={title}
+  description={description}
+  path={path}
+  schemaType="website"
+  breadcrumbs={breadcrumbs}
+  faq={faq}
+  whatsappContext="general"
+  alternateLocales={['en']}
+>
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href={localizedHome('en')}>{t('en', 'breadcrumb.home')}</a> /
+      <span>Partners</span>
+    </nav>
+  </div>
+
+  <section class="section" style="padding-block-start:1rem;">
+    <div class="container" style="max-width:780px;">
+      <p class="eyebrow">JIEBO Instrument · Partner program · Wuxi, China · since 2009</p>
+      <h1>Distribute factory-direct OES and carbon-sulfur analyzers</h1>
+      <p class="lede" style="margin-top:1rem;">
+        JIEBO Instrument has designed and manufactured spark OES spectrometers and combustion carbon-sulfur analyzers in China since 2009. We work with instrument distributors who want a factory-direct line, protected territory and real engineering support behind every sale.
+      </p>
+      <p style="margin-top:1.5rem;">
+        <a class="button button--primary" href="#request-quote">Apply to become a partner</a>
+        <a class="button button--ghost" href="/products/">See the product line</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>Who we work with</h2>
+      <div class="grid grid--3" style="margin-top:1.5rem;">
+        {audiences.map((item) => (
+          <div class="card">
+            <h3 style="font-size:1.0625rem; margin-bottom:0.5rem;">{item.h}</h3>
+            <p style="margin:0; color:var(--muted); font-size:0.9375rem;">{item.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>What partners get</h2>
+      <div class="grid grid--3" style="margin-top:1.5rem;">
+        {benefits.map((item) => (
+          <div class="card">
+            <h3 style="font-size:1.0625rem; margin-bottom:0.5rem;">{item.h}</h3>
+            <p style="margin:0; color:var(--muted); font-size:0.9375rem;">{item.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container" style="max-width:780px;">
+      <h2>Where we already have customers</h2>
+      <p>
+        JIEBO instruments are installed in foundries, steel plants and testing laboratories in more than 40 countries, including:
+      </p>
+      <ul class="partner-countries">
+        {countries.map((c) => <li>{c}</li>)}
+      </ul>
+      <p style="color:var(--muted); font-size:0.9375rem;">
+        Existing installations mean reference sites and application data you can use with prospects. See our <a href="/cases/">anonymized case studies</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>How it works</h2>
+      <ol class="grid grid--4 partner-steps" style="margin-top:1.5rem;">
+        {steps.map((step, i) => (
+          <li class="card">
+            <p class="eyebrow" style="margin-bottom:0.25rem;">Step {i + 1}</p>
+            <h3 style="font-size:1.0625rem; margin-bottom:0.5rem;">{step.h}</h3>
+            <p style="margin:0; color:var(--muted); font-size:0.9375rem;">{step.b}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <InquiryForm locale="en" variant="partner" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:780px;">
+      <h2>Partner questions</h2>
+      {faq.map((item) => (
+        <div style="margin-top:1.25rem;">
+          <h3 style="font-size:1.0625rem; margin-bottom:0.35rem;">{item.q}</h3>
+          <p style="margin:0;">{item.a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .partner-countries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.25rem;
+  }
+  .partner-countries li {
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--bg);
+    font-size: 0.9375rem;
+  }
+  .partner-steps {
+    list-style: none;
+    padding: 0;
+  }
+</style>
