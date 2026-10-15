@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { lastmodFor } from './sitemap-lastmod.mjs';
 
 export default defineConfig({
   site: 'https://spectryeep.com',
@@ -15,8 +16,12 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/thank-you/'),
-      // <lastmod> on every URL: the build (deploy) date.
-      lastmod: new Date(),
+      // <lastmod> per URL: last git commit date of the page's own source files
+      // (page, template, data); falls back to the build date if none resolve.
+      serialize(item) {
+        item.lastmod = lastmodFor(item.url) ?? new Date().toISOString();
+        return item;
+      },
       i18n: {
         defaultLocale: 'en',
         locales: { en: 'en', ru: 'ru', es: 'es', ar: 'ar-SA' },

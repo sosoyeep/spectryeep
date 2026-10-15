@@ -1,0 +1,49 @@
+import type { Locale } from '../consts';
+
+export interface LearnArticleLink {
+  slug: string;
+  title: string;
+  summary: string;
+}
+
+/** Every /learn/ article per locale (the knowledge-base index and related-article links read this). */
+export const LEARN_ARTICLES: Record<Locale, LearnArticleLink[]> = {
+  en: [
+    { slug: 'oes-spectrometer-price', title: 'What Really Drives the Cost of an Optical Emission Spectrometer', summary: 'A buyer\'s checklist of cost drivers: PMT vs CMOS detectors, base matrices and channels, vacuum or argon optics, and running costs for argon, electrodes, standards and service.' },
+    { slug: 'chinese-oes-spectrometer-manufacturers', title: 'Chinese OES Spectrometer Manufacturers: 2026 Sourcing Guide', summary: 'The six factors that separate production-grade Chinese OES instruments from marginal ones -- how to spot rebadgers, sourcing pitfalls, and when to stay with Western brands.' },
+    { slug: 'what-is-oes', title: 'What is an Optical Emission Spectrometer (OES)?', summary: 'Definition, working principle, applications, OES vs XRF vs ICP comparison, how to choose.' },
+    { slug: 'oes-vs-xrf-vs-libs', title: 'OES vs XRF vs LIBS: Which Technique Fits Your Application?', summary: 'Head-to-head technique comparison with a decision tree — destructive vs non-destructive, light elements, regulation, speed.' },
+    { slug: 'carbon-analysis-in-cast-iron', title: 'Carbon Analysis in Cast Iron: OES vs Combustion C/S Analyzer', summary: 'Why foundries run both techniques, with grade-by-grade carbon-range reference and instrument pairing recommendations.' },
+    { slug: 'oes-sample-preparation', title: 'OES Sample Preparation: How to Get Accurate Readings', summary: 'Practical checklist: surface, argon, electrodes, sample stand. Diagnostic table for out-of-tolerance readings — 80 % of OES drift is sample-prep, not the instrument.' },
+    { slug: 'oes-buyer-guide-2026', title: 'How to Choose an Optical Emission Spectrometer: 2026 Buyer\'s Guide', summary: 'Four questions to answer first (matrices, detection limit, throughput, environment), spark vs arc vs ICP OES, key specs, cost drivers and a pre-purchase checklist.' },
+    { slug: 'carbon-sulfur-analyzer-guide', title: 'Carbon Sulfur Analyzer: Working Principle, Types, and Applications', summary: 'How C/S analyzers work via combustion-infrared detection, comparing high-frequency vs tube furnace types for steel, mining, and cement.' },
+    { slug: 'molten-iron-carbon-silicon-analyzer', title: 'Molten Iron Carbon Silicon Analyzer: Why Every Foundry Needs One', summary: 'How thermal analysis CE meters reduce scrap, improve casting quality, and give foundry operators real-time melt chemistry in under two minutes.' },
+    { slug: 'cmos-vs-pmt-detectors-oes', title: 'CMOS vs PMT Detectors in OES Spectrometers', summary: 'Technical comparison of CMOS and PMT detectors — wavelength coverage, resolution, stability, cost, and which fits your application.' },
+    { slug: 'foundry-oes-quality-control', title: 'How Foundries Use OES Spectrometers for Quality Control', summary: 'Melt chemistry analysis for cast iron and aluminum alloys — furnace-front decisions, thermal analysis integration, and spectrometer selection.' },
+    { slug: 'oes-aluminum-alloy-analysis', title: 'OES Spectrometer for Aluminum Alloy Analysis: Complete Guide', summary: 'Why aluminum is analytically demanding, deep UV optics requirements, sample preparation tips, and selecting the right aluminum spectrometer.' },
+    { slug: 'portable-vs-stationary-oes', title: 'Portable vs Stationary OES Spectrometer: Which One Do You Need?', summary: 'Compare portable, mobile cart, and stationary OES — performance, element coverage, cost, and matching the instrument to the job.' },
+    { slug: 'xrf-spectrometer-mining-geology', title: 'XRF Spectrometer Applications in Mining, Geology, and Mineral Processing', summary: 'How handheld, benchtop EDXRF, and WDXRF instruments support exploration geochemistry, grade control, and environmental monitoring.' },
+    { slug: 'hardness-testing-rockwell-brinell-vickers', title: 'Hardness Testing Methods Compared: Rockwell vs Brinell vs Vickers', summary: 'When and why to use each hardness test method — indenter geometry, load ranges, material suitability, and practical selection guidance.' },
+  ],
+  ru: [
+    { slug: 'what-is-oes', title: 'Что такое оптико-эмиссионный спектрометр (ОЭС)?', summary: 'Определение, принцип работы, применение, сравнение ОЭС с РФА и ИСП-ОЭС, как выбрать.' },
+    { slug: 'oes-vs-xrf-vs-libs', title: 'ОЭС, РФА и LIBS: какой метод подходит вашей задаче?', summary: 'Прямое сравнение методов с деревом принятия решений — разрушающий или нет, лёгкие элементы, регулирование, скорость.' },
+    { slug: 'how-to-choose-oes-spectrometer', title: 'Как выбрать оптико-эмиссионный спектрометр', summary: 'Руководство из 4 вопросов (матрицы, предел, поток, среда), сопоставленное с пятью моделями ОЭС JIEBO.' },
+    { slug: 'carbon-analysis-in-cast-iron', title: 'Анализ углерода в чугуне: ОЭС или C/S-анализатор', summary: 'Почему литейные используют оба метода, с таблицей диапазонов углерода по маркам и рекомендациями по парам приборов.' },
+    { slug: 'oes-sample-preparation', title: 'Подготовка образца для ОЭС: как получить точные показания', summary: 'Практический чек-лист: поверхность, аргон, электроды, держатель. Диагностическая таблица для выхода из допуска — 80 % дрейфа ОЭС — это подготовка, а не прибор.' },
+  ],
+  es: [
+    { slug: 'what-is-oes', title: '¿Qué es un espectrómetro de emisión óptica (OES)?', summary: 'Definición, principio de funcionamiento, aplicaciones, comparación OES vs XRF vs ICP, cómo elegir.' },
+    { slug: 'oes-vs-xrf-vs-libs', title: 'OES vs XRF vs LIBS: ¿qué técnica conviene a su aplicación?', summary: 'Comparación directa con árbol de decisión — destructivo o no, elementos ligeros, regulación, velocidad.' },
+    { slug: 'how-to-choose-oes-spectrometer', title: 'Cómo elegir un espectrómetro de emisión óptica', summary: 'Guía de decisión en 4 preguntas (matrices, límite, rendimiento, entorno) mapeada a los cinco modelos OES de JIEBO.' },
+    { slug: 'carbon-analysis-in-cast-iron', title: 'Análisis de carbono en hierro fundido: OES vs C/S por combustión', summary: 'Por qué las fundiciones usan ambas técnicas, con tabla de rangos de carbono por grado y recomendaciones de emparejamiento.' },
+    { slug: 'oes-sample-preparation', title: 'Preparación de muestras para OES: cómo obtener lecturas precisas', summary: 'Checklist práctica: superficie, argón, electrodos, porta-muestras. Tabla de diagnóstico para lecturas fuera de tolerancia — 80 % de la deriva OES es preparación, no el equipo.' },
+  ],
+  ar: [
+    { slug: 'what-is-oes', title: 'ما هو جهاز قياس طيف الانبعاث الضوئي (OES)؟', summary: 'تعريف ومبدأ عمل وتطبيقات ومقارنة بين OES و XRF و ICP وكيفية الاختيار.' },
+    { slug: 'oes-vs-xrf-vs-libs', title: 'مقارنة OES و XRF و LIBS: أيّ تقنية تناسب تطبيقك؟', summary: 'مقارنة مباشرة بين التقنيات مع شجرة قرار — متلف أم غير متلف، عناصر خفيفة، تنظيم، سرعة.' },
+    { slug: 'how-to-choose-oes-spectrometer', title: 'كيف تختار جهاز قياس طيف الانبعاث الضوئي', summary: 'دليل قرار من 4 أسئلة (المصفوفات، حدّ الكشف، الإنتاجية، البيئة) مرتبط بموديلات JIEBO الخمسة.' },
+    { slug: 'carbon-analysis-in-cast-iron', title: 'تحليل الكربون في الحديد الزهر: OES أم محلّل C/S بالاحتراق', summary: 'لماذا تستخدم المسابك التقنيتين معاً، مع جدول لنطاقات الكربون لكلّ درجة وتوصيات بأزواج الأجهزة.' },
+    { slug: 'oes-sample-preparation', title: 'تحضير عيّنات OES: كيف تحصل على قراءات دقيقة', summary: 'قائمة تحقّق عملية: السطح والأرغون والأقطاب والمنصب. جدول تشخيصي للقراءات الخارجة عن السماحية — 80 % من انجراف OES سببه التحضير لا الجهاز.' },
+  ],
+};

@@ -2,6 +2,7 @@
 import { SITE, type Locale } from '../consts';
 import { t, localizedPath, localizedHome, whatsappUrl } from '../i18n/utils';
 import { PRODUCT_LIST } from '../data/products/_registry';
+import { applicationLinks, countryLinks } from '../data/site-links';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -48,15 +49,15 @@ const learnArticles: Record<Locale, Array<{ slug: string; title: string }>> = {
 
 const g = groupHeadings[locale];
 const articles = learnArticles[locale];
-const growthLinks: { href: string; label: string; global?: boolean }[] = [
-  { href: '/applications/', label: 'Applications' },
-  { href: '/countries/', label: 'Countries' },
-  { href: '/applications/foundry-oes-spectrometer/', label: 'Foundry OES' },
-  { href: '/applications/scrap-metal-handheld-xrf-analyzer/', label: 'Scrap XRF' },
-  { href: '/countries/india-oes-spectrometer-supplier/', label: 'India OES' },
-  // Case studies are published in English only — never locale-prefix this one.
-  { href: '/cases/', label: 'Cases', global: true },
-];
+const countries = countryLinks(locale);
+const applications = applicationLinks(locale);
+const linkHeadings: Record<Locale, { countries: string; applications: string; cases: string }> = {
+  en: { countries: 'Countries we serve', applications: 'Applications', cases: 'Case studies' },
+  ru: { countries: 'Страны поставок', applications: 'Применения', cases: 'Кейсы' },
+  es: { countries: 'Países que atendemos', applications: 'Aplicaciones', cases: 'Casos' },
+  ar: { countries: 'الدول التي نخدمها', applications: 'التطبيقات', cases: 'دراسات الحالة' },
+};
+const lh = linkHeadings[locale];
 
 const byCat = {
   oes: PRODUCT_LIST.filter((p) => p.category === 'oes'),
@@ -131,20 +132,27 @@ function trimSuffix(name: string, rx: RegExp, tag?: string): string {
             <li><a href={localizedPath(locale, `/learn/${a.slug}/`)}>{a.title}</a></li>
           ))}
         </ul>
-        <strong style="display:block; margin-top:1rem;">Buyer pages</strong>
-        <ul>
-          {growthLinks.map((a) => (
-            <li><a href={a.global ? a.href : localizedPath(locale, a.href)}>{a.label}</a></li>
-          ))}
-        </ul>
         <strong style="display:block; margin-top:1rem;">{g.company}</strong>
         <ul>
           <li><a href={localizedPath(locale, '/about/')}>{t(locale, 'nav.about')}</a></li>
+          {/* Case studies are published in English only — never locale-prefix this one. */}
+          <li><a href="/cases/">{lh.cases}</a></li>
           <li><a href="/partners/">{t(locale, 'nav.partners')}</a></li>
           <li><a href={localizedPath(locale, '/contact/')}>{t(locale, 'nav.contact')}</a></li>
           <li><a href={localizedPath(locale, '/products/')}>{t(locale, 'nav.products')}</a></li>
           <li><a href={localizedPath(locale, '/compare/')}>{t(locale, 'nav.compare')}</a></li>
           <li><a href={localizedPath(locale, '/learn/')}>{t(locale, 'nav.learn')}</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <strong>{lh.countries}</strong>
+        <ul>
+          {countries.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
+        </ul>
+        <strong style="display:block; margin-top:1rem;">{lh.applications}</strong>
+        <ul>
+          {applications.map((a) => <li><a href={a.href}>{a.label}</a></li>)}
         </ul>
       </div>
     </div>

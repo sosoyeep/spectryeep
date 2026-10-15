@@ -1,0 +1,29 @@
+---
+import type { Locale } from '../consts';
+import { localizedPath } from '../i18n/utils';
+import { relatedArticles } from '../data/site-links';
+
+interface Props { locale: Locale; slug: string }
+const { locale, slug } = Astro.props;
+const items = relatedArticles(locale, slug);
+
+const heading: Record<Locale, string> = {
+  en: 'Related articles',
+  ru: 'Похожие статьи',
+  es: 'Artículos relacionados',
+  ar: 'مقالات ذات صلة',
+};
+---
+{items.length > 0 && (
+  <nav class="related-articles" aria-label={heading[locale]} style="margin-top:2.5rem;">
+    <h2 style="font-size:1.25rem; margin-bottom:1rem;">{heading[locale]}</h2>
+    <div class="grid grid--3">
+      {items.map((a) => (
+        <a class="card" href={localizedPath(locale, `/learn/${a.slug}/`)}>
+          <strong style="display:block; margin-bottom:0.35rem;">{a.title}</strong>
+          <span style="color:var(--muted); font-size:0.9rem;">{a.summary}</span>
+        </a>
+      ))}
+    </div>
+  </nav>
+)}
