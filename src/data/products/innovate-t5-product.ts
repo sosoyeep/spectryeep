@@ -65,7 +65,7 @@ export const product: ProductRecord = {
       { q: 'What sample matrices are supported?', a: 'Pre-calibrated base matrices: Fe, Al, Cu, Mg, Zn, Ni, Co, Ti, Sn and Pb. Additional matrices can be added by extending the calibration on the customer site.' },
       { q: 'What is the wavelength range?', a: '140–680 nm. The vacuum optical chamber gives access to the deep UV region required for C, P, S and B at low concentrations.' },
       { q: 'What is the difference between Innovate T5 and Noble T7?', a: 'Both share the 401 mm Paschen-Runge optics. The Noble T7 extends the wavelength range to 120–800 nm with a constant-temperature optical chamber (±0.1 °C) and is targeted at research-grade work requiring accuracy below 10 ppm. The T5 is the production-floor workhorse.' },
-      { q: 'What is the lead time and warranty?', a: 'Lead time is 15 working days for stock configurations from confirmed order. Warranty is 12 months for parts and labor with an optional 24-month extension.' },
+      { q: 'What is the lead time and warranty?', a: 'Lead time is 20 working days for stock configurations from confirmed order. Warranty is 12 months for parts and labor with an optional 24-month extension.' },
       { q: 'What argon purity is required?', a: 'Argon 99.999 % (5N). The vacuum chamber design reduces argon consumption compared to non-sealed instruments.' },
     ],
     ru: [
@@ -73,7 +73,7 @@ export const product: ProductRecord = {
       { q: 'Какие матрицы образцов поддерживаются?', a: 'Заводская калибровка: Fe, Al, Cu, Mg, Zn, Ni, Co, Ti, Sn, Pb. Дополнительные матрицы добавляются расширением калибровки на стороне заказчика.' },
       { q: 'Какой спектральный диапазон?', a: '140–680 нм. Вакуумная оптика обеспечивает доступ к глубокому УФ, нужному для определения C, P, S, B при низких концентрациях.' },
       { q: 'В чём разница между Innovate T5 и Noble T7?', a: 'У обоих общая оптика Пашен-Рунге с фокусом 401 мм. Noble T7 расширяет диапазон до 120–800 нм, имеет термостат ±0.1 °C и предназначен для исследовательских задач с точностью ниже 10 ppm. T5 — рабочая лошадка для цеха.' },
-      { q: 'Какой срок поставки и гарантия?', a: 'Срок поставки складских конфигураций — 15 рабочих дней с момента подтверждения заказа. Гарантия 12 месяцев на запчасти и работу, опционально продление до 24 месяцев.' },
+      { q: 'Какой срок поставки и гарантия?', a: 'Срок поставки складских конфигураций — 20 рабочих дней с момента подтверждения заказа. Гарантия 12 месяцев на запчасти и работу, опционально продление до 24 месяцев.' },
       { q: 'Какая чистота аргона требуется?', a: 'Аргон 99.999 % (5N). Вакуумная конструкция камеры снижает расход аргона по сравнению с негерметичными приборами.' },
     ],
     es: [
@@ -81,7 +81,7 @@ export const product: ProductRecord = {
       { q: '¿Qué matrices admite?', a: 'Calibración de fábrica: Fe, Al, Cu, Mg, Zn, Ni, Co, Ti, Sn y Pb. Pueden añadirse matrices adicionales ampliando la calibración en sitio.' },
       { q: '¿Cuál es el rango espectral?', a: '140–680 nm. La cámara óptica al vacío permite acceder al UV profundo necesario para C, P, S y B en bajas concentraciones.' },
       { q: '¿Diferencia entre Innovate T5 y Noble T7?', a: 'Comparten la óptica Paschen-Runge de 401 mm. El Noble T7 amplía el rango a 120–800 nm con cámara termostatizada (±0.1 °C) para trabajo de investigación con precisión inferior a 10 ppm. El T5 es el caballo de batalla de producción.' },
-      { q: '¿Plazo y garantía?', a: 'Plazo de 15 días hábiles desde confirmación del pedido para configuraciones en stock. Garantía de 12 meses en piezas y mano de obra, ampliable a 24 meses.' },
+      { q: '¿Plazo y garantía?', a: 'Plazo de 20 días hábiles desde confirmación del pedido para configuraciones en stock. Garantía de 12 meses en piezas y mano de obra, ampliable a 24 meses.' },
       { q: '¿Qué pureza de argón se requiere?', a: 'Argón 99.999 % (5N). La cámara al vacío reduce el consumo de argón frente a equipos no sellados.' },
     ],
     ar: [
@@ -89,7 +89,7 @@ export const product: ProductRecord = {
       { q: 'ما المصفوفات المدعومة؟', a: 'المعايرة من المصنع: Fe و Al و Cu و Mg و Zn و Ni و Co و Ti و Sn و Pb. يمكن إضافة مصفوفات إضافية عبر توسيع المعايرة لدى العميل.' },
       { q: 'ما النطاق الطيفي؟', a: '140–680 نانومتر. توفّر الغرفة البصرية المفرّغة نفاذاً إلى منطقة الأشعة فوق البنفسجية العميقة اللازمة لقياس C و P و S و B بتراكيز منخفضة.' },
       { q: 'ما الفرق بين Innovate T5 و Noble T7؟', a: 'يتشاركان بصرية Paschen-Runge بطول بؤري 401 ملم. يوسّع Noble T7 النطاق إلى 120–800 نانومتر بغرفة بصرية ثابتة الحرارة (±0.1 °م)، وهو مخصّص للأعمال البحثية بدقّة أقلّ من 10 ppm. أما T5 فهو خيار خطّ الإنتاج.' },
-      { q: 'ما مدّة التسليم والضمان؟', a: 'مدّة التسليم 15 يوم عمل من تأكيد الطلب للتكوينات المتوفّرة في المخزون. الضمان 12 شهراً على القطع واليد العاملة، مع إمكانية التمديد إلى 24 شهراً.' },
+      { q: 'ما مدّة التسليم والضمان؟', a: 'مدّة التسليم 20 يوم عمل من تأكيد الطلب للتكوينات المتوفّرة في المخزون. الضمان 12 شهراً على القطع واليد العاملة، مع إمكانية التمديد إلى 24 شهراً.' },
       { q: 'ما درجة نقاء الأرغون المطلوبة؟', a: 'أرغون 99.999 % (5N). يقلّل تصميم الغرفة المفرّغة من استهلاك الأرغون مقارنةً بالأجهزة غير المغلقة.' },
     ],
   },
