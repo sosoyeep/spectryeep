@@ -156,7 +156,7 @@ export const htmlContent = `<h1>How Foundries Use OES Spectrometers for Quality 
 <li>Suitable for foundries with limited floor space or infrequent testing</li>
 <li>Useful as a backup or second-opinion instrument</li>
 </ul>
-<p><a href="https://spectryeep.com/products/surpass-f1-mobile-optical-emission-spectrometer">Mobile OES Spectrometer</a></p>
+<p><a href="/products/surpass-f1/">Mobile OES Spectrometer</a></p>
 <h3>Which One Is Right for Your Foundry?</h3>
 <p>Many mid-to-large foundries operate both: a stationary OES in the lab for primary production analysis and a mobile unit for incoming material checks or satellite furnace areas. Smaller job shops with a single furnace and a limited alloy range may find that a well-specified mobile OES meets all their needs. The key is matching the instrument's analytical performance to the tightest specifications you need to hold.</p>
 <hr />
@@ -187,6 +187,6 @@ export const htmlContent = `<h1>How Foundries Use OES Spectrometers for Quality 
 <p>At JIEBO, we understand that foundry spectrometer performance is only as good as its application support. Our OES spectrometers are built to withstand the demands of foundry environments and are delivered with ready-to-use calibration programs for gray iron, ductile iron, compacted graphite iron, carbon steel, and a full range of aluminum casting alloys.</p>
 <p>Whether you need a high-throughput stationary OES for a multi-furnace operation or a rugged mobile unit for furnace-front analysis, our team of application engineers will help you select, install, and validate the right instrument for your specific production requirements.</p>
 <p><strong>Explore our full range of foundry OES solutions at <a href="https://spectryeep.com">spectryeep.com</a></strong>, or contact our technical sales team to arrange an on-site demonstration with your own casting samples.</p>
-<p><a href="https://spectryeep.com/contact-us">Contact Us</a> <a href="/products/">Foundry OES Solutions</a> <a href="https://spectryeep.com/contact-us">Request a Demo</a></p>
+<p><a href="/contact/">Contact Us</a> <a href="/products/">Foundry OES Solutions</a> <a href="/contact/">Request a Demo</a></p>
 <hr />
 <p><em>JIEBO Instruments -- Accurate chemistry, every heat, every pour.</em></p>`;

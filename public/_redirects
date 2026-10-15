@@ -1,6 +1,31 @@
 # www → non-www (301 permanent redirect)
 https://www.spectryeep.com/* https://spectryeep.com/:splat 301!
 
+# Old-site URLs (2026-10). Exact rules must stay above the generic
+# /product/:slug/ rule below: the first matching rule wins.
+/product/cs995-high-frequency-infrared-carbon-sulfur-analyzer/ /products/cs995/ 301
+/exquis-t4-pro-oes-spectrometer/ /products/exquis-t4-pro/ 301
+/exquis-t4-mini-oes-spectrometer/ /products/exquis-t4/ 301
+/surpass-f1-mobile-oes-spectrometer/ /products/surpass-f1/ 301
+/jb-750-pmt-optical-emission-spectrometer-laboratory-grade-precision-for-critical-metal-analysis/ /products/ 301
+/contact-us /contact/ 301
+/landing/ / 301
+/cmos-vs-pmt-detectors-in-optical-emission-spectrometers-a-technical-comparison/ /learn/cmos-vs-pmt-detectors-oes/ 301
+/how-to-choose-an-optical-emission-spectrometer-complete-buyers-guide-2026/ /learn/oes-buyer-guide-2026/ 301
+/hardness-testing-methods-compared-rockwell-vs-brinell-vs-vickers/ /learn/hardness-testing-rockwell-brinell-vickers/ 301
+/what-is-a-portable-oes-spectrometer-and-why-your-foundry-needs-one/ /learn/portable-vs-stationary-oes/ 301
+/portable-oes-spectrometer-guide/ /learn/portable-vs-stationary-oes/ 301
+/how-foundries-use-oes-spectrometers-for-quality-control/ /learn/foundry-oes-quality-control/ 301
+/oes-spectrometer-for-aluminum-alloy-analysis-complete-guide/ /learn/oes-aluminum-alloy-analysis/ 301
+/oes-vs-xrf-vs-libs-which-metal-analyzer-is-right-for-you/ /learn/oes-vs-xrf-vs-libs/ 301
+/full-spectrum-oes-spectrometer-sample-preparation-material-specific-best-practices-for-accurate-analysis/ /learn/oes-sample-preparation/ 301
+/oes-spark-spectrometer-analysis-of-thin-metal-sheets-challenges-solutions-and-best-practices/ /learn/oes-sample-preparation/ 301
+/what-happens-when-the-ir-cell-voltage-exceeds-upper-limit-in-a-carbon-sulfur-analyzer/ /learn/carbon-sulfur-analyzer-guide/ 301
+/carbon-sulfur-analyzer-top-oxygen-unstable-troubleshooting/ /learn/carbon-sulfur-analyzer-guide/ 301
+/10-essential-maintenance-tips-for-your-optical-emission-spectrometer/* /learn/ 301
+/exporting-oes-spectrometers-to-the-eu-what-certifications-are-required-2/ /learn/ 301
+/metal-analysis-standards-explained-astm-iso-and-en-for-oes-and-carbon-sulfur-testing/ /learn/ 301
+
 # Legacy and common discovery URLs → canonical pages.
 /product/ /products/ 301
 /product /products/ 301

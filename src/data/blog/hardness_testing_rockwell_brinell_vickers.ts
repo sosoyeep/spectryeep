@@ -202,4 +202,4 @@ export const htmlContent = `<h1>Hardness Testing Methods Compared: Rockwell vs B
 <p>Selecting the right hardness testing method is only half the equation. The accuracy and reliability of your results depend equally on the quality of your testing instrument, its calibration, and the support behind it.</p>
 <p>JIEBO offers a comprehensive range of hardness testers designed for quality laboratories and production environments -- from high-throughput Rockwell testers and heavy-duty Brinell testers to precision Vickers systems and field-ready portable Leeb instruments. Each instrument is engineered for accuracy, repeatability, and long-term reliability in demanding industrial applications.</p>
 <p><strong>Explore the full JIEBO hardness tester range at <a href="https://spectryeep.com">spectryeep.com</a> or contact our technical team to discuss which method and instrument best fit your application requirements.</strong></p>
-<p><a href="/products/">Hardness Testers</a> <a href="https://spectryeep.com/contact-us">Contact Us</a></p>`;
+<p><a href="/products/">Hardness Testers</a> <a href="/contact/">Contact Us</a></p>`;

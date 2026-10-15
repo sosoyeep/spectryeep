@@ -34,7 +34,7 @@ export const htmlContent = `<h1>Carbon Sulfur Analyzer: Working Principle, Types
 <li>Higher instrument cost and more complex maintenance (RF oscillator, water cooling system)</li>
 <li>Detection limits typically below 0.0001% (1 ppm) for both carbon and sulfur</li>
 </ul>
-<p><a href="https://spectryeep.com/products/cs995-high-frequency-infrared-carbon-sulfur-analyzer">High Frequency IR Carbon Sulfur Analyzer</a></p>
+<p><a href="/products/cs995/">High Frequency IR Carbon Sulfur Analyzer</a></p>
 <h3>Tube Furnace Carbon Sulfur Analyzer</h3>
 <p>A tube furnace analyzer uses a resistance-heated horizontal or vertical ceramic tube as the combustion chamber. An electric heating element -- silicon carbide or molybdenum disilicide -- heats the tube to a controlled temperature, typically between 1,200 and 1,350 degrees Celsius. The sample in its crucible is pushed or dropped into the hot zone, and combustion proceeds under flowing oxygen.</p>
 <p>Because tube furnaces do not require the sample to be electrically conductive, this design is particularly well suited to non-metallic and organic materials: cement, calcium fluoride, ceramics, coal, petroleum coke, soil, and geological samples.</p>

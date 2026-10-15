@@ -29,7 +29,7 @@ export const htmlContent = `<h1>XRF Spectrometer Applications in Mining, Geology
 <li>Incoming raw material verification</li>
 <li>Routine multi-element geochemical screening</li>
 </ul>
-<p>Benchtop EDXRF systems provide a strong balance between throughput, accuracy, and cost of ownership, making them the workhorse of many mining laboratory operations. <a href="https://spectryeep.com/products/jb-edx9000-xrf-analyzer">Benchtop EDXRF</a></p>
+<p>Benchtop EDXRF systems provide a strong balance between throughput, accuracy, and cost of ownership, making them the workhorse of many mining laboratory operations. Benchtop EDXRF</p>
 <h3>Wavelength-Dispersive XRF (WDXRF)</h3>
 <p>WDXRF spectrometers offer the highest analytical precision and the lowest detection limits in the XRF family. They use analyzing crystals to separate fluorescent X-rays by wavelength, achieving superior spectral resolution. WDXRF is the instrument of choice for:</p>
 <ul>
@@ -161,4 +161,4 @@ export const htmlContent = `<h1>XRF Spectrometer Applications in Mining, Geology
 <p>Choosing between handheld, benchtop EDXRF, and WDXRF instruments -- or deploying a combination across different points in the value chain -- requires careful consideration of analytical requirements, sample throughput, operating environment, and budget. Many mining operations find that a tiered approach works best: handheld XRF for field screening and grade control, benchtop EDXRF for routine mine-site laboratory work, and WDXRF for high-accuracy reference analysis.</p>
 <p>JIEBO manufactures a complete range of X-ray fluorescence spectrometer instruments designed for the demands of mining, geology, and mineral processing. Whether you need a rugged handheld XRF analyzer for fieldwork, a high-throughput benchtop EDXRF system for your mine-site laboratory, or a precision WDXRF spectrometer for your central analytical facility, our technical team can help you select and configure the right solution.</p>
 <p><strong>Visit <a href="https://spectryeep.com">spectryeep.com</a> to explore our full XRF spectrometer range, request application-specific performance data, or schedule a demonstration with sample analysis using your own materials.</strong></p>
-<p><a href="/products/">XRF Spectrometer Range</a> <a href="https://spectryeep.com/contact-us">Contact Us</a></p>`;
+<p><a href="/products/">XRF Spectrometer Range</a> <a href="/contact/">Contact Us</a></p>`;
