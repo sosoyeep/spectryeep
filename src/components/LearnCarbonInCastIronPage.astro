@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import RelatedArticles from './RelatedArticles.astro';
 import { SITE, type Locale } from '../consts';
 import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
 import { title, description, datePublished, sections, faq, gradesTable } from '../data/learn-carbon-in-cast-iron';
@@ -97,6 +98,8 @@ const totalSections = sections[locale].length;
         </p>
         <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')}</a>
       </aside>
+
+      <RelatedArticles locale={locale} slug={'carbon-analysis-in-cast-iron'} />
     </div>
   </article>
 </Base>

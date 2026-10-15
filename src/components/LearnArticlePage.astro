@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import RelatedArticles from './RelatedArticles.astro';
 import { SITE, type Locale } from '../consts';
 import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
 
@@ -74,6 +75,8 @@ const articleSchema = {
         </p>
         <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')}</a>
       </aside>
+
+      <RelatedArticles locale={locale} slug={slug} />
     </div>
   </article>
 </Base>

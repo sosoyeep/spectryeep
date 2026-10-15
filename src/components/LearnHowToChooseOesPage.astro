@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import RelatedArticles from './RelatedArticles.astro';
 import { SITE, type Locale } from '../consts';
 import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
 import { title, description, datePublished, sections, faq } from '../data/learn-how-to-choose-oes';
@@ -79,6 +80,8 @@ const articleSchema = {
         </p>
         <a class="button button--primary" href={waHref} target="_blank" rel="noopener">{t(locale, 'cta.whatsapp')}</a>
       </aside>
+
+      <RelatedArticles locale={locale} slug={'how-to-choose-oes-spectrometer'} />
     </div>
   </article>
 </Base>

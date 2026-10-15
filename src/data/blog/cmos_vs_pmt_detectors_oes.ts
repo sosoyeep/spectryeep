@@ -21,7 +21,7 @@ export const htmlContent = `<h1>CMOS vs PMT Detectors in Optical Emission Spectr
 <p>The critical distinction is this: a CMOS detector captures the entire dispersed spectrum simultaneously. Every emission line that falls within the detector's wavelength range is recorded on every spark, whether or not the operator anticipated needing it.</p>
 <h3>Full Spectrum Acquisition</h3>
 <p>This full spectrum OES spectrometer architecture means that element additions or method changes are handled in software. If a customer later needs to analyze an element that was not part of the original calibration, the raw spectral data is already there. A new calibration model can be built without any hardware modification. This flexibility is one of the strongest arguments for CMOS detector spectrometer platforms in production environments where analytical requirements evolve over time.</p>
-<p><a href="https://spectryeep.com/products/atomic-emission-spectroscopy">JIEBO T5 Full Spectrum OES</a></p>
+<p><a href="/products/innovate-t5/">JIEBO T5 Full Spectrum OES</a></p>
 <h2>Detailed Performance Comparison</h2>
 <p>The following sections break down the key performance parameters that differentiate PMT and CMOS detectors in real-world OES applications.</p>
 <h3>Wavelength Coverage</h3>
@@ -171,7 +171,7 @@ export const htmlContent = `<h1>CMOS vs PMT Detectors in Optical Emission Spectr
 <h2>Choosing the Right Detector Technology for Your Lab</h2>
 <p>Selecting between CMOS and PMT detector technology is ultimately an application-driven decision. Both architectures are proven, capable, and actively supported by the industry.</p>
 <p>At JIEBO, we manufacture OES instruments built on both detector platforms, because we recognize that no single technology serves every application optimally.</p>
-<p>The <strong>JIEBO T5</strong> is our CMOS-based full spectrum OES spectrometer, engineered for production quality control, multi-matrix flexibility, and low total cost of ownership. Its solid-state detector array delivers continuous wavelength coverage with exceptional long-term stability and software-defined element configuration. <a href="https://spectryeep.com/products/atomic-emission-spectroscopy">JIEBO T5 Full Spectrum OES</a></p>
+<p>The <strong>JIEBO T5</strong> is our CMOS-based full spectrum OES spectrometer, engineered for production quality control, multi-matrix flexibility, and low total cost of ownership. Its solid-state detector array delivers continuous wavelength coverage with exceptional long-term stability and software-defined element configuration. <a href="/products/innovate-t5/">JIEBO T5 Full Spectrum OES</a></p>
 <p>JIEBO's current OES lineup is built entirely on modern CMOS detection -- from the benchtop <a href="/products/exquis-t4/">Exquis T4</a> and <a href="/products/exquis-t4-pro/">Exquis T4 Pro</a> to the research-grade <a href="/products/noble-t7/">Noble T7</a>, whose ±0.1 °C constant-temperature chamber targets certification-grade trace work below 10 ppm. For laboratories comparing legacy PMT platforms against modern CMOS, we are glad to share repeatability data on your specific alloys.</p>
 <p><strong>Contact our applications team at <a href="https://spectryeep.com">spectryeep.com</a> to discuss which detector technology best fits your analytical requirements, sample types, and production workflow.</strong> We provide detailed method feasibility assessments and can arrange demonstration analyses on your actual samples.</p>
-<p><a href="https://spectryeep.com/contact-us">Contact Us</a> <a href="https://spectryeep.com/contact-us">Request a Demo</a></p>`;
+<p><a href="/contact/">Contact Us</a> <a href="/contact/">Request a Demo</a></p>`;

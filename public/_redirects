@@ -1,6 +1,72 @@
 # www → non-www (301 permanent redirect)
 https://www.spectryeep.com/* https://spectryeep.com/:splat 301!
 
+# Old-site URLs (2026-10). Exact rules must stay above the generic
+# /product/:slug/ rule below: the first matching rule wins.
+/product/cs995-high-frequency-infrared-carbon-sulfur-analyzer/ /products/cs995/ 301
+/product/cs995-high-frequency-infrared-carbon-sulfur-analyzer /products/cs995/ 301
+/exquis-t4-pro-oes-spectrometer/ /products/exquis-t4-pro/ 301
+/exquis-t4-pro-oes-spectrometer /products/exquis-t4-pro/ 301
+/exquis-t4-mini-oes-spectrometer/ /products/exquis-t4/ 301
+/exquis-t4-mini-oes-spectrometer /products/exquis-t4/ 301
+/surpass-f1-mobile-oes-spectrometer/ /products/surpass-f1/ 301
+/surpass-f1-mobile-oes-spectrometer /products/surpass-f1/ 301
+/jb-750-pmt-optical-emission-spectrometer-laboratory-grade-precision-for-critical-metal-analysis/ /products/ 301
+/jb-750-pmt-optical-emission-spectrometer-laboratory-grade-precision-for-critical-metal-analysis /products/ 301
+/contact-us /contact/ 301
+/landing/ / 301
+/landing / 301
+/cmos-vs-pmt-detectors-in-optical-emission-spectrometers-a-technical-comparison/ /learn/cmos-vs-pmt-detectors-oes/ 301
+/cmos-vs-pmt-detectors-in-optical-emission-spectrometers-a-technical-comparison /learn/cmos-vs-pmt-detectors-oes/ 301
+/how-to-choose-an-optical-emission-spectrometer-complete-buyers-guide-2026/ /learn/oes-buyer-guide-2026/ 301
+/how-to-choose-an-optical-emission-spectrometer-complete-buyers-guide-2026 /learn/oes-buyer-guide-2026/ 301
+/hardness-testing-methods-compared-rockwell-vs-brinell-vs-vickers/ /learn/hardness-testing-rockwell-brinell-vickers/ 301
+/hardness-testing-methods-compared-rockwell-vs-brinell-vs-vickers /learn/hardness-testing-rockwell-brinell-vickers/ 301
+/what-is-a-portable-oes-spectrometer-and-why-your-foundry-needs-one/ /learn/portable-vs-stationary-oes/ 301
+/what-is-a-portable-oes-spectrometer-and-why-your-foundry-needs-one /learn/portable-vs-stationary-oes/ 301
+/portable-oes-spectrometer-guide/ /learn/portable-vs-stationary-oes/ 301
+/portable-oes-spectrometer-guide /learn/portable-vs-stationary-oes/ 301
+/how-foundries-use-oes-spectrometers-for-quality-control/ /learn/foundry-oes-quality-control/ 301
+/how-foundries-use-oes-spectrometers-for-quality-control /learn/foundry-oes-quality-control/ 301
+/oes-spectrometer-for-aluminum-alloy-analysis-complete-guide/ /learn/oes-aluminum-alloy-analysis/ 301
+/oes-spectrometer-for-aluminum-alloy-analysis-complete-guide /learn/oes-aluminum-alloy-analysis/ 301
+/oes-vs-xrf-vs-libs-which-metal-analyzer-is-right-for-you/ /learn/oes-vs-xrf-vs-libs/ 301
+/oes-vs-xrf-vs-libs-which-metal-analyzer-is-right-for-you /learn/oes-vs-xrf-vs-libs/ 301
+/full-spectrum-oes-spectrometer-sample-preparation-material-specific-best-practices-for-accurate-analysis/ /learn/oes-sample-preparation/ 301
+/full-spectrum-oes-spectrometer-sample-preparation-material-specific-best-practices-for-accurate-analysis /learn/oes-sample-preparation/ 301
+/oes-spark-spectrometer-analysis-of-thin-metal-sheets-challenges-solutions-and-best-practices/ /learn/oes-sample-preparation/ 301
+/oes-spark-spectrometer-analysis-of-thin-metal-sheets-challenges-solutions-and-best-practices /learn/oes-sample-preparation/ 301
+/what-happens-when-the-ir-cell-voltage-exceeds-upper-limit-in-a-carbon-sulfur-analyzer/ /learn/carbon-sulfur-analyzer-guide/ 301
+/what-happens-when-the-ir-cell-voltage-exceeds-upper-limit-in-a-carbon-sulfur-analyzer /learn/carbon-sulfur-analyzer-guide/ 301
+/carbon-sulfur-analyzer-top-oxygen-unstable-troubleshooting/ /learn/carbon-sulfur-analyzer-guide/ 301
+/carbon-sulfur-analyzer-top-oxygen-unstable-troubleshooting /learn/carbon-sulfur-analyzer-guide/ 301
+/10-essential-maintenance-tips-for-your-optical-emission-spectrometer/* /learn/ 301
+/10-essential-maintenance-tips-for-your-optical-emission-spectrometer /learn/ 301
+/exporting-oes-spectrometers-to-the-eu-what-certifications-are-required-2/ /learn/ 301
+/exporting-oes-spectrometers-to-the-eu-what-certifications-are-required-2 /learn/ 301
+/metal-analysis-standards-explained-astm-iso-and-en-for-oes-and-carbon-sulfur-testing/ /learn/ 301
+/metal-analysis-standards-explained-astm-iso-and-en-for-oes-and-carbon-sulfur-testing /learn/ 301
+/vacuum-system-in-spark-oes-spectrometers-function-maintenance-and-troubleshooting/ /learn/oes-buyer-guide-2026/ 301
+/vacuum-system-in-spark-oes-spectrometers-function-maintenance-and-troubleshooting /learn/oes-buyer-guide-2026/ 301
+/temperature-effects-on-optical-emission-spectrometer-performance-mechanisms-impacts-and-mitigation-strategies/ /learn/ 301
+/temperature-effects-on-optical-emission-spectrometer-performance-mechanisms-impacts-and-mitigation-strategies /learn/ 301
+/ru/learn/oes-spectrometer-price/ /learn/oes-spectrometer-price/ 301
+/ru/learn/oes-spectrometer-price /learn/oes-spectrometer-price/ 301
+/es/learn/oes-spectrometer-price/ /learn/oes-spectrometer-price/ 301
+/es/learn/oes-spectrometer-price /learn/oes-spectrometer-price/ 301
+/ar/learn/oes-spectrometer-price/ /learn/oes-spectrometer-price/ 301
+/ar/learn/oes-spectrometer-price /learn/oes-spectrometer-price/ 301
+/ru/learn/chinese-oes-spectrometer-manufacturers/ /learn/chinese-oes-spectrometer-manufacturers/ 301
+/ru/learn/chinese-oes-spectrometer-manufacturers /learn/chinese-oes-spectrometer-manufacturers/ 301
+/ar/learn/chinese-oes-spectrometer-manufacturers/ /learn/chinese-oes-spectrometer-manufacturers/ 301
+/ar/learn/chinese-oes-spectrometer-manufacturers /learn/chinese-oes-spectrometer-manufacturers/ 301
+/ru/learn/foundry-oes-quality-control/ /learn/foundry-oes-quality-control/ 301
+/ru/learn/foundry-oes-quality-control /learn/foundry-oes-quality-control/ 301
+/es/learn/foundry-oes-quality-control/ /learn/foundry-oes-quality-control/ 301
+/es/learn/foundry-oes-quality-control /learn/foundry-oes-quality-control/ 301
+/ar/learn/foundry-oes-quality-control/ /learn/foundry-oes-quality-control/ 301
+/ar/learn/foundry-oes-quality-control /learn/foundry-oes-quality-control/ 301
+
 # Legacy and common discovery URLs → canonical pages.
 /product/ /products/ 301
 /product /products/ 301
@@ -9,24 +75,40 @@ https://www.spectryeep.com/* https://spectryeep.com/:splat 301!
 /products.html /products/ 301
 /contact.html /contact/ 301
 /about-us/ /about/ 301
+/about-us /about/ 301
 /aboutus/ /about/ 301
+/aboutus /about/ 301
 /blog/ /learn/ 301
+/blog /learn/ 301
 /sitemap.xml /sitemap-index.xml 301
 
 # Legacy product URLs seen in search results or likely from the old site.
 /noble-t7-optical-emission-spectrometer/ /products/noble-t7/ 301
+/noble-t7-optical-emission-spectrometer /products/noble-t7/ 301
 /innovate-t5-oes-spectrometer/ /products/innovate-t5/ 301
+/innovate-t5-oes-spectrometer /products/innovate-t5/ 301
 /innovate-t5-optical-emission-spectrometer/ /products/innovate-t5/ 301
+/innovate-t5-optical-emission-spectrometer /products/innovate-t5/ 301
 /t4-mini-spark-oes-spectrometer/ /products/exquis-t4/ 301
+/t4-mini-spark-oes-spectrometer /products/exquis-t4/ 301
 /exquis-t4-optical-emission-spectrometer/ /products/exquis-t4/ 301
+/exquis-t4-optical-emission-spectrometer /products/exquis-t4/ 301
 /jb-750-optical-emission-spectrometer/ /products/ 301
+/jb-750-optical-emission-spectrometer /products/ 301
 /surpass-f1-mobile-optical-emission-spectrometer/ /products/surpass-f1/ 301
+/surpass-f1-mobile-optical-emission-spectrometer /products/surpass-f1/ 301
 /cs995-carbon-sulfur-analyzer/ /products/cs995/ 301
+/cs995-carbon-sulfur-analyzer /products/cs995/ 301
 /cs996-carbon-sulfur-analyzer/ /products/cs996/ 301
+/cs996-carbon-sulfur-analyzer /products/cs996/ 301
 /cs2020-carbon-sulfur-analyzer/ /products/cs2020/ 301
+/cs2020-carbon-sulfur-analyzer /products/cs2020/ 301
 /onh-508-oxygen-nitrogen-hydrogen-analyzer/ /products/onh-508/ 301
+/onh-508-oxygen-nitrogen-hydrogen-analyzer /products/onh-508/ 301
 /f6000-pro-handheld-xrf-analyzer/ /products/f6000-pro/ 301
+/f6000-pro-handheld-xrf-analyzer /products/f6000-pro/ 301
 /f7000-pro-handheld-libs-analyzer/ /products/f7000-pro/ 301
+/f7000-pro-handheld-libs-analyzer /products/f7000-pro/ 301
 
 # Normalize common non-trailing-slash variants.
 /products /products/ 301
@@ -37,17 +119,27 @@ https://www.spectryeep.com/* https://spectryeep.com/:splat 301!
 
 # JB-750 discontinued (factory confirmation, 2026-07) — permanent redirects.
 /products/jb-750/ /products/ 301
+/products/jb-750 /products/ 301
 /ru/products/jb-750/ /ru/products/ 301
+/ru/products/jb-750 /ru/products/ 301
 /es/products/jb-750/ /es/products/ 301
+/es/products/jb-750 /es/products/ 301
 /ar/products/jb-750/ /ar/products/ 301
+/ar/products/jb-750 /ar/products/ 301
 
 # Case studies replaced by real anonymized installations (2026-09).
 /cases/india-cast-iron-foundry-innovate-t5/ /cases/turkey-investment-casting-innovate-t5/ 301
+/cases/india-cast-iron-foundry-innovate-t5 /cases/turkey-investment-casting-innovate-t5/ 301
 /cases/gulf-fabrication-handheld-xrf-f6000-pro/ /cases/kenya-pipeline-components-exquis-t4/ 301
+/cases/gulf-fabrication-handheld-xrf-f6000-pro /cases/kenya-pipeline-components-exquis-t4/ 301
 /cases/brazil-foundry-cs2020-carbon-sulfur/ /cases/brazil-steel-tube-mill-exquis-t4-pro/ 301
+/cases/brazil-foundry-cs2020-carbon-sulfur /cases/brazil-steel-tube-mill-exquis-t4-pro/ 301
 /cases/south-africa-mining-f6000-pro-xrf/ /cases/tajikistan-metallurgical-plant-noble-t7/ 301
+/cases/south-africa-mining-f6000-pro-xrf /cases/tajikistan-metallurgical-plant-noble-t7/ 301
 /cases/mexico-automotive-supplier-innovate-t5/ /cases/uae-steel-plant-innovate-t5-noble-t7/ 301
+/cases/mexico-automotive-supplier-innovate-t5 /cases/uae-steel-plant-innovate-t5-noble-t7/ 301
 /cases/titanium-lab-onh-508-oxygen-nitrogen-hydrogen/ /cases/south-korea-advanced-materials-cs995/ 301
+/cases/titanium-lab-onh-508-oxygen-nitrogen-hydrogen /cases/south-korea-advanced-materials-cs995/ 301
 
 # Duplicate learn articles merged (2026-10).
 /learn/oes-vs-xrf-vs-libs-comparison/ /learn/oes-vs-xrf-vs-libs/ 301

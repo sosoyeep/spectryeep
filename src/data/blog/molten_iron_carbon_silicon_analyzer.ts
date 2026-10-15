@@ -55,7 +55,6 @@ export const htmlContent = `<h1>Molten Iron Carbon Silicon Analyzer: Why Every F
 <li><strong>Data logging:</strong> Results are stored in the instrument's memory and can be exported to the foundry's quality management system via USB, RS-232, or Ethernet connection.</li>
 </ol>
 <p>The entire cycle from sampling to result typically takes under three minutes, making it practical to test every heat in most production environments.</p>
-<p><a href="https://spectryeep.com/products/jb-ts6-intelligent-carbon-silicon-analyzer">Carbon Silicon Analyzer</a></p>
 <hr />
 <h2>Key Specifications to Evaluate When Choosing an Analyzer</h2>
 <p>Not all thermal analysis instruments are equal. When evaluating a <strong>carbon silicon analyzer for foundry</strong> use, these are the specifications that matter most:</p>
@@ -151,6 +150,6 @@ export const htmlContent = `<h1>Molten Iron Carbon Silicon Analyzer: Why Every F
 <p>JIEBO has been engineering analytical instruments for the metals industry for years, and our molten iron carbon silicon analyzers are built specifically for the demands of the foundry floor. Whether you are running gray iron, ductile iron, or both, our thermal analysis systems deliver the fast, reliable C, Si, and CE data you need to pour with confidence.</p>
 <p>Our instruments feature industrial-grade construction, intuitive operator interfaces, and full digital connectivity for integration with your quality management systems. We also supply a complete range of compatible thermal analysis cups and accessories.</p>
 <p>If your foundry is still relying on lab turnaround times for melt decisions -- or worse, pouring without composition verification -- it is time to put a proven analysis solution at the furnace front.</p>
-<p><a href="https://spectryeep.com/products/jb-ts6-intelligent-carbon-silicon-analyzer">JIEBO Carbon Silicon Analyzer</a></p>
+<p><a href="/contact/#request-quote">Ask about the JIEBO carbon-silicon analyzer</a></p>
 <p><strong>Contact the JIEBO technical team today at <a href="https://www.spectryeep.com">spectryeep.com</a> to discuss the right molten iron carbon silicon analyzer for your operation, request a product demonstration, or receive a quotation.</strong></p>
-<p><a href="https://spectryeep.com/contact-us">Contact Us</a></p>`;
+<p><a href="/contact/">Contact Us</a></p>`;

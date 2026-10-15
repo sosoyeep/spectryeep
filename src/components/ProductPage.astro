@@ -7,6 +7,7 @@ import { t, localizedPath, whatsappUrl, localizedHome } from '../i18n/utils';
 import { getProduct, PRODUCT_LIST } from '../data/products/_registry';
 import { specLabels } from '../data/products/_specLabels';
 import { COMPARE_LIST } from '../data/compares/_registry';
+import { applicationsForProduct, casesForProduct } from '../data/site-links';
 
 interface Props { locale: Locale; slug: string }
 const { locale, slug } = Astro.props;
@@ -40,6 +41,16 @@ const productSchema = {
 function resolveLabel(labelKey: string): string {
   return specLabels[labelKey]?.[locale] ?? labelKey;
 }
+
+const relatedApplications = applicationsForProduct(slug, locale);
+const relatedCases = casesForProduct(slug);
+const relatedCopy: Record<Locale, { apps: string; cases: string; noCases: string; allCases: string; casesNote: string }> = {
+  en: { apps: 'Related applications', cases: 'Related case studies', noCases: 'No published installation for this model yet.', allCases: 'See all customer installations', casesNote: '' },
+  ru: { apps: 'Применения', cases: 'Кейсы с этой моделью', noCases: 'Опубликованных кейсов с этой моделью пока нет.', allCases: 'Все установки у заказчиков', casesNote: 'Кейсы опубликованы на английском.' },
+  es: { apps: 'Aplicaciones relacionadas', cases: 'Casos relacionados', noCases: 'Aún no hay casos publicados con este modelo.', allCases: 'Ver todas las instalaciones', casesNote: 'Casos publicados en inglés.' },
+  ar: { apps: 'تطبيقات ذات صلة', cases: 'دراسات حالة ذات صلة', noCases: 'لا توجد دراسة حالة منشورة لهذا الموديل بعد.', allCases: 'كل التركيبات لدى العملاء', casesNote: 'دراسات الحالة منشورة بالإنجليزية.' },
+};
+const rc = relatedCopy[locale];
 
 const relatedCompares = COMPARE_LIST.filter(
   (c) => c.sideA.productSlug === slug || c.sideB.productSlug === slug,
@@ -164,6 +175,41 @@ const relatedProducts = PRODUCT_LIST
       </div>
     </section>
   )}
+
+  <section class="section">
+    <div class="container">
+      {relatedApplications.length > 0 && (
+        <Fragment>
+          <h2>{rc.apps}</h2>
+          <div class="grid grid--3" style="margin-top:1rem;">
+            {relatedApplications.map((a) => (
+              <a class="card" href={a.href}>
+                <strong style="display:block; margin-bottom:0.35rem;">{a.label}</strong>
+                <span style="color:var(--muted); font-size:0.9rem;">{a.description}</span>
+              </a>
+            ))}
+          </div>
+        </Fragment>
+      )}
+
+      <h2 style={relatedApplications.length > 0 ? 'margin-top:2.5rem;' : ''}>{rc.cases}</h2>
+      {relatedCases.length > 0 ? (
+        <Fragment>
+          {rc.casesNote && <p style="color:var(--muted); font-size:0.9rem;">{rc.casesNote}</p>}
+          <div class="grid grid--3" style="margin-top:1rem;">
+            {relatedCases.map((c) => (
+              <a class="card" href={`/cases/${c.slug}/`}>
+                <strong style="display:block; margin-bottom:0.35rem;">{c.title}</strong>
+                <span style="color:var(--muted); font-size:0.9rem;">{c.market}</span>
+              </a>
+            ))}
+          </div>
+        </Fragment>
+      ) : (
+        <p style="margin-top:0.75rem;">{rc.noCases} <a href="/cases/">{rc.allCases} →</a></p>
+      )}
+    </div>
+  </section>
 
   <section class="section section--alt">
     <div class="container">

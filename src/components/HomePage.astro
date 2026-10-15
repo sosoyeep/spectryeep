@@ -8,6 +8,7 @@ import { PRODUCT_LIST } from '../data/products/_registry';
 import { t, localizedPath, whatsappUrl } from '../i18n/utils';
 import { ui } from '../i18n/ui';
 import { FAQ_GENERAL } from '../data/faq';
+import { applicationLinks, caseStudies } from '../data/site-links';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -15,6 +16,44 @@ const { locale } = Astro.props;
 const title = t(locale, 'home.title');
 const description = t(locale, 'hero.lede');
 const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_general'));
+
+const applications = applicationLinks(locale);
+const cases = caseStudies();
+const linkBlocks: Record<Locale, { appsTitle: string; appsLede: string; appsAll: string; casesTitle: string; casesLede: string; casesAll: string }> = {
+  en: {
+    appsTitle: 'Applications',
+    appsLede: 'Which JIEBO instruments fit your process — from furnace-side foundry QC to scrap sorting and ore analysis.',
+    appsAll: 'All applications',
+    casesTitle: 'Customer installations',
+    casesLede: 'Real, commissioned installations in foundries, steel plants and labs. Customers are anonymized; country, industry and instrument are as delivered.',
+    casesAll: 'All case studies',
+  },
+  ru: {
+    appsTitle: 'Применения',
+    appsLede: 'Какие приборы JIEBO подходят вашему процессу — от контроля у печи в литейном цехе до сортировки лома и анализа руд.',
+    appsAll: 'Все применения',
+    casesTitle: 'Установки у заказчиков',
+    casesLede: 'Реальные введённые в эксплуатацию установки на литейных и сталелитейных заводах и в лабораториях. Заказчики анонимизированы. Описания на английском.',
+    casesAll: 'Все кейсы',
+  },
+  es: {
+    appsTitle: 'Aplicaciones',
+    appsLede: 'Qué instrumentos JIEBO encajan en su proceso: desde el control junto al horno hasta la clasificación de chatarra y el análisis de minerales.',
+    appsAll: 'Todas las aplicaciones',
+    casesTitle: 'Instalaciones en clientes',
+    casesLede: 'Instalaciones reales y puestas en marcha en fundiciones, acerías y laboratorios. Clientes anonimizados. Casos en inglés.',
+    casesAll: 'Todos los casos',
+  },
+  ar: {
+    appsTitle: 'التطبيقات',
+    appsLede: 'أيّ أجهزة JIEBO تناسب عمليتك — من مراقبة الجودة بجوار الفرن في المسابك إلى فرز الخردة وتحليل الخامات.',
+    appsAll: 'كل التطبيقات',
+    casesTitle: 'تركيبات لدى العملاء',
+    casesLede: 'تركيبات حقيقية مُشغَّلة في المسابك ومصانع الصلب والمختبرات. أسماء العملاء محجوبة. الدراسات باللغة الإنجليزية.',
+    casesAll: 'كل دراسات الحالة',
+  },
+};
+const lb = linkBlocks[locale];
 
 const productNames: Record<string, string> = {
   en: '', ru: '', es: '', ar: '',
@@ -128,6 +167,38 @@ const path = '/';
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2>{lb.appsTitle}</h2>
+      <p class="lede">{lb.appsLede}</p>
+      <div class="grid grid--3" style="margin-top:1.5rem;">
+        {applications.map((a) => (
+          <a class="card" href={a.href}>
+            <strong style="display:block; margin-bottom:0.35rem;">{a.label}</strong>
+            <span style="color:var(--muted); font-size:0.9rem;">{a.description}</span>
+          </a>
+        ))}
+      </div>
+      <p style="margin-top:1.25rem;"><a href={localizedPath(locale, '/applications/')}>{lb.appsAll} →</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>{lb.casesTitle}</h2>
+      <p class="lede">{lb.casesLede}</p>
+      <div class="grid grid--3" style="margin-top:1.5rem;">
+        {cases.map((c) => (
+          <a class="card" href={`/cases/${c.slug}/`}>
+            <strong style="display:block; margin-bottom:0.35rem;">{c.title}</strong>
+            <span style="color:var(--muted); font-size:0.9rem;">{c.market}</span>
+          </a>
+        ))}
+      </div>
+      <p style="margin-top:1.25rem;"><a href="/cases/">{lb.casesAll} →</a></p>
     </div>
   </section>
 
