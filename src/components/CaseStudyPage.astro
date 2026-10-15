@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE, type Locale } from '../consts';
-import { localizedHome, localizedPath, t, whatsappUrl } from '../i18n/utils';
+import { localizedHome, localizedPath, t, whatsappUrl, whatsappPrefill } from '../i18n/utils';
 import type { CaseStudy } from '../data/case-studies';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 
 const { locale, item } = Astro.props;
 const path = `/cases/${item.slug}/`;
-const waHref = whatsappUrl(SITE.whatsapp, `Hi JIEBO, I read the case study "${item.h1}". Could you recommend a similar configuration and send a quote?`);
+const waHref = whatsappUrl(SITE.whatsapp, whatsappPrefill(item.product));
 const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
 const breadcrumbs = [
   { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },

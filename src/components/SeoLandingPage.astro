@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE, type Locale } from '../consts';
-import { t, localizedPath, localizedHome, whatsappUrl } from '../i18n/utils';
+import { t, localizedPath, localizedHome, whatsappUrl, whatsappPrefill } from '../i18n/utils';
 import type { LandingPageData } from '../data/landing-pages';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 const { locale, page } = Astro.props;
 const path = `/${page.kind}/${page.slug}/`;
 const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
-const waHref = whatsappUrl(SITE.whatsapp, `Hi JIEBO, I am interested in ${page.h1}. Could you recommend the right model and send a quote?`);
+const waHref = whatsappUrl(SITE.whatsapp, whatsappPrefill());
 
 const sectionLabels: Record<Locale, { fit: string; models: string; why: string; faq: string; cta: string; ctaBody: string }> = {
   en: { fit: 'Best fit', models: 'Recommended JIEBO instruments', why: 'Why buyers choose JIEBO', faq: 'Buyer questions', cta: 'Ask an engineer for a quote', ctaBody: 'Send your sample material, target elements, country and expected sample volume. We will recommend a model and reply with price and lead time.' },

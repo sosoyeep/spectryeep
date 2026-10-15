@@ -29,6 +29,11 @@ export function localeMeta(locale: Locale) {
   return LOCALE_META[locale];
 }
 
+/** Site-wide WhatsApp prefill. Pass the model name when the page is about one. */
+export function whatsappPrefill(model = '[model]'): string {
+  return `Hi, I found you on spectryeep.com. I'd like the catalogue and a quote for ${model}. Material: ___ Elements: ___ Country: ___`;
+}
+
 export function whatsappUrl(phone: string, text: string): string {
   return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 }

@@ -7,6 +7,8 @@ import { title, description, datePublished, sections, faq } from '../data/learn-
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 
+// The English version was merged into /learn/oes-buyer-guide-2026/ (301 in
+// public/_redirects); only the ru/es/ar translations remain at this path.
 const path = '/learn/how-to-choose-oes-spectrometer/';
 const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
 const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_learn'));
@@ -34,6 +36,7 @@ const articleSchema = {
   breadcrumbs={breadcrumbs}
   faq={faq[locale]}
   whatsappContext="learn"
+  alternateLocales={['ru', 'es', 'ar']}
 >
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">

@@ -112,10 +112,10 @@ export const htmlContent = `<h1>Portable vs Stationary OES Spectrometer: Which O
 <td>Full certification, R&D</td>
 </tr>
 <tr>
-<td><strong>Approximate Price Range (USD)</strong></td>
-<td>$30,000 - $80,000</td>
-<td>$60,000 - $140,000</td>
-<td>$80,000 - $250,000+</td>
+<td><strong>Main Cost Drivers</strong></td>
+<td>Ruggedized design, battery, field argon supply</td>
+<td>Cart integration, on-board argon and power</td>
+<td>Optical bench, matrices and calibration programs, vacuum optics</td>
 </tr>
 <tr>
 <td><strong>Best For</strong></td>
@@ -128,7 +128,7 @@ export const htmlContent = `<h1>Portable vs Stationary OES Spectrometer: Which O
 <h2>When to Choose a Portable OES Spectrometer</h2>
 <p>A portable OES spectrometer is the right tool when the sample cannot come to the lab -- or when waiting for lab results is not an option.</p>
 <h3>Pipeline and Pressure Vessel Inspection</h3>
-<p>In oil and gas, petrochemical, and power generation industries, field OES analysis of welds and base materials is a regulatory requirement. Inspectors must verify material grades on installed piping, heat exchanger tubes, and pressure vessel components. A portable OES spectrometer allows PMI to be performed in situ, without cutting samples or shutting down operations. <a href="https://spectryeep.com/products/surpass-f1-mobile-optical-emission-spectrometer">PMI Inspection Solutions</a></p>
+<p>In oil and gas, petrochemical, and power generation industries, field OES analysis of welds and base materials is a regulatory requirement. Inspectors must verify material grades on installed piping, heat exchanger tubes, and pressure vessel components. A portable OES spectrometer allows PMI to be performed in situ, without cutting samples or shutting down operations. <a href="/products/surpass-f1/">Surpass F1 mobile OES for PMI</a></p>
 <h3>Construction and Structural Steel</h3>
 <p>On construction sites, incoming steel must be verified against mill certificates. A mobile metal analyzer allows quality teams to check beams, plates, and fasteners at the laydown yard before they are incorporated into the structure.</p>
 <h3>Scrap Yards and Metal Recycling</h3>
@@ -181,5 +181,4 @@ export const htmlContent = `<h1>Portable vs Stationary OES Spectrometer: Which O
 <h2>Choose the Right OES Spectrometer for Your Operation</h2>
 <p>The decision between portable and stationary OES spectrometry is ultimately a decision about where and how you need analytical answers. If your materials are in the field, on the shop floor, or arriving at the gate, a portable OES spectrometer brings the answer to the question. If your work demands the tightest tolerances, the widest element range, and certificate-grade traceability, a stationary instrument is indispensable.</p>
 <p>JIEBO manufactures both portable and stationary OES spectrometers engineered for industrial reliability and analytical performance. Whether you need a rugged field instrument for PMI and scrap sorting or a high-resolution lab system for production QC and certification, our technical team can help you configure the right solution.</p>
-<p><strong>Contact JIEBO at <a href="https://spectryeep.com">spectryeep.com</a> to discuss your application requirements, request a demonstration, or receive a quotation for portable and stationary OES spectrometers tailored to your operation.</strong></p>
-<p><a href="https://spectryeep.com/contact-us">Contact Us</a> <a href="/products/">OES Spectrometer Range</a></p>`;
+<p>Not sure what drives the budget for each type? See <a href="/learn/oes-spectrometer-price/">what drives OES spectrometer cost</a>. When you are ready, send us your materials, target elements and where the instrument will be used, and we will recommend a configuration and reply with a written quotation: <a href="/contact/#request-quote"><strong>request a configuration and quote</strong></a>, or browse the <a href="/products/">OES spectrometer range</a>.</p>`;

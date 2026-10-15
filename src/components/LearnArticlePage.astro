@@ -19,6 +19,12 @@ const canonical = new URL(localizedPath(locale, path), Astro.site).toString();
 const waHref = whatsappUrl(SITE.whatsapp, t(locale, 'whatsapp.prefill_learn'));
 const pageTitle = `${title} | JIEBO Instrument`;
 
+// One H1 per page: the article body may open with its own <h1> headline.
+// Use that text as the page H1 and strip every <h1> from the body.
+const bodyH1 = htmlContent.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1]?.trim();
+const h1 = bodyH1 || title;
+const bodyHtml = htmlContent.replace(/<h1[^>]*>[\s\S]*?<\/h1>\s*/gi, '');
+
 const breadcrumbs = [
   { name: t(locale, 'breadcrumb.home'), url: new URL(localizedHome(locale), Astro.site).toString() },
   { name: t(locale, 'breadcrumb.learn'), url: new URL(localizedPath(locale, '/learn/'), Astro.site).toString() },
@@ -40,6 +46,7 @@ const articleSchema = {
   article={articleSchema}
   breadcrumbs={breadcrumbs}
   whatsappContext="learn"
+  alternateLocales={['en']}
 >
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -52,10 +59,10 @@ const articleSchema = {
   <article class="section" style="padding-block-start:1rem;">
     <div class="container" style="max-width:780px;">
       <p class="eyebrow">{t(locale, 'breadcrumb.learn')}</p>
-      <h1>{title}</h1>
+      <h1 set:html={h1} />
       <p class="lede" style="margin-top:1rem;">{description}</p>
 
-      <div class="article-body" set:html={htmlContent} />
+      <div class="article-body" set:html={bodyHtml} />
 
       <aside class="card" style="margin-top:2.5rem; background:var(--card);">
         <h3 style="margin-bottom:0.5rem;">{t(locale, 'cta.inquiry')}</h3>

@@ -7,6 +7,7 @@ interface Props {
     sku: string;
     category: 'oes' | 'elemental' | 'handheld';
     image?: string;
+    imageAlt?: Record<Locale, string>;
   };
   locale?: Locale;
   /** Render mode: full hero (default) on product detail pages, compact thumbnail in cards. */
@@ -14,6 +15,7 @@ interface Props {
 }
 const { product, locale = 'en', variant = 'hero' } = Astro.props;
 const productName = typeof product.name === 'string' ? product.name : product.name[locale];
+const imageAlt = product.imageAlt?.[locale] ?? productName;
 
 const gradients: Record<'oes' | 'elemental' | 'handheld', string> = {
   oes: 'linear-gradient(135deg, #0b1f4d 0%, #1e40af 50%, #3b82f6 100%)',
@@ -36,7 +38,7 @@ const isHero = variant === 'hero';
 {product.image ? (
   <img
     src={product.image}
-    alt={productName}
+    alt={imageAlt}
     loading="lazy"
     decoding="async"
     style={isHero

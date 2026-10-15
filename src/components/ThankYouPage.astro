@@ -1,13 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import { SITE, type Locale } from '../consts';
-import { localizedHome, whatsappUrl } from '../i18n/utils';
+import { localizedHome, whatsappUrl, whatsappPrefill } from '../i18n/utils';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 
 const path = '/thank-you/';
-const waHref = whatsappUrl(SITE.whatsapp, 'Hi JIEBO, I just submitted an inquiry on spectryeep.com.');
+const waHref = whatsappUrl(SITE.whatsapp, whatsappPrefill());
 
 const copy: Record<Locale, {
   title: string;

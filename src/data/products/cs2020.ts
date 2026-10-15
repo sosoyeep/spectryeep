@@ -11,6 +11,12 @@ export const product: ProductRecord = {
   sku: 'JIEBO-CS2020',
   category: 'elemental',
   image: '/products/cs2020.jpg',
+  imageAlt: {
+    en: 'JIEBO CS2020 high-frequency infrared carbon and sulfur analyzer with combustion furnace chamber, front view',
+    ru: 'Высокочастотный ИК-анализатор углерода и серы JIEBO CS2020 с камерой индукционной печи, вид спереди',
+    es: 'Analizador de carbono y azufre por infrarrojo de alta frecuencia JIEBO CS2020 con cámara de combustión, vista frontal',
+    ar: 'محلّل الكربون والكبريت JIEBO CS2020 بالأشعة تحت الحمراء عالية التردد مع حجرة فرن الاحتراق، منظر أمامي',
+  },
   specs: [
     { labelKey: 'detection_range', value: 'Low C 0.00001–0.5 %, High C 0.1–99.99 %; Low S 0.00001–0.5 %, High S 0.1–99.99 %' },
     { labelKey: 'detection_cell', value: 'Four physical detection cells' },

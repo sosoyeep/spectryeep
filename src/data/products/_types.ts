@@ -17,6 +17,8 @@ export interface ProductRecord {
   category: 'oes' | 'elemental' | 'handheld';
   /** Optional product photo URL relative to /public, e.g. "/products/innovate-t5.jpg". When absent, a branded SVG placeholder is rendered. */
   image?: string;
+  /** Descriptive alt text for the product photo; defaults to the product name. */
+  imageAlt?: Record<Locale, string>;
   specs: ProductSpec[];
   overview: Record<Locale, string>;
   applications: Record<Locale, string[]>;
