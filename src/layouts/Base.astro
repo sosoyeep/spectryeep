@@ -159,7 +159,7 @@ const pageTitle = trimTitleForGoogle(title);
 <html lang={meta.htmlLang} dir={meta.dir}>
 <head>
   {/* Keep info@spectryeep.com as plain text: tells Cloudflare Email Obfuscation to skip the page. */}
-  <Fragment set:html="<!--email_off-->" />
+  <Fragment set:html={"<!--email_off-->"} />
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{pageTitle}</title>
@@ -201,6 +201,6 @@ const pageTitle = trimTitleForGoogle(title);
   </main>
   <Footer locale={locale} />
   <WhatsAppFab locale={locale} context={whatsappContext} productName={productName} />
-  <Fragment set:html="<!--/email_off-->" />
+  <Fragment set:html={"<!--/email_off-->"} />
 </body>
 </html>
