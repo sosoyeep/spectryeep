@@ -6,6 +6,9 @@ export type UIKey =
   | 'nav.compare'
   | 'nav.about'
   | 'nav.contact'
+  | 'nav.partners'
+  | 'partners.cta_lead'
+  | 'partners.cta_link'
   | 'cta.whatsapp'
   | 'cta.whatsapp_fab'
   | 'cta.inquiry'
@@ -60,6 +63,9 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'nav.compare': 'Compare',
     'nav.about': 'About',
     'nav.contact': 'Contact',
+    'nav.partners': 'Partners',
+    'partners.cta_lead': 'Distributor or reseller?',
+    'partners.cta_link': 'See our partner program.',
     'cta.whatsapp': 'Chat on WhatsApp',
     'cta.whatsapp_fab': 'WhatsApp',
     'cta.inquiry': 'Inquire on WhatsApp',
@@ -68,7 +74,7 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'cta.learn_more': 'Learn more',
     'hero.eyebrow': 'OES Spectrometer Manufacturer · Wuxi, China · Since 2009',
     'hero.h1': 'Optical Emission Spectrometers built for foundries, mills, and labs',
-    'home.title': 'OES, Carbon-Sulfur & XRF Analyzers | JIEBO Instrument',
+    'home.title': 'JIEBO Instrument | OES Spectrometer & Carbon-Sulfur Analyzer Manufacturer',
     'hero.lede': 'JIEBO Instrument designs and manufactures CMOS full-spectrum optical emission spectrometers, carbon-sulfur analyzers, and custom material-analysis solutions. Trusted by metallurgy and aerospace customers in 40+ countries.',
     'facts.title': 'JIEBO at a glance',
     'facts.founded': 'Founded',
@@ -114,6 +120,9 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'nav.compare': 'Сравнения',
     'nav.about': 'О компании',
     'nav.contact': 'Контакты',
+    'nav.partners': 'Партнёрам',
+    'partners.cta_lead': 'Дистрибьютор или реселлер?',
+    'partners.cta_link': 'Узнайте о партнёрской программе.',
     'cta.whatsapp': 'Написать в WhatsApp',
     'cta.whatsapp_fab': 'WhatsApp',
     'cta.inquiry': 'Запрос в WhatsApp',
@@ -168,6 +177,9 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'nav.compare': 'Comparativas',
     'nav.about': 'Empresa',
     'nav.contact': 'Contacto',
+    'nav.partners': 'Distribuidores',
+    'partners.cta_lead': '¿Distribuidor o revendedor?',
+    'partners.cta_link': 'Conozca nuestro programa de socios.',
     'cta.whatsapp': 'Hablar por WhatsApp',
     'cta.whatsapp_fab': 'WhatsApp',
     'cta.inquiry': 'Consultar por WhatsApp',
@@ -222,6 +234,9 @@ export const ui: Record<Locale, Record<UIKey, string>> = {
     'nav.compare': 'مقارنات',
     'nav.about': 'عن الشركة',
     'nav.contact': 'تواصل',
+    'nav.partners': 'الموزّعون',
+    'partners.cta_lead': 'موزّع أو بائع تجزئة؟',
+    'partners.cta_link': 'تعرّف على برنامج الشركاء.',
     'cta.whatsapp': 'محادثة عبر واتساب',
     'cta.whatsapp_fab': 'واتساب',
     'cta.inquiry': 'استفسار عبر واتساب',

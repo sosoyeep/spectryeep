@@ -141,6 +141,9 @@ function validationErrors(data, ip, env) {
     data.application,
     data.sample_material,
     data.target_elements,
+    data.website,
+    data.current_brands,
+    data.customer_type,
     data.message,
   ].join(' ');
   if (text.length > MAX_MESSAGE_LENGTH) errors.push('message is too long');
@@ -176,6 +179,25 @@ async function verifyTurnstile(token, ip, env) {
   return Boolean(payload.success);
 }
 
+// Partner (distributor) applications from /partners/ reuse this endpoint. Their
+// extra fields are folded into product / application / message so every
+// delivery channel (email, Telegram, CRM webhook) carries them unchanged.
+function partnerFields(data) {
+  if (data.inquiry_type !== 'partner') return {};
+  const details = [
+    ['Website', data.website],
+    ['Brands currently represented', data.current_brands],
+    ['Main customer types', data.customer_type],
+  ]
+    .filter(([, value]) => String(value || '').trim())
+    .map(([label, value]) => `${label}: ${String(value).trim()}`);
+  return {
+    product: 'Partner / distributor application',
+    application: data.customer_type || data.application,
+    message: [...details, '', data.message || ''].join('\n').trim(),
+  };
+}
+
 function leadPayload(data, request, ip) {
   return {
     source: 'spectryeep.com',
@@ -194,6 +216,7 @@ function leadPayload(data, request, ip) {
     target_elements: data.target_elements,
     message: data.message,
     source_page: data.source_page || request.headers.get('referer') || '',
+    ...partnerFields(data),
     utm: {
       source: data.utm_source,
       medium: data.utm_medium,

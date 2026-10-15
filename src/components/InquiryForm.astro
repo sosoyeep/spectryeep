@@ -7,9 +7,33 @@ interface Props {
   productName?: string;
   productSku?: string;
   compact?: boolean;
+  /** "partner" renders the distributor application on /partners/ (English only). */
+  variant?: 'quote' | 'partner';
 }
 
-const { locale, productName = '', productSku = '', compact = false } = Astro.props;
+const { locale, productName = '', productSku = '', compact = false, variant = 'quote' } = Astro.props;
+const isPartner = variant === 'partner';
+
+const partnerCopy = {
+  eyebrow: 'JIEBO Instrument · Partner program',
+  title: 'Apply to become a partner',
+  body: 'Tell us about your company and the market you cover. We review every application and reply by email.',
+  website: 'Company website',
+  brands: 'Brands you currently represent',
+  customers: 'Main customer types',
+  customerOptions: [
+    'Foundries and steel plants',
+    'Third-party testing laboratories',
+    'Metal fabrication and machinery',
+    'Recycling and scrap',
+    'Mining and minerals',
+    'Universities and research institutes',
+    'Mixed / other',
+  ],
+  message: 'Message',
+  messagePlaceholder: 'Your territory, team size, sales or service capability, and the products you are interested in...',
+  submit: 'Send application',
+};
 
 const formAction = import.meta.env.PUBLIC_INQUIRY_FORM_ACTION || '/api/inquiry';
 const sourcePath = Astro.url.pathname;
@@ -107,9 +131,9 @@ const c = copy[locale];
 ---
 <div class:list={['inquiry-panel', compact && 'inquiry-panel--compact']} id="request-quote">
   <div>
-    <p class="eyebrow">JIEBO Instrument · Quote desk</p>
-    <h2>{c.title}</h2>
-    <p class="lede">{c.body}</p>
+    <p class="eyebrow">{isPartner ? partnerCopy.eyebrow : 'JIEBO Instrument · Quote desk'}</p>
+    <h2>{isPartner ? partnerCopy.title : c.title}</h2>
+    <p class="lede">{isPartner ? partnerCopy.body : c.body}</p>
   </div>
 
   <form
@@ -120,7 +144,8 @@ const c = copy[locale];
     data-min-submit-seconds="4"
   >
     <input type="hidden" name="form-name" value="jiebo-inquiry" />
-    <input type="hidden" name="_subject" value={`Spectryeep inquiry${productName ? ` - ${productName}` : ''}`} />
+    <input type="hidden" name="_subject" value={isPartner ? 'Spectryeep partner application' : `Spectryeep inquiry${productName ? ` - ${productName}` : ''}`} />
+    {isPartner && <input type="hidden" name="inquiry_type" value="partner" />}
     <input type="hidden" name="_template" value="table" />
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_next" value={thankYouUrl} />
@@ -139,19 +164,42 @@ const c = copy[locale];
       <label>Company website <input name="company_website" tabindex="-1" autocomplete="off" /></label>
     </p>
 
-    <div class="form-grid">
-      <label>{c.name}<input name="name" autocomplete="name" required minlength="2" /></label>
-      <label>{c.company}<input name="company" autocomplete="organization" required minlength="2" /></label>
-      <label>{c.country}<input name="country" autocomplete="country-name" required /></label>
-      <label>{c.email}<input type="email" name="email" autocomplete="email" required /></label>
-      <label>{c.phone}<input name="phone" autocomplete="tel" /></label>
-      <label>{c.product}<input name="product" value={productName} data-product-field /></label>
-      <label>{c.application}<input name="application" placeholder="Foundry QC, PMI, incoming inspection..." /></label>
-      <label>{c.material}<input name="sample_material" placeholder="Fe, Al, Cu, Zn, cast iron..." /></label>
-    </div>
+    {isPartner ? (
+      <Fragment>
+        <div class="form-grid">
+          <label>{c.name}<input name="name" autocomplete="name" required minlength="2" /></label>
+          <label>{c.email}<input type="email" name="email" autocomplete="email" required /></label>
+          <label>{c.company}<input name="company" autocomplete="organization" required minlength="2" /></label>
+          <label>{c.country}<input name="country" autocomplete="country-name" required /></label>
+          <label>{partnerCopy.website}<input name="website" inputmode="url" autocomplete="url" placeholder="www.example.com" /></label>
+          <label>{c.phone}<input name="phone" autocomplete="tel" /></label>
+        </div>
+        <label>{partnerCopy.brands}<input name="current_brands" placeholder="Instrument brands or product lines you sell today" /></label>
+        <label>{partnerCopy.customers}
+          <select name="customer_type" required>
+            <option value="">Select...</option>
+            {partnerCopy.customerOptions.map((o) => <option value={o}>{o}</option>)}
+          </select>
+        </label>
+        <label>{partnerCopy.message}<textarea name="message" rows="5" required minlength="12" placeholder={partnerCopy.messagePlaceholder}></textarea></label>
+      </Fragment>
+    ) : (
+      <Fragment>
+        <div class="form-grid">
+          <label>{c.name}<input name="name" autocomplete="name" required minlength="2" /></label>
+          <label>{c.company}<input name="company" autocomplete="organization" required minlength="2" /></label>
+          <label>{c.country}<input name="country" autocomplete="country-name" required /></label>
+          <label>{c.email}<input type="email" name="email" autocomplete="email" required /></label>
+          <label>{c.phone}<input name="phone" autocomplete="tel" /></label>
+          <label>{c.product}<input name="product" value={productName} data-product-field /></label>
+          <label>{c.application}<input name="application" placeholder="Foundry QC, PMI, incoming inspection..." /></label>
+          <label>{c.material}<input name="sample_material" placeholder="Fe, Al, Cu, Zn, cast iron..." /></label>
+        </div>
 
-    <label>{c.elements}<input name="target_elements" placeholder="C, S, P, Si, Mn, Cr, Ni..." /></label>
-    <label>{c.message}<textarea name="message" rows="5" required minlength="12"></textarea></label>
+        <label>{c.elements}<input name="target_elements" placeholder="C, S, P, Si, Mn, Cr, Ni..." /></label>
+        <label>{c.message}<textarea name="message" rows="5" required minlength="12"></textarea></label>
+      </Fragment>
+    )}
     {productSku && <input type="hidden" name="product_sku" value={productSku} />}
 
     <div class="turnstile-host" data-turnstile-host></div>
@@ -162,7 +210,7 @@ const c = copy[locale];
     </label>
 
     <div class="form-actions">
-      <button class="button button--primary" type="submit">{c.submit}</button>
+      <button class="button button--primary" type="submit">{isPartner ? partnerCopy.submit : c.submit}</button>
     </div>
     <p class="form-note">{c.note}</p>
     <p class="form-error" role="alert" hidden></p>
